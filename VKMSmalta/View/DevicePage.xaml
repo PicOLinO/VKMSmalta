@@ -1,0 +1,33 @@
+﻿<Page x:Class="VKMSmalta.View.DevicePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:viewModel="clr-namespace:VKMSmalta.View.ViewModel"
+      xmlns:elements="clr-namespace:VKMSmalta.View.Elements"
+      mc:Ignorable="d" 
+      d:DesignHeight="1043.479" d:DesignWidth="1842.091"
+      d:DataContext="{d:DesignInstance Type=viewModel:DevicePageViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Canvas Grid.Row="1" SnapsToDevicePixels="False">
+            <Canvas.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="Images/Background.png"/>
+            </Canvas.Background>
+            <elements:VkmThumbler Canvas.Top="0" Canvas.Left="0"/>
+            <elements:VkmThumbler Canvas.Top="100" Canvas.Left="172"/>
+            <elements:VkmThumbler Canvas.Top="100" Canvas.Left="142"/>
+            <elements:VkmThumbler Canvas.Top="100" Canvas.Left="112"/>
+            <elements:VkmThumbler Canvas.Top="100" Canvas.Left="82"/>
+            <elements:VkmRotateWheel Canvas.Top="265" Canvas.Left="160"/>
+        </Canvas>
+        <StackPanel Grid.Row="2">
+            <Button Content="Проверить результат" Command="{Binding Path=CheckResultCommand}"/>
+        </StackPanel>
+    </Grid>
+</Page>
