@@ -9,6 +9,7 @@
         Title="Результат" Height="80" Width="180"
         WindowStyle="ToolWindow"
         WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
         d:DataContext="{d:DesignInstance Type=viewModel:CheckResultsDialogViewModel}">
     <Grid>
         <DockPanel>
