@@ -10,12 +10,6 @@ namespace VKMSmalta.View.Elements.ViewModel
 
         public DelegateCommand ClickCommand { get; set; }
 
-        public string ImageSource
-        {
-            get { return GetProperty(() => ImageSource); }
-            set { SetProperty(() => ImageSource, value); }
-        }
-
         public int RotationDegrees
         {
             get { return GetProperty(() => RotationDegrees); }

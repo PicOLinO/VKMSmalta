@@ -9,12 +9,6 @@ namespace VKMSmalta.View.Elements.ViewModel
 
         public DelegateCommand ClickCommand { get; set; }
 
-        public string ImageSource
-        {
-            get { return GetProperty(() => ImageSource); }
-            set { SetProperty(() => ImageSource, value); }
-        }
-
         public VkmThumblerViewModel(string imageOffSource = "/VKMSmalta;component/View/Images/ThumblerOff.png", string imageOnSource = "/VKMSmalta;component/View/Images/ThumblerOn.png")
         {
             this.imageOffSource = ImageSource = imageOffSource;
