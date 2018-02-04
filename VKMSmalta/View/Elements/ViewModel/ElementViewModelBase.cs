@@ -21,5 +21,8 @@ namespace VKMSmalta.View.Elements.ViewModel
         {
             throw new NotImplementedException();
         }
+
+        public double PosLeft { get; set; }
+        public double PosTop { get; set; }
     }
 }

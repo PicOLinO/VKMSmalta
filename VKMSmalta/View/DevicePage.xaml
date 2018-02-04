@@ -4,29 +4,44 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:viewModel="clr-namespace:VKMSmalta.View.ViewModel"
+      xmlns:elementsVM="clr-namespace:VKMSmalta.View.Elements.ViewModel"
       xmlns:elements="clr-namespace:VKMSmalta.View.Elements"
+      xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
       mc:Ignorable="d" 
-      d:DesignHeight="1043.479" d:DesignWidth="1842.091"
+      d:DesignHeight="355.479" d:DesignWidth="534.091"
       d:DataContext="{d:DesignInstance Type=viewModel:DevicePageViewModel}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Canvas Grid.Row="1" SnapsToDevicePixels="False">
-            <Canvas.Background>
-                <ImageBrush Stretch="Uniform" ImageSource="Images/Background.png"/>
-            </Canvas.Background>
-            <elements:VkmThumbler Canvas.Top="0" Canvas.Left="0"/>
-            <elements:VkmThumbler Canvas.Top="100" Canvas.Left="172"/>
-            <elements:VkmThumbler Canvas.Top="100" Canvas.Left="142"/>
-            <elements:VkmThumbler Canvas.Top="100" Canvas.Left="112"/>
-            <elements:VkmThumbler Canvas.Top="100" Canvas.Left="82"/>
-            <elements:VkmRotateWheel Canvas.Top="265" Canvas.Left="160"/>
-        </Canvas>
-        <StackPanel Grid.Row="2">
+        <ItemsControl Grid.Row="0" ItemsSource="{Binding Elements}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas>
+                        <Canvas.Background>
+                            <ImageBrush Stretch="Uniform" ImageSource="Images/Background.png"/>
+                        </Canvas.Background>
+                    </Canvas>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemContainerStyle>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="Canvas.Top" Value="{Binding Path=PosTop}"/>
+                    <Setter Property="Canvas.Left" Value="{Binding Path=PosLeft}"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+            <ItemsControl.Resources>
+                <DataTemplate DataType="{x:Type elementsVM:VkmThumblerViewModel}">
+                    <elements:VkmThumbler/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type elementsVM:VkmRotateWheelViewModel}">
+                    <elements:VkmRotateWheel/>
+                </DataTemplate>
+            </ItemsControl.Resources>
+        </ItemsControl>
+        <StackPanel Grid.Row="1">
             <Button Content="Проверить результат" Command="{Binding Path=CheckResultCommand}"/>
         </StackPanel>
     </Grid>
