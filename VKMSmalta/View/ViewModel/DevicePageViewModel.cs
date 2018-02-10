@@ -10,7 +10,7 @@ namespace VKMSmalta.View.ViewModel
     {
         public DelegateCommand CheckResultCommand { get; set; }
 
-        public ObservableCollection<ElementViewModelBase> Elements { get; set; }
+        public ObservableCollection<ClickableElementViewModelBase> Elements { get; set; }
 
         public DevicePageViewModel(ApplicationMode appMode)
         {
@@ -25,7 +25,7 @@ namespace VKMSmalta.View.ViewModel
 
         private void InitializeElements()
         {
-            Elements = new ObservableCollection<ElementViewModelBase>
+            Elements = new ObservableCollection<ClickableElementViewModelBase>
                        {
                            new VkmThumblerViewModel { PosTop = 100, PosLeft = 100 },
                            new VkmRotateWheelViewModel(20, 5) { PosTop = 100, PosLeft = 100 }

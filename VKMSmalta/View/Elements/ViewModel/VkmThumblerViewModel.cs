@@ -2,12 +2,10 @@
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
-    public class VkmThumblerViewModel : ElementViewModelBase
+    public sealed class VkmThumblerViewModel : ClickableElementViewModelBase
     {
         private readonly string imageOffSource;
         private readonly string imageOnSource;
-
-        public DelegateCommand ClickCommand { get; set; }
 
         public VkmThumblerViewModel(string imageOffSource = "/VKMSmalta;component/View/Images/ThumblerOff.png", string imageOnSource = "/VKMSmalta;component/View/Images/ThumblerOn.png")
         {
@@ -17,7 +15,7 @@ namespace VKMSmalta.View.Elements.ViewModel
             CreateCommands();
         }
 
-        private void CreateCommands()
+        protected override void CreateCommands()
         {
             ClickCommand = new DelegateCommand(OnClick);
         }

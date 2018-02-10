@@ -2,14 +2,12 @@
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
-    public class VkmRotateWheelViewModel : ElementViewModelBase
+    public sealed class VkmRotateWheelViewModel : ClickableElementViewModelBase
     {
         private readonly int rotationStep;
         private readonly int maxRotationSteps;
         private int currentRotationStep;
-
-        public DelegateCommand ClickCommand { get; set; }
-
+        
         public int RotationDegrees
         {
             get { return GetProperty(() => RotationDegrees); }
@@ -26,8 +24,9 @@ namespace VKMSmalta.View.Elements.ViewModel
             CreateCommands();
         }
 
-        private void CreateCommands()
+        protected override void CreateCommands()
         {
+            base.CreateCommands();
             ClickCommand = new DelegateCommand(OnClick);
         }
 

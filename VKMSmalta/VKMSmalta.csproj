@@ -63,15 +63,18 @@
       <DependentUpon>CheckResultsDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\ViewModel\CheckResultsDialogViewModel.cs" />
+    <Compile Include="Domain\Action.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\HintService.cs" />
+    <Compile Include="Services\HistoryService.cs" />
     <Compile Include="Services\VkmNavigationService.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="View\DevicePage.xaml.cs">
       <DependentUpon>DevicePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Elements\ViewModel\ClickableElementViewModelBase.cs" />
     <Compile Include="View\Elements\ViewModel\ElementViewModelBase.cs" />
     <Compile Include="View\Elements\ViewModel\VkmRotateWheelViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmThumblerViewModel.cs" />

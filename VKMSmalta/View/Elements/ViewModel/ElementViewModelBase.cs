@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using DevExpress.Mvvm;
 using VKMSmalta.Services;
 using VKMSmalta.View.ViewModel;
@@ -8,6 +7,7 @@ namespace VKMSmalta.View.Elements.ViewModel
 {
     public class ElementViewModelBase : ViewModelBase
     {
+
         private int hintsCounter;
 
         public DelegateCommand ShowHintCommand { get; set; }
