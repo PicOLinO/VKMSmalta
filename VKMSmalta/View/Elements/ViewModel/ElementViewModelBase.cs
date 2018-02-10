@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using DevExpress.Mvvm;
 using VKMSmalta.Services;
 using VKMSmalta.View.ViewModel;
@@ -10,8 +11,6 @@ namespace VKMSmalta.View.Elements.ViewModel
 
         private int hintsCounter;
 
-        public DelegateCommand ShowHintCommand { get; set; }
-
         public ObservableCollection<HintViewModel> HintsCollection { get; set; }
 
         public string ImageSource
@@ -19,21 +18,31 @@ namespace VKMSmalta.View.Elements.ViewModel
             get { return GetProperty(() => ImageSource); }
             set { SetProperty(() => ImageSource, value); }
         }
-
+        
         protected ElementViewModelBase()
         {
             hintsCounter = 0;
-            CreateCommands();
         }
 
-        private void CreateCommands()
+        public bool IsHintOpen
         {
-            ShowHintCommand = new DelegateCommand(OnShowHint);
+            get { return GetProperty(() => IsHintOpen); }
+            set { SetProperty(() => IsHintOpen, value, IsHintOpenChanged); }
         }
 
-        private void OnShowHint()
+        public HintViewModel Hint
         {
-            HintService.Instance.ShowHint(PosTop, PosLeft, HintsCollection[hintsCounter++].HintText);
+            get { return GetProperty(() => Hint); }
+            set { SetProperty(() => Hint, value); }
+        }
+
+        private void IsHintOpenChanged()
+        {
+            if (IsHintOpen)
+            {
+                Hint = HintsCollection[hintsCounter];
+                hintsCounter++;
+            }
         }
 
         public double PosLeft { get; set; }

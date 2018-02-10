@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using VKMSmalta.View.ViewModel;
 
 namespace VKMSmalta.View
@@ -6,12 +7,12 @@ namespace VKMSmalta.View
     /// <summary>
     /// Interaction logic for Hint.xaml
     /// </summary>
-    public partial class Hint : Window
+    public partial class Hint : UserControl
     {
-        public Hint(string hintText)
+        public Hint()
         {
             InitializeComponent();
-            DataContext = new HintViewModel(hintText);
+            DataContext = new HintViewModel();
         }
     }
 }

@@ -19,12 +19,7 @@ namespace VKMSmalta.Services
 
         public void ShowHint(double top, double left, string text)
         {
-            var dialog = new Hint(text)
-                         {
-                             Top = top,
-                             Left = left
-                         };
-            dialog.ShowDialog();
+            throw new NotImplementedException();
         }
     }
 }

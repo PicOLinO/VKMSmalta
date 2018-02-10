@@ -43,7 +43,7 @@ namespace VKMSmalta.View.ViewModel
                                Height = 100,
                                HintsCollection = new ObservableCollection<HintViewModel>
                                                  {
-                                                     new HintViewModel("Some hint")
+                                                     new HintViewModel {HintText = "somehint"}
                                                  }
                            },
                            new VkmRotateWheelViewModel(20, 5)

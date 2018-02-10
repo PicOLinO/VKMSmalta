@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
              xmlns:viewModel="clr-namespace:VKMSmalta.View.Elements.ViewModel"
+             xmlns:view="clr-namespace:VKMSmalta.View"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              d:DataContext="{d:DesignInstance Type=viewModel:VkmThumblerViewModel}">
@@ -14,5 +15,9 @@
                 <dxmvvm:EventToCommand EventName="MouseLeftButtonUp" Command="{Binding Path=ClickCommand}"/>
             </dxmvvm:Interaction.Behaviors>
         </Image>
+        <Popup IsOpen="{Binding Path=IsHintOpen}" StaysOpen="True" Placement="Right" MinWidth="170" MinHeight="60"
+               PopupAnimation="Fade" AllowsTransparency="True">
+            <view:Hint DataContext="{Binding Path=Hint}"/>
+        </Popup>
     </Grid>
 </UserControl>

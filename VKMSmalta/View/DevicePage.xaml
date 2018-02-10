@@ -6,7 +6,7 @@
       xmlns:viewModel="clr-namespace:VKMSmalta.View.ViewModel"
       xmlns:elementsVM="clr-namespace:VKMSmalta.View.Elements.ViewModel"
       xmlns:elements="clr-namespace:VKMSmalta.View.Elements"
-      xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+      xmlns:view="clr-namespace:VKMSmalta.View"
       mc:Ignorable="d" 
       d:DesignHeight="355.479" d:DesignWidth="534.091"
       d:DataContext="{d:DesignInstance Type=viewModel:DevicePageViewModel}">
