@@ -64,6 +64,7 @@
     </Compile>
     <Compile Include="Dialogs\ViewModel\CheckResultsDialogViewModel.cs" />
     <Compile Include="Domain\Action.cs" />
+    <Compile Include="Domain\ActionName.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

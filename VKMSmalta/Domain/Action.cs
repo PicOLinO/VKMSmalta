@@ -2,7 +2,13 @@
 {
     public class Action
     {
-        public string Name { get; set; }
+        public Action(ActionName name, string parent)
+        {
+            Name = name;
+            Parent = parent;
+        }
+
+        public ActionName Name { get; set; }
         public string Parent { get; set; }
     }
 }

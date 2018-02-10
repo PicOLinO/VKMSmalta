@@ -1,4 +1,6 @@
 ﻿using DevExpress.Mvvm;
+using VKMSmalta.Domain;
+using VKMSmalta.Services;
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
@@ -42,6 +44,8 @@ namespace VKMSmalta.View.Elements.ViewModel
                 RotationDegrees = 0;
                 currentRotationStep = 1;
             }
+
+            SendActionToHistoryService();
         }
     }
 }

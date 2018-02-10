@@ -23,6 +23,7 @@ namespace VKMSmalta.View.Elements.ViewModel
         private void OnClick()
         {
             ImageSource = ImageSource == imageOffSource ? imageOnSource : imageOffSource;
+            SendActionToHistoryService();
         }
     }
 }

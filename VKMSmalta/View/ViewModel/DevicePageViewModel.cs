@@ -10,10 +10,11 @@ namespace VKMSmalta.View.ViewModel
     {
         public DelegateCommand CheckResultCommand { get; set; }
 
-        public ObservableCollection<ClickableElementViewModelBase> Elements { get; set; }
+        public ObservableCollection<ElementViewModelBase> Elements { get; set; }
 
         public DevicePageViewModel(ApplicationMode appMode)
         {
+            InitializeServices();
             CreateCommands();
             InitializeElements();
         }
@@ -23,11 +24,17 @@ namespace VKMSmalta.View.ViewModel
             CheckResultCommand = new DelegateCommand(OnCheckResult);
         }
 
+        private void InitializeServices()
+        {
+            HintService.InitializeService();
+            HistoryService.InitializeService();
+        }
+
         private void InitializeElements()
         {
-            Elements = new ObservableCollection<ClickableElementViewModelBase>
+            Elements = new ObservableCollection<ElementViewModelBase>
                        {
-                           new VkmThumblerViewModel { PosTop = 100, PosLeft = 100 },
+                           new VkmThumblerViewModel { PosTop = 100, PosLeft = 250 },
                            new VkmRotateWheelViewModel(20, 5) { PosTop = 100, PosLeft = 100 }
                        };
         }
