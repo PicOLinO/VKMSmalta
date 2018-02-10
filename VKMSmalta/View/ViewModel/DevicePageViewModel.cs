@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using DevExpress.Mvvm;
 using VKMSmalta.Dialogs;
 using VKMSmalta.Services;
@@ -34,8 +35,24 @@ namespace VKMSmalta.View.ViewModel
         {
             Elements = new ObservableCollection<ElementViewModelBase>
                        {
-                           new VkmThumblerViewModel { PosTop = 100, PosLeft = 250 },
-                           new VkmRotateWheelViewModel(20, 5) { PosTop = 100, PosLeft = 100 }
+                           new VkmThumblerViewModel
+                           {
+                               PosTop = 100,
+                               PosLeft = 150,
+                               Width = 100,
+                               Height = 100,
+                               HintsCollection = new ObservableCollection<HintViewModel>
+                                                 {
+                                                     new HintViewModel("Some hint")
+                                                 }
+                           },
+                           new VkmRotateWheelViewModel(20, 5)
+                           {
+                               PosTop = 100,
+                               PosLeft = 100,
+                               Width = 100,
+                               Height = 100
+                           }
                        };
         }
 

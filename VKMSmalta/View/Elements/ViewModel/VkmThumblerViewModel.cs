@@ -24,6 +24,7 @@ namespace VKMSmalta.View.Elements.ViewModel
         {
             ImageSource = ImageSource == imageOffSource ? imageOnSource : imageOffSource;
             SendActionToHistoryService();
+            ShowHintCommand.Execute(null);
         }
     }
 }

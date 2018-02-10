@@ -30,6 +30,8 @@
                 <Style TargetType="ContentPresenter">
                     <Setter Property="Canvas.Top" Value="{Binding Path=PosTop}"/>
                     <Setter Property="Canvas.Left" Value="{Binding Path=PosLeft}"/>
+                    <Setter Property="Width" Value="{Binding Path=Width}"/>
+                    <Setter Property="Height" Value="{Binding Path=Height}"/>
                 </Style>
             </ItemsControl.ItemContainerStyle>
             <ItemsControl.Resources>

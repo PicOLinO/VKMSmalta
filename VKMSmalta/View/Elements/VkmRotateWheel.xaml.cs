@@ -23,7 +23,6 @@ namespace VKMSmalta.View.Elements
         public VkmRotateWheel()
         {
             InitializeComponent();
-            DataContext = new VkmRotateWheelViewModel(20, 5);
         }
     }
 }

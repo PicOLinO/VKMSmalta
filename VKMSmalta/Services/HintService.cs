@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Windows.Controls;
+using DevExpress.Xpf.Core;
+using VKMSmalta.View;
 
 namespace VKMSmalta.Services
 {
@@ -14,9 +17,14 @@ namespace VKMSmalta.Services
             }
         }
 
-        public void ShowHint(double posTop, double posLeft, string text)
+        public void ShowHint(double top, double left, string text)
         {
-            throw new NotImplementedException();
+            var dialog = new Hint(text)
+                         {
+                             Top = top,
+                             Left = left
+                         };
+            dialog.ShowDialog();
         }
     }
 }

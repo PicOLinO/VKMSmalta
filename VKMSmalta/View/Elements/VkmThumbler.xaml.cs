@@ -23,7 +23,6 @@ namespace VKMSmalta.View.Elements
         public VkmThumbler()
         {
             InitializeComponent();
-            DataContext = new VkmThumblerViewModel();
         }
     }
 }
