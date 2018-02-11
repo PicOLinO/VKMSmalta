@@ -22,18 +22,12 @@ namespace VKMSmalta.View.Elements.ViewModel
             this.maxRotationSteps = maxRotationSteps;
             currentRotationStep = 1;
             ImageSource = image;
-
-            CreateCommands();
         }
 
-        protected override void CreateCommands()
+        protected override void OnClick()
         {
-            base.CreateCommands();
-            ClickCommand = new DelegateCommand(OnClick);
-        }
+            base.OnClick();
 
-        private void OnClick()
-        {
             if (currentRotationStep < maxRotationSteps)
             {
                 RotationDegrees += rotationStep;
@@ -44,8 +38,6 @@ namespace VKMSmalta.View.Elements.ViewModel
                 RotationDegrees = 0;
                 currentRotationStep = 1;
             }
-
-            SendActionToHistoryService();
         }
     }
 }

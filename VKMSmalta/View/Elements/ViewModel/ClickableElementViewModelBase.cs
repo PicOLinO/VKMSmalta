@@ -12,8 +12,19 @@ namespace VKMSmalta.View.Elements.ViewModel
     {
         public DelegateCommand ClickCommand { get; set; }
 
-        protected virtual void CreateCommands()
+        public ClickableElementViewModelBase()
         {
+            CreateCommands();
+        }
+
+        private void CreateCommands()
+        {
+            ClickCommand = new DelegateCommand(OnClick);
+        }
+
+        protected virtual void OnClick()
+        {
+            SendActionToHistoryService();
         }
 
         protected virtual void SendActionToHistoryService()

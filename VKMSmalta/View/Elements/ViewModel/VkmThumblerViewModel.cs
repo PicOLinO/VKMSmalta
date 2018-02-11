@@ -11,17 +11,12 @@ namespace VKMSmalta.View.Elements.ViewModel
         {
             this.imageOffSource = ImageSource = imageOffSource;
             this.imageOnSource = imageOnSource;
-
-            CreateCommands();
         }
 
-        protected override void CreateCommands()
+        protected override void OnClick()
         {
-            ClickCommand = new DelegateCommand(OnClick);
-        }
+            base.OnClick();
 
-        private void OnClick()
-        {
             ImageSource = ImageSource == imageOffSource ? imageOnSource : imageOffSource;
             SendActionToHistoryService();
             IsHintOpen = true;
