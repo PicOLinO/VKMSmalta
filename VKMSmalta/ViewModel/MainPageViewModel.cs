@@ -36,13 +36,19 @@ namespace VKMSmalta.ViewModel
         private void OnGoTraining()
         {
             var algorithm = ChooseAlgorithm();
-            VkmNavigationService.Instance.Navigate(new DevicePage(), new DevicePageViewModel(ApplicationMode.Training, algorithm));
+            if (algorithm != null)
+            {
+                VkmNavigationService.Instance.Navigate(new DevicePage(), new DevicePageViewModel(ApplicationMode.Training, algorithm));
+            }
         }
 
         private void OnGoExamine()
         {
             var algorithm = ChooseAlgorithm();
-            VkmNavigationService.Instance.Navigate(new DevicePage(), new DevicePageViewModel(ApplicationMode.Examine, algorithm));
+            if (algorithm != null)
+            {
+                VkmNavigationService.Instance.Navigate(new DevicePage(), new DevicePageViewModel(ApplicationMode.Examine, algorithm));
+            }
         }
 
         private Algorithm ChooseAlgorithm()
