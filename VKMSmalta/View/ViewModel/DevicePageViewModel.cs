@@ -68,7 +68,7 @@ namespace VKMSmalta.View.ViewModel
                            new VkmRotateWheelViewModel(20, 5)
                            {
                                Name = "vkwhl",
-                               PosTop = 100,
+                               PosTop = 200,
                                PosLeft = 100,
                                Width = 100,
                                Height = 100

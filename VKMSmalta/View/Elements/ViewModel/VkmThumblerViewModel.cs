@@ -19,7 +19,6 @@ namespace VKMSmalta.View.Elements.ViewModel
 
             ImageSource = ImageSource == imageOffSource ? imageOnSource : imageOffSource;
             SendActionToHistoryService();
-            IsHintOpen = true;
         }
     }
 }
