@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using DevExpress.Xpf.Core;
 using VKMSmalta.View;
+using VKMSmalta.View.Elements.ViewModel;
 
 namespace VKMSmalta.Services
 {
@@ -17,9 +18,10 @@ namespace VKMSmalta.Services
             }
         }
 
-        public void ShowHint(double top, double left, string text)
+        public void ShowHint(ElementViewModelBase element, int hintIndex)
         {
-            throw new NotImplementedException();
+            element.Hint = element.HintsCollection[hintIndex];
+            element.IsHintOpen = true;
         }
     }
 }
