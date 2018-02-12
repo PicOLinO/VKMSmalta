@@ -29,8 +29,7 @@ namespace VKMSmalta.Dialogs.ViewModel
                                                                 })
                            };
 
-            Algorithms = new ObservableCollection<Algorithm>();
-            Algorithms.Add(newAlgorithm);
+            Algorithms = new ObservableCollection<Algorithm> {newAlgorithm};
         }
     }
 }
