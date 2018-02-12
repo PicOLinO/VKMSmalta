@@ -67,5 +67,10 @@ namespace VKMSmalta.Services
             Algorithm = null;
             CurrentAction = null;
         }
+
+        public void Reset()
+        {
+            CurrentAction = null;
+        }
     }
 }

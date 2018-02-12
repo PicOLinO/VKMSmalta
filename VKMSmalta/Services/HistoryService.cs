@@ -21,5 +21,10 @@ namespace VKMSmalta.Services
         {
             Actions = new List<Action>();
         }
+
+        public void Reset()
+        {
+            Actions.Clear();
+        }
     }
 }
