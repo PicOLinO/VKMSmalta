@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using DevExpress.Mvvm;
 using VKMSmalta.Domain;
+using VKMSmalta.View.ViewModel;
 using Action = VKMSmalta.Domain.Action;
 
 namespace VKMSmalta.Dialogs.ViewModel
@@ -22,10 +23,10 @@ namespace VKMSmalta.Dialogs.ViewModel
             var newAlgorithm = new Algorithm
                            {
                                Name = "Test Algorithm",
-                               Actions = new List<Action>
-                                         {
-                                             new Action(ActionName.Click, "vkt101")
-                                         }
+                               Actions = new LinkedList<Action>(new []
+                                                                {
+                                                                    new Action(ActionName.Click, "vkt101", new HintViewModel("somehint"))
+                                                                })
                            };
 
             Algorithms = new ObservableCollection<Algorithm>();

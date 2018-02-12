@@ -12,7 +12,7 @@ namespace VKMSmalta.View
         public Hint()
         {
             InitializeComponent();
-            DataContext = new HintViewModel();
+            DataContext = new HintViewModel(null);
         }
     }
 }

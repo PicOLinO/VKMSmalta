@@ -18,7 +18,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Text="{Binding Path=HintText}" />
-                <Button Grid.Row="1" Command="{Binding ClickCommand}" Content="Далее" Width="100"
+                <Button Grid.Row="1" Command="{Binding ClickNextCommand}" Content="Далее" Width="100"
                             Margin="10 10 10 10" />
             </Grid>
         </Border>

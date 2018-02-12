@@ -39,7 +39,7 @@ namespace VKMSmalta.View.ViewModel
 
         private void GoTraining(Algorithm algorithm)
         {
-            HintService.Instance.ShowHint(Elements.Single(e => e.Name == algorithm.Actions.FirstOrDefault()?.ParentElementName), 0);
+            HintService.Instance.StartTraining(algorithm, Elements.ToList());
         }
 
         private void CreateCommands()
@@ -63,11 +63,7 @@ namespace VKMSmalta.View.ViewModel
                                PosTop = 100,
                                PosLeft = 150,
                                Width = 100,
-                               Height = 100,
-                               HintsCollection = new ObservableCollection<HintViewModel>
-                                                 {
-                                                     new HintViewModel {HintText = "somehint"}
-                                                 }
+                               Height = 100
                            },
                            new VkmRotateWheelViewModel(20, 5)
                            {
@@ -83,9 +79,7 @@ namespace VKMSmalta.View.ViewModel
         private void OnCheckResult()
         {
             //TODO:Добавление проверки на оценку
-            var dialog = new CheckResultsDialog(5);
-            dialog.ShowDialog();
-            VkmNavigationService.Instance.GoBack();
+            VkmNavigationService.Instance.ExitDevicePageWithResult(5);
         }
     }
 }

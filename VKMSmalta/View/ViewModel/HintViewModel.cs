@@ -3,12 +3,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using DevExpress.Mvvm;
+using VKMSmalta.Services;
 
 namespace VKMSmalta.View.ViewModel
 {
     public class HintViewModel : ViewModelBase
     {
-        public DelegateCommand ClickCommand { get; set; }
+        public DelegateCommand ClickNextCommand { get; set; }
 
         public string HintText
         {
@@ -16,19 +17,20 @@ namespace VKMSmalta.View.ViewModel
             set { SetProperty(() => HintText, value); }
         }
 
-        public HintViewModel()
+        public HintViewModel(string hintText)
         {
             CreateCommands();
+            HintText = hintText;
         }
 
         private void CreateCommands()
         {
-            ClickCommand = new DelegateCommand(OnClick);
+            ClickNextCommand = new DelegateCommand(OnClickNext);
         }
 
-        private void OnClick()
+        private void OnClickNext()
         {
-            
+            HintService.Instance.ShowNext();
         }
     }
 }

@@ -11,8 +11,6 @@ namespace VKMSmalta.View.Elements.ViewModel
 
         private int hintsCounter;
 
-        public ObservableCollection<HintViewModel> HintsCollection { get; set; }
-
         public string ImageSource
         {
             get { return GetProperty(() => ImageSource); }
