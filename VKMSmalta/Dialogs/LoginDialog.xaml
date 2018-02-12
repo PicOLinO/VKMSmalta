@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:VKMSmalta.Dialogs"
         xmlns:viewModel="clr-namespace:VKMSmalta.Dialogs.ViewModel"
         mc:Ignorable="d"
-        Title="LoginDialog" Height="300" Width="300"
+        Title="LoginDialog" Height="100" Width="300"
+        WindowStartupLocation="CenterScreen"
         d:DataContext="{d:DesignInstance Type=viewModel:LoginDialogViewModel}">
     <Grid>
         <Grid.RowDefinitions>
