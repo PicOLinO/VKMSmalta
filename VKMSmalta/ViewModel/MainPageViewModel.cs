@@ -11,6 +11,7 @@ namespace VKMSmalta.ViewModel
 {
     public class MainPageViewModel : ViewModelBase
     {
+        public DelegateCommand LoginCommand { get; set; }
         public DelegateCommand GoExamineCommand { get; set; }
         public DelegateCommand GoTrainingCommand { get; set; }
         
@@ -21,8 +22,15 @@ namespace VKMSmalta.ViewModel
 
         private void CreateCommands()
         {
+            LoginCommand = new DelegateCommand(OnLogin);
             GoExamineCommand = new DelegateCommand(OnGoExamine);
             GoTrainingCommand= new DelegateCommand(OnGoTraining);
+        }
+
+        private void OnLogin()
+        {
+            var loginDialog = new LoginDialog();
+            loginDialog.ShowDialog(); //TODO:
         }
 
         private void OnGoTraining()

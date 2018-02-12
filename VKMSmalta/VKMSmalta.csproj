@@ -66,8 +66,13 @@
     <Compile Include="Dialogs\ChooseAlgorithmDialog.xaml.cs">
       <DependentUpon>ChooseAlgorithmDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\LoginDialog.xaml.cs">
+      <DependentUpon>LoginDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\ViewModel\CheckResultsDialogViewModel.cs" />
     <Compile Include="Dialogs\ViewModel\ChooseAlgorithmDialogViewModel.cs" />
+    <Compile Include="Dialogs\ViewModel\IPasswordSupplier.cs" />
+    <Compile Include="Dialogs\ViewModel\LoginDialogViewModel.cs" />
     <Compile Include="Domain\Action.cs" />
     <Compile Include="Domain\ActionName.cs" />
     <Compile Include="Domain\Algorithm.cs" />
@@ -101,6 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogs\ChooseAlgorithmDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\LoginDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
