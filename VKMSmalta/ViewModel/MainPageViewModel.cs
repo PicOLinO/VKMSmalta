@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Navigation;
 using DevExpress.Mvvm;
+using VKMSmalta.Dialogs;
+using VKMSmalta.Domain;
 using VKMSmalta.Services;
 using VKMSmalta.View;
 using VKMSmalta.View.ViewModel;
@@ -25,12 +27,21 @@ namespace VKMSmalta.ViewModel
 
         private void OnGoTraining()
         {
-            VkmNavigationService.Instance.Navigate(new DevicePage(), new DevicePageViewModel(ApplicationMode.Training));
+            var algorithm = ChooseAlgorithm();
+            VkmNavigationService.Instance.Navigate(new DevicePage(), new DevicePageViewModel(ApplicationMode.Training, algorithm));
         }
 
         private void OnGoExamine()
         {
-            VkmNavigationService.Instance.Navigate(new DevicePage(), new DevicePageViewModel(ApplicationMode.Examine));
+            var algorithm = ChooseAlgorithm();
+            VkmNavigationService.Instance.Navigate(new DevicePage(), new DevicePageViewModel(ApplicationMode.Examine, algorithm));
+        }
+
+        private Algorithm ChooseAlgorithm()
+        {
+            var chooseDialog = new ChooseAlgorithmDialog();
+            chooseDialog.ShowDialog();
+            return chooseDialog.SelectedAlgorithm;
         }
     }
 }

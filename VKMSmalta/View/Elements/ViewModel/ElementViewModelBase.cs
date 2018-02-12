@@ -27,22 +27,13 @@ namespace VKMSmalta.View.Elements.ViewModel
         public bool IsHintOpen
         {
             get { return GetProperty(() => IsHintOpen); }
-            set { SetProperty(() => IsHintOpen, value, IsHintOpenChanged); }
+            set { SetProperty(() => IsHintOpen, value); }
         }
 
         public HintViewModel Hint
         {
             get { return GetProperty(() => Hint); }
             set { SetProperty(() => Hint, value); }
-        }
-
-        private void IsHintOpenChanged()
-        {
-            if (IsHintOpen)
-            {
-                Hint = HintsCollection[hintsCounter];
-                hintsCounter++;
-            }
         }
 
         public double PosLeft { get; set; }

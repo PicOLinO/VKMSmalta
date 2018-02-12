@@ -2,13 +2,13 @@
 {
     public class Action
     {
-        public Action(ActionName name, string parent)
+        public Action(ActionName name, string parentElementName)
         {
             Name = name;
-            Parent = parent;
+            ParentElementName = parentElementName;
         }
 
         public ActionName Name { get; set; }
-        public string Parent { get; set; }
+        public string ParentElementName { get; set; }
     }
 }

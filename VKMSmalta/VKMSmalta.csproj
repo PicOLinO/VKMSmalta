@@ -63,9 +63,14 @@
     <Compile Include="Dialogs\CheckResultsDialog.xaml.cs">
       <DependentUpon>CheckResultsDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\ChooseAlgorithmDialog.xaml.cs">
+      <DependentUpon>ChooseAlgorithmDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\ViewModel\CheckResultsDialogViewModel.cs" />
+    <Compile Include="Dialogs\ViewModel\ChooseAlgorithmDialogViewModel.cs" />
     <Compile Include="Domain\Action.cs" />
     <Compile Include="Domain\ActionName.cs" />
+    <Compile Include="Domain\Algorithm.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -92,6 +97,10 @@
     <Compile Include="View\ViewModel\DevicePageViewModel.cs" />
     <Compile Include="View\ViewModel\HintViewModel.cs" />
     <Page Include="Dialogs\CheckResultsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ChooseAlgorithmDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
