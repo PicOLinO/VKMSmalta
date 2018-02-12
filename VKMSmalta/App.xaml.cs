@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using DevExpress.Xpf.Core;
 
 namespace VKMSmalta
 {
@@ -13,5 +14,9 @@ namespace VKMSmalta
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            ApplicationThemeHelper.ApplicationThemeName = "Office2016White";
+        }
     }
 }
