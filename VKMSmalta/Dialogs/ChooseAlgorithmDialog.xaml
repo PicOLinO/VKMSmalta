@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:VKMSmalta.Dialogs"
         xmlns:viewModel="clr-namespace:VKMSmalta.Dialogs.ViewModel"
         xmlns:domain="clr-namespace:VKMSmalta.Domain"
-        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
         mc:Ignorable="d"
         Title="ChooseAlgorithmDialog" Height="300" Width="300"
+        WindowStartupLocation="CenterScreen"
         d:DataContext="{d:DesignInstance Type=viewModel:ChooseAlgorithmDialogViewModel}">
     <Grid>
         <ListView SelectedItem="{Binding Path=SelectedAlgorithm}" ItemsSource="{Binding Path=Algorithms}" SelectionChanged="Selector_OnSelectionChanged">
