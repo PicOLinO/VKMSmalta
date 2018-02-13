@@ -25,16 +25,6 @@ namespace VKMSmalta.View.ViewModel
             {
                 GoTraining(algorithm);
             }
-
-            if (appMode == ApplicationMode.Examine)
-            {
-                GoExamine(algorithm);
-            }
-        }
-
-        private void GoExamine(Algorithm algorithm)
-        {
-            throw new NotImplementedException();
         }
 
         private void GoTraining(Algorithm algorithm)
@@ -57,22 +47,8 @@ namespace VKMSmalta.View.ViewModel
         {
             Elements = new ObservableCollection<ElementViewModelBase>
                        {
-                           new VkmThumblerViewModel
-                           {
-                               Name = "vkt101",
-                               PosTop = 100,
-                               PosLeft = 150,
-                               Width = 100,
-                               Height = 100
-                           },
-                           new VkmRotateWheelViewModel(20, 5)
-                           {
-                               Name = "vkwhl",
-                               PosTop = 200,
-                               PosLeft = 100,
-                               Width = 100,
-                               Height = 100
-                           }
+                           new VkmThumblerViewModel { Name = "vkt101", PosTop = 200, PosLeft = 350 },
+                           new VkmRotateWheelViewModel(20, 5) { Name = "vkwhl", PosTop = 500, PosLeft = 400 }
                        };
         }
 
