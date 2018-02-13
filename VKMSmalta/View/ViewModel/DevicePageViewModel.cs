@@ -9,7 +9,7 @@ using VKMSmalta.View.Elements.ViewModel;
 
 namespace VKMSmalta.View.ViewModel
 {
-    public class DevicePageViewModel : ViewModelBase
+    public class DevicePageViewModel : ViewModelBase, IDisposable
     {
         public DelegateCommand CheckResultCommand { get; set; }
 
@@ -80,6 +80,13 @@ namespace VKMSmalta.View.ViewModel
         {
             //TODO:Добавление проверки на оценку
             VkmNavigationService.Instance.ExitDevicePageWithResult(5);
+            Dispose();
+        }
+
+        public void Dispose()
+        {
+            HintService.Instance.Reset();
+            HistoryService.Instance.Reset();
         }
     }
 }
