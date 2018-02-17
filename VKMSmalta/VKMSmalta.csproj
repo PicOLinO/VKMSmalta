@@ -59,6 +59,7 @@
     </ApplicationDefinition>
     <Compile Include="ApplicationMode.cs" />
     <Compile Include="Converters\BaseConverter.cs" />
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\ValueToStringValueConverter.cs" />
     <Compile Include="Dialogs\CheckResultsDialog.xaml.cs">
       <DependentUpon>CheckResultsDialog.xaml</DependentUpon>

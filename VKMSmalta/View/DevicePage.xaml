@@ -7,6 +7,7 @@
       xmlns:elementsVM="clr-namespace:VKMSmalta.View.Elements.ViewModel"
       xmlns:elements="clr-namespace:VKMSmalta.View.Elements"
       xmlns:view="clr-namespace:VKMSmalta.View"
+      xmlns:converters="clr-namespace:VKMSmalta.Converters"
       mc:Ignorable="d"
       d:DesignHeight="355.479" d:DesignWidth="534.091"
       d:DataContext="{d:DesignInstance Type=viewModel:DevicePageViewModel}">
@@ -42,7 +43,7 @@
             </ItemsControl.Resources>
         </ItemsControl>
         <StackPanel Grid.Row="1">
-            <Button Content="Проверить результат" Command="{Binding Path=CheckResultCommand}"/>
+            <Button Content="Проверить результат" Command="{Binding Path=CheckResultCommand}" Visibility="{Binding Path=IsCheckResultButtonVisible, Converter={converters:BoolToVisibilityConverter}}"/>
         </StackPanel>
     </Grid>
 </Page>

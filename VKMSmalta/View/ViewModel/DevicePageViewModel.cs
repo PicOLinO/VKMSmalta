@@ -15,6 +15,12 @@ namespace VKMSmalta.View.ViewModel
 
         public ObservableCollection<ElementViewModelBase> Elements { get; set; }
 
+        public bool IsCheckResultButtonVisible
+        {
+            get { return GetProperty(() => IsCheckResultButtonVisible); }
+            set { SetProperty(() => IsCheckResultButtonVisible, value); }
+        }
+
         public DevicePageViewModel(ApplicationMode appMode, Algorithm algorithm)
         {
             InitializeServices();
@@ -23,13 +29,14 @@ namespace VKMSmalta.View.ViewModel
 
             if (appMode == ApplicationMode.Training)
             {
+                IsCheckResultButtonVisible = false;
                 GoTraining(algorithm);
             }
-        }
 
-        private void GoTraining(Algorithm algorithm)
-        {
-            HintService.Instance.StartTraining(algorithm, Elements.ToList());
+            if (appMode == ApplicationMode.Examine)
+            {
+                IsCheckResultButtonVisible = true;
+            }
         }
 
         private void CreateCommands()
@@ -50,6 +57,11 @@ namespace VKMSmalta.View.ViewModel
                            new VkmThumblerViewModel { Name = "vkt101", PosTop = 200, PosLeft = 350 },
                            new VkmRotateWheelViewModel(20, 5) { Name = "vkwhl", PosTop = 500, PosLeft = 400 }
                        };
+        }
+
+        private void GoTraining(Algorithm algorithm)
+        {
+            HintService.Instance.StartTraining(algorithm, Elements.ToList());
         }
 
         private void OnCheckResult()
