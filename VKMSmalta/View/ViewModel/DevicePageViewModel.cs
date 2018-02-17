@@ -68,7 +68,7 @@ namespace VKMSmalta.View.ViewModel
 
         private void OnCheckResult()
         {
-            var value = HistoryService.Instance.GetValueByAlgorithm(CurrentAlgorithm, Elements.ToList());
+            var value = HistoryService.Instance.GetValueByAlgorithm(CurrentAlgorithm, Elements.Cast<IValuableElement>().ToList());
             VkmNavigationService.Instance.ExitDevicePageWithResult(value);
             Dispose();
         }

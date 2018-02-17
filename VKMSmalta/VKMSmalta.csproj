@@ -92,6 +92,7 @@
     </Compile>
     <Compile Include="View\Elements\ViewModel\ClickableElementViewModelBase.cs" />
     <Compile Include="View\Elements\ViewModel\ElementViewModelBase.cs" />
+    <Compile Include="View\Elements\ViewModel\IValuableElement.cs" />
     <Compile Include="View\Elements\ViewModel\VkmRotateWheelViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmThumblerViewModel.cs" />
     <Compile Include="View\Elements\VkmRotateWheel.xaml.cs">

@@ -25,7 +25,7 @@ namespace VKMSmalta.Services
             Actions = new List<Action>();
         }
 
-        public int GetValueByAlgorithm(Algorithm algorithm, List<ElementViewModelBase> elements)
+        public int GetValueByAlgorithm(Algorithm algorithm, List<IValuableElement> elements)
         {
             throw new NotImplementedException();
         }

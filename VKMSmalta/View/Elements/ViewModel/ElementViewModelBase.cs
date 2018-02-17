@@ -6,7 +6,7 @@ using VKMSmalta.View.ViewModel;
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
-    public class ElementViewModelBase : ViewModelBase
+    public class ElementViewModelBase : ViewModelBase, IValuableElement
     {
 
         public double PosLeft { get; set; }
