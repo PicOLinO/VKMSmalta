@@ -13,8 +13,8 @@ namespace VKMSmalta.View.ViewModel
     {
         public DelegateCommand CheckResultCommand { get; set; }
 
+        private Algorithm CurrentAlgorithm { get; }
         public ObservableCollection<ElementViewModelBase> Elements { get; set; }
-
         public bool IsCheckResultButtonVisible
         {
             get { return GetProperty(() => IsCheckResultButtonVisible); }
@@ -23,6 +23,8 @@ namespace VKMSmalta.View.ViewModel
 
         public DevicePageViewModel(ApplicationMode appMode, Algorithm algorithm)
         {
+            CurrentAlgorithm = algorithm;
+
             InitializeServices();
             CreateCommands();
             InitializeElements();
@@ -30,7 +32,7 @@ namespace VKMSmalta.View.ViewModel
             if (appMode == ApplicationMode.Training)
             {
                 IsCheckResultButtonVisible = false;
-                GoTraining(algorithm);
+                GoTraining(CurrentAlgorithm);
             }
 
             if (appMode == ApplicationMode.Examine)
@@ -55,7 +57,7 @@ namespace VKMSmalta.View.ViewModel
             Elements = new ObservableCollection<ElementViewModelBase>
                        {
                            new VkmThumblerViewModel { Name = "vkt101", PosTop = 200, PosLeft = 350 },
-                           new VkmRotateWheelViewModel(20, 5) { Name = "vkwhl", PosTop = 500, PosLeft = 400 }
+                           new VkmRotateWheelViewModel(1, -20, 20, 5) { Name = "vkwhl", PosTop = 500, PosLeft = 400 }
                        };
         }
 
@@ -66,8 +68,8 @@ namespace VKMSmalta.View.ViewModel
 
         private void OnCheckResult()
         {
-            //TODO:Добавление проверки на оценку
-            VkmNavigationService.Instance.ExitDevicePageWithResult(5);
+            var value = HistoryService.Instance.GetValueByAlgorithm(CurrentAlgorithm, Elements.ToList());
+            VkmNavigationService.Instance.ExitDevicePageWithResult(value);
             Dispose();
         }
 

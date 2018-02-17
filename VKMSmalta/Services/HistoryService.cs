@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using VKMSmalta.Domain;
+using VKMSmalta.View.Elements.ViewModel;
+using Action = VKMSmalta.Domain.Action;
 
 namespace VKMSmalta.Services
 {
@@ -17,9 +20,14 @@ namespace VKMSmalta.Services
 
         public List<Action> Actions { get; }
 
-        public HistoryService()
+        private HistoryService()
         {
             Actions = new List<Action>();
+        }
+
+        public int GetValueByAlgorithm(Algorithm algorithm, List<ElementViewModelBase> elements)
+        {
+            throw new NotImplementedException();
         }
 
         public void Reset()

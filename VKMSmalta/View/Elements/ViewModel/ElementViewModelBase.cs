@@ -9,17 +9,15 @@ namespace VKMSmalta.View.Elements.ViewModel
     public class ElementViewModelBase : ViewModelBase
     {
 
-        private int hintsCounter;
-
+        public double PosLeft { get; set; }
+        public double PosTop { get; set; }
+        public string Name { get; set; }
+        public int Value { get; set; }
+        
         public string ImageSource
         {
             get { return GetProperty(() => ImageSource); }
             set { SetProperty(() => ImageSource, value); }
-        }
-        
-        protected ElementViewModelBase()
-        {
-            hintsCounter = 0;
         }
 
         public bool IsHintOpen
@@ -33,10 +31,5 @@ namespace VKMSmalta.View.Elements.ViewModel
             get { return GetProperty(() => Hint); }
             set { SetProperty(() => Hint, value); }
         }
-
-        public double PosLeft { get; set; }
-        public double PosTop { get; set; }
-
-        public string Name { get; set; }
     }
 }
