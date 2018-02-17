@@ -25,7 +25,9 @@ namespace VKMSmalta.Dialogs.ViewModel
                                Name = "Test Algorithm",
                                Actions = new LinkedList<Action>(new []
                                                                 {
-                                                                    new Action(ActionName.Click, "vkt101", new HintViewModel("somehint"))
+                                                                    new Action(ActionName.Click, "vkt101", new HintViewModel("some hint")),
+                                                                    new Action(ActionName.Click, "vkt101", new HintViewModel("some hint 2")),
+                                                                    new Action(ActionName.Click, "vkwhl", new HintViewModel("some hint for wheel"))
                                                                 })
                            };
 

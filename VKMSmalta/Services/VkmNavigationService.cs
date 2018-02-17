@@ -40,7 +40,7 @@ namespace VKMSmalta.Services
 
         public void ExitDevicePageWithTrainingCompleteMessage()
         {
-            var dialog = new CheckResultsDialog(0); //TODO: Изменить
+            var dialog = new TrainingCompleteDialog();
             dialog.ShowDialog();
             navigationService.GoBack();
         }

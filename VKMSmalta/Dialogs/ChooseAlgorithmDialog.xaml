@@ -7,9 +7,13 @@
         xmlns:viewModel="clr-namespace:VKMSmalta.Dialogs.ViewModel"
         xmlns:domain="clr-namespace:VKMSmalta.Domain"
         mc:Ignorable="d"
-        Title="ChooseAlgorithmDialog" Height="300" Width="300"
+        Title="ChooseAlgorithmDialog"
+        SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
-        d:DataContext="{d:DesignInstance Type=viewModel:ChooseAlgorithmDialogViewModel}">
+        ResizeMode="NoResize"
+        d:DataContext="{d:DesignInstance Type=viewModel:ChooseAlgorithmDialogViewModel}" 
+        d:DesignWidth="279.355" 
+        d:DesignHeight="132.633">
     <Grid>
         <ListView SelectedItem="{Binding Path=SelectedAlgorithm}" ItemsSource="{Binding Path=Algorithms}" SelectionChanged="Selector_OnSelectionChanged">
             <ListView.ItemTemplate>

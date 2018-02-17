@@ -8,6 +8,9 @@
         mc:Ignorable="d"
         Title="LoginDialog" Height="100" Width="300"
         WindowStartupLocation="CenterScreen"
+        SizeToContent="WidthAndHeight"
+        WindowStyle="ToolWindow"
+        ResizeMode="NoResize"
         d:DataContext="{d:DesignInstance Type=viewModel:LoginDialogViewModel}">
     <Grid>
         <Grid.RowDefinitions>

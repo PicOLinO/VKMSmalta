@@ -7,7 +7,7 @@
       xmlns:elementsVM="clr-namespace:VKMSmalta.View.Elements.ViewModel"
       xmlns:elements="clr-namespace:VKMSmalta.View.Elements"
       xmlns:view="clr-namespace:VKMSmalta.View"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       d:DesignHeight="355.479" d:DesignWidth="534.091"
       d:DataContext="{d:DesignInstance Type=viewModel:DevicePageViewModel}">
     <Grid>
@@ -19,7 +19,7 @@
         <ItemsControl Grid.Row="0" ItemsSource="{Binding Elements}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Canvas>
+                    <Canvas ClipToBounds="True" SnapsToDevicePixels="True">
                         <Canvas.Background>
                             <ImageBrush Stretch="Uniform" ImageSource="Images/Background.png"/>
                         </Canvas.Background>
