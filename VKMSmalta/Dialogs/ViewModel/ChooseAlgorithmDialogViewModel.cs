@@ -21,7 +21,13 @@ namespace VKMSmalta.Dialogs.ViewModel
         public ChooseAlgorithmDialogViewModel()
         {
             //TODO: Добавить фабрику по производству Algorithm
+            var newAlgorithm = CreateTestAlgorithm();
 
+            Algorithms = new ObservableCollection<Algorithm> {};
+        }
+
+        private Algorithm CreateTestAlgorithm()
+        {
             var startStateOfElements = new Dictionary<string, int>
                                        {
                                            {"vkt101", 0},
@@ -34,18 +40,18 @@ namespace VKMSmalta.Dialogs.ViewModel
                                      };
 
             var newAlgorithm = new Algorithm(startStateOfElements, endStateOfElements)
-                           {
-                               Name = "Test Algorithm",
-                               Actions = new LinkedList<Action>(new []
-                                                                {
-                                                                    //TODO: Добавить фабрику по производству Action
-                                                                    new Action(ActionName.Click, "vkt101", new HintViewModel("some hint")),
-                                                                    new Action(ActionName.Click, "vkt101", new HintViewModel("some hint 2")),
-                                                                    new Action(ActionName.Click, "vkwhl", new HintViewModel("some hint for wheel"))
-                                                                })
-                           };
+                               {
+                                   Name = "Test Algorithm",
+                                   Actions = new LinkedList<Action>(new[]
+                                                                    {
+                                                                        //TODO: Добавить фабрику по производству Action
+                                                                        new Action(ActionName.Click, "vkt101", new HintViewModel("some hint")),
+                                                                        new Action(ActionName.Click, "vkt101", new HintViewModel("some hint 2")),
+                                                                        new Action(ActionName.Click, "vkwhl", new HintViewModel("some hint for wheel"))
+                                                                    })
+                               };
 
-            Algorithms = new ObservableCollection<Algorithm> {newAlgorithm};
+            return newAlgorithm;
         }
     }
 }
