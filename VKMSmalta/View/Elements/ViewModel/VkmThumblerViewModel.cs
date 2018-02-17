@@ -7,7 +7,7 @@ namespace VKMSmalta.View.Elements.ViewModel
         private readonly string imageOffSource;
         private readonly string imageOnSource;
 
-        public VkmThumblerViewModel(string imageOffSource = "/VKMSmalta;component/View/Images/ThumblerOff.png", string imageOnSource = "/VKMSmalta;component/View/Images/ThumblerOn.png")
+        public VkmThumblerViewModel(int value, string name, string imageOffSource = "/VKMSmalta;component/View/Images/ThumblerOff.png", string imageOnSource = "/VKMSmalta;component/View/Images/ThumblerOn.png") : base(value, name)
         {
             this.imageOffSource = ImageSource = imageOffSource;
             this.imageOnSource = imageOnSource;

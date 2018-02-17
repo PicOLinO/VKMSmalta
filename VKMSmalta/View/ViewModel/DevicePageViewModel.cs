@@ -54,10 +54,11 @@ namespace VKMSmalta.View.ViewModel
 
         private void InitializeElements()
         {
+            //TODO: Добавить начальное состояние элементам из CurrentAlgorithm.StartStateOfElements
             Elements = new ObservableCollection<ElementViewModelBase>
                        {
-                           new VkmThumblerViewModel { Name = "vkt101", PosTop = 200, PosLeft = 350 },
-                           new VkmRotateWheelViewModel(1, -20, 20, 5) { Name = "vkwhl", PosTop = 500, PosLeft = 400 }
+                           new VkmThumblerViewModel(0, "vkt101") { PosTop = 200, PosLeft = 350 },
+                           new VkmRotateWheelViewModel(1, "vkwhl", -20, 20, 5) { PosTop = 500, PosLeft = 400 }
                        };
         }
 
@@ -68,7 +69,7 @@ namespace VKMSmalta.View.ViewModel
 
         private void OnCheckResult()
         {
-            var value = HistoryService.Instance.GetValueByAlgorithm(CurrentAlgorithm, Elements.Cast<IValuableElement>().ToList());
+            var value = HistoryService.Instance.GetValueByAlgorithm(CurrentAlgorithm, Elements.Cast<IValuableNamedElement>().ToList());
             VkmNavigationService.Instance.ExitDevicePageWithResult(value);
             Dispose();
         }

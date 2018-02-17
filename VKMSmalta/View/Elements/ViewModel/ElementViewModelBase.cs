@@ -6,9 +6,8 @@ using VKMSmalta.View.ViewModel;
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
-    public class ElementViewModelBase : ViewModelBase, IValuableElement
+    public class ElementViewModelBase : ViewModelBase, IValuableNamedElement
     {
-
         public double PosLeft { get; set; }
         public double PosTop { get; set; }
         public string Name { get; set; }
@@ -30,6 +29,12 @@ namespace VKMSmalta.View.Elements.ViewModel
         {
             get { return GetProperty(() => Hint); }
             set { SetProperty(() => Hint, value); }
+        }
+
+        public ElementViewModelBase(int value, string name)
+        {
+            Name = name;
+            Value = value;
         }
     }
 }

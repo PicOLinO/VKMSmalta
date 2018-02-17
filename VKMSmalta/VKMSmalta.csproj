@@ -40,6 +40,7 @@
     <Reference Include="DevExpress.Xpf.Core.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -92,7 +93,7 @@
     </Compile>
     <Compile Include="View\Elements\ViewModel\ClickableElementViewModelBase.cs" />
     <Compile Include="View\Elements\ViewModel\ElementViewModelBase.cs" />
-    <Compile Include="View\Elements\ViewModel\IValuableElement.cs" />
+    <Compile Include="View\Elements\ViewModel\IValuableNamedElement.cs" />
     <Compile Include="View\Elements\ViewModel\VkmRotateWheelViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmThumblerViewModel.cs" />
     <Compile Include="View\Elements\VkmRotateWheel.xaml.cs">

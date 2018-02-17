@@ -12,7 +12,7 @@ namespace VKMSmalta.View.Elements.ViewModel
     {
         public DelegateCommand ClickCommand { get; set; }
 
-        public ClickableElementViewModelBase()
+        public ClickableElementViewModelBase(int value, string name) : base(value, name)
         {
             CreateCommands();
         }

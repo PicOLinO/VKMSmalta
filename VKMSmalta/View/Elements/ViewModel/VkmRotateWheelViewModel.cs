@@ -16,14 +16,14 @@ namespace VKMSmalta.View.Elements.ViewModel
             set { SetProperty(() => RotationDegrees, value); }
         }
 
-        public VkmRotateWheelViewModel(int startupValue, int startupRotation, int rotationStep, int maxRotationSteps, string image = "/VKMSmalta;component/View/Images/Wheel.png")
+        public VkmRotateWheelViewModel(int value, string name, int startupRotation, int rotationStep, int maxRotationSteps, string image = "/VKMSmalta;component/View/Images/Wheel.png") : base(value, name)
         {
             this.rotationStep = rotationStep;
             this.maxRotationSteps = maxRotationSteps;
-            this.startupValue = startupValue;
             ImageSource = image;
             RotationDegrees = startupRotation;
-            Value = startupValue;
+            startupValue = value;
+            Value = value;
         }
 
         protected override void OnClick()
