@@ -23,7 +23,7 @@ namespace VKMSmalta.Dialogs.ViewModel
             //TODO: Добавить фабрику по производству Algorithm
             var newAlgorithm = CreateTestAlgorithm();
 
-            Algorithms = new ObservableCollection<Algorithm> {};
+            Algorithms = new ObservableCollection<Algorithm> {newAlgorithm};
         }
 
         private Algorithm CreateTestAlgorithm()
