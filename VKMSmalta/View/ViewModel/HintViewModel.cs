@@ -25,7 +25,13 @@ namespace VKMSmalta.View.ViewModel
 
         private void CreateCommands()
         {
-            ClickNextCommand = new DelegateCommand(OnClickNext);
+            ClickNextCommand = new DelegateCommand(OnClickNext, CanOnClickNext);
+        }
+
+        private bool CanOnClickNext()
+        {
+            //TODO: В идеале тут должна быть проверка на текущее Value элемента, к которому относится данный Hint. Реализовать по возможности.
+            return true;
         }
 
         private void OnClickNext()
