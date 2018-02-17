@@ -44,6 +44,7 @@ namespace VKMSmalta.Services
             else
             {
                 action = Algorithm.Actions.Find(CurrentAction)?.Next?.Value;
+                HideCurrentHint();
             }
 
             if (action == null)
@@ -55,10 +56,20 @@ namespace VKMSmalta.Services
 
             var element = Elements.Single(e => e.Name == action?.ParentElementName);
 
-            element.Hint = action?.Hint;
+            element.Hint = action.Hint;
             element.IsHintOpen = true;
 
             CurrentAction = action;
+        }
+
+        public void HideCurrentHint()
+        {
+            var element = Elements.Single(e => e.Name == CurrentAction?.ParentElementName);
+
+            element.IsHintOpen = false;
+            element.Hint = null;
+
+            CurrentAction = null;
         }
 
         public void Dispose()
