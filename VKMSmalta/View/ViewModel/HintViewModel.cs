@@ -30,7 +30,7 @@ namespace VKMSmalta.View.ViewModel
 
         private void OnClickNext()
         {
-            HintService.Instance.ShowNext();
+            HintService.Instance.ShowNextHint();
         }
     }
 }

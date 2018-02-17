@@ -31,10 +31,10 @@ namespace VKMSmalta.Services
             Elements = elements;
             Algorithm = algorithm;
 
-            ShowNext();
+            ShowNextHint();
         }
 
-        public void ShowNext()
+        public void ShowNextHint()
         {
             Action action;
             if (CurrentAction == null)
