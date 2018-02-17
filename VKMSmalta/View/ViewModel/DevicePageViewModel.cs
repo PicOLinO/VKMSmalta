@@ -58,7 +58,7 @@ namespace VKMSmalta.View.ViewModel
             Elements = new ObservableCollection<ElementViewModelBase>
                        {
                            new VkmThumblerViewModel(0, "vkt101") { PosTop = 200, PosLeft = 350 },
-                           new VkmRotateWheelViewModel(1, "vkwhl", -20, 20, 5) { PosTop = 500, PosLeft = 400 }
+                           new VkmRotateWheelViewModel(1, "vkwhl", -20, 25, 5) { PosTop = 500, PosLeft = 400 }
                        };
         }
 

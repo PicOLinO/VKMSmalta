@@ -9,6 +9,7 @@ namespace VKMSmalta.View.Elements.ViewModel
         private readonly int startupValue;
         private readonly int rotationStep;
         private readonly int maxRotationSteps;
+        private readonly int startupRotation;
         
         public int RotationDegrees
         {
@@ -21,7 +22,7 @@ namespace VKMSmalta.View.Elements.ViewModel
             this.rotationStep = rotationStep;
             this.maxRotationSteps = maxRotationSteps;
             ImageSource = image;
-            RotationDegrees = startupRotation;
+            RotationDegrees = this.startupRotation = startupRotation;
             startupValue = value;
             Value = value;
         }
@@ -37,7 +38,7 @@ namespace VKMSmalta.View.Elements.ViewModel
             }
             else
             {
-                RotationDegrees = 0;
+                RotationDegrees = startupRotation;
                 Value = startupValue;
             }
         }
