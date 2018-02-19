@@ -19,7 +19,12 @@ namespace VKMSmalta.View.Elements.ViewModel
 
         private void CreateCommands()
         {
-            ClickCommand = new DelegateCommand(OnClick);
+            ClickCommand = new DelegateCommand(OnClick, CanOnClick);
+        }
+
+        private bool CanOnClick()
+        {
+            return IsEnabled;
         }
 
         protected virtual void OnClick()

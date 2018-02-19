@@ -31,6 +31,8 @@ namespace VKMSmalta.View.Elements.ViewModel
             set { SetProperty(() => Hint, value); }
         }
 
+        public bool IsEnabled { get; set; } = true;
+
         public ElementViewModelBase(int value, string name)
         {
             Name = name;

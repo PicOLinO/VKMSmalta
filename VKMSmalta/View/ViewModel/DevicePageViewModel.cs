@@ -71,6 +71,11 @@ namespace VKMSmalta.View.ViewModel
 
         private void GoTraining(Algorithm algorithm)
         {
+            foreach (var element in Elements)
+            {
+                element.IsEnabled = false;
+            }
+
             HintService.Instance.StartTraining(algorithm, Elements.ToList());
         }
 

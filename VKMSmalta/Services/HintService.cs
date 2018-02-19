@@ -56,6 +56,7 @@ namespace VKMSmalta.Services
 
             var element = Elements.Single(e => e.Name == action?.ParentElementName);
 
+            element.IsEnabled = true;
             element.Hint = action.Hint;
             element.IsHintOpen = true;
 
@@ -66,6 +67,7 @@ namespace VKMSmalta.Services
         {
             var element = Elements.Single(e => e.Name == CurrentAction?.ParentElementName);
 
+            element.IsEnabled = false;
             element.IsHintOpen = false;
             element.Hint = null;
 
