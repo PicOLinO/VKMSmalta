@@ -10,21 +10,11 @@ using Action = VKMSmalta.Domain.Action;
 
 namespace VKMSmalta.Services
 {
-    public class HintService : IDisposable
+    public class HintService : ServiceBase<HintService>, IDisposable
     {
-        public static HintService Instance { get; private set; }
-
         private List<ElementViewModelBase> Elements { get; set; }
         private Algorithm Algorithm { get; set; }
         private Action CurrentAction { get; set; }
-
-        public static void InitializeService()
-        {
-            if (Instance == null)
-            {
-                Instance = new HintService();
-            }
-        }
 
         public void StartTraining(Algorithm algorithm, List<ElementViewModelBase> elements)
         {

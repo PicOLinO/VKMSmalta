@@ -7,21 +7,11 @@ using Action = VKMSmalta.Domain.Action;
 
 namespace VKMSmalta.Services
 {
-    public class HistoryService
+    public class HistoryService : ServiceBase<HistoryService>
     {
-        public static HistoryService Instance { get; private set; }
-
-        public static void InitializeService()
-        {
-            if (Instance == null)
-            {
-                Instance = new HistoryService();
-            }
-        }
-
         public List<Action> Actions { get; }
 
-        private HistoryService()
+        public HistoryService()
         {
             Actions = new List<Action>();
         }
