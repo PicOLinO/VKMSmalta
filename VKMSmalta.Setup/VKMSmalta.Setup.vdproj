@@ -483,7 +483,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SmaltaSimulator"
         "ProductCode" = "8:{5CB6D60F-500C-4CC9-90EC-DF0AF9434434}"
-        "PackageCode" = "8:{C4337B04-5CDA-48E0-AB00-13D5CE0631DA}"
+        "PackageCode" = "8:{C79D2D32-8E48-4DD6-BFDA-7F00B7FC5718}"
         "UpgradeCode" = "8:{8C203F27-7977-46F0-8C4B-ED45317BBE76}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -643,7 +643,7 @@
                 {
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_6439D9A7DD7348AB811F91AA24686E8E"
                     {
-                    "Sequence" = "3:100"
+                    "Sequence" = "3:110"
                     "DisplayName" = "8:Welcome"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"

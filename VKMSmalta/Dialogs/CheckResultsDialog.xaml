@@ -13,9 +13,17 @@
         ResizeMode="NoResize"
         d:DataContext="{d:DesignInstance Type=viewModel:CheckResultsDialogViewModel}">
     <Grid>
-        <DockPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
             <TextBox Text="Ваш результат: " BorderThickness="0" IsReadOnly="True"/>
             <TextBox Text="{Binding Path=Value, Converter={converters:ValueToStringValueConverter}}" BorderThickness="0" IsReadOnly="True"/>
+        </DockPanel>
+        <DockPanel Grid.Row="1" HorizontalAlignment="Center">
+            <Button Content="Выход" Command="{Binding Path=CloseDialogCommand}"/>
+            <Button Content="Повторить" Command="{Binding Path=RetryCommand}"/>
         </DockPanel>
     </Grid>
 </Window>

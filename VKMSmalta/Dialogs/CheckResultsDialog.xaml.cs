@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DevExpress.Mvvm;
 using VKMSmalta.Dialogs.ViewModel;
 
 namespace VKMSmalta.Dialogs
@@ -22,7 +23,13 @@ namespace VKMSmalta.Dialogs
         public CheckResultsDialog(int value)
         {
             InitializeComponent();
-            DataContext = new CheckResultsDialogViewModel(value);
+            var vm = new CheckResultsDialogViewModel(value);
+            DataContext = vm;
+
+            if (vm.CloseDialogCommand == null)
+            {
+                vm.CloseDialogCommand = new DelegateCommand(Close);
+            }
         }
     }
 }

@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="Dialogs\ViewModel\CheckResultsDialogViewModel.cs" />
     <Compile Include="Dialogs\ViewModel\ChooseAlgorithmDialogViewModel.cs" />
+    <Compile Include="Dialogs\ViewModel\DialogViewModelBase.cs" />
     <Compile Include="Dialogs\ViewModel\IPasswordSupplier.cs" />
     <Compile Include="Dialogs\ViewModel\LoginDialogViewModel.cs" />
     <Compile Include="Domain\Action.cs" />

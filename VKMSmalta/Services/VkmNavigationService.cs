@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using VKMSmalta.Dialogs;
+using VKMSmalta.Dialogs.ViewModel;
 using VKMSmalta.View;
 
 namespace VKMSmalta.Services
@@ -31,11 +32,18 @@ namespace VKMSmalta.Services
             navigationService.Navigate(page);
         }
 
-        public void ExitDevicePageWithResult(int value)
+        public bool ExitDevicePageWithResult(int value)
         {
             var dialog = new CheckResultsDialog(value);
             dialog.ShowDialog();
+
+            if (((CheckResultsDialogViewModel) dialog.DataContext).IsRetry)
+            {
+                return true;
+            }
+
             navigationService.GoBack();
+            return false;
         }
 
         public void ExitDevicePageWithTrainingCompleteMessage()

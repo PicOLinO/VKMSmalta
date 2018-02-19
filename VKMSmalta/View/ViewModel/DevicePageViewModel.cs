@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using DevExpress.Mvvm;
+using DevExpress.Xpf.Core;
 using VKMSmalta.Dialogs;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
@@ -14,7 +16,12 @@ namespace VKMSmalta.View.ViewModel
         public DelegateCommand CheckResultCommand { get; set; }
 
         private Algorithm CurrentAlgorithm { get; }
-        public ObservableCollection<ElementViewModelBase> Elements { get; set; }
+
+        public ObservableCollection<ElementViewModelBase> Elements
+        {
+            get { return GetProperty(() => Elements); }
+            set { SetProperty(() => Elements, value); }
+        }
         public bool IsCheckResultButtonVisible
         {
             get { return GetProperty(() => IsCheckResultButtonVisible); }
@@ -70,7 +77,13 @@ namespace VKMSmalta.View.ViewModel
         private void OnCheckResult()
         {
             var value = HistoryService.Instance.GetValueByAlgorithm(CurrentAlgorithm, Elements.Cast<IValuableNamedElement>().ToList());
-            VkmNavigationService.Instance.ExitDevicePageWithResult(value);
+            var retry = VkmNavigationService.Instance.ExitDevicePageWithResult(value);
+
+            if (retry)
+            {
+                InitializeElements();
+            }
+
             Dispose();
         }
 
