@@ -11,7 +11,7 @@ namespace VKMSmalta.View.Elements.ViewModel
         public double PosLeft { get; set; }
         public double PosTop { get; set; }
         public string Name { get; set; }
-        public int Value { get; set; }
+        public virtual int Value { get; set; }
         
         public string ImageSource
         {
