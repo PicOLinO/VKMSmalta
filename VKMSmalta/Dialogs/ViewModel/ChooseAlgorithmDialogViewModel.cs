@@ -45,9 +45,9 @@ namespace VKMSmalta.Dialogs.ViewModel
                                    Actions = new LinkedList<Action>(new[]
                                                                     {
                                                                         //TODO: Добавить фабрику по производству Action
-                                                                        new Action(ActionName.Click, "vkt101", new HintViewModel("some hint")),
-                                                                        new Action(ActionName.Click, "vkt101", new HintViewModel("some hint 2")),
-                                                                        new Action(ActionName.Click, "vkwhl", new HintViewModel("some hint for wheel"))
+                                                                        new Action(ActionName.Click, "vkt101", new HintViewModel("some hint", 1)),
+                                                                        new Action(ActionName.Click, "vkt101", new HintViewModel("some hint 2", 0)),
+                                                                        new Action(ActionName.Click, "vkwhl", new HintViewModel("some hint for wheel", 2))
                                                                     })
                                };
 

@@ -9,6 +9,8 @@ namespace VKMSmalta.View.ViewModel
 {
     public class HintViewModel : ViewModelBase
     {
+        private readonly int accessibleValue;
+
         public DelegateCommand ClickNextCommand { get; set; }
 
         public string HintText
@@ -17,10 +19,12 @@ namespace VKMSmalta.View.ViewModel
             set { SetProperty(() => HintText, value); }
         }
 
-        public HintViewModel(string hintText)
+        public HintViewModel(string hintText, int accessibleValue)
         {
-            CreateCommands();
+            this.accessibleValue = accessibleValue;
             HintText = hintText;
+
+            CreateCommands();
         }
 
         private void CreateCommands()
@@ -30,8 +34,8 @@ namespace VKMSmalta.View.ViewModel
 
         private bool CanOnClickNext()
         {
-            //TODO: В идеале тут должна быть проверка на текущее Value элемента, к которому относится данный Hint. Реализовать по возможности.
-            return true;
+            var element = HintService.Instance.GetValuableElementByCurrentHint();
+            return element?.Value == accessibleValue;
         }
 
         private void OnClickNext()

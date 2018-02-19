@@ -62,7 +62,7 @@ namespace VKMSmalta.Services
             CurrentAction = action;
         }
 
-        public void HideCurrentHint()
+        private void HideCurrentHint()
         {
             var element = Elements.Single(e => e.Name == CurrentAction?.ParentElementName);
 
@@ -70,6 +70,16 @@ namespace VKMSmalta.Services
             element.Hint = null;
 
             CurrentAction = null;
+        }
+
+        public IValuableNamedElement GetValuableElementByCurrentHint()
+        {
+            if (CurrentAction != null)
+            {
+                return Elements.Single(e => e.Name == CurrentAction?.ParentElementName);
+            }
+
+            return null;
         }
 
         public void Dispose()
