@@ -87,6 +87,7 @@
     <Compile Include="Domain\Action.cs" />
     <Compile Include="Domain\ActionName.cs" />
     <Compile Include="Domain\Algorithm.cs" />
+    <Compile Include="Domain\ExamineResult.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
