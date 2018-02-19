@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_0950E734496E4028B7A1AAB98467A174"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_50401C83C9B28533C35019749D90EEB6"
         "OwnerKey" = "8:_6F7118684E4245AFB600AB1DE3778624"
         "MsmSig" = "8:_UNDEFINED"
@@ -58,7 +64,7 @@
         "Entry"
         {
         "MsmKey" = "8:_78F8D3AC6129456BE8505EF02225583A"
-        "OwnerKey" = "8:_BB1A35FF9C28289B44BC06646E5D996B"
+        "OwnerKey" = "8:_EE62734AFF07092E4CDB331DFBE7ADC9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -70,13 +76,7 @@
         "Entry"
         {
         "MsmKey" = "8:_78F8D3AC6129456BE8505EF02225583A"
-        "OwnerKey" = "8:_EE62734AFF07092E4CDB331DFBE7ADC9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9E6095038B734197B8A70D892D7A28A0"
-        "OwnerKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BB1A35FF9C28289B44BC06646E5D996B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -95,12 +95,6 @@
         {
         "MsmKey" = "8:_EE62734AFF07092E4CDB331DFBE7ADC9"
         "OwnerKey" = "8:_6F7118684E4245AFB600AB1DE3778624"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_78F8D3AC6129456BE8505EF02225583A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -133,6 +127,12 @@
         "OwnerKey" = "8:_50401C83C9B28533C35019749D90EEB6"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_78F8D3AC6129456BE8505EF02225583A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -151,6 +151,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -167,6 +175,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -196,6 +220,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0950E734496E4028B7A1AAB98467A174"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Pictures\\VKMIREA\\VkMireaInstallerBanner.jpg"
+            "TargetName" = "8:VkMireaInstallerBanner.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_3338F80A364545FBA9ABADEDE8EC92D8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_50401C83C9B28533C35019749D90EEB6"
             {
             "AssemblyRegister" = "3:1"
@@ -307,26 +351,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9E6095038B734197B8A70D892D7A28A0"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Pictures\\VKMIREA\\VkMireaLogo.jpg"
-            "TargetName" = "8:VkMireaLogo.jpg"
-            "Tag" = "8:"
-            "Folder" = "8:_3338F80A364545FBA9ABADEDE8EC92D8"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BB1A35FF9C28289B44BC06646E5D996B"
@@ -459,7 +483,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SmaltaSimulator"
         "ProductCode" = "8:{5CB6D60F-500C-4CC9-90EC-DF0AF9434434}"
-        "PackageCode" = "8:{9677B6BE-73F8-4A26-90DD-4C45478D4EF5}"
+        "PackageCode" = "8:{C4337B04-5CDA-48E0-AB00-13D5CE0631DA}"
         "UpgradeCode" = "8:{8C203F27-7977-46F0-8C4B-ED45317BBE76}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -635,7 +659,7 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-                            "Value" = "8:_9E6095038B734197B8A70D892D7A28A0"
+                            "Value" = "8:_0950E734496E4028B7A1AAB98467A174"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "CopyrightWarning"
@@ -683,7 +707,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_0950E734496E4028B7A1AAB98467A174"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "InstallAllUsersVisible"
@@ -718,7 +743,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_0950E734496E4028B7A1AAB98467A174"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -749,7 +775,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_0950E734496E4028B7A1AAB98467A174"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -771,7 +798,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_0950E734496E4028B7A1AAB98467A174"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "CopyrightWarning"
@@ -819,7 +847,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_0950E734496E4028B7A1AAB98467A174"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -850,7 +879,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_0950E734496E4028B7A1AAB98467A174"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "ShowProgress"
@@ -900,7 +930,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_0950E734496E4028B7A1AAB98467A174"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "UpdateText"
@@ -944,7 +975,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_0950E734496E4028B7A1AAB98467A174"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -975,7 +1007,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_0950E734496E4028B7A1AAB98467A174"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "ShowProgress"
