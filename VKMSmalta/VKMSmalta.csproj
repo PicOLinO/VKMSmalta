@@ -192,7 +192,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Images\Background.png" />
     <Resource Include="View\Images\LampOff.png" />
     <Resource Include="View\Images\LampOn.png" />
     <Resource Include="View\Images\ThumblerOff.png" />
@@ -201,6 +200,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

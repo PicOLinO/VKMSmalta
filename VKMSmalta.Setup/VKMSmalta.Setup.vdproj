@@ -158,6 +158,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
         "Release"
@@ -166,7 +174,7 @@
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
         "OutputFilename" = "8:Release\\Smalta Install.msi"
-        "PackageFilesAs" = "3:4"
+        "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:0"
         "CabType" = "3:1"
         "Compression" = "3:2"
@@ -483,7 +491,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SmaltaSimulator"
         "ProductCode" = "8:{5CB6D60F-500C-4CC9-90EC-DF0AF9434434}"
-        "PackageCode" = "8:{C79D2D32-8E48-4DD6-BFDA-7F00B7FC5718}"
+        "PackageCode" = "8:{32A2EF27-4F43-43A3-978C-F14F5A24F094}"
         "UpgradeCode" = "8:{8C203F27-7977-46F0-8C4B-ED45317BBE76}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1070,7 +1078,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6F7118684E4245AFB600AB1DE3778624"
             {
-            "SourcePath" = "8:..\\VKMSmalta\\obj\\Release\\VKMSmalta.exe"
+            "SourcePath" = "8:..\\VKMSmalta\\obj\\Debug\\VKMSmalta.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3338F80A364545FBA9ABADEDE8EC92D8"
