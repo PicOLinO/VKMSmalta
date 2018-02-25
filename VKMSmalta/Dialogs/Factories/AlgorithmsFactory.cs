@@ -8,6 +8,11 @@ namespace VKMSmalta.Dialogs.Factories
     {
         public static Algorithm GetPrepareToLaunchAlgorithm()
         {
+            var startStateOfElements = new Dictionary<string, int>
+                                       {
+                                           //TODO:
+                                       };
+
             var endStateOfElements = new Dictionary<string, int>
                                      {
                                          {"thumbler_light", 1},
@@ -18,7 +23,7 @@ namespace VKMSmalta.Dialogs.Factories
                                          {"thumbler_imitator", 0}
                                      };
 
-            var newAlgorithm = new Algorithm(null, endStateOfElements)
+            var newAlgorithm = new Algorithm(startStateOfElements, endStateOfElements)
                                {
                                    Name = "Подготовка изделия Л001 к включению",
                                    Actions = new LinkedList<Action>(new[]
