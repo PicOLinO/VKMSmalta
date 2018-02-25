@@ -74,6 +74,8 @@
     <Compile Include="Dialogs\ChooseAlgorithmDialog.xaml.cs">
       <DependentUpon>ChooseAlgorithmDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\Factories\ActionsFactory.cs" />
+    <Compile Include="Dialogs\Factories\AlgorithmsFactory.cs" />
     <Compile Include="Dialogs\LoginDialog.xaml.cs">
       <DependentUpon>LoginDialog.xaml</DependentUpon>
     </Compile>

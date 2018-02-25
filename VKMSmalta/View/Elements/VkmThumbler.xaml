@@ -10,7 +10,7 @@
              d:DesignHeight="300" d:DesignWidth="300"
              d:DataContext="{d:DesignInstance Type=viewModel:VkmThumblerViewModel}">
     <Grid>
-        <Image Cursor="Hand" Source="{Binding Path=ImageSource}">
+        <Image x:Name="PART_Thumbler" Cursor="Hand" Source="{Binding Path=ImageSource}">
             <dxmvvm:Interaction.Behaviors>
                 <dxmvvm:EventToCommand EventName="MouseLeftButtonUp" Command="{Binding Path=ClickCommand}"/>
             </dxmvvm:Interaction.Behaviors>
@@ -18,7 +18,7 @@
                 <RotateTransform CenterX="38" CenterY="66" Angle="{Binding Path=StartupRotation}"/>
             </Image.RenderTransform>
         </Image>
-        <Popup IsOpen="{Binding Path=IsHintOpen}" StaysOpen="True" Placement="Right" MinWidth="170" MinHeight="60"
+        <Popup IsOpen="{Binding Path=IsHintOpen}" StaysOpen="True" PlacementTarget="{Binding ElementName=PART_Thumbler}" Placement="Right" MinWidth="170" MinHeight="60"
                PopupAnimation="Fade" AllowsTransparency="True">
             <view:Hint DataContext="{Binding Path=Hint}"/>
         </Popup>
