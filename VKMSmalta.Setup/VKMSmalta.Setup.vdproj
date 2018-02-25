@@ -220,7 +220,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:.NETFramework,Version=v4.6.1"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.5"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=671728"
                 }
@@ -491,7 +491,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SmaltaSimulator"
         "ProductCode" = "8:{5CB6D60F-500C-4CC9-90EC-DF0AF9434434}"
-        "PackageCode" = "8:{32A2EF27-4F43-43A3-978C-F14F5A24F094}"
+        "PackageCode" = "8:{B05C3CC2-6551-49DD-B2C9-8C6C56206166}"
         "UpgradeCode" = "8:{8C203F27-7977-46F0-8C4B-ED45317BBE76}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1078,7 +1078,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6F7118684E4245AFB600AB1DE3778624"
             {
-            "SourcePath" = "8:..\\VKMSmalta\\obj\\Debug\\VKMSmalta.exe"
+            "SourcePath" = "8:..\\VKMSmalta\\obj\\Release\\VKMSmalta.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3338F80A364545FBA9ABADEDE8EC92D8"

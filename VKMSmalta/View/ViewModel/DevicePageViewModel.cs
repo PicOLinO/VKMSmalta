@@ -64,7 +64,24 @@ namespace VKMSmalta.View.ViewModel
             //TODO: Добавить начальное состояние элементам из CurrentAlgorithm.StartStateOfElements
             Elements = new ObservableCollection<ElementViewModelBase>
                        {
-                           new VkmThumblerViewModel(0, "vkt101") { PosTop = 200, PosLeft = 350 },
+                           //Тумблеры снизу
+                           new VkmThumblerViewModel(0, "thumbler_imitator") { PosTop = 595, PosLeft = 375 },
+                           new VkmThumblerViewModel(0, "thumbler_antenna_leftside") { PosTop = 600, PosLeft = 660 },
+                           new VkmThumblerViewModel(0, "thumbler_antenna_rightside") { PosTop = 600, PosLeft = 750 },
+                           new VkmThumblerViewModel(0, "thumbler_light") { PosTop = 670, PosLeft = 750 },
+                           
+                           //Тумблеры справа сверху
+                           new VkmThumblerViewModel(0, "thumbler_power") { PosTop = 200, PosLeft = 350 },
+                           new VkmThumblerViewModel(0, "thumbler_cold") { PosTop = 200, PosLeft = 350 },
+                           new VkmThumblerViewModel(0, "thumbler_autosarpp") { PosTop = 200, PosLeft = 350 },
+                           new VkmThumblerViewModel(0, "thumbler_aircontrol") { PosTop = 200, PosLeft = 350 },
+                           
+                           //Тумблеры справа снизу
+                           new VkmThumblerViewModel(0, "thumbler_cooler") { PosTop = 200, PosLeft = 350 },
+                           new VkmThumblerViewModel(0, "thumbler_light_maintance") { PosTop = 200, PosLeft = 350 },
+                           new VkmThumblerViewModel(0, "thumbler_light_advanced") { PosTop = 200, PosLeft = 350 },
+                           new VkmThumblerViewModel(0, "thumbler_light_table") { PosTop = 200, PosLeft = 350 },
+
                            new VkmRotateWheelViewModel(1, "vkwhl", -20, 25, 5) { PosTop = 500, PosLeft = 400 }
                        };
         }
