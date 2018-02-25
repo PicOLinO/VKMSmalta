@@ -14,6 +14,9 @@
             <dxmvvm:Interaction.Behaviors>
                 <dxmvvm:EventToCommand EventName="MouseLeftButtonUp" Command="{Binding Path=ClickCommand}"/>
             </dxmvvm:Interaction.Behaviors>
+            <Image.RenderTransform>
+                <RotateTransform CenterX="38" CenterY="66" Angle="{Binding Path=StartupRotation}"/>
+            </Image.RenderTransform>
         </Image>
         <Popup IsOpen="{Binding Path=IsHintOpen}" StaysOpen="True" Placement="Right" MinWidth="170" MinHeight="60"
                PopupAnimation="Fade" AllowsTransparency="True">

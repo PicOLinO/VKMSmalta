@@ -9,6 +9,12 @@ namespace VKMSmalta.View.Elements.ViewModel
         private readonly string imageOffSource;
         private readonly string imageOnSource;
 
+        public int StartupRotation
+        {
+            get { return GetProperty(() => StartupRotation); }
+            set { SetProperty(() => StartupRotation, value); }
+        }
+
         public override int Value
         {
             get => value;
