@@ -28,7 +28,7 @@ namespace VKMSmalta.Dialogs.Factories
                                                                         ActionsFactory.GetClickAction("thumbler_2channel", "Установите данный тумблер в положение II КАНАЛ", 1),
                                                                         ActionsFactory.GetClickAction("thumbler_3channel", "Установите данный тумблер в положение III КАНАЛ", 1),
                                                                         ActionsFactory.GetClickAction("thumbler_4channel", "Установите данный тумблер в положение IV КАНАЛ", 1),
-                                                                        ActionsFactory.GetClickAction("thumbler_imitator", "Установите данный тумблер в положение ОТКЛ.", 1),
+                                                                        ActionsFactory.GetClickAction("thumbler_imitator", "Установите данный тумблер в положение ОТКЛ.", 0),
                                                                     })
                                };
 
