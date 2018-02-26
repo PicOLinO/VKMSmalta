@@ -41,9 +41,13 @@ namespace VKMSmalta.Services
             {
                 return true;
             }
-
-            navigationService.GoBack();
+            ExitDevicePage();
             return false;
+        }
+
+        public void ExitDevicePage()
+        {
+            navigationService.GoBack();
         }
 
         public void ExitDevicePageWithTrainingCompleteMessage()

@@ -42,8 +42,15 @@
                 </DataTemplate>
             </ItemsControl.Resources>
         </ItemsControl>
-        <StackPanel Grid.Row="1">
-            <Button Content="Проверить результат" Command="{Binding Path=CheckResultCommand}" Visibility="{Binding Path=IsCheckResultButtonVisible, Converter={converters:BoolToVisibilityConverter}}"/>
-        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="&lt;&lt;&lt;" Command="{Binding Path=GoBack}"/>
+            <Button Grid.Column="1" Content="Завершить" Command="{Binding Path=CheckResultCommand}"/>
+            <Button Grid.Column="2" Content="&gt;&gt;&gt;" Command="{Binding Path=GoNext}"/>
+        </Grid>
     </Grid>
 </Page>

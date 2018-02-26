@@ -13,8 +13,8 @@
              d:DesignHeight="80" d:DesignWidth="271"
              d:DataContext="{d:DesignInstance Type=viewModel:HintViewModel}">
     <Grid>
-        <Polygon Fill="White" Points="0, 0, 40, 0, 10, 40" />
-        <Border Margin="10 0 0 0" Background="White" CornerRadius="30">
+        <Polygon Fill="White" Points="0, 0, 40, 10, 10, 40" />
+        <Border Margin="10 10 0 0" Background="White" CornerRadius="30">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition />

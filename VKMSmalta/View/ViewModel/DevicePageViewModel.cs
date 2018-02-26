@@ -22,10 +22,10 @@ namespace VKMSmalta.View.ViewModel
             get { return GetProperty(() => Elements); }
             set { SetProperty(() => Elements, value); }
         }
-        public bool IsCheckResultButtonVisible
+        public bool IsExamine
         {
-            get { return GetProperty(() => IsCheckResultButtonVisible); }
-            set { SetProperty(() => IsCheckResultButtonVisible, value); }
+            get { return GetProperty(() => IsExamine); }
+            set { SetProperty(() => IsExamine, value); }
         }
 
         public DevicePageViewModel(ApplicationMode appMode, Algorithm algorithm)
@@ -38,13 +38,13 @@ namespace VKMSmalta.View.ViewModel
 
             if (appMode == ApplicationMode.Training)
             {
-                IsCheckResultButtonVisible = false;
+                IsExamine = false;
                 GoTraining(CurrentAlgorithm);
             }
 
             if (appMode == ApplicationMode.Examine)
             {
-                IsCheckResultButtonVisible = true;
+                IsExamine = true;
             }
         }
 
@@ -102,6 +102,13 @@ namespace VKMSmalta.View.ViewModel
 
         private void OnCheckResult()
         {
+            if (!IsExamine)
+            {
+                VkmNavigationService.Instance.ExitDevicePage();
+                Dispose();
+                return;
+            }
+
             var value = HistoryService.Instance.GetValueByAlgorithm(CurrentAlgorithm, Elements.Cast<IValuableNamedElement>().ToList());
             var retry = VkmNavigationService.Instance.ExitDevicePageWithResult(value);
 
