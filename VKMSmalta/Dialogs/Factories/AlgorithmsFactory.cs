@@ -29,10 +29,12 @@ namespace VKMSmalta.Dialogs.Factories
                                    Actions = new LinkedList<Action>(new[]
                                                                     {
                                                                         ActionsFactory.GetClickAction("thumbler_light", "Установите данный тумблер в положение ПОДСВЕТ", 1),
+
                                                                         ActionsFactory.GetClickAction("thumbler_1channel", "Установите данный тумблер в положение I КАНАЛ", 1),
                                                                         ActionsFactory.GetClickAction("thumbler_2channel", "Установите данный тумблер в положение II КАНАЛ", 1),
                                                                         ActionsFactory.GetClickAction("thumbler_3channel", "Установите данный тумблер в положение III КАНАЛ", 1),
                                                                         ActionsFactory.GetClickAction("thumbler_4channel", "Установите данный тумблер в положение IV КАНАЛ", 1),
+
                                                                         ActionsFactory.GetClickAction("thumbler_imitator", "Установите данный тумблер в положение ОТКЛ.", 0),
                                                                     })
                                };

@@ -19,9 +19,11 @@ namespace VKMSmalta.Services
         public int GetValueByAlgorithm(Algorithm algorithm, List<IValuableNamedElement> elements)
         {
             var rightsCount = 0;
+            var allCount = 0;
 
             foreach (var algorithmEndStateOfElement in algorithm.EndStateOfElements)
             {
+                allCount++;
                 if (elements.Single(el => el.Name == algorithmEndStateOfElement.Key).Value == algorithmEndStateOfElement.Value)
                 {
                     rightsCount++;
@@ -37,7 +39,7 @@ namespace VKMSmalta.Services
             }
             else
             {
-                return rightsCount * 5 / elements.Count;
+                return rightsCount * 5 / allCount;
             }
         }
 
