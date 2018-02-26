@@ -1,57 +1,147 @@
-﻿using System;
+﻿#region Usings
+
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.Linq;
 using DevExpress.Mvvm;
-using DevExpress.Xpf.Core;
 using VKMSmalta.Dialogs;
+using VKMSmalta.Dialogs.ViewModel;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
+using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
+using VKMSmalta.View.InnerPages.ViewModel;
+
+#endregion
 
 namespace VKMSmalta.View.ViewModel
 {
     public class DevicePageViewModel : ViewModelBase, IDisposable
     {
+        private readonly ApplicationMode applicationMode;
+
         public DelegateCommand CheckResultCommand { get; set; }
+        public DelegateCommand GoForwardCommand { get; set; }
+        public DelegateCommand GoPreviousCommand { get; set; }
 
         private Algorithm CurrentAlgorithm { get; }
 
-        public ObservableCollection<ElementViewModelBase> Elements
+        private IEnumerable<ElementViewModelBase> UnionedElements
         {
-            get { return GetProperty(() => Elements); }
-            set { SetProperty(() => Elements, value); }
+            get
+            {
+                var unionedElements = new List<ElementViewModelBase>();
+                foreach (var mainInnerDevicePageViewModel in pages)
+                {
+                    unionedElements.AddRange(mainInnerDevicePageViewModel.Elements.ToList());
+                }
+
+                return unionedElements;
+            }
         }
-        public bool IsExamine
+
+        private ObservableCollection<InnerPageViewModelBase> pages;
+
+        public InnerRegionPages CurrentPageKey
         {
-            get { return GetProperty(() => IsExamine); }
-            set { SetProperty(() => IsExamine, value); }
+            get { return GetProperty(() => CurrentPageKey); }
+            set { SetProperty(() => CurrentPageKey, value); }
         }
 
         public DevicePageViewModel(ApplicationMode appMode, Algorithm algorithm)
         {
+            applicationMode = appMode;
+
             CurrentAlgorithm = algorithm;
 
             InitializeServices();
             CreateCommands();
-            InitializeElements();
 
-            if (appMode == ApplicationMode.Training)
+            InitializeInnerPages();
+
+            if (applicationMode == ApplicationMode.Training)
             {
-                IsExamine = false;
                 GoTraining(CurrentAlgorithm);
             }
-
-            if (appMode == ApplicationMode.Examine)
-            {
-                IsExamine = true;
-            }
         }
+
+        private void InitializeInnerPages()
+        {
+            var mainDevicePageVm = new MainInnerDevicePageViewModel();
+            var advancedDevicePageVm = new AdvancedInnerDevicePageViewModel();
+
+            pages = new ObservableCollection<InnerPageViewModelBase>
+                    {
+                        mainDevicePageVm,
+                        advancedDevicePageVm
+                    };
+
+            ViewInjectionManager.Default.Inject(Regions.InnerRegion, InnerRegionPages.Main, () => mainDevicePageVm, typeof(MainInnerDevicePage));
+            ViewInjectionManager.Default.Inject(Regions.InnerRegion, InnerRegionPages.Advanced, () => advancedDevicePageVm, typeof(MainInnerDevicePage));
+            NavigateOnPage(InnerRegionPages.Main);
+        }
+
+        private void NavigateOnPage(InnerRegionPages page)
+        {
+            ViewInjectionManager.Default.Navigate(Regions.InnerRegion, page);
+            CurrentPageKey = page;
+        }
+
+        #region Commands
 
         private void CreateCommands()
         {
+            GoForwardCommand = new DelegateCommand(OnGoForward, CanGoForward);
             CheckResultCommand = new DelegateCommand(OnCheckResult);
+            GoPreviousCommand = new DelegateCommand(OnGoPrevious, CanGoPrevious);
         }
+
+        private bool CanGoForward()
+        {
+            return CurrentPageKey != pages.Last().PageKey;
+        }
+
+        private void OnGoForward()
+        {
+            NavigateOnPage(InnerRegionPages.Advanced);
+        }
+
+        private bool CanGoPrevious()
+        {
+            return CurrentPageKey != pages.First().PageKey;
+        }
+
+        private void OnGoPrevious()
+        {
+            NavigateOnPage(InnerRegionPages.Main);
+        }
+
+        private void OnCheckResult()
+        {
+            if (applicationMode == ApplicationMode.Training)
+            {
+                ExitInMainMenu();
+                Dispose();
+                return;
+            }
+
+            var value = HistoryService.Instance.GetValueByAlgorithm(CurrentAlgorithm, UnionedElements.Cast<IValuableNamedElement>().ToList());
+            var retry = CheckResults(value);
+            
+            if (retry)
+            {
+                Reset();
+                InitializeInnerPages();
+            }
+            else
+            {
+                Dispose();
+                ExitInMainMenu();
+            }
+        }
+
+        #endregion
 
         private void InitializeServices()
         {
@@ -59,71 +149,46 @@ namespace VKMSmalta.View.ViewModel
             HistoryService.InitializeService();
         }
 
-        private void InitializeElements()
-        {
-            //TODO: Добавить начальное состояние элементам из CurrentAlgorithm.StartStateOfElements
-            Elements = new ObservableCollection<ElementViewModelBase>
-                       {
-                           //Тумблеры в середине
-                           new VkmThumblerViewModel(0, "thumbler_1channel") { PosTop = 285, PosLeft = 330, StartupRotation = 90 },
-                           new VkmThumblerViewModel(0, "thumbler_2channel") { PosTop = 330, PosLeft = 330, StartupRotation = 90 },
-                           new VkmThumblerViewModel(0, "thumbler_3channel") { PosTop = 375, PosLeft = 330, StartupRotation = 90 },
-                           new VkmThumblerViewModel(0, "thumbler_4channel") { PosTop = 420, PosLeft = 330, StartupRotation = 90 },
-
-                           //Тумблеры снизу
-                           new VkmThumblerViewModel(1, "thumbler_imitator") { PosTop = 595, PosLeft = 375 },
-                           new VkmThumblerViewModel(0, "thumbler_antenna_leftside") { PosTop = 600, PosLeft = 660 },
-                           new VkmThumblerViewModel(0, "thumbler_antenna_rightside") { PosTop = 600, PosLeft = 750 },
-                           new VkmThumblerViewModel(0, "thumbler_light") { PosTop = 670, PosLeft = 750 },
-                           
-                           //Тумблеры справа сверху
-                           new VkmThumblerViewModel(0, "thumbler_power") { PosTop = 70, PosLeft = 1189 },
-                           new VkmThumblerViewModel(0, "thumbler_cold") { PosTop = 70, PosLeft = 1235 },
-                           new VkmThumblerViewModel(0, "thumbler_autosarpp") { PosTop = 70, PosLeft = 1287 },
-                           new VkmThumblerViewModel(0, "thumbler_aircontrol") { PosTop = 70, PosLeft = 1340 },
-                           
-                           //Тумблеры справа снизу
-                           new VkmThumblerViewModel(0, "thumbler_cooler") { PosTop = 660, PosLeft = 1180 },
-                           new VkmThumblerViewModel(0, "thumbler_light_maintance") { PosTop = 660, PosLeft = 1223 },
-                           new VkmThumblerViewModel(0, "thumbler_light_advanced") { PosTop = 660, PosLeft = 1270 },
-                           new VkmThumblerViewModel(0, "thumbler_light_table") { PosTop = 660, PosLeft = 1317 }
-                       };
-        }
-
         private void GoTraining(Algorithm algorithm)
         {
-            foreach (var element in Elements)
+            foreach (var element in UnionedElements)
             {
                 element.IsEnabled = false;
             }
 
-            HintService.Instance.StartTraining(algorithm, Elements.ToList());
+            HintService.Instance.StartTraining(algorithm, UnionedElements.ToList());
         }
 
-        private void OnCheckResult()
+        private bool CheckResults(int value)
         {
-            if (!IsExamine)
+            var dialog = new CheckResultsDialog(value);
+            dialog.ShowDialog();
+
+            if (((CheckResultsDialogViewModel)dialog.DataContext).IsRetry)
             {
-                MainNavigationService.Instance.ExitDevicePage();
-                Dispose();
-                return;
+                return true;
             }
 
-            var value = HistoryService.Instance.GetValueByAlgorithm(CurrentAlgorithm, Elements.Cast<IValuableNamedElement>().ToList());
-            var retry = MainNavigationService.Instance.ExitDevicePageWithResult(value);
+            return false;
+        }
 
-            if (retry)
-            {
-                InitializeElements();
-            }
+        private void ExitInMainMenu()
+        {
+            ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.MainMenu);
+        }
 
-            Dispose();
+        private void Reset()
+        {
+            ViewInjectionManager.Default.Remove(Regions.InnerRegion, InnerRegionPages.Main);
+            ViewInjectionManager.Default.Remove(Regions.InnerRegion, InnerRegionPages.Advanced);
+            HintService.Instance.Reset();
+            HistoryService.Instance.Reset();
         }
 
         public void Dispose()
         {
-            HintService.Instance.Reset();
-            HistoryService.Instance.Reset();
+            ViewInjectionManager.Default.Remove(Regions.OuterRegion, OuterRegionPages.Device);
+            Reset();
         }
     }
 }

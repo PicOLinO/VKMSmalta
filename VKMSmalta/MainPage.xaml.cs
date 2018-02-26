@@ -32,7 +32,7 @@ namespace VKMSmalta
 
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
-            MainNavigationService.InitializeService(NavigationService.GetNavigationService(this));
+            MainNavigationService.InitializeService();
         }
     }
 }

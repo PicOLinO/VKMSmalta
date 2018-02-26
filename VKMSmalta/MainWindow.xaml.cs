@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DevExpress.Mvvm;
+using VKMSmalta.Services.Navigate;
 using VKMSmalta.ViewModel;
 
 namespace VKMSmalta
@@ -24,6 +26,7 @@ namespace VKMSmalta
         public MainWindow()
         {
             InitializeComponent();
+            ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.MainMenu, () => new MainPageViewModel(), typeof(MainPage));
         }
     }
 }

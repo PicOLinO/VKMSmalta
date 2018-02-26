@@ -33,13 +33,15 @@ namespace VKMSmalta.Services
                 //Действия пользователя брать из Actions этого класса.
             }
 
-            if (rightsCount <= 0)
+            var value = rightsCount * 5 / allCount;
+
+            if (value <= 0)
             {
                 return 1;
             }
             else
             {
-                return rightsCount * 5 / allCount;
+                return value;
             }
         }
 

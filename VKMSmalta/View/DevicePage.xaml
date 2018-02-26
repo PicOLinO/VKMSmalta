@@ -8,6 +8,7 @@
       xmlns:elements="clr-namespace:VKMSmalta.View.Elements"
       xmlns:view="clr-namespace:VKMSmalta.View"
       xmlns:converters="clr-namespace:VKMSmalta.Converters"
+      xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
       mc:Ignorable="d"
       d:DesignHeight="355.479" d:DesignWidth="534.091"
       d:DataContext="{d:DesignInstance Type=viewModel:DevicePageViewModel}">
@@ -16,41 +17,20 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
-        <ItemsControl Grid.Row="0" ItemsSource="{Binding Elements}">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <Canvas ClipToBounds="True" SnapsToDevicePixels="True">
-                        <Canvas.Background>
-                            <ImageBrush Stretch="Uniform" ImageSource="Images/Background.png"/>
-                        </Canvas.Background>
-                    </Canvas>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemContainerStyle>
-                <Style TargetType="ContentPresenter">
-                    <Setter Property="Canvas.Top" Value="{Binding Path=PosTop}"/>
-                    <Setter Property="Canvas.Left" Value="{Binding Path=PosLeft}"/>
-                </Style>
-            </ItemsControl.ItemContainerStyle>
-            <ItemsControl.Resources>
-                <DataTemplate DataType="{x:Type elementsVM:VkmThumblerViewModel}">
-                    <elements:VkmThumbler/>
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type elementsVM:VkmRotateWheelViewModel}">
-                    <elements:VkmRotateWheel/>
-                </DataTemplate>
-            </ItemsControl.Resources>
-        </ItemsControl>
+        <Frame NavigationUIVisibility="Hidden">
+            <dxmvvm:Interaction.Behaviors>
+                <dxmvvm:ViewInjectionService RegionName="Inner" />
+            </dxmvvm:Interaction.Behaviors>
+        </Frame>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="&lt;&lt;&lt;" Command="{Binding Path=GoBack}"/>
+            <Button Grid.Column="0" Content="&lt;&lt;&lt;" Command="{Binding Path=GoPreviousCommand}"/>
             <Button Grid.Column="1" Content="Завершить" Command="{Binding Path=CheckResultCommand}"/>
-            <Button Grid.Column="2" Content="&gt;&gt;&gt;" Command="{Binding Path=GoNext}"/>
+            <Button Grid.Column="2" Content="&gt;&gt;&gt;" Command="{Binding Path=GoForwardCommand}"/>
         </Grid>
     </Grid>
 </Page>

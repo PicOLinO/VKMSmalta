@@ -1,0 +1,46 @@
+﻿<Page x:Class="VKMSmalta.View.MainInnerDevicePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:viewModel="clr-namespace:VKMSmalta.View.ViewModel"
+      xmlns:elementsVM="clr-namespace:VKMSmalta.View.Elements.ViewModel"
+      xmlns:elements="clr-namespace:VKMSmalta.View.Elements"
+      xmlns:view="clr-namespace:VKMSmalta.View"
+      xmlns:converters="clr-namespace:VKMSmalta.Converters"
+      mc:Ignorable="d"
+      d:DesignHeight="355.479" d:DesignWidth="534.091"
+      d:DataContext="{d:DesignInstance Type=viewModel:MainInnerDevicePageViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ItemsControl Grid.Row="0" ItemsSource="{Binding Elements}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas ClipToBounds="True" SnapsToDevicePixels="True">
+                        <Canvas.Background>
+                            <ImageBrush Stretch="Uniform" ImageSource="{Binding Path=BackgroundSource}"/>
+                        </Canvas.Background>
+                    </Canvas>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemContainerStyle>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="Canvas.Top" Value="{Binding Path=PosTop}"/>
+                    <Setter Property="Canvas.Left" Value="{Binding Path=PosLeft}"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+            <ItemsControl.Resources>
+                <DataTemplate DataType="{x:Type elementsVM:VkmThumblerViewModel}">
+                    <elements:VkmThumbler/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type elementsVM:VkmRotateWheelViewModel}">
+                    <elements:VkmRotateWheel/>
+                </DataTemplate>
+            </ItemsControl.Resources>
+        </ItemsControl>
+    </Grid>
+</Page>

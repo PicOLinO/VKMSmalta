@@ -4,6 +4,7 @@ using DevExpress.Mvvm;
 using VKMSmalta.Dialogs;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
+using VKMSmalta.Services.Navigate;
 using VKMSmalta.View;
 using VKMSmalta.View.ViewModel;
 
@@ -38,7 +39,8 @@ namespace VKMSmalta.ViewModel
             var algorithm = ChooseAlgorithm();
             if (algorithm != null)
             {
-                MainNavigationService.Instance.Navigate(new DevicePage(), new DevicePageViewModel(ApplicationMode.Training, algorithm));
+                ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => new DevicePageViewModel(ApplicationMode.Training, algorithm), typeof(DevicePage));
+                ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
             }
         }
 
@@ -47,7 +49,8 @@ namespace VKMSmalta.ViewModel
             var algorithm = ChooseAlgorithm();
             if (algorithm != null)
             {
-                MainNavigationService.Instance.Navigate(new DevicePage(), new DevicePageViewModel(ApplicationMode.Examine, algorithm));
+                ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => new DevicePageViewModel(ApplicationMode.Examine, algorithm), typeof(DevicePage));
+                ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
             }
         }
 

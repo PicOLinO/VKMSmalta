@@ -96,6 +96,8 @@
     </Compile>
     <Compile Include="Services\HintService.cs" />
     <Compile Include="Services\HistoryService.cs" />
+    <Compile Include="Services\Navigate\RegionPages.cs" />
+    <Compile Include="Services\Navigate\Regions.cs" />
     <Compile Include="Services\NetworkService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="Services\MainNavigationService.cs" />
@@ -117,6 +119,12 @@
     <Compile Include="View\Hint.xaml.cs">
       <DependentUpon>Hint.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\InnerPages\MainInnerDevicePage.xaml.cs">
+      <DependentUpon>MainInnerDevicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InnerPages\ViewModel\InnerPageViewModelBase.cs" />
+    <Compile Include="View\InnerPages\ViewModel\AdvancedInnerDevicePageViewModel.cs" />
+    <Compile Include="View\InnerPages\ViewModel\MainInnerDevicePageViewModel.cs" />
     <Compile Include="View\ViewModel\DevicePageViewModel.cs" />
     <Compile Include="View\ViewModel\HintViewModel.cs" />
     <Page Include="Dialogs\CheckResultsDialog.xaml">
@@ -167,6 +175,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\InnerPages\MainInnerDevicePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -207,7 +219,14 @@
     <Resource Include="logo.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Images\Background.png" />
+    <Content Include="View\Images\Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="View\Images\AdvancedBackground.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
