@@ -41,7 +41,11 @@ namespace VKMSmalta.View.ViewModel
                            new VkmThumblerViewModel(0, "thumbler_cooler") { PosTop = 660, PosLeft = 1180 },
                            new VkmThumblerViewModel(0, "thumbler_light_maintance") { PosTop = 660, PosLeft = 1223 },
                            new VkmThumblerViewModel(0, "thumbler_light_advanced") { PosTop = 660, PosLeft = 1270 },
-                           new VkmThumblerViewModel(0, "thumbler_light_table") { PosTop = 660, PosLeft = 1317 }
+                           new VkmThumblerViewModel(0, "thumbler_light_table") { PosTop = 660, PosLeft = 1317 },
+
+                           //Стрелки слева
+                           new VkmBlackTriangleArrowViewModel(0, "channel1_arrow", 40) { PosTop = 25, PosLeft = 25 },
+                           //TODO: Добавить стрелки.
                        };
         }
     }

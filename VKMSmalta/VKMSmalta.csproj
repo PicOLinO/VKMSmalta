@@ -108,10 +108,14 @@
     <Compile Include="View\Elements\ViewModel\ClickableElementViewModelBase.cs" />
     <Compile Include="View\Elements\ViewModel\ElementViewModelBase.cs" />
     <Compile Include="View\Elements\ViewModel\IValuableNamedElement.cs" />
+    <Compile Include="View\Elements\ViewModel\VkmBlackTriangleArrowViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmRotateWheelViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmThumblerViewModel.cs" />
     <Compile Include="View\Elements\VkmRotateWheel.xaml.cs">
       <DependentUpon>VkmRotateWheel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Elements\VkmBlackTriangleArrow.xaml.cs">
+      <DependentUpon>VkmBlackTriangleArrow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Elements\VkmThumbler.xaml.cs">
       <DependentUpon>VkmThumbler.xaml</DependentUpon>
@@ -166,6 +170,10 @@
     <Page Include="View\Elements\VkmRotateWheel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Elements\VkmBlackTriangleArrow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Elements\VkmThumbler.xaml">
       <SubType>Designer</SubType>

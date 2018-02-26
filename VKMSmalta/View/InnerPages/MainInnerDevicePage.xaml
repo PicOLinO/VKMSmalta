@@ -40,6 +40,9 @@
                 <DataTemplate DataType="{x:Type elementsVM:VkmRotateWheelViewModel}">
                     <elements:VkmRotateWheel/>
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type elementsVM:VkmBlackTriangleArrowViewModel}">
+                    <elements:VkmBlackTriangleArrow/>
+                </DataTemplate>
             </ItemsControl.Resources>
         </ItemsControl>
     </Grid>
