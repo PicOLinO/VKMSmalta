@@ -18,7 +18,10 @@
                 <RotateTransform CenterX="38" CenterY="66" Angle="{Binding Path=StartupRotation}"/>
             </Image.RenderTransform>
         </Image>
-        <Popup IsOpen="{Binding Path=IsHintOpen}" StaysOpen="True" PlacementTarget="{Binding ElementName=PART_Thumbler}" Placement="Right" MinWidth="170" MinHeight="60"
+        <Popup IsOpen="{Binding Path=IsHintOpen}" StaysOpen="True" 
+               VerticalOffset="20" HorizontalOffset="10"
+               PlacementTarget="{Binding ElementName=PART_Thumbler}" 
+               Placement="Right" MinWidth="170" MinHeight="60"
                PopupAnimation="Fade" AllowsTransparency="True">
             <view:Hint DataContext="{Binding Path=Hint}"/>
         </Popup>
