@@ -7,13 +7,13 @@ using VKMSmalta.View;
 
 namespace VKMSmalta.Services
 {
-    public class VkmNavigationService 
+    public class MainNavigationService 
     {
-        public static VkmNavigationService Instance { get; private set; }
+        public static MainNavigationService Instance { get; private set; }
 
         private readonly NavigationService navigationService;
 
-        private VkmNavigationService(NavigationService navigationService)
+        private MainNavigationService(NavigationService navigationService)
         {
             this.navigationService = navigationService;
         }
@@ -22,7 +22,7 @@ namespace VKMSmalta.Services
         {
             if (Instance == null)
             {
-                Instance = new VkmNavigationService(navigationService);
+                Instance = new MainNavigationService(navigationService);
             }
         }
 

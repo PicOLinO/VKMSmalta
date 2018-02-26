@@ -104,13 +104,13 @@ namespace VKMSmalta.View.ViewModel
         {
             if (!IsExamine)
             {
-                VkmNavigationService.Instance.ExitDevicePage();
+                MainNavigationService.Instance.ExitDevicePage();
                 Dispose();
                 return;
             }
 
             var value = HistoryService.Instance.GetValueByAlgorithm(CurrentAlgorithm, Elements.Cast<IValuableNamedElement>().ToList());
-            var retry = VkmNavigationService.Instance.ExitDevicePageWithResult(value);
+            var retry = MainNavigationService.Instance.ExitDevicePageWithResult(value);
 
             if (retry)
             {

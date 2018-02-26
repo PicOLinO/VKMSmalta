@@ -39,7 +39,7 @@ namespace VKMSmalta.Services
 
             if (action == null)
             {
-                VkmNavigationService.Instance.ExitDevicePageWithTrainingCompleteMessage();
+                MainNavigationService.Instance.ExitDevicePageWithTrainingCompleteMessage();
                 Dispose();
                 return;
             }

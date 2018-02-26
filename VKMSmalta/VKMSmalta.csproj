@@ -98,7 +98,7 @@
     <Compile Include="Services\HistoryService.cs" />
     <Compile Include="Services\NetworkService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
-    <Compile Include="Services\VkmNavigationService.cs" />
+    <Compile Include="Services\MainNavigationService.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="View\DevicePage.xaml.cs">
       <DependentUpon>DevicePage.xaml</DependentUpon>
