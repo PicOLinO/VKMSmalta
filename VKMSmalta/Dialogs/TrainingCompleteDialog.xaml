@@ -9,7 +9,7 @@
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="TrainingCompleteDialog">
+        Title="Обучение завершено">
     <Grid>
         <TextBlock Text="Обучение алгоритму завершено"/>
     </Grid>

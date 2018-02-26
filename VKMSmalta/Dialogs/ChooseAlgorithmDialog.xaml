@@ -7,7 +7,7 @@
         xmlns:viewModel="clr-namespace:VKMSmalta.Dialogs.ViewModel"
         xmlns:domain="clr-namespace:VKMSmalta.Domain"
         mc:Ignorable="d"
-        Title="ChooseAlgorithmDialog"
+        Title="Выберите алгоритм"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
