@@ -3,6 +3,7 @@
     public class VkmBlackTriangleArrowViewModel : ElementViewModelBase, IValuableNamedElement
     {
         private int value;
+        private int startupRotation;
 
         public int RotationDegrees
         {
@@ -16,13 +17,14 @@
             set
             {
                 this.value = value;
-                RotationDegrees = 10 * value;
+                RotationDegrees = (11 * value) + startupRotation;
             }
         }
 
         public VkmBlackTriangleArrowViewModel(int value, string name, int startupRotation) : base(value, name)
         {
-            RotationDegrees = startupRotation;
+            this.startupRotation = startupRotation;
+            Value = value;
         }
     }
 }
