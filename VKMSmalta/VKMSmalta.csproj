@@ -106,9 +106,13 @@
       <DependentUpon>DevicePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Elements\ElementBase.cs" />
+    <Compile Include="View\Elements\VkmLightableRectangle.xaml.cs">
+      <DependentUpon>VkmLightableRectangle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Elements\ViewModel\ClickableElementViewModelBase.cs" />
     <Compile Include="View\Elements\ViewModel\ElementViewModelBase.cs" />
     <Compile Include="View\Elements\ViewModel\IValuableNamedElement.cs" />
+    <Compile Include="View\Elements\ViewModel\VkmLightableRectangleViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmBlackTriangleArrowViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmRotateWheelViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmThumblerViewModel.cs" />
@@ -165,6 +169,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\DevicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Elements\VkmLightableRectangle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

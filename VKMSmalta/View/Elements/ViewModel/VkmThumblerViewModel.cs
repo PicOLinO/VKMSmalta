@@ -3,7 +3,7 @@ using DevExpress.Mvvm;
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
-    public sealed class VkmThumblerViewModel : ClickableElementViewModelBase
+    public sealed class VkmThumblerViewModel : ClickableElementViewModelBase, IValuableNamedElement
     {
         private int value;
         private readonly string imageOffSource;

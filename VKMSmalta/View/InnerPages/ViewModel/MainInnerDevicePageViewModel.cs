@@ -25,6 +25,9 @@ namespace VKMSmalta.View.ViewModel
                            new VkmThumblerViewModel(0, "thumbler_3channel") { PosTop = 375, PosLeft = 330, StartupRotation = 90 },
                            new VkmThumblerViewModel(0, "thumbler_4channel") { PosTop = 420, PosLeft = 330, StartupRotation = 90 },
 
+                           //Подсветка в середине
+                           new VkmLightableRectangleViewModel(0, "reciever_channel1") { PosTop = 315, PosLeft = 535 },
+
                            //Тумблеры снизу
                            new VkmThumblerViewModel(1, "thumbler_imitator") { PosTop = 595, PosLeft = 375 },
                            new VkmThumblerViewModel(0, "thumbler_antenna_leftside") { PosTop = 600, PosLeft = 660 },

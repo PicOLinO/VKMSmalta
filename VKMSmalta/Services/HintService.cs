@@ -68,7 +68,7 @@ namespace VKMSmalta.Services
         {
             if (CurrentAction != null)
             {
-                return Elements.Single(e => e.Name == CurrentAction?.ParentElementName);
+                return Elements.Cast<IValuableNamedElement>().Single(e => e.Name == CurrentAction?.ParentElementName);
             }
 
             return null;
