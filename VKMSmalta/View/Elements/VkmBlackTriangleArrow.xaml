@@ -12,7 +12,7 @@
     <Grid>
         <Polygon x:Name="PART_Arrow" Fill="Black" Points="0, 2, 60, 0, 60, 4">
             <Polygon.RenderTransform>
-                <RotateTransform CenterX="38" CenterY="66" Angle="{Binding Path=RotationDegrees}"/>
+                <RotateTransform CenterX="60" CenterY="2" Angle="{Binding Path=RotationDegrees}"/>
             </Polygon.RenderTransform>
         </Polygon>
         <Popup IsOpen="{Binding Path=IsHintOpen}" StaysOpen="True" 

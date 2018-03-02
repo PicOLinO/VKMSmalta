@@ -17,11 +17,13 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Frame NavigationUIVisibility="Hidden">
-            <dxmvvm:Interaction.Behaviors>
-                <dxmvvm:ViewInjectionService RegionName="Inner" />
-            </dxmvvm:Interaction.Behaviors>
-        </Frame>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+            <Frame NavigationUIVisibility="Hidden" Width="1600" Height="817.04" >
+                <dxmvvm:Interaction.Behaviors>
+                    <dxmvvm:ViewInjectionService RegionName="Inner" />
+                </dxmvvm:Interaction.Behaviors>
+            </Frame>
+        </ScrollViewer>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>

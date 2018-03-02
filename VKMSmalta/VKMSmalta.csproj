@@ -105,6 +105,7 @@
     <Compile Include="View\DevicePage.xaml.cs">
       <DependentUpon>DevicePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Elements\ElementBase.cs" />
     <Compile Include="View\Elements\ViewModel\ClickableElementViewModelBase.cs" />
     <Compile Include="View\Elements\ViewModel\ElementViewModelBase.cs" />
     <Compile Include="View\Elements\ViewModel\IValuableNamedElement.cs" />

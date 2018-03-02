@@ -44,8 +44,16 @@ namespace VKMSmalta.View.ViewModel
                            new VkmThumblerViewModel(0, "thumbler_light_table") { PosTop = 660, PosLeft = 1317 },
 
                            //Стрелки слева
-                           new VkmBlackTriangleArrowViewModel(0, "channel1_arrow", 40) { PosTop = 25, PosLeft = 25 },
-                           //TODO: Добавить стрелки.
+                           new VkmBlackTriangleArrowViewModel(0, "reception_channel1_arrow", 35) { PosTop = 98, PosLeft = 115 },
+                           new VkmBlackTriangleArrowViewModel(0, "reception_channel2_arrow", 35) { PosTop = 294, PosLeft = 115 },
+                           new VkmBlackTriangleArrowViewModel(0, "reception_channel3_arrow", 35) { PosTop = 488, PosLeft = 115 },
+                           new VkmBlackTriangleArrowViewModel(0, "reception_channel4_arrow", 35) { PosTop = 680, PosLeft = 115 },
+
+                           //Стрелки справа
+                           new VkmBlackTriangleArrowViewModel(0, "transfer_channel1_arrow", 35) { PosTop = 98, PosLeft = 1000 },//TODO: Допилить. Не совсем правильное расположение. Дать нижние стрелки чуть вправо и выше
+                           new VkmBlackTriangleArrowViewModel(0, "transfer_channel2_arrow", 35) { PosTop = 294, PosLeft = 1000 },
+                           new VkmBlackTriangleArrowViewModel(0, "transfer_channel3_arrow", 35) { PosTop = 488, PosLeft = 1005 },
+                           new VkmBlackTriangleArrowViewModel(0, "transfer_channel4_arrow", 35) { PosTop = 680, PosLeft = 1003 },
                        };
         }
     }

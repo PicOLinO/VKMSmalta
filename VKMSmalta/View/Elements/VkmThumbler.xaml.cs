@@ -18,7 +18,7 @@ namespace VKMSmalta.View.Elements
     /// <summary>
     /// Interaction logic for VkmThumbler.xaml
     /// </summary>
-    public partial class VkmThumbler : UserControl
+    public partial class VkmThumbler
     {
         public VkmThumbler()
         {
