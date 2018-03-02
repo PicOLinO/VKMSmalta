@@ -90,10 +90,12 @@
     <Compile Include="Domain\Action.cs" />
     <Compile Include="Domain\ActionName.cs" />
     <Compile Include="Domain\Algorithm.cs" />
+    <Compile Include="Domain\DependencyAction.cs" />
     <Compile Include="Domain\ExamineResult.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\DependencyContainer.cs" />
     <Compile Include="Services\HintService.cs" />
     <Compile Include="Services\HistoryService.cs" />
     <Compile Include="Services\Navigate\RegionPages.cs" />

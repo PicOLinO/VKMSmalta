@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using DevExpress.Mvvm;
+using DevExpress.Mvvm.Native;
+using VKMSmalta.Domain;
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
@@ -8,6 +11,9 @@ namespace VKMSmalta.View.Elements.ViewModel
         private int value;
         private readonly string imageOffSource;
         private readonly string imageOnSource;
+
+        private List<DependencyAction> DependencyActions { get; }
+        private bool IsInitialize { get; }
 
         public int StartupRotation
         {
@@ -32,14 +38,28 @@ namespace VKMSmalta.View.Elements.ViewModel
                     default:
                         throw new IndexOutOfRangeException();
                 }
+
+                if (DependencyActions != null && !IsInitialize)
+                {
+                    NotifyDependedElements(value);
+                }
             }
         }
-
-        public VkmThumblerViewModel(int value, string name, string imageOffSource = "/VKMSmalta;component/View/Images/ThumblerOff.png", string imageOnSource = "/VKMSmalta;component/View/Images/ThumblerOn.png") : base(value, name)
+        
+        public VkmThumblerViewModel(int value, 
+                                    string name, 
+                                    List<DependencyAction> dependencyActions = null, 
+                                    string imageOffSource = "/VKMSmalta;component/View/Images/ThumblerOff.png", 
+                                    string imageOnSource = "/VKMSmalta;component/View/Images/ThumblerOn.png") : base(value, name)
         {
+            IsInitialize = true;
+
             this.imageOffSource = imageOffSource;
             this.imageOnSource = imageOnSource;
+            DependencyActions = dependencyActions;
             Value = value;
+
+            IsInitialize = false;
         }
 
         protected override void OnClick()
@@ -49,6 +69,14 @@ namespace VKMSmalta.View.Elements.ViewModel
             Value = Value == 0 ? 1 : 0;
 
             SendActionToHistoryService();
+        }
+
+        private void NotifyDependedElements(int value)
+        {
+            foreach (var dependencyAction in DependencyActions)
+            {
+                dependencyAction.SetDependencyElementValue(value);
+            }
         }
     }
 }

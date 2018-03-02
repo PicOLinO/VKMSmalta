@@ -27,11 +27,12 @@ namespace VKMSmalta.View.ViewModel
 
         private Algorithm CurrentAlgorithm { get; }
 
-        private IEnumerable<ElementViewModelBase> UnionedElements
+        public IEnumerable<ElementViewModelBase> UnionedElements
         {
             get
             {
                 var unionedElements = new List<ElementViewModelBase>();
+
                 foreach (var mainInnerDevicePageViewModel in pages)
                 {
                     unionedElements.AddRange(mainInnerDevicePageViewModel.Elements.ToList());
@@ -145,6 +146,7 @@ namespace VKMSmalta.View.ViewModel
 
         private void InitializeServices()
         {
+            DependencyContainer.InitializeService(this);
             HintService.InitializeService();
             HistoryService.InitializeService();
         }

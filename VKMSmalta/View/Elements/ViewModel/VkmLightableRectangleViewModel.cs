@@ -19,12 +19,12 @@ namespace VKMSmalta.View.Elements.ViewModel
         
         public VkmLightableRectangleViewModel(int value, string name) : base(value, name)
         {
-            OnValueChanged(value);
+            OnValueChanged();
         }
 
-        private void OnValueChanged(int value)
+        private void OnValueChanged()
         {
-            switch (value)
+            switch (Value)
             {
                 case 0:
                     LightableRectangleVisibility = Visibility.Collapsed;

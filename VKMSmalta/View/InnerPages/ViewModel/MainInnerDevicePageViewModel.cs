@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using DevExpress.Mvvm;
+using VKMSmalta.Domain;
 using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
 using VKMSmalta.View.InnerPages.ViewModel;
@@ -20,7 +21,14 @@ namespace VKMSmalta.View.ViewModel
             Elements = new ObservableCollection<ElementViewModelBase>
                        {
                            //Тумблеры в середине
-                           new VkmThumblerViewModel(0, "thumbler_1channel") { PosTop = 285, PosLeft = 330, StartupRotation = 90 },
+                           new VkmThumblerViewModel(0, "thumbler_1channel", new List<DependencyAction>
+                                                                            {
+                                                                                new DependencyAction("reciever_channel1", new Dictionary<int, int>
+                                                                                                                          {
+                                                                                                                              { 0, 0 },
+                                                                                                                              { 1, 1 }
+                                                                                                                          })
+                                                                            }) { PosTop = 285, PosLeft = 330, StartupRotation = 90 },
                            new VkmThumblerViewModel(0, "thumbler_2channel") { PosTop = 330, PosLeft = 330, StartupRotation = 90 },
                            new VkmThumblerViewModel(0, "thumbler_3channel") { PosTop = 375, PosLeft = 330, StartupRotation = 90 },
                            new VkmThumblerViewModel(0, "thumbler_4channel") { PosTop = 420, PosLeft = 330, StartupRotation = 90 },
