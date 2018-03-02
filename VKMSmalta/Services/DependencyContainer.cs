@@ -7,7 +7,7 @@ namespace VKMSmalta.Services
 {
     public class DependencyContainer
     {
-        private readonly DevicePageViewModel devicePageVm;
+        private DevicePageViewModel devicePageVm;
 
         public static DependencyContainer Instance { get; private set; }
         
@@ -18,15 +18,17 @@ namespace VKMSmalta.Services
 
         public static void InitializeService(DevicePageViewModel vm)
         {
-            if (Instance == null)
-            {
-                Instance = new DependencyContainer(vm);
-            }
+            Instance = new DependencyContainer(vm);
         }
 
         public IEnumerable<ElementViewModelBase> GetAllElementsOfCurrentDevicePage()
         {
             return devicePageVm.UnionedElements;
+        }
+
+        public void Reset()
+        {
+            devicePageVm = null;
         }
     }
 }

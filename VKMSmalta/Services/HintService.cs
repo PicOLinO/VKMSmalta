@@ -15,11 +15,13 @@ namespace VKMSmalta.Services
         private List<ElementViewModelBase> Elements { get; set; }
         private Algorithm Algorithm { get; set; }
         private Action CurrentAction { get; set; }
+        private System.Action Callback { get; set; }
 
-        public void StartTraining(Algorithm algorithm, List<ElementViewModelBase> elements)
+        public void StartTraining(Algorithm algorithm, List<ElementViewModelBase> elements, System.Action endTraining)
         {
             Elements = elements;
             Algorithm = algorithm;
+            Callback = endTraining;
 
             ShowNextHint();
         }
@@ -39,8 +41,8 @@ namespace VKMSmalta.Services
 
             if (action == null)
             {
-                MainNavigationService.Instance.ExitDevicePageWithTrainingCompleteMessage();
                 Dispose();
+                Callback();
                 return;
             }
 

@@ -12,6 +12,7 @@ using VKMSmalta.Services;
 using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
 using VKMSmalta.View.InnerPages.ViewModel;
+using Action = System.Action;
 
 #endregion
 
@@ -158,7 +159,15 @@ namespace VKMSmalta.View.ViewModel
                 element.IsEnabled = false;
             }
 
-            HintService.Instance.StartTraining(algorithm, UnionedElements.ToList());
+            HintService.Instance.StartTraining(algorithm, UnionedElements.ToList(), EndTraining);
+        }
+
+        private void EndTraining()
+        {
+            var dialog = new TrainingCompleteDialog();
+            dialog.ShowDialog();
+            Dispose();
+            ExitInMainMenu();
         }
 
         private bool CheckResults(int value)

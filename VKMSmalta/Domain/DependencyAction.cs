@@ -22,10 +22,7 @@ namespace VKMSmalta.Domain
 
         public void SetDependencyElementValue(int value)
         {
-            if (DependencyElement == null)
-            {
-                DependencyElement = FindElementByName(dependencyElementName);
-            }
+            DependencyElement = FindElementByName(dependencyElementName);
             DependencyElement.Value = DependencyValues[value];
         }
 
