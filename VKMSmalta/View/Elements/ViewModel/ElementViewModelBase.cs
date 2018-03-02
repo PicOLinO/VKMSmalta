@@ -11,8 +11,13 @@ namespace VKMSmalta.View.Elements.ViewModel
         public double PosLeft { get; set; }
         public double PosTop { get; set; }
         public string Name { get; set; }
-        public virtual int Value { get; set; }
-        
+
+        public int Value
+        {
+            get { return GetProperty(() => Value); }
+            set { SetProperty(() => Value, value); OnValueChanged(); }
+        }
+
         public string ImageSource
         {
             get { return GetProperty(() => ImageSource); }
@@ -37,6 +42,10 @@ namespace VKMSmalta.View.Elements.ViewModel
         {
             Name = name;
             Value = value;
+        }
+
+        protected virtual void OnValueChanged()
+        {
         }
     }
 }

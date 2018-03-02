@@ -9,16 +9,12 @@ namespace VKMSmalta.View.Elements.ViewModel
         private readonly int rotationStepDegrees;
         private readonly int maxRotationSteps;
         private readonly int startupRotation;
-        private int value;
 
-        public override int Value
+        protected override void OnValueChanged()
         {
-            get => value;
-            set
-            {
-                this.value = value;
-                RotationDegrees = ((value-1) * rotationStepDegrees) + startupRotation; //TODO: value-1 временный косяк пока я не поверну исходное изображение Wheel на первый уровень.
-            }
+            base.OnValueChanged();
+
+            RotationDegrees = ((Value - 1) * rotationStepDegrees) + startupRotation; //TODO: value-1 временный косяк пока я не поверну исходное изображение Wheel на первый уровень.
         }
 
         public int RotationDegrees

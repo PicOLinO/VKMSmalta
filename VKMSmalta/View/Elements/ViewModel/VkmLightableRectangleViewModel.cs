@@ -11,19 +11,14 @@ namespace VKMSmalta.View.Elements.ViewModel
             set { SetProperty(() => LightableRectangleVisibility, value); }
         }
         
-        public override int Value
-        {
-            get { return GetProperty(() => Value); }
-            set { SetProperty(() => Value, value, OnValueChanged); }
-        }
-        
         public VkmLightableRectangleViewModel(int value, string name) : base(value, name)
         {
-            OnValueChanged();
         }
 
-        private void OnValueChanged()
+        protected override void OnValueChanged()
         {
+            base.OnValueChanged();
+
             switch (Value)
             {
                 case 0:

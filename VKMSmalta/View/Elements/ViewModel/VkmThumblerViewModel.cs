@@ -8,12 +8,11 @@ namespace VKMSmalta.View.Elements.ViewModel
 {
     public sealed class VkmThumblerViewModel : ClickableElementViewModelBase, IValuableNamedElement
     {
-        private int value;
+        private readonly bool isInitialize;
         private readonly string imageOffSource;
         private readonly string imageOnSource;
 
         private List<DependencyAction> DependencyActions { get; }
-        private bool IsInitialize { get; }
 
         public int StartupRotation
         {
@@ -21,45 +20,42 @@ namespace VKMSmalta.View.Elements.ViewModel
             set { SetProperty(() => StartupRotation, value); }
         }
 
-        public override int Value
+        protected override void OnValueChanged()
         {
-            get => value;
-            set
-            {
-                this.value = value;
-                switch (value)
-                {
-                    case 0:
-                        ImageSource = imageOffSource;
-                        break;
-                    case 1:
-                        ImageSource = imageOnSource;
-                        break;
-                    default:
-                        throw new IndexOutOfRangeException();
-                }
+            base.OnValueChanged();
 
-                if (DependencyActions != null && !IsInitialize)
-                {
-                    NotifyDependedElements(value);
-                }
+            switch (Value)
+            {
+                case 0:
+                    ImageSource = imageOffSource;
+                    break;
+                case 1:
+                    ImageSource = imageOnSource;
+                    break;
+                default:
+                    throw new IndexOutOfRangeException();
+            }
+
+            if (DependencyActions != null && !isInitialize)
+            {
+                NotifyDependedElements();
             }
         }
-        
+
         public VkmThumblerViewModel(int value, 
                                     string name, 
                                     List<DependencyAction> dependencyActions = null, 
                                     string imageOffSource = "/VKMSmalta;component/View/Images/ThumblerOff.png", 
                                     string imageOnSource = "/VKMSmalta;component/View/Images/ThumblerOn.png") : base(value, name)
         {
-            IsInitialize = true;
+            isInitialize = true;
 
             this.imageOffSource = imageOffSource;
             this.imageOnSource = imageOnSource;
             DependencyActions = dependencyActions;
             Value = value;
-
-            IsInitialize = false;
+            
+            isInitialize = false;
         }
 
         protected override void OnClick()
@@ -71,11 +67,11 @@ namespace VKMSmalta.View.Elements.ViewModel
             SendActionToHistoryService();
         }
 
-        private void NotifyDependedElements(int value)
+        private void NotifyDependedElements()
         {
             foreach (var dependencyAction in DependencyActions)
             {
-                dependencyAction.SetDependencyElementValue(value);
+                dependencyAction.SetDependencyElementValue(Value);
             }
         }
     }

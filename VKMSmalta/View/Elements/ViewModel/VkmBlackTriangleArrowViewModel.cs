@@ -2,8 +2,7 @@
 {
     public class VkmBlackTriangleArrowViewModel : ElementViewModelBase, IValuableNamedElement
     {
-        private int value;
-        private int startupRotation;
+        private readonly int startupRotation;
 
         public int RotationDegrees
         {
@@ -11,14 +10,11 @@
             set { SetProperty(() => RotationDegrees, value); }
         }
 
-        public override int Value
+        protected override void OnValueChanged()
         {
-            get => value;
-            set
-            {
-                this.value = value;
-                RotationDegrees = (11 * value) + startupRotation;
-            }
+            base.OnValueChanged();
+
+            RotationDegrees = (11 * Value) + startupRotation;
         }
 
         public VkmBlackTriangleArrowViewModel(int value, string name, int startupRotation) : base(value, name)
