@@ -228,12 +228,8 @@
     <Resource Include="logo.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="View\Images\AdvancedBackground.png" />
     <Content Include="View\Images\Background.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="View\Images\AdvancedBackground.JPG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

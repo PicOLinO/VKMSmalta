@@ -9,7 +9,7 @@ namespace VKMSmalta.View.ViewModel
 {
     public class AdvancedInnerDevicePageViewModel : InnerPageViewModelBase
     {
-        public AdvancedInnerDevicePageViewModel() : base(InnerRegionPages.Advanced, "View/Images/AdvancedBackground.JPG")
+        public AdvancedInnerDevicePageViewModel() : base(InnerRegionPages.Advanced, "View/Images/AdvancedBackground.png")
         {
             InitializeElements(); //TODO: ВЫШЕ!
         }
