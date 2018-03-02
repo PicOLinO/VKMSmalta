@@ -25,10 +25,5 @@ namespace VKMSmalta.Services
         {
             return devicePageVm.UnionedElements;
         }
-
-        public void Reset()
-        {
-            devicePageVm = null;
-        }
     }
 }
