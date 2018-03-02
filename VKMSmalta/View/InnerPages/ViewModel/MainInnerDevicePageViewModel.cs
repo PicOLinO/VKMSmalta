@@ -50,7 +50,7 @@ namespace VKMSmalta.View.ViewModel
                            new VkmBlackTriangleArrowViewModel(0, "reception_channel4_arrow", 35) { PosTop = 680, PosLeft = 115 },
 
                            //Стрелки справа
-                           new VkmBlackTriangleArrowViewModel(0, "transfer_channel1_arrow", 35) { PosTop = 98, PosLeft = 1000 },//TODO: Допилить. Не совсем правильное расположение. Дать нижние стрелки чуть вправо и выше
+                           new VkmBlackTriangleArrowViewModel(0, "transfer_channel1_arrow", 35) { PosTop = 98, PosLeft = 1000 },
                            new VkmBlackTriangleArrowViewModel(0, "transfer_channel2_arrow", 35) { PosTop = 294, PosLeft = 1000 },
                            new VkmBlackTriangleArrowViewModel(0, "transfer_channel3_arrow", 35) { PosTop = 488, PosLeft = 1005 },
                            new VkmBlackTriangleArrowViewModel(0, "transfer_channel4_arrow", 35) { PosTop = 680, PosLeft = 1003 },
