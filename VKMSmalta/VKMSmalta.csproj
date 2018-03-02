@@ -101,7 +101,6 @@
     <Compile Include="Services\Navigate\RegionPages.cs" />
     <Compile Include="Services\Navigate\Regions.cs" />
     <Compile Include="Services\NetworkService.cs" />
-    <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="View\DevicePage.xaml.cs">
       <DependentUpon>DevicePage.xaml</DependentUpon>

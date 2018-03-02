@@ -10,7 +10,7 @@ using Action = VKMSmalta.Domain.Action;
 
 namespace VKMSmalta.Services
 {
-    public class HintService : ServiceBase<HintService>
+    public class HintService
     {
         private List<ElementViewModelBase> Elements { get; set; }
         private Algorithm Algorithm { get; set; }

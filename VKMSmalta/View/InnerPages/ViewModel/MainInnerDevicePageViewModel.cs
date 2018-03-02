@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using DevExpress.Mvvm;
 using VKMSmalta.Domain;
+using VKMSmalta.Services;
 using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
 using VKMSmalta.View.InnerPages.ViewModel;
@@ -10,8 +11,11 @@ namespace VKMSmalta.View.ViewModel
 {
     public class MainInnerDevicePageViewModel : InnerPageViewModelBase
     {
-        public MainInnerDevicePageViewModel() : base(InnerRegionPages.Main, "View/Images/Background.png")
+        private readonly HistoryService historyService;
+
+        public MainInnerDevicePageViewModel(HistoryService historyService) : base(InnerRegionPages.Main, "View/Images/Background.png")
         {
+            this.historyService = historyService;
             InitializeElements(); //TODO: ВЫШЕ!
         }
 
@@ -21,7 +25,8 @@ namespace VKMSmalta.View.ViewModel
             Elements = new ObservableCollection<ElementViewModelBase>
                        {
                            //Тумблеры в середине
-                           new VkmThumblerViewModel(0, "thumbler_1channel", new List<DependencyAction>
+                           new VkmThumblerViewModel(0, "thumbler_1channel", historyService, 
+                                                    new List<DependencyAction>
                                                                             {
                                                                                 new DependencyAction("reciever_channel1", new Dictionary<int, int>
                                                                                                                           {
@@ -29,30 +34,30 @@ namespace VKMSmalta.View.ViewModel
                                                                                                                               { 1, 1 }
                                                                                                                           })
                                                                             }) { PosTop = 285, PosLeft = 330, StartupRotation = 90 },
-                           new VkmThumblerViewModel(0, "thumbler_2channel") { PosTop = 330, PosLeft = 330, StartupRotation = 90 },
-                           new VkmThumblerViewModel(0, "thumbler_3channel") { PosTop = 375, PosLeft = 330, StartupRotation = 90 },
-                           new VkmThumblerViewModel(0, "thumbler_4channel") { PosTop = 420, PosLeft = 330, StartupRotation = 90 },
+                           new VkmThumblerViewModel(0, "thumbler_2channel", historyService) { PosTop = 330, PosLeft = 330, StartupRotation = 90 },
+                           new VkmThumblerViewModel(0, "thumbler_3channel", historyService) { PosTop = 375, PosLeft = 330, StartupRotation = 90 },
+                           new VkmThumblerViewModel(0, "thumbler_4channel", historyService) { PosTop = 420, PosLeft = 330, StartupRotation = 90 },
 
                            //Подсветка в середине
                            new VkmLightableRectangleViewModel(0, "reciever_channel1") { PosTop = 315, PosLeft = 535 },
 
                            //Тумблеры снизу
-                           new VkmThumblerViewModel(1, "thumbler_imitator") { PosTop = 595, PosLeft = 375 },
-                           new VkmThumblerViewModel(0, "thumbler_antenna_leftside") { PosTop = 600, PosLeft = 660 },
-                           new VkmThumblerViewModel(0, "thumbler_antenna_rightside") { PosTop = 600, PosLeft = 750 },
-                           new VkmThumblerViewModel(0, "thumbler_light") { PosTop = 670, PosLeft = 750 },
+                           new VkmThumblerViewModel(1, "thumbler_imitator", historyService) { PosTop = 595, PosLeft = 375 },
+                           new VkmThumblerViewModel(0, "thumbler_antenna_leftside", historyService) { PosTop = 600, PosLeft = 660 },
+                           new VkmThumblerViewModel(0, "thumbler_antenna_rightside", historyService) { PosTop = 600, PosLeft = 750 },
+                           new VkmThumblerViewModel(0, "thumbler_light", historyService) { PosTop = 670, PosLeft = 750 },
                            
                            //Тумблеры справа сверху
-                           new VkmThumblerViewModel(0, "thumbler_power") { PosTop = 70, PosLeft = 1189 },
-                           new VkmThumblerViewModel(0, "thumbler_cold") { PosTop = 70, PosLeft = 1235 },
-                           new VkmThumblerViewModel(0, "thumbler_autosarpp") { PosTop = 70, PosLeft = 1287 },
-                           new VkmThumblerViewModel(0, "thumbler_aircontrol") { PosTop = 70, PosLeft = 1340 },
+                           new VkmThumblerViewModel(0, "thumbler_power", historyService) { PosTop = 70, PosLeft = 1189 },
+                           new VkmThumblerViewModel(0, "thumbler_cold", historyService) { PosTop = 70, PosLeft = 1235 },
+                           new VkmThumblerViewModel(0, "thumbler_autosarpp", historyService) { PosTop = 70, PosLeft = 1287 },
+                           new VkmThumblerViewModel(0, "thumbler_aircontrol", historyService) { PosTop = 70, PosLeft = 1340 },
                            
                            //Тумблеры справа снизу
-                           new VkmThumblerViewModel(0, "thumbler_cooler") { PosTop = 660, PosLeft = 1180 },
-                           new VkmThumblerViewModel(0, "thumbler_light_maintance") { PosTop = 660, PosLeft = 1223 },
-                           new VkmThumblerViewModel(0, "thumbler_light_advanced") { PosTop = 660, PosLeft = 1270 },
-                           new VkmThumblerViewModel(0, "thumbler_light_table") { PosTop = 660, PosLeft = 1317 },
+                           new VkmThumblerViewModel(0, "thumbler_cooler", historyService) { PosTop = 660, PosLeft = 1180 },
+                           new VkmThumblerViewModel(0, "thumbler_light_maintance", historyService) { PosTop = 660, PosLeft = 1223 },
+                           new VkmThumblerViewModel(0, "thumbler_light_advanced", historyService) { PosTop = 660, PosLeft = 1270 },
+                           new VkmThumblerViewModel(0, "thumbler_light_table", historyService) { PosTop = 660, PosLeft = 1317 },
 
                            //Стрелки слева
                            new VkmBlackTriangleArrowViewModel(0, "reception_channel1_arrow", 35) { PosTop = 98, PosLeft = 115 },

@@ -21,6 +21,8 @@ namespace VKMSmalta.View.ViewModel
     public class DevicePageViewModel : ViewModelBase, IDisposable
     {
         private readonly ApplicationMode applicationMode;
+        private readonly HintService hintService;
+        private readonly HistoryService historyService;
 
         public DelegateCommand CheckResultCommand { get; set; }
         public DelegateCommand GoForwardCommand { get; set; }
@@ -51,13 +53,14 @@ namespace VKMSmalta.View.ViewModel
             set { SetProperty(() => CurrentPageKey, value); }
         }
 
-        public DevicePageViewModel(ApplicationMode appMode, Algorithm algorithm)
+        public DevicePageViewModel(ApplicationMode appMode, Algorithm algorithm, HintService hintService, HistoryService historyService)
         {
             applicationMode = appMode;
-
             CurrentAlgorithm = algorithm;
+            this.hintService = hintService;
+            this.historyService = historyService;
 
-            InitializeServices();
+            DependencyContainer.InitializeService(this);
             CreateCommands();
 
             InitializeInnerPages();
@@ -70,8 +73,8 @@ namespace VKMSmalta.View.ViewModel
 
         private void InitializeInnerPages()
         {
-            var mainDevicePageVm = new MainInnerDevicePageViewModel();
-            var advancedDevicePageVm = new AdvancedInnerDevicePageViewModel();
+            var mainDevicePageVm = new MainInnerDevicePageViewModel(historyService);
+            var advancedDevicePageVm = new AdvancedInnerDevicePageViewModel(historyService);
 
             pages = new ObservableCollection<InnerPageViewModelBase>
                     {
@@ -128,7 +131,7 @@ namespace VKMSmalta.View.ViewModel
                 return;
             }
 
-            var value = HistoryService.Instance.GetValueByAlgorithm(CurrentAlgorithm, UnionedElements.Cast<IValuableNamedElement>().ToList());
+            var value = historyService.GetValueByAlgorithm(CurrentAlgorithm, UnionedElements.Cast<IValuableNamedElement>().ToList());
             var retry = CheckResults(value);
             
             if (retry)
@@ -145,13 +148,6 @@ namespace VKMSmalta.View.ViewModel
 
         #endregion
 
-        private void InitializeServices()
-        {
-            DependencyContainer.InitializeService(this);
-            HintService.InitializeService();
-            HistoryService.InitializeService();
-        }
-
         private void GoTraining(Algorithm algorithm)
         {
             foreach (var element in UnionedElements)
@@ -159,7 +155,7 @@ namespace VKMSmalta.View.ViewModel
                 element.IsEnabled = false;
             }
 
-            HintService.Instance.StartTraining(algorithm, UnionedElements.ToList(), EndTraining);
+            hintService.StartTraining(algorithm, UnionedElements.ToList(), EndTraining);
         }
 
         private void EndTraining()
@@ -190,10 +186,13 @@ namespace VKMSmalta.View.ViewModel
 
         private void Reset()
         {
+            //Remove Views Injections
             ViewInjectionManager.Default.Remove(Regions.InnerRegion, InnerRegionPages.Main);
             ViewInjectionManager.Default.Remove(Regions.InnerRegion, InnerRegionPages.Advanced);
-            HintService.Instance.Reset();
-            HistoryService.Instance.Reset();
+
+            //Reset services
+            hintService.Reset();
+            historyService.Reset();
         }
 
         public void Dispose()

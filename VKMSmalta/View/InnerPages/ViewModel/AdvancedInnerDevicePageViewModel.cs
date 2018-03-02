@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using DevExpress.Mvvm;
+using VKMSmalta.Services;
 using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
 using VKMSmalta.View.InnerPages.ViewModel;
@@ -9,8 +10,11 @@ namespace VKMSmalta.View.ViewModel
 {
     public class AdvancedInnerDevicePageViewModel : InnerPageViewModelBase
     {
-        public AdvancedInnerDevicePageViewModel() : base(InnerRegionPages.Advanced, "View/Images/AdvancedBackground.png")
+        private readonly HistoryService historyService;
+
+        public AdvancedInnerDevicePageViewModel(HistoryService historyService) : base(InnerRegionPages.Advanced, "View/Images/AdvancedBackground.png")
         {
+            this.historyService = historyService;
             InitializeElements(); //TODO: ВЫШЕ!
         }
 
@@ -20,7 +24,7 @@ namespace VKMSmalta.View.ViewModel
             Elements = new ObservableCollection<ElementViewModelBase>
                        {
                            //Тумблеры в середине
-                           new VkmThumblerViewModel(0, "OLOLO") { PosTop = 500, PosLeft = 500, StartupRotation = 30 },
+                           new VkmThumblerViewModel(0, "OLOLO", historyService) { PosTop = 500, PosLeft = 500, StartupRotation = 30 },
                        };
         }
     }

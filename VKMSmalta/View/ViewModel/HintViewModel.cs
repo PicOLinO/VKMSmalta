@@ -10,6 +10,7 @@ namespace VKMSmalta.View.ViewModel
     public class HintViewModel : ViewModelBase
     {
         private readonly int accessibleValue;
+        private readonly HintService hintService;
 
         public DelegateCommand ClickNextCommand { get; set; }
 
@@ -19,9 +20,10 @@ namespace VKMSmalta.View.ViewModel
             set { SetProperty(() => HintText, value); }
         }
 
-        public HintViewModel(string hintText, int accessibleValue)
+        public HintViewModel(string hintText, int accessibleValue, HintService hintService)
         {
             this.accessibleValue = accessibleValue;
+            this.hintService = hintService;
             HintText = hintText;
 
             CreateCommands();
@@ -34,13 +36,13 @@ namespace VKMSmalta.View.ViewModel
 
         private bool CanOnClickNext()
         {
-            var element = HintService.Instance.GetValuableElementByCurrentHint();
+            var element = hintService.GetValuableElementByCurrentHint();
             return element?.Value == accessibleValue;
         }
 
         private void OnClickNext()
         {
-            HintService.Instance.ShowNextHint();
+            hintService.ShowNextHint();
         }
     }
 }

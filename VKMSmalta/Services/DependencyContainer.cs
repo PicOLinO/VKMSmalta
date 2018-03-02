@@ -7,7 +7,7 @@ namespace VKMSmalta.Services
 {
     public class DependencyContainer
     {
-        private DevicePageViewModel devicePageVm;
+        private readonly DevicePageViewModel devicePageVm;
 
         public static DependencyContainer Instance { get; private set; }
         

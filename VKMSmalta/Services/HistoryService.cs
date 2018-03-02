@@ -7,7 +7,7 @@ using Action = VKMSmalta.Domain.Action;
 
 namespace VKMSmalta.Services
 {
-    public class HistoryService : ServiceBase<HistoryService>
+    public class HistoryService
     {
         public List<Action> Actions { get; }
 

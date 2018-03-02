@@ -20,10 +20,10 @@ namespace VKMSmalta.Dialogs
     /// </summary>
     public partial class ChooseAlgorithmDialog : Window
     {
-        public ChooseAlgorithmDialog()
+        public ChooseAlgorithmDialog(ChooseAlgorithmDialogViewModel vm)
         {
             InitializeComponent();
-            DataContext = new ChooseAlgorithmDialogViewModel();
+            DataContext = vm;
         }
 
         public Algorithm SelectedAlgorithm => (DataContext as ChooseAlgorithmDialogViewModel)?.SelectedAlgorithm;

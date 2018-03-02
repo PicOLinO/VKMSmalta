@@ -1,13 +1,21 @@
 ﻿using VKMSmalta.Domain;
+using VKMSmalta.Services;
 using VKMSmalta.View.ViewModel;
 
 namespace VKMSmalta.Dialogs.Factories
 {
-    public static class ActionsFactory
+    public class ActionsFactory
     {
-        public static Action GetClickAction(string elementName, string hint, int accessibleValue)
+        private readonly HintService hintService;
+
+        public ActionsFactory(HintService hintService)
         {
-            return new Action(ActionName.Click, elementName, new HintViewModel(hint, accessibleValue));
+            this.hintService = hintService;
+        }
+
+        public Action GetClickAction(string elementName, string hint, int accessibleValue)
+        {
+            return new Action(ActionName.Click, elementName, new HintViewModel(hint, accessibleValue, hintService));
         }
     }
 }

@@ -1,13 +1,23 @@
 ﻿using System.Collections.Generic;
 using VKMSmalta.Domain;
+using VKMSmalta.Services;
 using VKMSmalta.View.ViewModel;
 
 namespace VKMSmalta.Dialogs.Factories
 {
-    public static class AlgorithmsFactory
+    public class AlgorithmsFactory
     {
-        public static Algorithm GetPrepareToLaunchAlgorithm()
+        private readonly HintService hintService;
+
+        public AlgorithmsFactory(HintService hintService)
         {
+            this.hintService = hintService;
+        }
+
+        public Algorithm GetPrepareToLaunchAlgorithm()
+        {
+            var actionsFactory = new ActionsFactory(hintService);
+
             var startStateOfElements = new Dictionary<string, int>
                                        {
                                            //TODO:
@@ -28,14 +38,14 @@ namespace VKMSmalta.Dialogs.Factories
                                    Name = "Подготовка изделия Л001 к включению",
                                    Actions = new LinkedList<Action>(new[]
                                                                     {
-                                                                        ActionsFactory.GetClickAction("thumbler_light", "Установите данный тумблер в положение ПОДСВЕТ", 1),
+                                                                        actionsFactory.GetClickAction("thumbler_light", "Установите данный тумблер в положение ПОДСВЕТ", 1),
 
-                                                                        ActionsFactory.GetClickAction("thumbler_1channel", "Установите данный тумблер в положение I КАНАЛ", 1),
-                                                                        ActionsFactory.GetClickAction("thumbler_2channel", "Установите данный тумблер в положение II КАНАЛ", 1),
-                                                                        ActionsFactory.GetClickAction("thumbler_3channel", "Установите данный тумблер в положение III КАНАЛ", 1),
-                                                                        ActionsFactory.GetClickAction("thumbler_4channel", "Установите данный тумблер в положение IV КАНАЛ", 1),
+                                                                        actionsFactory.GetClickAction("thumbler_1channel", "Установите данный тумблер в положение I КАНАЛ", 1),
+                                                                        actionsFactory.GetClickAction("thumbler_2channel", "Установите данный тумблер в положение II КАНАЛ", 1),
+                                                                        actionsFactory.GetClickAction("thumbler_3channel", "Установите данный тумблер в положение III КАНАЛ", 1),
+                                                                        actionsFactory.GetClickAction("thumbler_4channel", "Установите данный тумблер в положение IV КАНАЛ", 1),
 
-                                                                        ActionsFactory.GetClickAction("thumbler_imitator", "Установите данный тумблер в положение ОТКЛ.", 0),
+                                                                        actionsFactory.GetClickAction("thumbler_imitator", "Установите данный тумблер в положение ОТКЛ.", 0),
                                                                     })
                                };
 

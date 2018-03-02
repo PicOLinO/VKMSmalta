@@ -10,10 +10,13 @@ namespace VKMSmalta.View.Elements.ViewModel
 {
     public abstract class ClickableElementViewModelBase : ElementViewModelBase
     {
+        private readonly HistoryService historyService;
+
         public DelegateCommand ClickCommand { get; set; }
 
-        public ClickableElementViewModelBase(int value, string name) : base(value, name)
+        public ClickableElementViewModelBase(int value, string name, HistoryService historyService) : base(value, name)
         {
+            this.historyService = historyService;
             CreateCommands();
         }
 
@@ -35,7 +38,7 @@ namespace VKMSmalta.View.Elements.ViewModel
         protected virtual void SendActionToHistoryService()
         {
             var action = new Action(ActionName.Click, Name);
-            HistoryService.Instance.Actions.Add(action);
+            historyService.Actions.Add(action);
         }
     }
 }

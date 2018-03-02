@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using DevExpress.Mvvm;
 using VKMSmalta.Dialogs.Factories;
 using VKMSmalta.Domain;
+using VKMSmalta.Services;
 using VKMSmalta.View.ViewModel;
 using Action = VKMSmalta.Domain.Action;
 
@@ -19,11 +20,13 @@ namespace VKMSmalta.Dialogs.ViewModel
             set { SetProperty(() => SelectedAlgorithm, value); }
         }
 
-        public ChooseAlgorithmDialogViewModel()
+        public ChooseAlgorithmDialogViewModel(HintService hintService)
         {
+            var algorithmsFactory = new AlgorithmsFactory(hintService);
+
             Algorithms = new ObservableCollection<Algorithm>
                          {
-                             AlgorithmsFactory.GetPrepareToLaunchAlgorithm()
+                             algorithmsFactory.GetPrepareToLaunchAlgorithm()
                          };
         }
     }

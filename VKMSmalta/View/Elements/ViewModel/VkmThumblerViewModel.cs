@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.Native;
 using VKMSmalta.Domain;
+using VKMSmalta.Services;
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
@@ -44,9 +45,10 @@ namespace VKMSmalta.View.Elements.ViewModel
 
         public VkmThumblerViewModel(int value, 
                                     string name, 
+                                    HistoryService historyService,
                                     List<DependencyAction> dependencyActions = null, 
                                     string imageOffSource = "/VKMSmalta;component/View/Images/ThumblerOff.png", 
-                                    string imageOnSource = "/VKMSmalta;component/View/Images/ThumblerOn.png") : base(value, name)
+                                    string imageOnSource = "/VKMSmalta;component/View/Images/ThumblerOn.png") : base(value, name, historyService)
         {
             isInitialize = true;
 
