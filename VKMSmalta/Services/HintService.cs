@@ -10,7 +10,7 @@ using Action = VKMSmalta.Domain.Action;
 
 namespace VKMSmalta.Services
 {
-    public class HintService : ServiceBase<HintService>, IDisposable
+    public class HintService : ServiceBase<HintService>
     {
         private List<ElementViewModelBase> Elements { get; set; }
         private Algorithm Algorithm { get; set; }
@@ -41,7 +41,6 @@ namespace VKMSmalta.Services
 
             if (action == null)
             {
-                Dispose();
                 Callback();
                 return;
             }
@@ -74,13 +73,6 @@ namespace VKMSmalta.Services
             }
 
             return null;
-        }
-
-        public void Dispose()
-        {
-            Elements = null;
-            Algorithm = null;
-            CurrentAction = null;
         }
 
         public void Reset()

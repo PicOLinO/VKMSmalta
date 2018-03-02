@@ -6,10 +6,7 @@
 
         public static void InitializeService()
         {
-            if (Instance == null)
-            {
-                Instance = new T();
-            }
+            Instance = new T();
         }
     }
 }

@@ -25,14 +25,6 @@ namespace VKMSmalta
         {
             InitializeComponent();
             DataContext = new MainPageViewModel();
-            
-            Loaded += OnLoaded;
-            Unloaded += (sender, args) => { Loaded -= OnLoaded; };
-        }
-
-        private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
-        {
-            MainNavigationService.InitializeService();
         }
     }
 }
