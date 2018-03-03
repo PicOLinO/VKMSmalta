@@ -15,10 +15,6 @@
                     d:DataContext="{d:DesignInstance Type=viewModel:ChooseAlgorithmDialogViewModel}"
                     d:DesignWidth="279.355"
                     d:DesignHeight="132.633">
-    <Window.CommandBindings>
-        <CommandBinding Command="ApplicationCommands.Close"
-                        Executed="OnClosing" />
-    </Window.CommandBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />

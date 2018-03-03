@@ -11,10 +11,6 @@
                     ResizeMode="NoResize"
                     WindowStartupLocation="CenterScreen"
                     Title="Обучение завершено">
-    <Window.CommandBindings>
-        <CommandBinding Command="Close"
-                        Executed="OnClosing" />
-    </Window.CommandBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />

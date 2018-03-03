@@ -13,10 +13,6 @@
                     WindowStyle="ToolWindow"
                     ResizeMode="NoResize"
                     d:DataContext="{d:DesignInstance Type=viewModel:LoginDialogViewModel}">
-    <Window.CommandBindings>
-        <CommandBinding Command="ApplicationCommands.Close"
-                        Executed="OnClosing" />
-    </Window.CommandBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
