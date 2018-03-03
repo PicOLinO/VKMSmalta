@@ -65,16 +65,16 @@ namespace VKMSmalta.View.ViewModel
                            GiveMe.Element().WithValue(0).WithName("thumbler_light_table").At(660,1317).Thumbler(historyService).Please(),
 
                            //Стрелки слева
-                           GiveMe.Element().WithValue(0).WithName("reception_channel1_arrow").At(98,115).WithStartupRotation(35).LittleArrow().Please(),
-                           GiveMe.Element().WithValue(0).WithName("reception_channel2_arrow").At(294,115).WithStartupRotation(35).LittleArrow().Please(),
-                           GiveMe.Element().WithValue(0).WithName("reception_channel3_arrow").At(488,115).WithStartupRotation(35).LittleArrow().Please(),
-                           GiveMe.Element().WithValue(0).WithName("reception_channel4_arrow").At(680,115).WithStartupRotation(35).LittleArrow().Please(),
+                           GiveMe.Element().WithValue(0).WithName("reception_channel1_arrow").WithStartupRotation(35).At(98,115).LittleArrow().Please(),
+                           GiveMe.Element().WithValue(0).WithName("reception_channel2_arrow").WithStartupRotation(35).At(294,115).LittleArrow().Please(),
+                           GiveMe.Element().WithValue(0).WithName("reception_channel3_arrow").WithStartupRotation(35).At(488,115).LittleArrow().Please(),
+                           GiveMe.Element().WithValue(0).WithName("reception_channel4_arrow").WithStartupRotation(35).At(680,115).LittleArrow().Please(),
 
                            //Стрелки справа
-                           GiveMe.Element().WithValue(0).WithName("reception_channel1_arrow").At(98,1005).WithStartupRotation(35).LittleArrow().Please(),
-                           GiveMe.Element().WithValue(0).WithName("reception_channel2_arrow").At(294,1005).WithStartupRotation(35).LittleArrow().Please(),
-                           GiveMe.Element().WithValue(0).WithName("reception_channel3_arrow").At(488,1005).WithStartupRotation(35).LittleArrow().Please(),
-                           GiveMe.Element().WithValue(0).WithName("reception_channel4_arrow").At(680,1005).WithStartupRotation(35).LittleArrow().Please(),
+                           GiveMe.Element().WithValue(0).WithName("reception_channel1_arrow").WithStartupRotation(35).At(98,1005).LittleArrow().Please(),
+                           GiveMe.Element().WithValue(0).WithName("reception_channel2_arrow").WithStartupRotation(35).At(294,1005).LittleArrow().Please(),
+                           GiveMe.Element().WithValue(0).WithName("reception_channel3_arrow").WithStartupRotation(35).At(488,1005).LittleArrow().Please(),
+                           GiveMe.Element().WithValue(0).WithName("reception_channel4_arrow").WithStartupRotation(35).At(680,1005).LittleArrow().Please(),
                        };
         }
     }
