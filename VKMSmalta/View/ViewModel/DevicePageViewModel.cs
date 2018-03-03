@@ -60,7 +60,7 @@ namespace VKMSmalta.View.ViewModel
             this.hintService = hintService;
             this.historyService = historyService;
 
-            DependencyContainer.InitializeService(this);
+            DependencyContainer.Instance.ReSetDevicePageViewModel(this);
             CreateCommands();
 
             InitializeInnerPages();

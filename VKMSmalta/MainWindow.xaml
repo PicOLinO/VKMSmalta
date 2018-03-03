@@ -4,12 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:viewModel="clr-namespace:VKMSmalta.ViewModel"
         mc:Ignorable="d"
         Title="Смальта v1.0"
-        WindowState="Maximized">
-    <Frame NavigationUIVisibility="Hidden" >
-        <dxmvvm:Interaction.Behaviors>
-            <dxmvvm:ViewInjectionService RegionName="Outer" />
-        </dxmvvm:Interaction.Behaviors>
-    </Frame>
+        WindowState="Maximized"
+        UseLayoutRounding="True"
+        d:DataContext="{d:DesignInstance Type=viewModel:MainWindowViewModel}">
+    <Grid>
+        <Frame NavigationUIVisibility="Hidden" >
+            <dxmvvm:Interaction.Behaviors>
+                <dxmvvm:ViewInjectionService RegionName="Outer" />
+            </dxmvvm:Interaction.Behaviors>
+        </Frame>
+        <dx:WaitIndicator HorizontalAlignment="Center" 
+                          VerticalAlignment="Center" 
+                          DeferedVisibility="{Binding Path=IsLoadingSplashVisible}" 
+                          Content="Идет Загрузка...">
+            <dx:WaitIndicator.ContentTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Ждите" FontSize="20"/>
+                        <TextBlock Text="{Binding}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </dx:WaitIndicator.ContentTemplate>
+        </dx:WaitIndicator>
+    </Grid>
 </Window>

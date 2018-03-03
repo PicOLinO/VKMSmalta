@@ -19,6 +19,7 @@ namespace VKMSmalta.ViewModel
         
         public MainPageViewModel()
         {
+            DependencyContainer.Instance.ReSetMainPageViewModel(this);
             CreateCommands();
         }
 
@@ -26,7 +27,7 @@ namespace VKMSmalta.ViewModel
         {
             LoginCommand = new DelegateCommand(OnLogin);
             GoExamineCommand = new DelegateCommand(OnGoExamine);
-            GoTrainingCommand= new DelegateCommand(OnGoTraining);
+            GoTrainingCommand = new DelegateCommand(OnGoTraining);
         }
 
         private void OnLogin()
@@ -41,10 +42,14 @@ namespace VKMSmalta.ViewModel
             var algorithm = ChooseAlgorithm(hintService);
             if (algorithm != null)
             {
+                DependencyContainer.Instance.SetLoadingSplash(true);
+
                 var vm = new DevicePageViewModel(ApplicationMode.Training, algorithm, hintService, new HistoryService());
 
                 ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
                 ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
+
+                DependencyContainer.Instance.SetLoadingSplash(false);
             }
         }
 
@@ -54,10 +59,14 @@ namespace VKMSmalta.ViewModel
             var algorithm = ChooseAlgorithm(hintService);
             if (algorithm != null)
             {
+                DependencyContainer.Instance.SetLoadingSplash(true);
+
                 var vm = new DevicePageViewModel(ApplicationMode.Examine, algorithm, hintService, new HistoryService());
 
                 ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
                 ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
+
+                DependencyContainer.Instance.SetLoadingSplash(false);
             }
         }
 
