@@ -84,7 +84,7 @@ namespace VKMSmalta.View.ViewModel
 
             ViewInjectionManager.Default.Inject(Regions.InnerRegion, InnerRegionPages.Main, () => mainDevicePageVm, typeof(MainInnerDevicePage));
             ViewInjectionManager.Default.Inject(Regions.InnerRegion, InnerRegionPages.Advanced, () => advancedDevicePageVm, typeof(MainInnerDevicePage));
-            NavigateOnPage(InnerRegionPages.Main);
+            NavigateOnPage(InnerRegionPages.Advanced);
         }
 
         private void NavigateOnPage(InnerRegionPages page)

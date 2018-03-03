@@ -32,7 +32,7 @@ namespace VKMSmalta.View.DSL
             return this;
         }
 
-        public VkmRotateWheelViewModel RotateWheelPlease()
+        public VkmRotateWheelViewModel Please()
         {
             return new VkmRotateWheelViewModel(value, name, rotationDegrees, rotationStepDegrees, maxRotationSteps, historyService) { PosTop = posTop, PosLeft = posLeft };
         }
