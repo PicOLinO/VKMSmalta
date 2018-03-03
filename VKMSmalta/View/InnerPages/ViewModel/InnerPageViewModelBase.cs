@@ -6,12 +6,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using DevExpress.Mvvm;
 using VKMSmalta.Services.Navigate;
+using VKMSmalta.View.DSL;
 using VKMSmalta.View.Elements.ViewModel;
 
 namespace VKMSmalta.View.InnerPages.ViewModel
 {
     public class InnerPageViewModelBase : ViewModelBase
     {
+        protected GiveMe GiveMe { get; }
         public InnerRegionPages PageKey { get; }
 
         public ObservableCollection<ElementViewModelBase> Elements
@@ -30,6 +32,7 @@ namespace VKMSmalta.View.InnerPages.ViewModel
         {
             PageKey = pageKey;
             BackgroundSource = new BitmapImage(new Uri(backgroundSource, UriKind.RelativeOrAbsolute));
+            GiveMe = new GiveMe();
         }
     }
 }

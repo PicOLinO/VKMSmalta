@@ -30,7 +30,7 @@ namespace VKMSmalta.Dialogs.Factories
                                          {"thumbler_2channel", 1},
                                          {"thumbler_3channel", 1},
                                          {"thumbler_4channel", 1},
-                                         {"thumbler_imitator", 0}
+                                         {"thumbler_simulator", 0}
                                      };
 
             var newAlgorithm = new Algorithm(startStateOfElements, endStateOfElements)
@@ -45,7 +45,7 @@ namespace VKMSmalta.Dialogs.Factories
                                                                         actionsFactory.GetClickAction("thumbler_3channel", "Установите данный тумблер в положение III КАНАЛ", 1),
                                                                         actionsFactory.GetClickAction("thumbler_4channel", "Установите данный тумблер в положение IV КАНАЛ", 1),
 
-                                                                        actionsFactory.GetClickAction("thumbler_imitator", "Установите данный тумблер в положение ОТКЛ.", 0),
+                                                                        actionsFactory.GetClickAction("thumbler_simulator", "Установите данный тумблер в положение ОТКЛ.", 0),
                                                                     })
                                };
 
