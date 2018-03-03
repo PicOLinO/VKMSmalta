@@ -18,7 +18,7 @@ namespace VKMSmalta.Dialogs
     /// <summary>
     /// Interaction logic for ChoseAlgorithmDialog.xaml
     /// </summary>
-    public partial class ChooseAlgorithmDialog : Window
+    public partial class ChooseAlgorithmDialog
     {
         public ChooseAlgorithmDialog(ChooseAlgorithmDialogViewModel vm)
         {

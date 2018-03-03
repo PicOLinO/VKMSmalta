@@ -18,18 +18,13 @@ namespace VKMSmalta.Dialogs
     /// <summary>
     /// Interaction logic for CheckResultsDialog.xaml
     /// </summary>
-    public partial class CheckResultsDialog : Window
+    public partial class CheckResultsDialog
     {
         public CheckResultsDialog(int value)
         {
             InitializeComponent();
             var vm = new CheckResultsDialogViewModel(value);
             DataContext = vm;
-
-            if (vm.CloseDialogCommand == null)
-            {
-                vm.CloseDialogCommand = new DelegateCommand(Close);
-            }
         }
     }
 }

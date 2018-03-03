@@ -1,16 +1,26 @@
-﻿<Window x:Class="VKMSmalta.Dialogs.TrainingCompleteDialog"
+﻿<local:ModernDialog x:Class="VKMSmalta.Dialogs.TrainingCompleteDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VKMSmalta.Dialogs"
+        xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
         mc:Ignorable="d"
         WindowStyle="ToolWindow"
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Title="Обучение завершено">
+    <Window.CommandBindings>
+        <CommandBinding Command="Close"
+                        Executed="OnClosing"/>
+    </Window.CommandBindings>
     <Grid>
-        <TextBlock Text="Обучение алгоритму завершено"/>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Обучение алгоритму завершено"/>
+        <Button Grid.Row="1" Content="ОК" Command="Close"/>
     </Grid>
-</Window>
+</local:ModernDialog>

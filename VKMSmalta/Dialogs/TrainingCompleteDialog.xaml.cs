@@ -16,7 +16,7 @@ namespace VKMSmalta.Dialogs
     /// <summary>
     /// Interaction logic for TrainingCompleteDialog.xaml
     /// </summary>
-    public partial class TrainingCompleteDialog : Window
+    public partial class TrainingCompleteDialog
     {
         public TrainingCompleteDialog()
         {
