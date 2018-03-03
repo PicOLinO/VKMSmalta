@@ -4,6 +4,7 @@ using DevExpress.Mvvm;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
 using VKMSmalta.Services.Navigate;
+using VKMSmalta.View.DSL;
 using VKMSmalta.View.Elements.ViewModel;
 using VKMSmalta.View.InnerPages.ViewModel;
 
@@ -21,55 +22,59 @@ namespace VKMSmalta.View.ViewModel
 
         private void InitializeElements()
         {
+            var GiveMe = new GiveMe();
+
             //TODO: Добавить начальное состояние элементам из CurrentAlgorithm.StartStateOfElements
             Elements = new ObservableCollection<ElementViewModelBase>
                        {
                            //Тумблеры в середине
-                           new VkmThumblerViewModel(0, "thumbler_1channel", historyService, 
-                                                    new List<DependencyAction>
-                                                                            {
-                                                                                new DependencyAction("reciever_channel1", new Dictionary<int, int>
-                                                                                                                          {
-                                                                                                                              { 0, 0 },
-                                                                                                                              { 1, 1 }
-                                                                                                                          })
-                                                                            }) { PosTop = 285, PosLeft = 330, StartupRotation = 90 },
-                           new VkmThumblerViewModel(0, "thumbler_2channel", historyService) { PosTop = 330, PosLeft = 330, StartupRotation = 90 },
-                           new VkmThumblerViewModel(0, "thumbler_3channel", historyService) { PosTop = 375, PosLeft = 330, StartupRotation = 90 },
-                           new VkmThumblerViewModel(0, "thumbler_4channel", historyService) { PosTop = 420, PosLeft = 330, StartupRotation = 90 },
+                           GiveMe.Element().WithValue(0)
+                                        .WithName("thumbler_1channel")
+                                        .WithStartupRotation(90)
+                                        .At(285,330)
+                                        .Thumbler(historyService)
+                                            .WithDependencyAction(new DependencyAction("reciever_channel1", new Dictionary<int, int>
+                                                                                                            {
+                                                                                                                { 0, 0 },
+                                                                                                                { 1, 1 }
+                                                                                                            }))
+                                        .Please(),
+                           GiveMe.Element().WithValue(0).WithName("thumbler_2channel").WithStartupRotation(90).At(330,330).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("thumbler_3channel").WithStartupRotation(90).At(375,330).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("thumbler_4channel").WithStartupRotation(90).At(420,330).Thumbler(historyService).Please(),
 
                            //Подсветка в середине
-                           new VkmLightableRectangleViewModel(0, "reciever_channel1") { PosTop = 315, PosLeft = 535 },
+                           GiveMe.Element().WithValue(0).WithName("reciever_channel1").At(315,535).LightBox().Please(),
 
                            //Тумблеры снизу
-                           new VkmThumblerViewModel(1, "thumbler_imitator", historyService) { PosTop = 595, PosLeft = 375 },
-                           new VkmThumblerViewModel(0, "thumbler_antenna_leftside", historyService) { PosTop = 600, PosLeft = 660 },
-                           new VkmThumblerViewModel(0, "thumbler_antenna_rightside", historyService) { PosTop = 600, PosLeft = 750 },
-                           new VkmThumblerViewModel(0, "thumbler_light", historyService) { PosTop = 670, PosLeft = 750 },
+                           GiveMe.Element().WithValue(1).WithName("thumbler_imitator").At(595,375).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("thumbler_antenna_leftside").At(600,660).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("thumbler_antenna_rightside").At(600,750).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("thumbler_light").At(670,750).Thumbler(historyService).Please(),
                            
                            //Тумблеры справа сверху
-                           new VkmThumblerViewModel(0, "thumbler_power", historyService) { PosTop = 70, PosLeft = 1189 },
-                           new VkmThumblerViewModel(0, "thumbler_cold", historyService) { PosTop = 70, PosLeft = 1235 },
-                           new VkmThumblerViewModel(0, "thumbler_autosarpp", historyService) { PosTop = 70, PosLeft = 1287 },
-                           new VkmThumblerViewModel(0, "thumbler_aircontrol", historyService) { PosTop = 70, PosLeft = 1340 },
+                           GiveMe.Element().WithValue(0).WithName("thumbler_power").At(70,1189).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("thumbler_cold").At(70,1235).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("thumbler_autosarpp").At(70,1287).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("thumbler_aircontrol").At(70,1340).Thumbler(historyService).Please(),
                            
                            //Тумблеры справа снизу
-                           new VkmThumblerViewModel(0, "thumbler_cooler", historyService) { PosTop = 660, PosLeft = 1180 },
-                           new VkmThumblerViewModel(0, "thumbler_light_maintance", historyService) { PosTop = 660, PosLeft = 1223 },
-                           new VkmThumblerViewModel(0, "thumbler_light_advanced", historyService) { PosTop = 660, PosLeft = 1270 },
-                           new VkmThumblerViewModel(0, "thumbler_light_table", historyService) { PosTop = 660, PosLeft = 1317 },
+                           GiveMe.Element().WithValue(0).WithName("thumbler_cooler").At(660,1180).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("thumbler_light_maintance").At(660,1223).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("thumbler_light_advanced").At(660,1270).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("thumbler_light_table").At(660,1317).Thumbler(historyService).Please(),
 
                            //Стрелки слева
-                           new VkmBlackTriangleArrowViewModel(0, "reception_channel1_arrow", 35) { PosTop = 98, PosLeft = 115 },
-                           new VkmBlackTriangleArrowViewModel(0, "reception_channel2_arrow", 35) { PosTop = 294, PosLeft = 115 },
-                           new VkmBlackTriangleArrowViewModel(0, "reception_channel3_arrow", 35) { PosTop = 488, PosLeft = 115 },
-                           new VkmBlackTriangleArrowViewModel(0, "reception_channel4_arrow", 35) { PosTop = 680, PosLeft = 115 },
+                           GiveMe.Element().WithValue(0).WithName("reception_channel1_arrow").At(98,115).WithStartupRotation(35).LittleArrow().Please(),
+                           GiveMe.Element().WithValue(0).WithName("reception_channel2_arrow").At(294,115).WithStartupRotation(35).LittleArrow().Please(),
+                           GiveMe.Element().WithValue(0).WithName("reception_channel3_arrow").At(488,115).WithStartupRotation(35).LittleArrow().Please(),
+                           GiveMe.Element().WithValue(0).WithName("reception_channel4_arrow").At(680,115).WithStartupRotation(35).LittleArrow().Please(),
 
                            //Стрелки справа
-                           new VkmBlackTriangleArrowViewModel(0, "transfer_channel1_arrow", 35) { PosTop = 98, PosLeft = 1000 },
-                           new VkmBlackTriangleArrowViewModel(0, "transfer_channel2_arrow", 35) { PosTop = 294, PosLeft = 1000 },
-                           new VkmBlackTriangleArrowViewModel(0, "transfer_channel3_arrow", 35) { PosTop = 488, PosLeft = 1005 },
-                           new VkmBlackTriangleArrowViewModel(0, "transfer_channel4_arrow", 35) { PosTop = 680, PosLeft = 1003 },
+                           GiveMe.Element().WithValue(0).WithName("reception_channel1_arrow").At(98,1005).WithStartupRotation(35).LittleArrow().Please(),
+                           GiveMe.Element().WithValue(0).WithName("reception_channel2_arrow").At(294,1005).WithStartupRotation(35).LittleArrow().Please(),
+                           GiveMe.Element().WithValue(0).WithName("reception_channel3_arrow").At(488,1005).WithStartupRotation(35).LittleArrow().Please(),
+                           GiveMe.Element().WithValue(0).WithName("reception_channel4_arrow").At(680,1005).WithStartupRotation(35).LittleArrow().Please(),
                        };
         }
     }

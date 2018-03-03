@@ -15,7 +15,7 @@ namespace VKMSmalta.View.ViewModel
         public AdvancedInnerDevicePageViewModel(HistoryService historyService) : base(InnerRegionPages.Advanced, "View/Images/AdvancedBackground.png")
         {
             this.historyService = historyService;
-            InitializeElements(); //TODO: ВЫШЕ!
+            InitializeElements();
         }
 
         private void InitializeElements()
@@ -23,8 +23,6 @@ namespace VKMSmalta.View.ViewModel
             //TODO: Добавить начальное состояние элементам из CurrentAlgorithm.StartStateOfElements
             Elements = new ObservableCollection<ElementViewModelBase>
                        {
-                           //Тумблеры в середине
-                           new VkmThumblerViewModel(0, "OLOLO", historyService) { PosTop = 500, PosLeft = 500, StartupRotation = 30 },
                        };
         }
     }

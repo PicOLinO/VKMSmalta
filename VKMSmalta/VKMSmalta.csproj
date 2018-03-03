@@ -128,6 +128,13 @@
     <Compile Include="View\Hint.xaml.cs">
       <DependentUpon>Hint.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\InnerPages\DSL\BaseElementBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\GiveMe.cs" />
+    <Compile Include="View\InnerPages\DSL\VkmBlackTriangleArrowBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\VkmElementsBuilderBaseProps.cs" />
+    <Compile Include="View\InnerPages\DSL\VkmLightableRectangleBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\VkmRotateWheelBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\VkmThumblerBuilder.cs" />
     <Compile Include="View\InnerPages\MainInnerDevicePage.xaml.cs">
       <DependentUpon>MainInnerDevicePage.xaml</DependentUpon>
     </Compile>
