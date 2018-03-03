@@ -1,5 +1,9 @@
-﻿using System.Windows.Input;
+﻿#region Usings
+
+using System.Windows.Input;
 using DevExpress.Xpf.WindowsUI;
+
+#endregion
 
 namespace VKMSmalta.Dialogs
 {
