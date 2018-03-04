@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using VKMSmalta.Services;
 using VKMSmalta.ViewModel;
 
 namespace VKMSmalta
@@ -25,6 +13,24 @@ namespace VKMSmalta
         {
             InitializeComponent();
             DataContext = new MainPageViewModel();
+        }
+
+        private void PART_MediaBackground_OnMediaEnded(object sender, RoutedEventArgs e)
+        {
+            var element = (MediaElement) sender;
+            element.Stop();
+            element.Play();
+        }
+
+        private void PART_MediaBackground_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            var element = (MediaElement)sender;
+            element.Play();
+        }
+
+        private void PART_MediaBackground_OnMediaFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+            throw e.ErrorException;
         }
     }
 }

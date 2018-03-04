@@ -262,5 +262,10 @@
       <Name>XAMLEx</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="View\Videos\MainPageBackground.mov">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
