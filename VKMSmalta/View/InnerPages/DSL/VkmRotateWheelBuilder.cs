@@ -34,7 +34,8 @@ namespace VKMSmalta.View.DSL
 
         public VkmRotateWheelViewModel Please()
         {
-            return new VkmRotateWheelViewModel(value, name, rotationDegrees, rotationStepDegrees, maxRotationSteps, historyService) { PosTop = posTop, PosLeft = posLeft };
+            var image = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/Wheel.png");
+            return new VkmRotateWheelViewModel(value, name, rotationDegrees, rotationStepDegrees, maxRotationSteps, historyService, image) { PosTop = posTop, PosLeft = posLeft };
         }
     }
 }

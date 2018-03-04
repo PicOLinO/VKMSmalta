@@ -256,5 +256,11 @@
     <Resource Include="View\Images\Backgrounds\L001R.png" />
     <Resource Include="View\Images\Backgrounds\L001P.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\XAMLEx\XAMLEx\XAMLEx.csproj">
+      <Project>{31ddbc68-ceca-46ca-87f7-1bfd8257623b}</Project>
+      <Name>XAMLEx</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

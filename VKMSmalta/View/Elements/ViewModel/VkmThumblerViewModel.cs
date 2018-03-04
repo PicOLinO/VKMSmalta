@@ -1,9 +1,11 @@
-﻿using System;
+﻿#region Usings
+
+using System;
 using System.Collections.Generic;
-using DevExpress.Mvvm;
-using DevExpress.Mvvm.Native;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
+
+#endregion
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
@@ -43,12 +45,12 @@ namespace VKMSmalta.View.Elements.ViewModel
             }
         }
 
-        public VkmThumblerViewModel(int value, 
-                                    string name, 
+        public VkmThumblerViewModel(int value,
+                                    string name,
                                     HistoryService historyService,
-                                    List<DependencyAction> dependencyActions = null, 
-                                    string imageOffSource = "/VKMSmalta;component/View/Images/ThumblerOff.png", 
-                                    string imageOnSource = "/VKMSmalta;component/View/Images/ThumblerOn.png") : base(value, name, historyService)
+                                    string imageOffSource,
+                                    string imageOnSource,
+                                    List<DependencyAction> dependencyActions = null) : base(value, name, historyService)
         {
             isInitialize = true;
 
@@ -56,7 +58,7 @@ namespace VKMSmalta.View.Elements.ViewModel
             this.imageOnSource = imageOnSource;
             DependencyActions = dependencyActions;
             Value = value;
-            
+
             isInitialize = false;
         }
 

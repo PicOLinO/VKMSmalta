@@ -15,7 +15,8 @@ namespace VKMSmalta.Dialogs
     {
         protected DialogBase()
         {
-            Resources = new ResourceDictionary {Source = new Uri("pack://application:,,,/Dialogs/DialogResources.xaml") };
+            var baseDialogResources = XAMLEx.PackagesHelper.GetPathFromDefaultPackage("Dialogs/DialogResources.xaml");
+            Resources = new ResourceDictionary {Source = new Uri(baseDialogResources) };
         }
 
         protected virtual void CreateCommands()

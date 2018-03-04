@@ -8,6 +8,8 @@ namespace VKMSmalta.Services
 {
     public class DependencyContainer
     {
+        public const string AssemblyName = nameof(VKMSmalta);
+
         private MainWindowViewModel mainWindowVm;
         private DevicePageViewModel devicePageVm;
         private MainPageViewModel mainPageVm;

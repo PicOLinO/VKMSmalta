@@ -33,7 +33,9 @@ namespace VKMSmalta.View.DSL
         
         public VkmThumblerViewModel Please()
         {
-            return new VkmThumblerViewModel(value, name, historyService, dependencyActions) {PosTop = posTop, PosLeft = posLeft, StartupRotation = rotationDegrees};
+            var imageOn = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/ThumblerOff.png");
+            var imageOff = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/ThumblerOn.png");
+            return new VkmThumblerViewModel(value, name, historyService, imageOn, imageOff, dependencyActions) {PosTop = posTop, PosLeft = posLeft, StartupRotation = rotationDegrees};
         }
     }
 }

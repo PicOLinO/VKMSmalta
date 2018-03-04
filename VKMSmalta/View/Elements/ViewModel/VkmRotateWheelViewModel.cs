@@ -23,7 +23,7 @@ namespace VKMSmalta.View.Elements.ViewModel
             set { SetProperty(() => RotationDegrees, value); }
         }
 
-        public VkmRotateWheelViewModel(int value, string name, int startupRotation, int rotationStepDegrees, int maxValue, HistoryService historyService, string image = "/VKMSmalta;component/View/Images/Wheel.png") : base(value, name, historyService)
+        public VkmRotateWheelViewModel(int value, string name, int startupRotation, int rotationStepDegrees, int maxValue, HistoryService historyService, string image) : base(value, name, historyService)
         {
             this.startupRotation = RotationDegrees = startupRotation;
             this.rotationStepDegrees = rotationStepDegrees;
