@@ -26,7 +26,7 @@ namespace VKMSmalta.View.DSL
             return this;
         }
 
-        public VkmRotateWheelBuilder WithMaxRotationSteps(int maxRotationSteps)
+        public VkmRotateWheelBuilder WithMaxValue(int maxRotationSteps)
         {
             this.maxRotationSteps = maxRotationSteps;
             return this;

@@ -7,7 +7,7 @@ namespace VKMSmalta.View.Elements.ViewModel
     public sealed class VkmRotateWheelViewModel : ClickableElementViewModelBase, IValuableNamedElement
     {
         private readonly int rotationStepDegrees;
-        private readonly int maxRotationSteps;
+        private readonly int maxValue;
         private readonly int startupRotation;
 
         protected override void OnValueChanged()
@@ -23,11 +23,11 @@ namespace VKMSmalta.View.Elements.ViewModel
             set { SetProperty(() => RotationDegrees, value); }
         }
 
-        public VkmRotateWheelViewModel(int value, string name, int startupRotation, int rotationStepDegrees, int maxRotationSteps, HistoryService historyService, string image = "/VKMSmalta;component/View/Images/Wheel.png") : base(value, name, historyService)
+        public VkmRotateWheelViewModel(int value, string name, int startupRotation, int rotationStepDegrees, int maxValue, HistoryService historyService, string image = "/VKMSmalta;component/View/Images/Wheel.png") : base(value, name, historyService)
         {
             this.startupRotation = RotationDegrees = startupRotation;
             this.rotationStepDegrees = rotationStepDegrees;
-            this.maxRotationSteps = maxRotationSteps;
+            this.maxValue = maxValue;
             ImageSource = image;
             Value = value;
         }
@@ -36,7 +36,7 @@ namespace VKMSmalta.View.Elements.ViewModel
         {
             base.OnClick();
 
-            if (Value < maxRotationSteps)
+            if (Value < maxValue)
             {
                 Value += 1;
             }
