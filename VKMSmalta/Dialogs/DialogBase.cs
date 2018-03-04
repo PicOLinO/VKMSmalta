@@ -13,12 +13,6 @@ namespace VKMSmalta.Dialogs
 {
     public class DialogBase : WinUIDialogWindow
     {
-        protected DialogBase()
-        {
-            var baseDialogResources = XAMLEx.PackagesHelper.GetPathFromDefaultPackage("Dialogs/DialogResources.xaml");
-            Resources = new ResourceDictionary {Source = new Uri(baseDialogResources) };
-        }
-
         protected virtual void CreateCommands()
         {
             var vm = (DialogViewModelBase)DataContext;

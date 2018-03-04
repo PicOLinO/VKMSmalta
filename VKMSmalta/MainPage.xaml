@@ -6,7 +6,7 @@
       xmlns:viewModel="clr-namespace:VKMSmalta.ViewModel"
       mc:Ignorable="d" 
       x:Name="PART_MainPage"
-      d:DesignHeight="290.769" d:DesignWidth="627.692"
+      d:DesignHeight="315.392" d:DesignWidth="627.692"
       Title="Смальта v1.0"
       d:DataContext="{d:DesignInstance Type=viewModel:MainPageViewModel}">
     <Grid>
@@ -25,18 +25,26 @@
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition/>
+            <RowDefinition Style="{DynamicResource OuterSeparatingRow}"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Style="{DynamicResource InnerSeparatingRow}"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Style="{DynamicResource InnerSeparatingRow}"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Style="{DynamicResource InnerSeparatingRow}"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Style="{DynamicResource OuterSeparatingRow}"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Style="{DynamicResource OuterSeparatingColumn}"/>
             <ColumnDefinition Width="100"/>
+            <ColumnDefinition Style="{DynamicResource InnerSeparatingColumn}"/>
             <ColumnDefinition/>
+            <ColumnDefinition Style="{DynamicResource OuterSeparatingColumn}"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="1" Text="Студент"/>
-        <Button Grid.Row="2" Content="Вход" Command="{Binding Path=LoginCommand}" />
-        <Button Grid.Row="3" Content="Обучение" Command="{Binding Path=GoTrainingCommand}" />
-        <Button Grid.Row="4" Content="Экзамен"  Command="{Binding Path=GoExamineCommand}" />
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="Студент"/>
+        <Button Grid.Row="4" Grid.Column="1" Content="Вход" Command="{Binding Path=LoginCommand}" />
+        <Button Grid.Row="6" Grid.Column="1" Content="Обучение" Command="{Binding Path=GoTrainingCommand}" />
+        <Button Grid.Row="8" Grid.Column="1" Content="Экзамен"  Command="{Binding Path=GoExamineCommand}" />
     </Grid>
 </Page>
