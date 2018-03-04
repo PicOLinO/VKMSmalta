@@ -14,7 +14,7 @@ namespace VKMSmalta.View.Elements.ViewModel
         {
             base.OnValueChanged();
 
-            RotationDegrees = ((Value - 1) * rotationStepDegrees) + startupRotation; //TODO: value-1 временный косяк пока я не поверну исходное изображение Wheel на первый уровень.
+            RotationDegrees = (Value * rotationStepDegrees) + startupRotation;
         }
 
         public int RotationDegrees
