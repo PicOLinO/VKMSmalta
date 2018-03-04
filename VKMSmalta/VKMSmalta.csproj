@@ -246,12 +246,8 @@
     <Resource Include="logo.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="View\Images\AdvancedBackground.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="View\Images\Background.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Resource Include="View\Images\Backgrounds\L001R.png" />
+    <Resource Include="View\Images\Backgrounds\L001P.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -22,7 +22,7 @@ namespace VKMSmalta.View.InnerPages.ViewModel
             set { SetProperty(() => Elements, value); }
         }
 
-        public ImageSource BackgroundSource
+        public string BackgroundSource
         {
             get { return GetProperty(() => BackgroundSource); }
             set { SetProperty(() => BackgroundSource, value); }
@@ -31,7 +31,7 @@ namespace VKMSmalta.View.InnerPages.ViewModel
         public InnerPageViewModelBase(InnerRegionPages pageKey, string backgroundSource)
         {
             PageKey = pageKey;
-            BackgroundSource = new BitmapImage(new Uri(backgroundSource, UriKind.RelativeOrAbsolute));
+            BackgroundSource = backgroundSource;
             GiveMe = new GiveMe();
         }
     }

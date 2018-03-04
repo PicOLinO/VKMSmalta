@@ -14,7 +14,7 @@ namespace VKMSmalta.View.ViewModel
     {
         private readonly HistoryService historyService;
 
-        public MainInnerDevicePageViewModel(HistoryService historyService) : base(InnerRegionPages.Main, "View/Images/Background.png")
+        public MainInnerDevicePageViewModel(HistoryService historyService) : base(InnerRegionPages.Main, "/VKMSmalta;component/View/Images/Backgrounds/L001P.png")
         {
             this.historyService = historyService;
             InitializeElements(); //TODO: ВЫШЕ!
