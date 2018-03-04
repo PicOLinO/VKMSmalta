@@ -80,7 +80,7 @@
     <Compile Include="Dialogs\LoginDialog.xaml.cs">
       <DependentUpon>LoginDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\ModernDialog.cs" />
+    <Compile Include="Dialogs\DialogBase.cs" />
     <Compile Include="Dialogs\TrainingCompleteDialog.xaml.cs">
       <DependentUpon>TrainingCompleteDialog.xaml</DependentUpon>
     </Compile>
@@ -151,6 +151,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogs\ChooseAlgorithmDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\DialogResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
