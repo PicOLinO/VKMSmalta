@@ -18,7 +18,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
-            <Frame NavigationUIVisibility="Hidden" Width="1600" Height="817.04" >
+            <Frame NavigationUIVisibility="Hidden" Width="1600" Height="800" >
                 <dxmvvm:Interaction.Behaviors>
                     <dxmvvm:ViewInjectionService RegionName="Inner" />
                 </dxmvvm:Interaction.Behaviors>
@@ -30,9 +30,9 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="&lt;&lt;&lt;" Command="{Binding Path=GoPreviousCommand}"/>
-            <Button Grid.Column="1" Content="Завершить" Command="{Binding Path=CheckResultCommand}"/>
-            <Button Grid.Column="2" Content="&gt;&gt;&gt;" Command="{Binding Path=GoForwardCommand}"/>
+            <Button Grid.Column="0" Content="&lt;&lt;&lt;" Style="{DynamicResource MainButton}" Command="{Binding Path=GoPreviousCommand}"/>
+            <Button Grid.Column="1" Content="Завершить" Style="{DynamicResource MainButton}" Command="{Binding Path=CheckResultCommand}"/>
+            <Button Grid.Column="2" Content="&gt;&gt;&gt;" Style="{DynamicResource MainButton}" Command="{Binding Path=GoForwardCommand}"/>
         </Grid>
     </Grid>
 </Page>

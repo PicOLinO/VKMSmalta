@@ -43,8 +43,8 @@
             <ColumnDefinition Style="{DynamicResource OuterSeparatingColumn}"/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="2" Grid.Column="1" Text="Студент"/>
-        <Button Grid.Row="4" Grid.Column="1" Content="Вход" Command="{Binding Path=LoginCommand}" />
-        <Button Grid.Row="6" Grid.Column="1" Content="Обучение" Command="{Binding Path=GoTrainingCommand}" />
-        <Button Grid.Row="8" Grid.Column="1" Content="Экзамен"  Command="{Binding Path=GoExamineCommand}" />
+        <Button Grid.Row="4" Grid.Column="1" Content="Вход" Style="{DynamicResource MainButton}" Command="{Binding Path=LoginCommand}" />
+        <Button Grid.Row="6" Grid.Column="1" Content="Обучение" Style="{DynamicResource MainButton}"  Command="{Binding Path=GoTrainingCommand}" />
+        <Button Grid.Row="8" Grid.Column="1" Content="Экзамен" Style="{DynamicResource MainButton}" Command="{Binding Path=GoExamineCommand}" />
     </Grid>
 </Page>

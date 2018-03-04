@@ -29,7 +29,7 @@ namespace VKMSmalta.View.ViewModel
                            GiveMe.Element().WithValue(0)
                                         .WithName("main_thumbler_1channel")
                                         .WithStartupRotation(90)
-                                        .At(285,330)
+                                        .At(278,330)
                                         .Thumbler(historyService)
                                             .WithDependencyAction(new DependencyAction("main_reciever_1channel", new Dictionary<int, int>
                                                                                                             {
@@ -37,12 +37,12 @@ namespace VKMSmalta.View.ViewModel
                                                                                                                 { 1, 1 }
                                                                                                             }))
                                         .Please(),
-                           GiveMe.Element().WithValue(0).WithName("main_thumbler_2channel").WithStartupRotation(90).At(330,330).Thumbler(historyService).Please(),
-                           GiveMe.Element().WithValue(0).WithName("main_thumbler_3channel").WithStartupRotation(90).At(375,330).Thumbler(historyService).Please(),
-                           GiveMe.Element().WithValue(0).WithName("main_thumbler_4channel").WithStartupRotation(90).At(420,330).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("main_thumbler_2channel").WithStartupRotation(90).At(323,330).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("main_thumbler_3channel").WithStartupRotation(90).At(368,330).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("main_thumbler_4channel").WithStartupRotation(90).At(413,330).Thumbler(historyService).Please(),
 
                            //Подсветка в середине
-                           GiveMe.Element().WithValue(0).WithName("main_reciever_1channel").At(315,535).LightBox().Please(),
+                           GiveMe.Element().WithValue(0).WithName("main_reciever_1channel").At(315,535).LightBox().Please(), //TODO: -7 ко всем по топу, +? ко всем по лефту
                            GiveMe.Element().WithValue(0).WithName("main_reciever_2channel").At(360,535).LightBox().Please(),
                            GiveMe.Element().WithValue(0).WithName("main_reciever_3channel").At(405,535).LightBox().Please(),
                            GiveMe.Element().WithValue(0).WithName("main_reciever_4channel").At(449,535).LightBox().Please(),
