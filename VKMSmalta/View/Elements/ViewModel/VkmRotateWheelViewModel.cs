@@ -36,13 +36,13 @@ namespace VKMSmalta.View.Elements.ViewModel
         {
             base.OnClick();
 
-            if (Value < maxValue)
+            if (Value < maxValue - 1)
             {
                 Value += 1;
             }
             else
             {
-                Value = 1;
+                Value = 0;
             }
         }
     }
