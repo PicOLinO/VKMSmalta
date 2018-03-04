@@ -33,6 +33,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Grid.Row="3" Grid.Column="1" Content="Отмена" Command="Close" />
+        <Button Grid.Row="3" Grid.Column="1" Content="Отмена" Command="{Binding Path=CloseCommand}" />
     </Grid>
 </local:DialogBase>

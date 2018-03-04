@@ -10,7 +10,7 @@ using Action = VKMSmalta.Domain.Action;
 
 namespace VKMSmalta.Dialogs.ViewModel
 {
-    public class ChooseAlgorithmDialogViewModel : ViewModelBase
+    public class ChooseAlgorithmDialogViewModel : DialogViewModelBase
     {
         public ObservableCollection<Algorithm> Algorithms { get; set; }
 

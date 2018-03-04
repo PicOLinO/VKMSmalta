@@ -29,7 +29,7 @@ namespace VKMSmalta.Dialogs.ViewModel
         private void OnRetry()
         {
             IsRetry = true;
-            
+            CloseCommand.Execute(null);
         }
     }
 }

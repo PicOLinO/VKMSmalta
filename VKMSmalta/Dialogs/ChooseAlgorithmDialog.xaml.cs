@@ -24,6 +24,7 @@ namespace VKMSmalta.Dialogs
         {
             InitializeComponent();
             DataContext = vm;
+            CreateCommands();
         }
 
         public Algorithm SelectedAlgorithm => (DataContext as ChooseAlgorithmDialogViewModel)?.SelectedAlgorithm;

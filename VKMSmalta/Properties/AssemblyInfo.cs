@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("VKMSmalta")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Smalta Simulator")]
+[assembly: AssemblyDescription("Симулятор Смальты")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Danila Chervonny")]
 [assembly: AssemblyProduct("VKMSmalta")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCopyright("Danila Chervonny ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -53,3 +53,6 @@ using System.Windows;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: Guid("0530B2F6-F79B-435B-9B7B-61739D97D4EE")]
+[assembly: NeutralResourcesLanguage("ru")]
+

@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VKMSmalta.Dialogs.ViewModel;
 
 namespace VKMSmalta.Dialogs
 {
@@ -21,6 +22,8 @@ namespace VKMSmalta.Dialogs
         public TrainingCompleteDialog()
         {
             InitializeComponent();
+            DataContext = new DialogViewModelBase();
+            CreateCommands();
         }
     }
 }

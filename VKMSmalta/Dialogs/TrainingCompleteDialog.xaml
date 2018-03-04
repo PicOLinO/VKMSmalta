@@ -1,27 +1,29 @@
 ﻿<local:DialogBase x:Class="VKMSmalta.Dialogs.TrainingCompleteDialog"
-                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                    xmlns:local="clr-namespace:VKMSmalta.Dialogs"
-                    xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
-                    mc:Ignorable="d"
-                    WindowStartupLocation="CenterScreen"
-                    Title="Обучение завершено" d:DesignHeight="127" d:DesignWidth="240">
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:local="clr-namespace:VKMSmalta.Dialogs"
+                  xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
+                  xmlns:viewModel="clr-namespace:VKMSmalta.Dialogs.ViewModel"
+                  mc:Ignorable="d"
+                  WindowStartupLocation="CenterScreen"
+                  Title="Обучение завершено" d:DesignHeight="127" d:DesignWidth="240"
+                  d:DataContext="{d:DesignInstance Type=viewModel:DialogViewModelBase}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Style="{DynamicResource DialogOuterSeparatingRow}" />
             <RowDefinition />
-            <RowDefinition Style="{DynamicResource DialogInnerSeparatingRow}"/>
+            <RowDefinition Style="{DynamicResource DialogInnerSeparatingRow}" />
             <RowDefinition />
             <RowDefinition Style="{DynamicResource DialogOuterSeparatingRow}" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Style="{DynamicResource DialogOuterSeparatingColumn}"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Style="{DynamicResource DialogOuterSeparatingColumn}"/>
+            <ColumnDefinition Style="{DynamicResource DialogOuterSeparatingColumn}" />
+            <ColumnDefinition />
+            <ColumnDefinition Style="{DynamicResource DialogOuterSeparatingColumn}" />
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="1" Grid.Column="1" Text="Обучение алгоритму завершено" />
-        <Button Grid.Row="3" Grid.Column="1" Content="ОК" Command="Close" />
+        <Button Grid.Row="3" Grid.Column="1" Content="ОК" Command="{Binding Path=CloseCommand}" />
     </Grid>
 </local:DialogBase>

@@ -31,7 +31,7 @@
         <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding Path=Login}" />
         <TextBlock Grid.Row="3" Grid.Column="1" Text="Пароль: " />
         <PasswordBox Grid.Row="3" Grid.Column="3" x:Name="passwordBox" />
-        <Button Grid.Row="5" Grid.Column="1" Content="Отмена" Command="Close" />
+        <Button Grid.Row="5" Grid.Column="1" Content="Отмена" Command="{Binding Path=CloseCommand}" />
         <Button Grid.Row="5" Grid.Column="3" Content="ОК" Command="{Binding Path=ClickCommand}" />
     </Grid>
 </local:DialogBase>

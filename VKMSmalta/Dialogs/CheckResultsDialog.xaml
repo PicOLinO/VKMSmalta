@@ -29,8 +29,8 @@
                      BorderThickness="0" IsReadOnly="True" />
         </DockPanel>
         <DockPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center">
-            <Button Content="Выход" Command="Close" Margin="0 0 10 0" />
-            <Button Content="Повторить" Command="{Binding Path=RetryCommand}" Click="Close"/>
+            <Button Content="Выход" Command="{Binding Path=CloseCommand}" Margin="0 0 10 0" />
+            <Button Content="Повторить" Command="{Binding Path=RetryCommand}"/>
         </DockPanel>
     </Grid>
 </dialogs:DialogBase>

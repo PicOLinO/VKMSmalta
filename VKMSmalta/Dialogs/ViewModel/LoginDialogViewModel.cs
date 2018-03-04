@@ -4,7 +4,7 @@ using DevExpress.Mvvm;
 
 namespace VKMSmalta.Dialogs.ViewModel
 {
-    public class LoginDialogViewModel : ViewModelBase
+    public class LoginDialogViewModel : DialogViewModelBase
     {
         private readonly IPasswordSupplier passwordSupplier;
 

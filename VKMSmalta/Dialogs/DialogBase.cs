@@ -3,7 +3,9 @@
 using System;
 using System.Windows;
 using System.Windows.Input;
+using DevExpress.Mvvm;
 using DevExpress.Xpf.WindowsUI;
+using VKMSmalta.Dialogs.ViewModel;
 
 #endregion
 
@@ -13,11 +15,16 @@ namespace VKMSmalta.Dialogs
     {
         protected DialogBase()
         {
-            CommandBindings.Add(new CommandBinding(ApplicationCommands.Close, OnClosing));
             Resources = new ResourceDictionary {Source = new Uri("pack://application:,,,/Dialogs/DialogResources.xaml") };
         }
 
-        private void OnClosing(object sender, ExecutedRoutedEventArgs e)
+        protected virtual void CreateCommands()
+        {
+            var vm = (DialogViewModelBase)DataContext;
+            vm.CloseCommand = new DelegateCommand(OnClosing);
+        }
+        
+        private void OnClosing()
         {
             Close();
         }

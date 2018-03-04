@@ -24,6 +24,7 @@ namespace VKMSmalta.Dialogs
         {
             InitializeComponent();
             DataContext = new LoginDialogViewModel(this);
+            CreateCommands();
         }
 
         public SecureString GetPassword()

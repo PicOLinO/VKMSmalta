@@ -25,11 +25,7 @@ namespace VKMSmalta.Dialogs
             InitializeComponent();
             var vm = new CheckResultsDialogViewModel(value);
             DataContext = vm;
-        }
-
-        private void Close(object sender, RoutedEventArgs e)
-        {
-            Close();
+            CreateCommands();
         }
     }
 }
