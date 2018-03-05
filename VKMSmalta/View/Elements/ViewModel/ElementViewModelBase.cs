@@ -8,9 +8,19 @@ namespace VKMSmalta.View.Elements.ViewModel
 {
     public class ElementViewModelBase : ViewModelBase
     {
-        public double PosLeft { get; set; }
-        public double PosTop { get; set; }
         public string Name { get; set; }
+
+        public double PosTop
+        {
+            get { return GetProperty(() => PosTop); }
+            set { SetProperty(() => PosTop, value); }
+        }
+
+        public double PosLeft
+        {
+            get { return GetProperty(() => PosLeft); }
+            set { SetProperty(() => PosLeft, value); }
+        }
 
         public int Value
         {

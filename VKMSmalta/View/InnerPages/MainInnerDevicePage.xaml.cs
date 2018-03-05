@@ -16,10 +16,5 @@ namespace VKMSmalta.View
         {
             InitializeComponent();
         }
-
-        private void PART_Canvas_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            
-        }
     }
 }

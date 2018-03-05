@@ -20,10 +20,9 @@
         <ItemsControl Grid.Row="0" ItemsSource="{Binding Elements}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Canvas x:Name="PART_Canvas" 
+                    <Canvas x:Name="PART_Canvas"
                             ClipToBounds="True" 
-                            SnapsToDevicePixels="True"
-                            MouseLeftButtonDown="PART_Canvas_OnMouseLeftButtonDown">
+                            SnapsToDevicePixels="True">
                         <Canvas.Background>
                             <ImageBrush Stretch="Uniform" ImageSource="{Binding Path=BackgroundSource}"/>
                         </Canvas.Background>
@@ -38,16 +37,16 @@
             </ItemsControl.ItemContainerStyle>
             <ItemsControl.Resources>
                 <DataTemplate DataType="{x:Type elementsVM:VkmThumblerViewModel}">
-                    <elements:VkmThumbler/>
+                    <elements:VkmThumbler Tag="{Binding ElementName=PART_Canvas}"/>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type elementsVM:VkmRotateWheelViewModel}">
-                    <elements:VkmRotateWheel/>
+                    <elements:VkmRotateWheel Tag="{Binding ElementName=PART_Canvas}"/>
                 </DataTemplate> 
                 <DataTemplate DataType="{x:Type elementsVM:VkmBlackTriangleArrowViewModel}">
-                    <elements:VkmBlackTriangleArrow/>
+                    <elements:VkmBlackTriangleArrow Tag="{Binding ElementName=PART_Canvas}"/>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type elementsVM:VkmLightableRectangleViewModel}">
-                    <elements:VkmLightableRectangle/>
+                    <elements:VkmLightableRectangle Tag="{Binding ElementName=PART_Canvas}"/>
                 </DataTemplate>
             </ItemsControl.Resources>
         </ItemsControl>
