@@ -30,13 +30,13 @@ namespace VKMSmalta
             var vm = new MainWindowViewModel();
             DataContext = vm;
 
-            InitializeDependencyContainer(vm);
+            InitializeVmInDependencyContainer(vm);
             ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.MainMenu, () => new MainPageViewModel(), typeof(MainPage));
         }
 
-        private void InitializeDependencyContainer(MainWindowViewModel vm)
+        private void InitializeVmInDependencyContainer(MainWindowViewModel vm)
         {
-            DependencyContainer.InitializeService(vm);
+            DependencyContainer.Instance.ReSetMainWindowViewModel(vm);
         }
     }
 }

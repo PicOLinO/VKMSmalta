@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿#region Usings
+
+using System;
 using System.Windows;
+using Appccelerate.CommandLineParser;
 using DevExpress.Xpf.Core;
+using VKMSmalta.Services;
+
+#endregion
 
 namespace VKMSmalta
 {
@@ -17,6 +18,28 @@ namespace VKMSmalta
         public App()
         {
             ApplicationThemeHelper.ApplicationThemeName = "Office2016White";
+        }
+
+        private void App_OnStartup(object sender, StartupEventArgs e)
+        {
+            DependencyContainer.InitializeService();
+            ParseArgs(e.Args);
+        }
+
+        private void ParseArgs(string[] args)
+        {
+            var configuration = CommandLineParserConfigurator
+                                .Create()
+                                    .WithSwitch("debug", () => DependencyContainer.Instance.IsDebug = true)
+                                        .DescribedBy("Enable debug mode")
+                                .BuildConfiguration();
+            var parser = new CommandLineParser(configuration);
+            var parseResult = parser.Parse(args);
+
+            if (!parseResult.Succeeded)
+            {
+                throw new ArgumentException("Unknown arguments");
+            }
         }
     }
 }

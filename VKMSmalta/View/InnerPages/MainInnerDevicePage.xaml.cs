@@ -1,6 +1,7 @@
 ﻿#region Usings
 
 using System.Windows.Controls;
+using System.Windows.Input;
 
 #endregion
 
@@ -14,6 +15,11 @@ namespace VKMSmalta.View
         public MainInnerDevicePage()
         {
             InitializeComponent();
+        }
+
+        private void PART_Canvas_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            
         }
     }
 }

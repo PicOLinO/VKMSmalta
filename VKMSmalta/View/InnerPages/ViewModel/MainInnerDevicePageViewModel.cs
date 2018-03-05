@@ -42,11 +42,11 @@ namespace VKMSmalta.View.ViewModel
                            GiveMe.Element().WithValue(0).WithName("main_thumbler_4channel").WithStartupRotation(90).At(413,330).Thumbler(historyService).Please(),
 
                            //Подсветка в середине
-                           GiveMe.Element().WithValue(0).WithName("main_reciever_1channel").At(315,535).LightBox().Please(), //TODO: -7 ко всем по топу, +? ко всем по лефту
-                           GiveMe.Element().WithValue(0).WithName("main_reciever_2channel").At(360,535).LightBox().Please(),
-                           GiveMe.Element().WithValue(0).WithName("main_reciever_3channel").At(405,535).LightBox().Please(),
-                           GiveMe.Element().WithValue(0).WithName("main_reciever_4channel").At(449,535).LightBox().Please(),
-                           GiveMe.Element().WithValue(0).WithName("main_antenna_leftside").At(494,535).LightBox().Please(),
+                           GiveMe.Element().WithValue(1).WithName("main_reciever_1channel").At(308,535).LightBox().Please(), //TODO: -7 ко всем по топу, +? ко всем по лефту
+                           GiveMe.Element().WithValue(1).WithName("main_reciever_2channel").At(353,535).LightBox().Please(),
+                           GiveMe.Element().WithValue(1).WithName("main_reciever_3channel").At(398,535).LightBox().Please(),
+                           GiveMe.Element().WithValue(1).WithName("main_reciever_4channel").At(442,535).LightBox().Please(),
+                           GiveMe.Element().WithValue(1).WithName("main_antenna_leftside").At(487,535).LightBox().Please(),
 
                            GiveMe.Element().WithValue(0).WithName("main_transmitter_1channel").At(315,625).LightBox().Please(),
                            GiveMe.Element().WithValue(0).WithName("main_transmitter_2channel").At(360,625).LightBox().Please(),

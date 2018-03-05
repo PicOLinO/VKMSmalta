@@ -8,6 +8,8 @@ namespace VKMSmalta.Services
 {
     public class DependencyContainer
     {
+        public bool IsDebug { get; set; }
+
         public const string AssemblyName = nameof(VKMSmalta);
 
         private MainWindowViewModel mainWindowVm;
@@ -16,9 +18,12 @@ namespace VKMSmalta.Services
 
         public static DependencyContainer Instance { get; private set; }
         
-        public DependencyContainer(MainWindowViewModel vm)
+        public static void InitializeService()
         {
-            mainWindowVm = vm;
+            if (Instance == null)
+            {
+                Instance = new DependencyContainer();
+            }
         }
 
         public void ReSetDevicePageViewModel(DevicePageViewModel vm)
@@ -31,12 +36,9 @@ namespace VKMSmalta.Services
             mainPageVm = vm;
         }
 
-        public static void InitializeService(MainWindowViewModel vm)
+        public void ReSetMainWindowViewModel(MainWindowViewModel vm)
         {
-            if (Instance == null)
-            {
-                Instance = new DependencyContainer(vm);
-            }
+            mainWindowVm = vm;
         }
 
         public IEnumerable<ElementViewModelBase> GetAllElementsOfCurrentDevicePage()

@@ -20,7 +20,10 @@
         <ItemsControl Grid.Row="0" ItemsSource="{Binding Elements}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Canvas ClipToBounds="True" SnapsToDevicePixels="True">
+                    <Canvas x:Name="PART_Canvas" 
+                            ClipToBounds="True" 
+                            SnapsToDevicePixels="True"
+                            MouseLeftButtonDown="PART_Canvas_OnMouseLeftButtonDown">
                         <Canvas.Background>
                             <ImageBrush Stretch="Uniform" ImageSource="{Binding Path=BackgroundSource}"/>
                         </Canvas.Background>
