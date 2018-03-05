@@ -24,18 +24,18 @@ namespace VKMSmalta.View.ViewModel
             Elements = new ObservableCollection<ElementViewModelBase>
                        {
                            //Настроить позиционирование
-                           GiveMe.Element().WithValue(0).WithName("adv_reciever_1channel").At(315,535).Thumbler(historyService).Please(),
-                           GiveMe.Element().WithValue(0).WithName("adv_reciever_2channel").At(360,535).Thumbler(historyService).Please(),
-                           GiveMe.Element().WithValue(0).WithName("adv_reciever_3channel").At(405,535).Thumbler(historyService).Please(),
-                           GiveMe.Element().WithValue(0).WithName("adv_reciever_4channel").At(449,535).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("adv_reciever_1channel").At(400,104).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("adv_reciever_2channel").At(400,168).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("adv_reciever_3channel").At(398,236).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("adv_reciever_4channel").At(395,303).Thumbler(historyService).Please(),
 
-                           GiveMe.Element().WithValue(0).WithName("adv_transmitter_1channel").At(315,535).Thumbler(historyService).Please(),
-                           GiveMe.Element().WithValue(0).WithName("adv_transmitter_2channel").At(360,535).Thumbler(historyService).Please(),
-                           GiveMe.Element().WithValue(0).WithName("adv_transmitter_3channel").At(405,535).Thumbler(historyService).Please(),
-                           GiveMe.Element().WithValue(0).WithName("adv_transmitter_4channel").At(449,535).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("adv_transmitter_1channel").At(394,366).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("adv_transmitter_2channel").At(396,435).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("adv_transmitter_3channel").At(394,507).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("adv_transmitter_4channel").At(393,576).Thumbler(historyService).Please(),
 
-                           GiveMe.Element().WithValue(0).WithName("adv_antenna_equal").At(449,535).Thumbler(historyService).Please(),
-                           GiveMe.Element().WithValue(0).WithName("adv_modulation").At(449,535).WithStartupRotation(16).RotateWheel(historyService)
+                           GiveMe.Element().WithValue(0).WithName("adv_antenna_equal").At(309,788).Thumbler(historyService).Please(),
+                           GiveMe.Element().WithValue(0).WithName("adv_modulation").At(430,806).WithStartupRotation(16).RotateWheel(historyService)
                                  .WithMaxValue(5).WithRotationStepDegrees(35).Please(),
                        };
         }

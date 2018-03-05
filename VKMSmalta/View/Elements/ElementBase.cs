@@ -19,11 +19,19 @@ namespace VKMSmalta.View.Elements
 
             if (DependencyContainer.Instance.IsDebug)
             {
+                Loaded += OnLoaded;
                 MouseLeftButtonDown += OnMouseLeftButtonDown;
                 PreviewMouseLeftButtonUp += OnPreviewMouseLeftButtonUp;
                 MouseMove += OnMouseMove;
                 Unloaded += OnUnloaded;
             }
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
+        {
+            var vm = DataContext as ElementViewModelBase;
+            var toolTipWithName = new ToolTip { Content = vm.Name };
+            ToolTip = toolTipWithName;
         }
 
         private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -97,6 +105,7 @@ namespace VKMSmalta.View.Elements
 
         private void ReleaseUnmanagedResources()
         {
+            Loaded -= OnLoaded;
             MouseLeftButtonDown -= OnMouseLeftButtonDown;
             PreviewMouseLeftButtonUp -= OnPreviewMouseLeftButtonUp;
             MouseMove -= OnMouseMove;
