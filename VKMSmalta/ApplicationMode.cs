@@ -2,7 +2,6 @@
 {
     public enum ApplicationMode
     {
-        None,
         Training,
         Examine
     }
