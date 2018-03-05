@@ -1,6 +1,6 @@
 ﻿using VKMSmalta.View.Elements.ViewModel;
 
-namespace VKMSmalta.View.DSL
+namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
     public class VkmLightableRectangleBuilder : VkmElementsBuilderBaseProps
     {

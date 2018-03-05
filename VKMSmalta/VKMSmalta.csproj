@@ -140,13 +140,15 @@
     <Compile Include="View\Hint.xaml.cs">
       <DependentUpon>Hint.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\InnerPages\DSL\BaseElementBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\BaseElementBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\GiveMe.cs" />
-    <Compile Include="View\InnerPages\DSL\VkmBlackTriangleArrowBuilder.cs" />
-    <Compile Include="View\InnerPages\DSL\VkmElementsBuilderBaseProps.cs" />
-    <Compile Include="View\InnerPages\DSL\VkmLightableRectangleBuilder.cs" />
-    <Compile Include="View\InnerPages\DSL\VkmRotateWheelBuilder.cs" />
-    <Compile Include="View\InnerPages\DSL\VkmThumblerBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\VkmBlackTriangleArrowBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\VkmElementsBuilderBaseProps.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\VkmLightableRectangleBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\VkmRotateWheelBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\VkmThumblerBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Other\DependencyActionBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Other\DependencyActionsDefaultValues.cs" />
     <Compile Include="View\InnerPages\MainInnerDevicePage.xaml.cs">
       <DependentUpon>MainInnerDevicePage.xaml</DependentUpon>
     </Compile>

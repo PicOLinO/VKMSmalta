@@ -3,7 +3,7 @@ using VKMSmalta.Domain;
 using VKMSmalta.Services;
 using VKMSmalta.View.Elements.ViewModel;
 
-namespace VKMSmalta.View.DSL
+namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
     public class VkmThumblerBuilder : VkmElementsBuilderBaseProps
     {
