@@ -35,7 +35,7 @@ namespace VKMSmalta.View.ViewModel
                            GiveMe.Element().WithValue(0).WithName("adv_transmitter_4channel").At(393,576).Thumbler(historyService).Please(),
 
                            GiveMe.Element().WithValue(0).WithName("adv_antenna_equal").At(309,788).Thumbler(historyService).Please(),
-                           GiveMe.Element().WithValue(0).WithName("adv_modulation").At(430,806).WithStartupRotation(30).RotateWheel(historyService)
+                           GiveMe.Element().WithValue(1).WithName("adv_modulation").At(430,806).WithStartupRotation(30).RotateWheel(historyService)
                                  .WithMaxValue(5).WithRotationStepDegrees(30).Please(),
                        };
         }
