@@ -2,8 +2,8 @@
 {
     public enum InnerRegionPages
     {
-        Main,
-        Advanced
+        L001P,
+        L001R
     }
 
     public enum OuterRegionPages

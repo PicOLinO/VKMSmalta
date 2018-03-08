@@ -82,9 +82,9 @@ namespace VKMSmalta.View.ViewModel
                         advancedDevicePageVm
                     };
 
-            ViewInjectionManager.Default.Inject(Regions.InnerRegion, InnerRegionPages.Main, () => mainDevicePageVm, typeof(MainInnerDevicePage));
-            ViewInjectionManager.Default.Inject(Regions.InnerRegion, InnerRegionPages.Advanced, () => advancedDevicePageVm, typeof(MainInnerDevicePage));
-            NavigateOnPage(InnerRegionPages.Advanced);
+            ViewInjectionManager.Default.Inject(Regions.InnerRegion, InnerRegionPages.L001P, () => mainDevicePageVm, typeof(MainInnerDevicePage));
+            ViewInjectionManager.Default.Inject(Regions.InnerRegion, InnerRegionPages.L001R, () => advancedDevicePageVm, typeof(MainInnerDevicePage));
+            NavigateOnPage(InnerRegionPages.L001R);
         }
 
         private void NavigateOnPage(InnerRegionPages page)
@@ -109,7 +109,7 @@ namespace VKMSmalta.View.ViewModel
 
         private void OnGoForward()
         {
-            NavigateOnPage(InnerRegionPages.Advanced);
+            NavigateOnPage(InnerRegionPages.L001R);
         }
 
         private bool CanGoPrevious()
@@ -119,7 +119,7 @@ namespace VKMSmalta.View.ViewModel
 
         private void OnGoPrevious()
         {
-            NavigateOnPage(InnerRegionPages.Main);
+            NavigateOnPage(InnerRegionPages.L001P);
         }
 
         private void OnCheckResult()
@@ -187,8 +187,8 @@ namespace VKMSmalta.View.ViewModel
         private void Reset()
         {
             //Remove Views Injections
-            ViewInjectionManager.Default.Remove(Regions.InnerRegion, InnerRegionPages.Main);
-            ViewInjectionManager.Default.Remove(Regions.InnerRegion, InnerRegionPages.Advanced);
+            ViewInjectionManager.Default.Remove(Regions.InnerRegion, InnerRegionPages.L001P);
+            ViewInjectionManager.Default.Remove(Regions.InnerRegion, InnerRegionPages.L001R);
 
             //Reset services
             hintService.Reset();

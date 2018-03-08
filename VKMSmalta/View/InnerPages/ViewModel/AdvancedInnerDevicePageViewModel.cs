@@ -12,7 +12,7 @@ namespace VKMSmalta.View.ViewModel
     {
         private readonly HistoryService historyService;
 
-        public AdvancedInnerDevicePageViewModel(HistoryService historyService) : base(InnerRegionPages.Advanced, "/VKMSmalta;component/View/Images/Backgrounds/L001R.png")
+        public AdvancedInnerDevicePageViewModel(HistoryService historyService) : base(InnerRegionPages.L001R, "/VKMSmalta;component/View/Images/Backgrounds/L001R.png")
         {
             this.historyService = historyService;
             InitializeElements();
