@@ -1,4 +1,6 @@
-﻿namespace VKMSmalta.View.InnerPages.DSL.Elements
+﻿using VKMSmalta.Services.Navigate;
+
+namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
     public class VkmElementsBuilderBaseProps
     {
@@ -7,5 +9,6 @@
         protected int value;
         protected string name;
         protected int rotationDegrees;
+        protected InnerRegionPages page;
     }
 }

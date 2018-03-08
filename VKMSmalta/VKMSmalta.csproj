@@ -109,6 +109,7 @@
     <Compile Include="Services\DependencyContainer.cs" />
     <Compile Include="Services\HintService.cs" />
     <Compile Include="Services\HistoryService.cs" />
+    <Compile Include="Services\Navigate\Direction.cs" />
     <Compile Include="Services\Navigate\RegionPages.cs" />
     <Compile Include="Services\Navigate\Regions.cs" />
     <Compile Include="Services\NetworkService.cs" />
@@ -155,6 +156,9 @@
     <Compile Include="View\InnerPages\ViewModel\InnerPageViewModelBase.cs" />
     <Compile Include="View\InnerPages\ViewModel\AdvancedInnerDevicePageViewModel.cs" />
     <Compile Include="View\InnerPages\ViewModel\MainInnerDevicePageViewModel.cs" />
+    <Compile Include="View\NavigateButtonHint.xaml.cs">
+      <DependentUpon>NavigateButtonHint.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewModel\DevicePageViewModel.cs" />
     <Compile Include="View\ViewModel\HintViewModel.cs" />
     <Page Include="Dialogs\CheckResultsDialog.xaml">
@@ -228,6 +232,10 @@
     <Page Include="View\InnerPages\MainInnerDevicePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\NavigateButtonHint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

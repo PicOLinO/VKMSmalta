@@ -36,7 +36,7 @@ namespace VKMSmalta.View.ViewModel
             {
                 var unionedElements = new List<ElementViewModelBase>();
 
-                foreach (var mainInnerDevicePageViewModel in pages)
+                foreach (var mainInnerDevicePageViewModel in Pages)
                 {
                     unionedElements.AddRange(mainInnerDevicePageViewModel.Elements.ToList());
                 }
@@ -45,12 +45,24 @@ namespace VKMSmalta.View.ViewModel
             }
         }
 
-        private ObservableCollection<InnerPageViewModelBase> pages;
+        public ObservableCollection<InnerPageViewModelBase> Pages;
 
         public InnerRegionPages CurrentPageKey
         {
             get { return GetProperty(() => CurrentPageKey); }
             set { SetProperty(() => CurrentPageKey, value); }
+        }
+
+        public bool IsGoForwardHintOpen
+        {
+            get { return GetProperty(() => IsGoForwardHintOpen); }
+            set { SetProperty(() => IsGoForwardHintOpen, value); }
+        }
+
+        public bool IsGoPreviousHintOpen
+        {
+            get { return GetProperty(() => IsGoPreviousHintOpen); }
+            set { SetProperty(() => IsGoPreviousHintOpen, value); }
         }
 
         public DevicePageViewModel(ApplicationMode appMode, Algorithm algorithm, HintService hintService, HistoryService historyService)
@@ -76,7 +88,7 @@ namespace VKMSmalta.View.ViewModel
             var mainDevicePageVm = new MainInnerDevicePageViewModel(historyService);
             var advancedDevicePageVm = new AdvancedInnerDevicePageViewModel(historyService);
 
-            pages = new ObservableCollection<InnerPageViewModelBase>
+            Pages = new ObservableCollection<InnerPageViewModelBase>
                     {
                         mainDevicePageVm,
                         advancedDevicePageVm
@@ -84,13 +96,15 @@ namespace VKMSmalta.View.ViewModel
 
             ViewInjectionManager.Default.Inject(Regions.InnerRegion, InnerRegionPages.L001P, () => mainDevicePageVm, typeof(MainInnerDevicePage));
             ViewInjectionManager.Default.Inject(Regions.InnerRegion, InnerRegionPages.L001R, () => advancedDevicePageVm, typeof(MainInnerDevicePage));
-            NavigateOnPage(InnerRegionPages.L001R);
+
+            NavigateOnPage(InnerRegionPages.L001P);
         }
 
         private void NavigateOnPage(InnerRegionPages page)
         {
             ViewInjectionManager.Default.Navigate(Regions.InnerRegion, page);
             CurrentPageKey = page;
+            hintService.OnNavigated(page);
         }
 
         #region Commands
@@ -104,7 +118,7 @@ namespace VKMSmalta.View.ViewModel
 
         private bool CanGoForward()
         {
-            return CurrentPageKey != pages.Last().PageKey;
+            return CurrentPageKey != Pages.Last().PageKey;
         }
 
         private void OnGoForward()
@@ -114,7 +128,7 @@ namespace VKMSmalta.View.ViewModel
 
         private bool CanGoPrevious()
         {
-            return CurrentPageKey != pages.First().PageKey;
+            return CurrentPageKey != Pages.First().PageKey;
         }
 
         private void OnGoPrevious()

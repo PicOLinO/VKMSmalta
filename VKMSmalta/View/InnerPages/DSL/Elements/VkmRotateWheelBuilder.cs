@@ -1,4 +1,5 @@
 ﻿using VKMSmalta.Services;
+using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
 
 namespace VKMSmalta.View.InnerPages.DSL.Elements
@@ -10,7 +11,7 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
         
         private readonly HistoryService historyService;
 
-        public VkmRotateWheelBuilder(int value, string name, int posTop, int posLeft, int startupRotation, HistoryService historyService)
+        public VkmRotateWheelBuilder(int value, string name, int posTop, int posLeft, int startupRotation, HistoryService historyService, InnerRegionPages page)
         {
             this.posTop = posTop;
             this.posLeft = posLeft;
@@ -18,6 +19,7 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
             this.value = value;
             this.name = name;
             this.historyService = historyService;
+            this.page = page;
         }
 
         public VkmRotateWheelBuilder WithRotationStepDegrees(int rotationStepDegrees)
@@ -35,7 +37,7 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
         public VkmRotateWheelViewModel Please()
         {
             var image = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/Wheel.png");
-            return new VkmRotateWheelViewModel(value, name, rotationDegrees, rotationStepDegrees, maxRotationSteps, historyService, image) { PosTop = posTop, PosLeft = posLeft };
+            return new VkmRotateWheelViewModel(value, name, rotationDegrees, rotationStepDegrees, maxRotationSteps, historyService, image) { PosTop = posTop, PosLeft = posLeft, Page = page};
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
+using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
 
 namespace VKMSmalta.View.InnerPages.DSL.Elements
@@ -11,7 +12,7 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
 
         private List<DependencyAction> dependencyActions;
 
-        public VkmThumblerBuilder(int value, string name, int posTop, int posLeft, int startupRotation, HistoryService historyService)
+        public VkmThumblerBuilder(int value, string name, int posTop, int posLeft, int startupRotation, HistoryService historyService, InnerRegionPages page)
         {
             this.posTop = posTop;
             this.posLeft = posLeft;
@@ -19,6 +20,7 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
             this.value = value;
             this.name = name;
             this.historyService = historyService;
+            this.page = page;
         }
         
         public VkmThumblerBuilder WithDependencyAction(DependencyAction dependencyAction)
@@ -35,7 +37,7 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
         {
             var imageOn = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/ThumblerOff.png");
             var imageOff = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/ThumblerOn.png");
-            return new VkmThumblerViewModel(value, name, historyService, imageOn, imageOff, dependencyActions) {PosTop = posTop, PosLeft = posLeft, StartupRotation = rotationDegrees};
+            return new VkmThumblerViewModel(value, name, historyService, imageOn, imageOff, dependencyActions) {PosTop = posTop, PosLeft = posLeft, StartupRotation = rotationDegrees, Page = page};
         }
     }
 }

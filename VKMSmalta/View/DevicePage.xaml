@@ -30,9 +30,25 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="&lt;&lt;&lt;" Style="{DynamicResource MainButton}" Command="{Binding Path=GoPreviousCommand}"/>
+            <Button Grid.Column="0" x:Name="PART_GoPrevious" Content="&lt;&lt;&lt;" Style="{DynamicResource MainButton}" Command="{Binding Path=GoPreviousCommand}"/>
             <Button Grid.Column="1" Content="Завершить" Style="{DynamicResource MainButton}" Command="{Binding Path=CheckResultCommand}"/>
-            <Button Grid.Column="2" Content="&gt;&gt;&gt;" Style="{DynamicResource MainButton}" Command="{Binding Path=GoForwardCommand}"/>
+            <Button Grid.Column="2" x:Name="PART_GoNext" Content="&gt;&gt;&gt;" Style="{DynamicResource MainButton}" Command="{Binding Path=GoForwardCommand}"/>
+            <Popup IsOpen="{Binding Path=IsGoPreviousHintOpen}" StaysOpen="True"
+                   PlacementTarget="{Binding ElementName=PART_GoPrevious}"
+                   Placement="Top" PopupAnimation="Fade" 
+                   HorizontalOffset="120"
+                   VerticalOffset="-10"
+                   AllowsTransparency="True">
+                <view:NavigateButtonHint />
+            </Popup>
+            <Popup IsOpen="{Binding Path=IsGoForwardHintOpen}" StaysOpen="True"
+                   PlacementTarget="{Binding ElementName=PART_GoNext}"
+                   Placement="Top" PopupAnimation="Fade" 
+                   HorizontalOffset="120"
+                   VerticalOffset="-10"
+                   AllowsTransparency="True">
+                <view:NavigateButtonHint />
+            </Popup>
         </Grid>
     </Grid>
 </Page>

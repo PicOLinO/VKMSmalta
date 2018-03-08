@@ -1,4 +1,5 @@
 ﻿using VKMSmalta.Services;
+using VKMSmalta.Services.Navigate;
 
 namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
@@ -29,24 +30,30 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
             return this;
         }
 
+        public BaseElementBuilder On(InnerRegionPages page)
+        {
+            this.page = page;
+            return this;
+        }
+
         public VkmThumblerBuilder Thumbler(HistoryService historyService)
         {
-            return new VkmThumblerBuilder(value, name, posTop, posLeft, rotationDegrees, historyService);
+            return new VkmThumblerBuilder(value, name, posTop, posLeft, rotationDegrees, historyService, page);
         }
 
         public VkmRotateWheelBuilder RotateWheel(HistoryService historyService)
         {
-            return new VkmRotateWheelBuilder(value, name, posTop, posLeft, rotationDegrees, historyService);
+            return new VkmRotateWheelBuilder(value, name, posTop, posLeft, rotationDegrees, historyService, page);
         }
 
         public VkmBlackTriangleArrowBuilder LittleArrow()
         {
-            return new VkmBlackTriangleArrowBuilder(value, name, posTop, posLeft, rotationDegrees);
+            return new VkmBlackTriangleArrowBuilder(value, name, posTop, posLeft, rotationDegrees, page);
         }
 
         public VkmLightableRectangleBuilder LightBox()
         {
-            return new VkmLightableRectangleBuilder(value, name, posTop, posLeft, rotationDegrees);
+            return new VkmLightableRectangleBuilder(value, name, posTop, posLeft, rotationDegrees, page);
         }
     }
 }

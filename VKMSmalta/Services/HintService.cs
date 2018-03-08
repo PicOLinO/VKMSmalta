@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Controls;
-using DevExpress.Xpf.Core;
 using VKMSmalta.Domain;
-using VKMSmalta.View;
+using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
 using Action = VKMSmalta.Domain.Action;
 
@@ -47,6 +44,12 @@ namespace VKMSmalta.Services
 
             var element = Elements.Single(e => e.Name == action?.ParentElementName);
 
+            var page = DependencyContainer.Instance.GetCurrentInnerPage();
+            if (page != element.Page)
+            {
+                DependencyContainer.Instance.ManageNavigateButtonHintForElement(element);
+            }
+
             element.IsEnabled = true;
             element.Hint = action.Hint;
             element.IsHintOpen = true;
@@ -73,6 +76,18 @@ namespace VKMSmalta.Services
             }
 
             return null;
+        }
+
+        public void OnNavigated(InnerRegionPages toPage)
+        {
+            if (CurrentAction == null)
+            {
+                return;
+            }
+
+            var currentHintedElement = Elements.Single(e => e.Name == CurrentAction?.ParentElementName);
+
+            DependencyContainer.Instance.ManageNavigateButtonHintForElement(currentHintedElement, currentHintedElement.Page == toPage);
         }
 
         public void Reset()
