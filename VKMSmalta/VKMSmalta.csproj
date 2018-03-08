@@ -154,7 +154,6 @@
       <DependentUpon>MainInnerDevicePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\InnerPages\ViewModel\InnerPageViewModelBase.cs" />
-    <Compile Include="View\InnerPages\ViewModel\AdvancedInnerDevicePageViewModel.cs" />
     <Compile Include="View\InnerPages\ViewModel\MainInnerDevicePageViewModel.cs" />
     <Compile Include="View\NavigateButtonHint.xaml.cs">
       <DependentUpon>NavigateButtonHint.xaml</DependentUpon>

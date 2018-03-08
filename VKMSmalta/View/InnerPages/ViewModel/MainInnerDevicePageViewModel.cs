@@ -15,7 +15,7 @@ namespace VKMSmalta.View.ViewModel
     {
         private readonly HistoryService historyService;
 
-        public MainInnerDevicePageViewModel(HistoryService historyService) : base(InnerRegionPages.L001P, "/VKMSmalta;component/View/Images/Backgrounds/L001P.png")
+        public MainInnerDevicePageViewModel(HistoryService historyService, InnerRegionPages pageKey, string background) : base(pageKey, background)
         {
             this.historyService = historyService;
             InitializeElements();  //TODO: ВЫШЕ!
@@ -24,7 +24,9 @@ namespace VKMSmalta.View.ViewModel
         private void InitializeElements()
         {
             //TODO: Добавить начальное состояние элементам из CurrentAlgorithm.StartStateOfElements
-            Elements = new ObservableCollection<ElementViewModelBase>
+            if (PageKey == InnerRegionPages.L001P)
+            {
+                Elements = new ObservableCollection<ElementViewModelBase>
                        {
                            //Тумблеры в середине
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("main_thumbler_1channel").WithStartupRotation(90).At(280,341).Thumbler(historyService).WithDependencyAction(GiveMe.DependencyAction().WithDependencyElementName("main_reciever_1channel").WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneEqualsTwoCount).Please()).Please(),
@@ -86,6 +88,27 @@ namespace VKMSmalta.View.ViewModel
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("main_transmitter_3channel_arrow").WithStartupRotation(35).At(479,1003).LittleArrow().Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("main_transmitter_4channel_arrow").WithStartupRotation(35).At(667,1001).LittleArrow().Please(),
                        };
+            }
+
+            if (PageKey == InnerRegionPages.L001R)
+            {
+                Elements = new ObservableCollection<ElementViewModelBase>
+                           {
+                               GiveMe.Element().On(PageKey).WithValue(0).WithName("adv_reciever_1channel").At(400,104).Thumbler(historyService).Please(),
+                               GiveMe.Element().On(PageKey).WithValue(0).WithName("adv_reciever_2channel").At(400,168).Thumbler(historyService).Please(),
+                               GiveMe.Element().On(PageKey).WithValue(0).WithName("adv_reciever_3channel").At(398,236).Thumbler(historyService).Please(),
+                               GiveMe.Element().On(PageKey).WithValue(0).WithName("adv_reciever_4channel").At(395,303).Thumbler(historyService).Please(),
+
+                               GiveMe.Element().On(PageKey).WithValue(0).WithName("adv_transmitter_1channel").At(394,366).Thumbler(historyService).Please(),
+                               GiveMe.Element().On(PageKey).WithValue(0).WithName("adv_transmitter_2channel").At(396,435).Thumbler(historyService).Please(),
+                               GiveMe.Element().On(PageKey).WithValue(0).WithName("adv_transmitter_3channel").At(394,507).Thumbler(historyService).Please(),
+                               GiveMe.Element().On(PageKey).WithValue(0).WithName("adv_transmitter_4channel").At(393,576).Thumbler(historyService).Please(),
+
+                               GiveMe.Element().On(PageKey).WithValue(0).WithName("adv_antenna_equal").At(309,788).Thumbler(historyService).Please(),
+                               GiveMe.Element().On(PageKey).WithValue(1).WithName("adv_modulation").At(430,806).WithStartupRotation(30).RotateWheel(historyService)
+                                     .WithMaxValue(5).WithRotationStepDegrees(30).Please(),
+                           };
+            }
         }
     }
 }

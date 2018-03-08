@@ -85,19 +85,19 @@ namespace VKMSmalta.View.ViewModel
 
         private void InitializeInnerPages()
         {
-            var mainDevicePageVm = new MainInnerDevicePageViewModel(historyService);
-            var advancedDevicePageVm = new AdvancedInnerDevicePageViewModel(historyService);
+            var l00p = new MainInnerDevicePageViewModel(historyService, InnerRegionPages.L001P, "/VKMSmalta;component/View/Images/Backgrounds/L001P.png");
+            var l00r = new MainInnerDevicePageViewModel(historyService, InnerRegionPages.L001R, "/VKMSmalta;component/View/Images/Backgrounds/L001R.png");
 
             Pages = new ObservableCollection<InnerPageViewModelBase>
                     {
-                        mainDevicePageVm,
-                        advancedDevicePageVm
+                        l00p,
+                        l00r
                     };
 
-            ViewInjectionManager.Default.Inject(Regions.InnerRegion, InnerRegionPages.L001P, () => mainDevicePageVm, typeof(MainInnerDevicePage));
-            ViewInjectionManager.Default.Inject(Regions.InnerRegion, InnerRegionPages.L001R, () => advancedDevicePageVm, typeof(MainInnerDevicePage));
+            ViewInjectionManager.Default.Inject(Regions.InnerRegion, l00p.PageKey, () => l00p, typeof(MainInnerDevicePage));
+            ViewInjectionManager.Default.Inject(Regions.InnerRegion, l00r.PageKey, () => l00r, typeof(MainInnerDevicePage));
 
-            NavigateOnPage(InnerRegionPages.L001P);
+            NavigateOnPage(l00p.PageKey);
         }
 
         private void NavigateOnPage(InnerRegionPages page)
