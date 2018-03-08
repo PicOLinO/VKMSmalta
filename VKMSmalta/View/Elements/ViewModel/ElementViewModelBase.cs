@@ -10,7 +10,7 @@ namespace VKMSmalta.View.Elements.ViewModel
     public class ElementViewModelBase : ViewModelBase
     {
         public string Name { get; set; }
-        public InnerRegionPages Page { get; set; }
+        public InnerRegionPage Page { get; set; }
 
         public double PosTop
         {

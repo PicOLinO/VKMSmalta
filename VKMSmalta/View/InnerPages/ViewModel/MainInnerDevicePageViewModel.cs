@@ -15,7 +15,7 @@ namespace VKMSmalta.View.ViewModel
     {
         private readonly HistoryService historyService;
 
-        public MainInnerDevicePageViewModel(HistoryService historyService, InnerRegionPages pageKey, string background) : base(pageKey, background)
+        public MainInnerDevicePageViewModel(HistoryService historyService, InnerRegionPage pageKey, string background) : base(pageKey, background)
         {
             this.historyService = historyService;
             InitializeElements();  //TODO: ВЫШЕ!
@@ -24,7 +24,7 @@ namespace VKMSmalta.View.ViewModel
         private void InitializeElements()
         {
             //TODO: Добавить начальное состояние элементам из CurrentAlgorithm.StartStateOfElements
-            if (PageKey == InnerRegionPages.L001P)
+            if (PageKey == InnerRegionPage.L001P)
             {
                 Elements = new ObservableCollection<ElementViewModelBase>
                        {
@@ -90,7 +90,7 @@ namespace VKMSmalta.View.ViewModel
                        };
             }
 
-            if (PageKey == InnerRegionPages.L001R)
+            if (PageKey == InnerRegionPage.L001R)
             {
                 Elements = new ObservableCollection<ElementViewModelBase>
                            {

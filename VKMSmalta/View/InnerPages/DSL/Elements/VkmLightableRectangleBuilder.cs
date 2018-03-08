@@ -5,7 +5,7 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
     public class VkmLightableRectangleBuilder : VkmElementsBuilderBaseProps
     {
-        public VkmLightableRectangleBuilder(int value, string name, int posTop, int posLeft, int startupRotation, InnerRegionPages page)
+        public VkmLightableRectangleBuilder(int value, string name, int posTop, int posLeft, int startupRotation, InnerRegionPage page)
         {
             this.posTop = posTop;
             this.posLeft = posLeft;

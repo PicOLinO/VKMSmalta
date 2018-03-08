@@ -12,7 +12,7 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
 
         private List<DependencyAction> dependencyActions;
 
-        public VkmThumblerBuilder(int value, string name, int posTop, int posLeft, int startupRotation, HistoryService historyService, InnerRegionPages page)
+        public VkmThumblerBuilder(int value, string name, int posTop, int posLeft, int startupRotation, HistoryService historyService, InnerRegionPage page)
         {
             this.posTop = posTop;
             this.posLeft = posLeft;

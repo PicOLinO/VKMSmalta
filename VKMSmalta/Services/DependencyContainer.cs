@@ -53,7 +53,7 @@ namespace VKMSmalta.Services
             mainWindowVm.IsLoadingSplashVisible = isLoading;
         }
 
-        public InnerRegionPages GetCurrentInnerPage()
+        public InnerRegionPage GetCurrentInnerPage()
         {
             return devicePageVm.CurrentPageKey;
         }

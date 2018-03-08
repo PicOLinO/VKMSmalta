@@ -30,7 +30,7 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
             return this;
         }
 
-        public BaseElementBuilder On(InnerRegionPages page)
+        public BaseElementBuilder On(InnerRegionPage page)
         {
             this.page = page;
             return this;

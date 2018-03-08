@@ -47,7 +47,7 @@ namespace VKMSmalta.View.ViewModel
 
         public ObservableCollection<InnerPageViewModelBase> Pages;
 
-        public InnerRegionPages CurrentPageKey
+        public InnerRegionPage CurrentPageKey
         {
             get { return GetProperty(() => CurrentPageKey); }
             set { SetProperty(() => CurrentPageKey, value); }
@@ -85,8 +85,8 @@ namespace VKMSmalta.View.ViewModel
 
         private void InitializeInnerPages()
         {
-            var l00p = new MainInnerDevicePageViewModel(historyService, InnerRegionPages.L001P, "/VKMSmalta;component/View/Images/Backgrounds/L001P.png");
-            var l00r = new MainInnerDevicePageViewModel(historyService, InnerRegionPages.L001R, "/VKMSmalta;component/View/Images/Backgrounds/L001R.png");
+            var l00p = new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001P, "/VKMSmalta;component/View/Images/Backgrounds/L001P.png");
+            var l00r = new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001R, "/VKMSmalta;component/View/Images/Backgrounds/L001R.png");
 
             Pages = new ObservableCollection<InnerPageViewModelBase>
                     {
@@ -100,7 +100,7 @@ namespace VKMSmalta.View.ViewModel
             NavigateOnPage(l00p.PageKey);
         }
 
-        private void NavigateOnPage(InnerRegionPages page)
+        private void NavigateOnPage(InnerRegionPage page)
         {
             ViewInjectionManager.Default.Navigate(Regions.InnerRegion, page);
             CurrentPageKey = page;
@@ -123,7 +123,7 @@ namespace VKMSmalta.View.ViewModel
 
         private void OnGoForward()
         {
-            NavigateOnPage(InnerRegionPages.L001R);
+            NavigateOnPage(InnerRegionPage.L001R);
         }
 
         private bool CanGoPrevious()
@@ -133,7 +133,7 @@ namespace VKMSmalta.View.ViewModel
 
         private void OnGoPrevious()
         {
-            NavigateOnPage(InnerRegionPages.L001P);
+            NavigateOnPage(InnerRegionPage.L001P);
         }
 
         private void OnCheckResult()
@@ -201,8 +201,8 @@ namespace VKMSmalta.View.ViewModel
         private void Reset()
         {
             //Remove Views Injections
-            ViewInjectionManager.Default.Remove(Regions.InnerRegion, InnerRegionPages.L001P);
-            ViewInjectionManager.Default.Remove(Regions.InnerRegion, InnerRegionPages.L001R);
+            ViewInjectionManager.Default.Remove(Regions.InnerRegion, InnerRegionPage.L001P);
+            ViewInjectionManager.Default.Remove(Regions.InnerRegion, InnerRegionPage.L001R);
 
             //Reset services
             hintService.Reset();

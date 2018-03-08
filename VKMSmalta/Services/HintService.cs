@@ -78,7 +78,7 @@ namespace VKMSmalta.Services
             return null;
         }
 
-        public void OnNavigated(InnerRegionPages toPage)
+        public void OnNavigated(InnerRegionPage toPage)
         {
             if (CurrentAction == null)
             {

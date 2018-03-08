@@ -14,7 +14,7 @@ namespace VKMSmalta.View.InnerPages.ViewModel
     public class InnerPageViewModelBase : ViewModelBase
     {
         protected GiveMe GiveMe { get; }
-        public InnerRegionPages PageKey { get; }
+        public InnerRegionPage PageKey { get; }
 
         public ObservableCollection<ElementViewModelBase> Elements
         {
@@ -28,7 +28,7 @@ namespace VKMSmalta.View.InnerPages.ViewModel
             set { SetProperty(() => BackgroundSource, value); }
         }
 
-        public InnerPageViewModelBase(InnerRegionPages pageKey, string backgroundSource)
+        public InnerPageViewModelBase(InnerRegionPage pageKey, string backgroundSource)
         {
             PageKey = pageKey;
             BackgroundSource = backgroundSource;

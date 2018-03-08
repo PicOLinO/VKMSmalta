@@ -5,7 +5,7 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
     public class VkmBlackTriangleArrowBuilder : VkmElementsBuilderBaseProps
     {
-        public VkmBlackTriangleArrowBuilder(int value, string name, int posTop, int posLeft, int startupRotation, InnerRegionPages page)
+        public VkmBlackTriangleArrowBuilder(int value, string name, int posTop, int posLeft, int startupRotation, InnerRegionPage page)
         {
             this.posTop = posTop;
             this.posLeft = posLeft;

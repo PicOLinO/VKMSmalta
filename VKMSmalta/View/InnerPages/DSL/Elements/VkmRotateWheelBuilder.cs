@@ -11,7 +11,7 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
         
         private readonly HistoryService historyService;
 
-        public VkmRotateWheelBuilder(int value, string name, int posTop, int posLeft, int startupRotation, HistoryService historyService, InnerRegionPages page)
+        public VkmRotateWheelBuilder(int value, string name, int posTop, int posLeft, int startupRotation, HistoryService historyService, InnerRegionPage page)
         {
             this.posTop = posTop;
             this.posLeft = posLeft;

@@ -9,6 +9,6 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
         protected int value;
         protected string name;
         protected int rotationDegrees;
-        protected InnerRegionPages page;
+        protected InnerRegionPage page;
     }
 }
