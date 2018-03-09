@@ -8,8 +8,8 @@
     "experimentalDecorators": true,
     "removeComments": true,
     "suppressImplicitAnyIndexErrors": true,
-    "rootDir": "Components",
-    "outDir": "wwwroot/components"
+    "rootDir": "Scripts",
+    "outDir": "wwwroot/scripts"
   },
   "compileOnSave": true,
   "angularCompilerOptions": {

@@ -106,6 +106,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\resnyanskiy-tree-icons.png" />
+    <Content Include="Content\images\resnyanskiy-tree-loading.gif" />
+    <Content Include="Content\images\resnyanskiy-tree-vline.png" />
     <Content Include="Global.asax" />
     <Content Include="gulp.config.js" />
     <Content Include="gulpfile.js" />
@@ -133,6 +136,7 @@
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
     <Content Include="bower.json" />
+    <Content Include="Content\resnyanskiy.js.tree.less" />
     <None Include="packages.config" />
     <Content Include="Views\Main\MainPage.cshtml" />
     <None Include="Web.Debug.config">
@@ -146,7 +150,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Components\tree-view.component.ts" />
+    <TypeScriptCompile Include="Scripts\index.ts" />
+    <TypeScriptCompile Include="Scripts\resnyanskiy.js.tree.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
