@@ -7,8 +7,11 @@ namespace VKMSmalta.Admin.Models
     {
         public ApplicationContext() : base("DebugConnection")
         {
+            Database.SetInitializer<ApplicationContext>(null);
         }
+        
         public DbSet<Student> Students { get; set; }
         public DbSet<Team> Teams { get; set; }
+        public DbSet<Test> Tests { get; set; }
     }
 }

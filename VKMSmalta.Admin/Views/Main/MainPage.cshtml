@@ -1,9 +1,11 @@
-﻿@{
+﻿@using VKMSmalta.Admin.Models.Domain
+@{
     Layout = null;
 }
 
 <!DOCTYPE html>
 <link href='@Url.Content("~/Content/themes/base/all.css")' rel="stylesheet" type="text/css" />
+<script src='@Url.Content("~/Scripts/jquery-3.3.1.js")' type="text/javascript"></script>
 <script src='@Url.Content("~/Scripts/jquery-ui-1.12.1.min.js")' type="text/javascript"></script>
 <html>
 <head>
@@ -11,7 +13,13 @@
     <title>Преподавательская</title>
 </head>
 <body>
-    <div>
-    </div>
+<div>
+    <ul>
+        @foreach (var team in ViewData["teams"] as IList<Team>)
+        {
+            <li>@team.Number</li>
+        }
+    </ul>
+</div>
 </body>
 </html>

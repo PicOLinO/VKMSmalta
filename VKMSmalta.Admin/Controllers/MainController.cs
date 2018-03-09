@@ -1,14 +1,18 @@
 ﻿using System.Web.Mvc;
+using VKMSmalta.Admin.Services;
 
 namespace VKMSmalta.Admin.Controllers
 {
     public class MainController : Controller
     {
+        private readonly MainRepository mainRepository = new MainRepository();
+
         // GET
         public ActionResult Index()
         {
-            return
-            View("MainPage");
+            ViewData.Add("teams", mainRepository.GetTests());
+
+            return View("MainPage");
         }
     }
 }
