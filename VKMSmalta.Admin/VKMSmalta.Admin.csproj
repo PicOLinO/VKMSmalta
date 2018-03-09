@@ -127,6 +127,7 @@
     </Content>
     <Content Include="App_Data\database_debug.db" />
     <None Include="packages.config" />
+    <Content Include="Views\Main\MainPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

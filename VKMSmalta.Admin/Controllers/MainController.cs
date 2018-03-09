@@ -8,7 +8,7 @@ namespace VKMSmalta.Admin.Controllers
         public ActionResult Index()
         {
             return
-            View();
+            View("MainPage");
         }
     }
 }
