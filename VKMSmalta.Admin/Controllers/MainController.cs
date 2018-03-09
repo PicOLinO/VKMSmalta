@@ -10,7 +10,7 @@ namespace VKMSmalta.Admin.Controllers
         // GET
         public ActionResult Index()
         {
-            ViewData.Add("teams", mainRepository.GetTests());
+            ViewData.Add("teams", mainRepository.GetTeams());
 
             return View("MainPage");
         }

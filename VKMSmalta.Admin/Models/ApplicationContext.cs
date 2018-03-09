@@ -12,6 +12,5 @@ namespace VKMSmalta.Admin.Models
         
         public DbSet<Student> Students { get; set; }
         public DbSet<Team> Teams { get; set; }
-        public DbSet<Test> Tests { get; set; }
     }
 }

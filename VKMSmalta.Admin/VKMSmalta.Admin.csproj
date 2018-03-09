@@ -185,7 +185,6 @@
     <Compile Include="Models\Domain\HistoryItem.cs" />
     <Compile Include="Models\Domain\Student.cs" />
     <Compile Include="Models\Domain\Team.cs" />
-    <Compile Include="Models\Domain\Test.cs" />
     <Compile Include="Models\Dto\PingResponseDto.cs" />
     <Compile Include="Models\jsTree3Node.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

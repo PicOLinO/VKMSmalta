@@ -20,11 +20,5 @@ namespace VKMSmalta.Admin.Services
             DbContext.Teams.Load();
             return DbContext.Teams.Local.ToList();
         }
-
-        public List<Test> GetTests()
-        {
-            DbContext.Tests.Load();
-            return DbContext.Tests.Local.ToList();
-        }
     }
 }
