@@ -16,7 +16,7 @@ module Resnyanskiy {
     export interface ITreeNodeDataModel {
         id: number; // positive integer, 0 for root node (invisible by default)
         title: string;
-        isBranch: bool;
+        isBranch: Boolean;
     }
 
     export interface TreeNodeCollection extends Object {
@@ -30,7 +30,7 @@ module Resnyanskiy {
     //   findItem(id: number, deep: bool): ITreeNode;
     // }
     export class TreeNode implements ITreeNodeDataModel {
-        constructor(public id: number, public title: string, public isBranch: bool) { }
+        constructor(public id: number, public title: string, public isBranch: Boolean) { }
 
         private items: TreeNodeCollection = <TreeNodeCollection>{};
 
@@ -52,7 +52,7 @@ module Resnyanskiy {
             delete this.items[this.convertId(id)];
         }
 
-        public findItem(id: number, deep: bool): TreeNode {
+        public findItem(id: number, deep: Boolean): TreeNode {
             var result: TreeNode = this.items[this.convertId(id)];
 
             if (!deep || result)
@@ -69,7 +69,7 @@ module Resnyanskiy {
             return this.items;
         }
 
-        public hasItems(): bool {
+        public hasItems(): Boolean {
             return Object.keys(this.items).length > 0;
         }
 
@@ -184,7 +184,7 @@ module Resnyanskiy {
             }
         }
 
-        private toggleNodeItemsVisible(node: TreeNode): bool {
+        private toggleNodeItemsVisible(node: TreeNode): Boolean {
             if (node && node.hasItems()) {
                 var ulElement: Element = this.treeContainer.querySelector("ul#ul-" + node.id);
                 if (ulElement.hasChildNodes()) {
@@ -202,7 +202,7 @@ module Resnyanskiy {
             }
         }
 
-        public updateNode(id: number, items: TreeNodeCollection, showNodeItems?: bool) {
+        public updateNode(id: number, items: TreeNodeCollection, showNodeItems?: Boolean) {
             var node: TreeNode = this.rootNode.findItem(id, true);
             for (var i in items)
                 node.addItem(items[i]);
