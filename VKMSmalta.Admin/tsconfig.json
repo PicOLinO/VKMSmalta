@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "rootDir": "Components",
+    "outDir": "wwwroot/components"
+  },
+  "compileOnSave": true,
+  "angularCompilerOptions": {
+    "genDir": ".",
+    "debug": true
+  },
+  "globalDependencies": {
+    "jquery": "registry:dt/jquery",
+    "jasmine": "registry:dt/jasmine"
+  },
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ]
+}
