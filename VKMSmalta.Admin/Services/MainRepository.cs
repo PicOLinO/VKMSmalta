@@ -8,17 +8,17 @@ namespace VKMSmalta.Admin.Services
 {
     public class MainRepository
     {
-        private ApplicationContext DbContext;
+        private readonly ApplicationContext dbContext;
 
         public MainRepository()
         {
-            DbContext = new ApplicationContext();
+            dbContext = new ApplicationContext();
         }
 
         public List<Team> GetTeams()
         {
-            DbContext.Teams.Load();
-            return DbContext.Teams.Local.ToList();
+            dbContext.Teams.Load();
+            return dbContext.Teams.Local.ToList();
         }
     }
 }
