@@ -63,7 +63,6 @@ namespace VKMSmalta.Services
 
             element.IsEnabled = false;
             element.IsHintOpen = false;
-            element.Hint = null;
 
             CurrentAction = null;
         }
