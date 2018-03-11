@@ -16,7 +16,12 @@ namespace VKMSmalta.Dialogs.Factories
 
         public Action GetClickAction(string elementName, string hint, int accessibleValue)
         {
-            return new Action(ActionName.Click, elementName, new HintViewModel(hint, accessibleValue, hintService));
+            return new Action(ActionName.Click, elementName, new AccessibleHintViewModel(hint, accessibleValue, hintService));
+        }
+
+        public Action GetInfluentAction(string elementName, string hint, int newElementValue)
+        {
+            return new Action(ActionName.Influent, elementName, new InfluentialHintViewModel(hint, hintService, newElementValue));
         }
     }
 }

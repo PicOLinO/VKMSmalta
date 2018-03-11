@@ -3,10 +3,9 @@ using VKMSmalta.Services;
 
 namespace VKMSmalta.View.Hints.ViewModel
 {
-    public class HintViewModel : ViewModelBase
+    public class HintViewModelBase : ViewModelBase
     {
-        private readonly int accessibleValue;
-        private readonly HintService hintService;
+        protected readonly HintService hintService;
 
         public DelegateCommand ClickNextCommand { get; set; }
 
@@ -16,9 +15,8 @@ namespace VKMSmalta.View.Hints.ViewModel
             set { SetProperty(() => HintText, value); }
         }
 
-        public HintViewModel(string hintText, int accessibleValue, HintService hintService)
+        public HintViewModelBase(string hintText, HintService hintService)
         {
-            this.accessibleValue = accessibleValue;
             this.hintService = hintService;
             HintText = hintText;
 
@@ -30,13 +28,12 @@ namespace VKMSmalta.View.Hints.ViewModel
             ClickNextCommand = new DelegateCommand(OnClickNext, CanOnClickNext);
         }
 
-        private bool CanOnClickNext()
+        protected virtual bool CanOnClickNext()
         {
-            var element = hintService.GetValuableElementByCurrentHint();
-            return element?.Value == accessibleValue;
+            return true;
         }
 
-        private void OnClickNext()
+        protected virtual void OnClickNext()
         {
             hintService.ShowNextHint();
         }

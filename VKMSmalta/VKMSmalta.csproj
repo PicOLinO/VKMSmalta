@@ -150,6 +150,8 @@
     <Compile Include="View\Hints\Hint.xaml.cs">
       <DependentUpon>Hint.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Hints\ViewModel\AccessibleHintViewModel.cs" />
+    <Compile Include="View\Hints\ViewModel\InfluentialHintViewModel.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\BaseElementBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmBigButtonBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmLampBuilder.cs" />
@@ -170,7 +172,7 @@
       <DependentUpon>NavigateButtonHint.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewModel\DevicePageViewModel.cs" />
-    <Compile Include="View\Hints\ViewModel\HintViewModel.cs" />
+    <Compile Include="View\Hints\ViewModel\HintViewModelBase.cs" />
     <Page Include="Dialogs\CheckResultsDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

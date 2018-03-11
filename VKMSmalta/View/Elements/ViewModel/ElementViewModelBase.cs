@@ -43,7 +43,7 @@ namespace VKMSmalta.View.Elements.ViewModel
             set { SetProperty(() => IsHintOpen, value); }
         }
 
-        public HintViewModel Hint
+        public HintViewModelBase Hint
         {
             get { return GetProperty(() => Hint); }
             set { SetProperty(() => Hint, value); }

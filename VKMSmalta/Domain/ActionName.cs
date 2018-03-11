@@ -2,6 +2,7 @@
 {
     public enum ActionName
     {
-        Click
+        Click,
+        Influent
     }
 }
