@@ -13,7 +13,7 @@
     <Grid>
         <Image x:Name="PART_Thumbler" Cursor="Hand" Source="{Binding Path=ImageSource}">
             <dxmvvm:Interaction.Behaviors>
-                <dxmvvm:EventToCommand EventName="MouseLeftButtonUp" Command="{Binding Path=ClickCommand}" />
+                <dxmvvm:EventToCommand EventName="MouseLeftButtonUp" Command="{Binding Path=MouseLeftButtonUpCommand}" />
             </dxmvvm:Interaction.Behaviors>
             <Image.RenderTransform>
                 <RotateTransform CenterX="38" CenterY="66" Angle="{Binding Path=StartupRotation}" />

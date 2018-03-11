@@ -63,6 +63,14 @@ namespace VKMSmalta.View.ViewModel
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_thumbler_antenna_leftside").At(584,662).Thumbler(historyService).Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_thumbler_antenna_rightside").At(586,752).Thumbler(historyService).Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_thumbler_light").At(656,753).Thumbler(historyService).Please(),
+
+                           //Кнопки снизу
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_on").At(0,0).BigButton(historyService).Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_off").At(656,753).BigButton(historyService).Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_transmitter_on").At(656,753).BigButton(historyService).Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_transmitter_off").At(656,753).BigButton(historyService).Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_control").At(656,753).BigButton(historyService).Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_eject").At(656,753).BigButton(historyService).Please(),
                            
                            //Тумблеры справа сверху
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_thumbler_power").At(68,1178).Thumbler(historyService).Please(),

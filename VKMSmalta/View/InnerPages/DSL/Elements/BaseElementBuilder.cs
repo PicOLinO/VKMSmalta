@@ -55,5 +55,10 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
         {
             return new VkmLightableRectangleBuilder(value, name, posTop, posLeft, rotationDegrees, page);
         }
+
+        public VkmBigButtonBuilder BigButton(HistoryService historyService)
+        {
+            return new VkmBigButtonBuilder(value, name, posTop, posLeft, historyService, page);
+        }
     }
 }

@@ -62,13 +62,11 @@ namespace VKMSmalta.View.Elements.ViewModel
             isInitialize = false;
         }
 
-        protected override void OnClick()
+        protected override void OnMouseLeftButtonUp()
         {
-            base.OnClick();
+            base.OnMouseLeftButtonUp();
 
             Value = Value == 0 ? 1 : 0;
-
-            SendActionToHistoryService();
         }
 
         private void NotifyDependedElements()

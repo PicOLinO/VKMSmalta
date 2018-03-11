@@ -12,7 +12,8 @@ namespace VKMSmalta.View.Elements.ViewModel
     {
         private readonly HistoryService historyService;
 
-        public DelegateCommand ClickCommand { get; set; }
+        public DelegateCommand MouseLeftButtonUpCommand { get; set; }
+        public DelegateCommand MouseLeftButtonDownCommand { get; set; }
 
         public ClickableElementViewModelBase(int value, string name, HistoryService historyService) : base(value, name)
         {
@@ -22,15 +23,20 @@ namespace VKMSmalta.View.Elements.ViewModel
 
         private void CreateCommands()
         {
-            ClickCommand = new DelegateCommand(OnClick, CanOnClick);
+            MouseLeftButtonUpCommand = new DelegateCommand(OnMouseLeftButtonUp, CanOnMouseLeftButtonUse);
+            MouseLeftButtonDownCommand = new DelegateCommand(OnMouseLeftButtonDown, CanOnMouseLeftButtonUse);
         }
-
-        private bool CanOnClick()
+        
+        private bool CanOnMouseLeftButtonUse()
         {
             return IsEnabled;
         }
 
-        protected virtual void OnClick()
+        protected virtual void OnMouseLeftButtonDown()
+        {
+        }
+
+        protected virtual void OnMouseLeftButtonUp()
         {
             SendActionToHistoryService();
         }

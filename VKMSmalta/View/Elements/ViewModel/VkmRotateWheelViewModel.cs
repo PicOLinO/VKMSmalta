@@ -32,9 +32,9 @@ namespace VKMSmalta.View.Elements.ViewModel
             Value = value;
         }
 
-        protected override void OnClick()
+        protected override void OnMouseLeftButtonUp()
         {
-            base.OnClick();
+            base.OnMouseLeftButtonUp();
 
             if (Value < maxValue - 1)
             {

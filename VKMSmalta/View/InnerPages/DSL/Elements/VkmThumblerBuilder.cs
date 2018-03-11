@@ -35,9 +35,9 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
         
         public VkmThumblerViewModel Please()
         {
-            var imageOn = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/ThumblerOff.png");
-            var imageOff = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/ThumblerOn.png");
-            return new VkmThumblerViewModel(value, name, historyService, imageOn, imageOff, dependencyActions) {PosTop = posTop, PosLeft = posLeft, StartupRotation = rotationDegrees, Page = page};
+            var imageOn = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/ThumblerOn.png");
+            var imageOff = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/ThumblerOff.png");
+            return new VkmThumblerViewModel(value, name, historyService, imageOff, imageOn, dependencyActions) {PosTop = posTop, PosLeft = posLeft, StartupRotation = rotationDegrees, Page = page};
         }
     }
 }
