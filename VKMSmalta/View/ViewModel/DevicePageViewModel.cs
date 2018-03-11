@@ -205,8 +205,10 @@ namespace VKMSmalta.View.ViewModel
         private void Reset()
         {
             //Remove Views Injections
-            ViewInjectionManager.Default.Remove(Regions.InnerRegion, InnerRegionPage.L001P);
-            ViewInjectionManager.Default.Remove(Regions.InnerRegion, InnerRegionPage.L001R);
+            foreach (var page in Pages)
+            {
+                ViewInjectionManager.Default.Remove(Regions.InnerRegion, page.PageKey);
+            }
 
             //Reset services
             hintService.Reset();

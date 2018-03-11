@@ -8,8 +8,8 @@
              Width="170"
              mc:Ignorable="d" >
     <Grid>
-        <Polygon Fill="White" Points="30, 70, 140, 70, 85, 80" />
-        <Border Margin="0 0 0 10" Background="White" CornerRadius="30">
+        <Polygon Fill="GhostWhite" Points="30, 70, 140, 70, 85, 80" />
+        <Border Margin="0 0 0 10" Background="GhostWhite" CornerRadius="30">
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Перейдите далее" />
         </Border>
     </Grid>
