@@ -51,12 +51,12 @@ namespace VKMSmalta.View.ViewModel
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_defect_2channel").At(354,715).LightBox().Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_defect_3channel").At(396,714).LightBox().Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_defect_4channel").At(441,714).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_1cooler").At(484,714).LightBox().Please(),
+                           GiveMe.Element().On(PageKey).WithValue(1).WithName("l001p_1cooler").At(484,714).LightBox().Please(),
 
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_glow_on").At(310,802).LightBox().Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_simulator").At(353,802).LightBox().Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_modulation").At(441,801).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_2cooler").At(484,801).LightBox().Please(),
+                           GiveMe.Element().On(PageKey).WithValue(1).WithName("l001p_2cooler").At(484,801).LightBox().Please(),
 
                            //Тумблеры снизу
                            GiveMe.Element().On(PageKey).WithValue(1).WithName("l001p_thumbler_simulator").At(582,385).Thumbler(historyService).Please(),
