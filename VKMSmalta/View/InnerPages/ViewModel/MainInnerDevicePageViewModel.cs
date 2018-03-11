@@ -65,12 +65,12 @@ namespace VKMSmalta.View.ViewModel
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_thumbler_light").At(656,753).Thumbler(historyService).Please(),
 
                            //Кнопки снизу
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_on").At(0,0).BigButton(historyService).Please(),
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_off").At(656,753).BigButton(historyService).Please(),
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_transmitter_on").At(656,753).BigButton(historyService).Please(),
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_transmitter_off").At(656,753).BigButton(historyService).Please(),
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_control").At(656,753).BigButton(historyService).Please(),
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_eject").At(656,753).BigButton(historyService).Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_on").At(581,463).BigButton(historyService).Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_off").At(655,462).BigButton(historyService).Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_transmitter_on").At(580,554).BigButton(historyService).Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_transmitter_off").At(655,554).BigButton(historyService).Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_control").At(656,371).BigButton(historyService).Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_eject").At(655,645).BigButton(historyService).Please(),
                            
                            //Тумблеры справа сверху
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_thumbler_power").At(68,1178).Thumbler(historyService).Please(),
