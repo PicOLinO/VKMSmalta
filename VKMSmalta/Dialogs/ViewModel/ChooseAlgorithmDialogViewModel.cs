@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region Usings
+
 using System.Collections.ObjectModel;
-using DevExpress.Mvvm;
 using VKMSmalta.Dialogs.Factories;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
-using VKMSmalta.View.ViewModel;
-using Action = VKMSmalta.Domain.Action;
+
+#endregion
 
 namespace VKMSmalta.Dialogs.ViewModel
 {
@@ -26,7 +25,8 @@ namespace VKMSmalta.Dialogs.ViewModel
 
             Algorithms = new ObservableCollection<Algorithm>
                          {
-                             algorithmsFactory.GetPrepareToLaunchAlgorithm()
+                             algorithmsFactory.GetPrepareToLaunchAlgorithm(),
+                             algorithmsFactory.GetLaunchAlgorithm()
                          };
         }
     }
