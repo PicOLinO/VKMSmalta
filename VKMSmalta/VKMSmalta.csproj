@@ -147,7 +147,7 @@
     <Compile Include="View\Elements\VkmThumbler.xaml.cs">
       <DependentUpon>VkmThumbler.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Hint.xaml.cs">
+    <Compile Include="View\Hints\Hint.xaml.cs">
       <DependentUpon>Hint.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\InnerPages\DSL\Elements\BaseElementBuilder.cs" />
@@ -166,7 +166,7 @@
     </Compile>
     <Compile Include="View\InnerPages\ViewModel\InnerPageViewModelBase.cs" />
     <Compile Include="View\InnerPages\ViewModel\MainInnerDevicePageViewModel.cs" />
-    <Compile Include="View\NavigateButtonHint.xaml.cs">
+    <Compile Include="View\Hints\NavigateButtonHint.xaml.cs">
       <DependentUpon>NavigateButtonHint.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewModel\DevicePageViewModel.cs" />
@@ -243,7 +243,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Hint.xaml">
+    <Page Include="View\Hints\Hint.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -251,7 +251,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\NavigateButtonHint.xaml">
+    <Page Include="View\Hints\NavigateButtonHint.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

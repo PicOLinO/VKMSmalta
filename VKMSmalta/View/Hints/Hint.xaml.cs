@@ -1,8 +1,6 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using VKMSmalta.View.ViewModel;
+﻿using System.Windows.Controls;
 
-namespace VKMSmalta.View
+namespace VKMSmalta.View.Hints
 {
     /// <summary>
     /// Interaction logic for Hint.xaml

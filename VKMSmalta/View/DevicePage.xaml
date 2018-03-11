@@ -9,6 +9,7 @@
       xmlns:view="clr-namespace:VKMSmalta.View"
       xmlns:converters="clr-namespace:VKMSmalta.Converters"
       xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+      xmlns:hints="clr-namespace:VKMSmalta.View.Hints"
       mc:Ignorable="d"
       d:DesignHeight="355.479" d:DesignWidth="534.091"
       d:DataContext="{d:DesignInstance Type=viewModel:DevicePageViewModel}">
@@ -39,7 +40,7 @@
                    HorizontalOffset="120"
                    VerticalOffset="-10"
                    AllowsTransparency="True">
-                <view:NavigateButtonHint />
+                <hints:NavigateButtonHint />
             </Popup>
             <Popup IsOpen="{Binding Path=IsGoForwardHintOpen}" StaysOpen="True"
                    PlacementTarget="{Binding ElementName=PART_GoNext}"
@@ -47,7 +48,7 @@
                    HorizontalOffset="120"
                    VerticalOffset="-10"
                    AllowsTransparency="True">
-                <view:NavigateButtonHint />
+                <hints:NavigateButtonHint />
             </Popup>
         </Grid>
     </Grid>

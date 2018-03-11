@@ -7,6 +7,7 @@
                    xmlns:viewModel="clr-namespace:VKMSmalta.View.Elements.ViewModel"
                    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
                    xmlns:view="clr-namespace:VKMSmalta.View"
+                   xmlns:hints="clr-namespace:VKMSmalta.View.Hints"
                    mc:Ignorable="d"
                    d:DesignHeight="450" d:DesignWidth="800"
                    d:DataContext="{d:DesignInstance Type=viewModel:VkmBigButtonViewModel}">
@@ -22,7 +23,7 @@
                PlacementTarget="{Binding ElementName=PART_Button}"
                Placement="Right" MinWidth="170" MinHeight="60"
                PopupAnimation="Fade" AllowsTransparency="True">
-            <view:Hint DataContext="{Binding Path=Hint}" />
+            <hints:Hint DataContext="{Binding Path=Hint}" />
         </Popup>
     </Grid>
 </local:ElementBase>
