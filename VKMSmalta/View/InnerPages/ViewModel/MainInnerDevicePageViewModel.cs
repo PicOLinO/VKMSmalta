@@ -99,10 +99,10 @@ namespace VKMSmalta.View.ViewModel
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_thumbler_light_table").At(636,1308).Thumbler(historyService).Please(),
 
                            //Стрелки слева
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_reception_1channel_arrow").WithStartupRotation(35).At(96,127).LittleArrow().Please(),
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_reception_2channel_arrow").WithStartupRotation(35).At(288,127).LittleArrow().Please(),
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_reception_3channel_arrow").WithStartupRotation(35).At(478,128).LittleArrow().Please(),
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_reception_4channel_arrow").WithStartupRotation(35).At(665,128).LittleArrow().Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_reciever_1channel_arrow").WithStartupRotation(35).At(96,127).LittleArrow().Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_reciever_2channel_arrow").WithStartupRotation(35).At(288,127).LittleArrow().Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_reciever_3channel_arrow").WithStartupRotation(35).At(478,128).LittleArrow().Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_reciever_4channel_arrow").WithStartupRotation(35).At(665,128).LittleArrow().Please(),
 
                            //Стрелки справа
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_transmitter_1channel_arrow").WithStartupRotation(35).At(103,1004).LittleArrow().Please(),
