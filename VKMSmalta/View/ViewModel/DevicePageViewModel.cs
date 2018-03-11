@@ -85,19 +85,19 @@ namespace VKMSmalta.View.ViewModel
 
         private void InitializeInnerPages()
         {
-            var l00p = new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001P, "/VKMSmalta;component/View/Images/Backgrounds/L001P.png");
-            var l00r = new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001R, "/VKMSmalta;component/View/Images/Backgrounds/L001R.png");
-
             Pages = new ObservableCollection<InnerPageViewModelBase>
                     {
-                        l00p,
-                        l00r
+                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001P, "/VKMSmalta;component/View/Images/Backgrounds/L001P.png"),
+                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001R, "/VKMSmalta;component/View/Images/Backgrounds/L001R.png"),
+                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001K, "/VKMSmalta;component/View/Images/Backgrounds/L001K.png")
                     };
 
-            ViewInjectionManager.Default.Inject(Regions.InnerRegion, l00p.PageKey, () => l00p, typeof(MainInnerDevicePage));
-            ViewInjectionManager.Default.Inject(Regions.InnerRegion, l00r.PageKey, () => l00r, typeof(MainInnerDevicePage));
+            foreach (var page in Pages)
+            {
+                ViewInjectionManager.Default.Inject(Regions.InnerRegion, page.PageKey, () => page, typeof(MainInnerDevicePage));
+            }
 
-            NavigateOnPage(l00p.PageKey);
+            NavigateOnPage(Pages.First().PageKey);
         }
 
         private void NavigateOnPage(InnerRegionPage page)
@@ -123,7 +123,9 @@ namespace VKMSmalta.View.ViewModel
 
         private void OnGoForward()
         {
-            NavigateOnPage(InnerRegionPage.L001R);
+            var currentPage = Pages.Single(p => p.PageKey == CurrentPageKey);
+            var currentIndex = Pages.IndexOf(currentPage);
+            NavigateOnPage(Pages[currentIndex + 1].PageKey);
         }
 
         private bool CanGoPrevious()
@@ -133,7 +135,9 @@ namespace VKMSmalta.View.ViewModel
 
         private void OnGoPrevious()
         {
-            NavigateOnPage(InnerRegionPage.L001P);
+            var currentPage = Pages.Single(p => p.PageKey == CurrentPageKey);
+            var currentIndex = Pages.IndexOf(currentPage);
+            NavigateOnPage(Pages[currentIndex - 1].PageKey);
         }
 
         private void OnCheckResult()
