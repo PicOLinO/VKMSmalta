@@ -121,8 +121,12 @@
     <Compile Include="View\Elements\ElementBase.cs" />
     <Compile Include="View\Elements\ViewModel\IDependencyActivatorElement.cs" />
     <Compile Include="View\Elements\ViewModel\VkmBigButtonViewModel.cs" />
+    <Compile Include="View\Elements\ViewModel\VkmLampViewModel.cs" />
     <Compile Include="View\Elements\VkmBigButton.xaml.cs">
       <DependentUpon>VkmBigButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Elements\VkmLamp.xaml.cs">
+      <DependentUpon>VkmLamp.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Elements\VkmLightableRectangle.xaml.cs">
       <DependentUpon>VkmLightableRectangle.xaml</DependentUpon>
@@ -148,6 +152,7 @@
     </Compile>
     <Compile Include="View\InnerPages\DSL\Elements\BaseElementBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmBigButtonBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\VkmLampBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\GiveMe.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmBlackTriangleArrowBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmElementsBuilderBaseProps.cs" />
@@ -215,6 +220,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Elements\VkmBigButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Elements\VkmLamp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

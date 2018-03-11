@@ -60,5 +60,10 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
         {
             return new VkmBigButtonBuilder(value, name, posTop, posLeft, historyService, page);
         }
+
+        public VkmLampBuilder Lamp()
+        {
+            return new VkmLampBuilder(value, name, posTop, posLeft, page);
+        }
     }
 }

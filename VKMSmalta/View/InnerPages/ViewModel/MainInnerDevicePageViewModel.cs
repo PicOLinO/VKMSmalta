@@ -113,10 +113,16 @@ namespace VKMSmalta.View.ViewModel
                                GiveMe.Element().On(PageKey).WithValue(0).WithName("l001r_transmitter_3channel").At(394,507).Thumbler(historyService).Please(),
                                GiveMe.Element().On(PageKey).WithValue(0).WithName("l001r_transmitter_4channel").At(393,576).Thumbler(historyService).Please(),
 
+                               GiveMe.Element().On(PageKey).WithValue(0).WithName("l001r_transmitter_network_27v").At(109,829).Lamp().Please(),
+                               GiveMe.Element().On(PageKey).WithValue(0).WithName("l001r_transmitter_equal").At(258,786).Lamp().Please(),
+                               GiveMe.Element().On(PageKey).WithValue(0).WithName("l001r_transmitter_+10v").At(257,878).Lamp().Please(),
+
                                //Контролы управления в середине устройства
                                GiveMe.Element().On(PageKey).WithValue(0).WithName("l001r_antenna_equal").At(309,788).Thumbler(historyService).Please(),
                                GiveMe.Element().On(PageKey).WithValue(1).WithName("l001r_modulation").At(430,806).WithStartupRotation(30).RotateWheel(historyService)
                                      .WithMaxValue(5).WithRotationStepDegrees(30).Please(),
+                               
+                               GiveMe.Element().On(PageKey).WithValue(0).WithName("l001r_transmitter_heating").At(575,836).Lamp().Please(),
                            };
             }
 
