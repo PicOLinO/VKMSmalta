@@ -9,7 +9,7 @@ using VKMSmalta.Services;
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
-    public sealed class VkmThumblerViewModel : ClickableElementViewModelBase, IValuableNamedElement
+    public sealed class VkmThumblerViewModel : ClickableElementViewModelBase
     {
         private readonly bool isInitialize;
         private readonly string imageOffSource;

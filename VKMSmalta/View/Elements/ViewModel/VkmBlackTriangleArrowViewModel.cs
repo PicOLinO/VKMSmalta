@@ -1,6 +1,6 @@
 ﻿namespace VKMSmalta.View.Elements.ViewModel
 {
-    public class VkmBlackTriangleArrowViewModel : ElementViewModelBase, IValuableNamedElement
+    public class VkmBlackTriangleArrowViewModel : ElementViewModelBase
     {
         private readonly int startupRotation;
 

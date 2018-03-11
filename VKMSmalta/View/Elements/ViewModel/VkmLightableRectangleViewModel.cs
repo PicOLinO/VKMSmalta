@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
-    public class VkmLightableRectangleViewModel : ElementViewModelBase, IValuableNamedElement
+    public class VkmLightableRectangleViewModel : ElementViewModelBase
     {
         public Visibility LightableRectangleVisibility
         {

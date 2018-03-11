@@ -4,7 +4,7 @@ using VKMSmalta.Services;
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
-    public sealed class VkmRotateWheelViewModel : ClickableElementViewModelBase, IValuableNamedElement
+    public sealed class VkmRotateWheelViewModel : ClickableElementViewModelBase
     {
         private readonly int rotationStepDegrees;
         private readonly int maxValue;

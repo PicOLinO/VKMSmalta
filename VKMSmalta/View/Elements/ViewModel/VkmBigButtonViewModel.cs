@@ -3,7 +3,7 @@ using VKMSmalta.Services;
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
-    public class VkmBigButtonViewModel : ClickableElementViewModelBase, IValuableNamedElement
+    public class VkmBigButtonViewModel : ClickableElementViewModelBase
     {
         private readonly string imageOffSource;
         private readonly string imageOnSource;

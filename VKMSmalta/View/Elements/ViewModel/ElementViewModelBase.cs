@@ -7,7 +7,7 @@ using VKMSmalta.View.ViewModel;
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
-    public class ElementViewModelBase : ViewModelBase
+    public class ElementViewModelBase : ViewModelBase, IValuableNamedElement
     {
         public string Name { get; set; }
         public InnerRegionPage Page { get; set; }
