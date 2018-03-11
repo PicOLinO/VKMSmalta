@@ -9,13 +9,13 @@ using VKMSmalta.Services;
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
-    public sealed class VkmThumblerViewModel : ClickableElementViewModelBase
+    public sealed class VkmThumblerViewModel : ClickableElementViewModelBase, IDependencyActivatorElement
     {
         private readonly bool isInitialize;
         private readonly string imageOffSource;
         private readonly string imageOnSource;
 
-        private List<DependencyAction> DependencyActions { get; }
+        public List<DependencyAction> DependencyActions { get; }
 
         public int StartupRotation
         {
@@ -69,7 +69,7 @@ namespace VKMSmalta.View.Elements.ViewModel
             Value = Value == 0 ? 1 : 0;
         }
 
-        private void NotifyDependedElements()
+        public void NotifyDependedElements()
         {
             foreach (var dependencyAction in DependencyActions)
             {

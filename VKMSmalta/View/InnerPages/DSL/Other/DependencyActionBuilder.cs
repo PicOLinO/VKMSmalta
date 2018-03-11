@@ -28,6 +28,10 @@ namespace VKMSmalta.View.DSL.Other
                     dependencyValues.Add(0, 0);
                     dependencyValues.Add(1, 1);
                     break;
+                case DependencyActionsDefaultValues.OneToOneReverseTwoCount:
+                    dependencyValues.Add(0,1);
+                    dependencyValues.Add(1,0);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(defaultValuesAction), defaultValuesAction, null);
             }

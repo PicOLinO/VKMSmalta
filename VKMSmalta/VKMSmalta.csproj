@@ -119,6 +119,7 @@
       <DependentUpon>DevicePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Elements\ElementBase.cs" />
+    <Compile Include="View\Elements\ViewModel\IDependencyActivatorElement.cs" />
     <Compile Include="View\Elements\ViewModel\VkmBigButtonViewModel.cs" />
     <Compile Include="View\Elements\VkmBigButton.xaml.cs">
       <DependentUpon>VkmBigButton.xaml</DependentUpon>

@@ -29,7 +29,7 @@ namespace VKMSmalta.View.ViewModel
                 Elements = new ObservableCollection<ElementViewModelBase>
                        {
                            //Тумблеры в середине
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_thumbler_1channel").WithStartupRotation(90).At(280,341).Thumbler(historyService).WithDependencyAction(GiveMe.DependencyAction().WithDependencyElementName("l001p_reciever_1channel").WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneEqualsTwoCount).Please()).Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_thumbler_1channel").WithStartupRotation(90).At(280,341).Thumbler(historyService).Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_thumbler_2channel").WithStartupRotation(90).At(323,340).Thumbler(historyService).Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_thumbler_3channel").WithStartupRotation(90).At(367,341).Thumbler(historyService).Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_thumbler_4channel").WithStartupRotation(90).At(411,341).Thumbler(historyService).Please(),
@@ -65,8 +65,8 @@ namespace VKMSmalta.View.ViewModel
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_thumbler_light").At(656,753).Thumbler(historyService).Please(),
 
                            //Кнопки снизу
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_on").At(581,463).BigButton(historyService).Please(),
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_off").At(655,462).BigButton(historyService).Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_on").At(581,463).BigButton(historyService).WithDependencyAction(GiveMe.DependencyAction().WithDependencyElementName("l001p_glow_on").WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneEqualsTwoCount).Please()).Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_off").At(655,462).BigButton(historyService).WithDependencyAction(GiveMe.DependencyAction().WithDependencyElementName("l001p_glow_on").WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneReverseTwoCount).Please()).Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_transmitter_on").At(580,554).BigButton(historyService).Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_transmitter_off").At(655,554).BigButton(historyService).Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_control").At(656,371).BigButton(historyService).Please(),
