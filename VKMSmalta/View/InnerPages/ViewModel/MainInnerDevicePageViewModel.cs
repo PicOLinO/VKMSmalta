@@ -65,8 +65,22 @@ namespace VKMSmalta.View.ViewModel
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_thumbler_light").At(656,753).Thumbler(historyService).Please(),
 
                            //Кнопки снизу
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_on").At(581,463).BigButton(historyService).WithDependencyAction(GiveMe.DependencyAction().WithDependencyElementName("l001p_glow_on").WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneEqualsTwoCount).Please()).Please(),
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_off").At(655,462).BigButton(historyService).WithDependencyAction(GiveMe.DependencyAction().WithDependencyElementName("l001p_glow_on").WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneReverseTwoCount).Please()).Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_on").At(581,463).BigButton(historyService)
+                                 .WithDependencyAction(GiveMe.DependencyAction()
+                                                             .WithDependencyElementName("l001p_glow_on")
+                                                             .WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneEqualsTwoCount)
+                                                             .Please())
+                                 .WithDependencyAction(GiveMe.DependencyAction()
+                                                             .WithDependencyElementName("l001r_lamp_heating")
+                                                             .WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneEqualsTwoCount)
+                                                             .Please())
+                                 .Please(),
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_off").At(655,462).BigButton(historyService)
+                                 .WithDependencyAction(GiveMe.DependencyAction()
+                                                             .WithDependencyElementName("l001p_glow_on")
+                                                             .WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneReverseTwoCount)
+                                                             .Please())
+                                 .Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_transmitter_on").At(580,554).BigButton(historyService).Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_transmitter_off").At(655,554).BigButton(historyService).Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_control").At(656,371).BigButton(historyService).Please(),
@@ -114,10 +128,10 @@ namespace VKMSmalta.View.ViewModel
                                GiveMe.Element().On(PageKey).WithValue(0).WithName("l001r_transmitter_4channel").At(393,576).Thumbler(historyService).Please(),
 
                                //Лампочки в середине устройства
-                               GiveMe.Element().On(PageKey).WithValue(0).WithName("l001r_transmitter_network_27v").At(109,829).Lamp().Please(),
-                               GiveMe.Element().On(PageKey).WithValue(0).WithName("l001r_transmitter_equal").At(258,786).Lamp().Please(),
-                               GiveMe.Element().On(PageKey).WithValue(0).WithName("l001r_transmitter_+10v").At(257,878).Lamp().Please(),
-                               GiveMe.Element().On(PageKey).WithValue(0).WithName("l001r_transmitter_heating").At(575,836).Lamp().Please(),
+                               GiveMe.Element().On(PageKey).WithValue(1).WithName("l001r_lamp_network_27v").At(109,829).Lamp().Please(),
+                               GiveMe.Element().On(PageKey).WithValue(1).WithName("l001r_lamp_equal").At(258,786).Lamp().Please(),
+                               GiveMe.Element().On(PageKey).WithValue(1).WithName("l001r_lamp_+10v").At(257,878).Lamp().Please(),
+                               GiveMe.Element().On(PageKey).WithValue(0).WithName("l001r_lamp_heating").At(575,836).Lamp().Please(),
 
                                //Контролы управления в середине устройства
                                GiveMe.Element().On(PageKey).WithValue(0).WithName("l001r_antenna_equal").At(309,788).Thumbler(historyService).Please(),
