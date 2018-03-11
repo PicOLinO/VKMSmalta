@@ -1,11 +1,7 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using DevExpress.Mvvm;
+﻿using DevExpress.Mvvm;
 using VKMSmalta.Services;
 
-namespace VKMSmalta.View.ViewModel
+namespace VKMSmalta.View.Hints.ViewModel
 {
     public class HintViewModel : ViewModelBase
     {

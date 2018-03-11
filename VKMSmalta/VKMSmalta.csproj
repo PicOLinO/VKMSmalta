@@ -170,7 +170,7 @@
       <DependentUpon>NavigateButtonHint.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewModel\DevicePageViewModel.cs" />
-    <Compile Include="View\ViewModel\HintViewModel.cs" />
+    <Compile Include="View\Hints\ViewModel\HintViewModel.cs" />
     <Page Include="Dialogs\CheckResultsDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

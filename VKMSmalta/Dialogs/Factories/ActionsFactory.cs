@@ -1,5 +1,6 @@
 ﻿using VKMSmalta.Domain;
 using VKMSmalta.Services;
+using VKMSmalta.View.Hints.ViewModel;
 using VKMSmalta.View.ViewModel;
 
 namespace VKMSmalta.Dialogs.Factories

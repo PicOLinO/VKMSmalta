@@ -1,4 +1,5 @@
-﻿using VKMSmalta.View.ViewModel;
+﻿using VKMSmalta.View.Hints.ViewModel;
+using VKMSmalta.View.ViewModel;
 
 namespace VKMSmalta.Domain
 {

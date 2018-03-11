@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using DevExpress.Mvvm;
 using VKMSmalta.Services;
 using VKMSmalta.Services.Navigate;
+using VKMSmalta.View.Hints.ViewModel;
 using VKMSmalta.View.ViewModel;
 
 namespace VKMSmalta.View.Elements.ViewModel
