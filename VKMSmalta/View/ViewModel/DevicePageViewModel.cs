@@ -87,9 +87,9 @@ namespace VKMSmalta.View.ViewModel
         {
             Pages = new ObservableCollection<InnerPageViewModelBase>
                     {
-                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001P, "/VKMSmalta;component/View/Images/Backgrounds/L001P.png"),
-                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001R, "/VKMSmalta;component/View/Images/Backgrounds/L001R.png"),
-                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001K, "/VKMSmalta;component/View/Images/Backgrounds/L001K.png")
+                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001P, "/VKMSmalta;component/View/Images/Backgrounds/L001P.png", CurrentAlgorithm),
+                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001R, "/VKMSmalta;component/View/Images/Backgrounds/L001R.png", CurrentAlgorithm),
+                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001K, "/VKMSmalta;component/View/Images/Backgrounds/L001K.png", CurrentAlgorithm)
                     };
 
             foreach (var page in Pages)

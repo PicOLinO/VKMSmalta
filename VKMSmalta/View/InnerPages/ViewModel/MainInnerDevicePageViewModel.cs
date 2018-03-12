@@ -14,10 +14,12 @@ namespace VKMSmalta.View.ViewModel
     public class MainInnerDevicePageViewModel : InnerPageViewModelBase
     {
         private readonly HistoryService historyService;
+        private readonly Algorithm currentAlgorithm;
 
-        public MainInnerDevicePageViewModel(HistoryService historyService, InnerRegionPage pageKey, string background) : base(pageKey, background)
+        public MainInnerDevicePageViewModel(HistoryService historyService, InnerRegionPage pageKey, string background, Algorithm currentAlgorithm) : base(pageKey, background)
         {
             this.historyService = historyService;
+            this.currentAlgorithm = currentAlgorithm;
             InitializeElements();  //TODO: ВЫШЕ!
         }
 
@@ -78,6 +80,46 @@ namespace VKMSmalta.View.ViewModel
                                                              .WithDependencyElementName("l001r_lamp_heating")
                                                              .WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneZeroTwoCount)
                                                              .WithDelay(5)
+                                                             .Please())
+                                 .WithDependencyAction(GiveMe.DependencyAction()
+                                                             .WithDependencyElementName("l001p_reciever_1channel")
+                                                             .WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneEqualsTwoCount)
+                                                             .WithDelay(10)
+                                                             .Please())
+                                 .WithDependencyAction(GiveMe.DependencyAction()
+                                                             .WithDependencyElementName("l001p_reciever_2channel")
+                                                             .WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneEqualsTwoCount)
+                                                             .WithDelay(10)
+                                                             .Please())
+                                 .WithDependencyAction(GiveMe.DependencyAction()
+                                                             .WithDependencyElementName("l001p_reciever_3channel")
+                                                             .WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneEqualsTwoCount)
+                                                             .WithDelay(10)
+                                                             .Please())
+                                 .WithDependencyAction(GiveMe.DependencyAction()
+                                                             .WithDependencyElementName("l001p_reciever_4channel")
+                                                             .WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneEqualsTwoCount)
+                                                             .WithDelay(10)
+                                                             .Please())
+                                 .WithDependencyAction(GiveMe.DependencyAction()
+                                                             .WithDependencyElementName("l001p_reciever_1channel_arrow")
+                                                             .WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneEqualsTwoCount)
+                                                             .WithDelay(10)
+                                                             .Please())
+                                 .WithDependencyAction(GiveMe.DependencyAction()
+                                                             .WithDependencyElementName("l001p_reciever_2channel_arrow")
+                                                             .WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneEqualsTwoCount)
+                                                             .WithDelay(10)
+                                                             .Please())
+                                 .WithDependencyAction(GiveMe.DependencyAction()
+                                                             .WithDependencyElementName("l001p_reciever_3channel_arrow")
+                                                             .WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneEqualsTwoCount)
+                                                             .WithDelay(10)
+                                                             .Please())
+                                 .WithDependencyAction(GiveMe.DependencyAction()
+                                                             .WithDependencyElementName("l001p_reciever_4channel_arrow")
+                                                             .WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneEqualsTwoCount)
+                                                             .WithDelay(10)
                                                              .Please())
                                  .Please(),
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_glow_off").At(655,462).BigButton(historyService)
