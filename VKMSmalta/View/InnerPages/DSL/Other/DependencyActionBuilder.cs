@@ -8,6 +8,7 @@ namespace VKMSmalta.View.DSL.Other
     {
         private string name;
         private readonly Dictionary<int, int> dependencyValues;
+        private int delayInSeconds;
 
         public DependencyActionBuilder()
         {
@@ -32,6 +33,10 @@ namespace VKMSmalta.View.DSL.Other
                     dependencyValues.Add(0,1);
                     dependencyValues.Add(1,0);
                     break;
+                case DependencyActionsDefaultValues.OneToOneZeroTwoCount:
+                    dependencyValues.Add(0,0);
+                    dependencyValues.Add(1,0);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(defaultValuesAction), defaultValuesAction, null);
             }
@@ -39,9 +44,15 @@ namespace VKMSmalta.View.DSL.Other
             return this;
         }
 
+        public DependencyActionBuilder WithDelay(int delayInSeconds)
+        {
+            this.delayInSeconds = delayInSeconds;
+            return this;
+        }
+
         public DependencyAction Please()
         {
-            return new DependencyAction(name, dependencyValues);
+            return new DependencyAction(name, dependencyValues, delayInSeconds);
         }
     }
 }

@@ -23,5 +23,10 @@ namespace VKMSmalta.Dialogs.Factories
         {
             return new Action(ActionName.Influent, elementName, new InfluentialHintViewModel(hint, hintService, newElementValue));
         }
+
+        public Action GetIdleAction(string elementName, string hint, int accessibleValue)
+        {
+            return new Action(ActionName.Idle, elementName, new AccessibleHintViewModel(hint, accessibleValue, hintService));
+        }
     }
 }

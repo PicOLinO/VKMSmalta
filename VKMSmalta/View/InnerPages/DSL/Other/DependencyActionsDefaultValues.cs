@@ -4,5 +4,6 @@
     {
         OneToOneEqualsTwoCount, //{0,0}{1,1}
         OneToOneReverseTwoCount, //{0,1}{1,0}
+        OneToOneZeroTwoCount, //{0;0}{1;0}
     }
 }

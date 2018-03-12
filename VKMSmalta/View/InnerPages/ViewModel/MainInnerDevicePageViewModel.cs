@@ -65,7 +65,7 @@ namespace VKMSmalta.View.ViewModel
                            GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_thumbler_light").At(656,753).Thumbler(historyService).Please(),
 
                            //Кнопки снизу
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_on").At(581,463).BigButton(historyService)
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_glow_on").At(581,463).BigButton(historyService)
                                  .WithDependencyAction(GiveMe.DependencyAction()
                                                              .WithDependencyElementName("l001p_glow_on")
                                                              .WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneEqualsTwoCount)
@@ -74,8 +74,13 @@ namespace VKMSmalta.View.ViewModel
                                                              .WithDependencyElementName("l001r_lamp_heating")
                                                              .WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneEqualsTwoCount)
                                                              .Please())
+                                 .WithDependencyAction(GiveMe.DependencyAction()
+                                                             .WithDependencyElementName("l001r_lamp_heating")
+                                                             .WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneZeroTwoCount)
+                                                             .WithDelay(5)
+                                                             .Please())
                                  .Please(),
-                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_off").At(655,462).BigButton(historyService)
+                           GiveMe.Element().On(PageKey).WithValue(0).WithName("l001p_button_reciever_glow_off").At(655,462).BigButton(historyService)
                                  .WithDependencyAction(GiveMe.DependencyAction()
                                                              .WithDependencyElementName("l001p_glow_on")
                                                              .WithDefaultDependencyValues(DependencyActionsDefaultValues.OneToOneReverseTwoCount)

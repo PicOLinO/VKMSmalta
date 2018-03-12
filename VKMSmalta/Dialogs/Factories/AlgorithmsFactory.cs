@@ -92,12 +92,14 @@ namespace VKMSmalta.Dialogs.Factories
                                      {
                                      };
 
-            throw new NotImplementedException("Алгоритм еще не реализован");
-
             var newAlgorithm = new Algorithm(startStateOfElements, endStateOfElements)
                                {
                                    Name = "Включение изделия Л001",
-                                   Actions = new LinkedList<Action>() //TODO:
+                                   Actions = new LinkedList<Action>(new []
+                                                                    {
+                                                                        actionsFactory.GetClickAction("l001p_button_reciever_glow_on", "Включите ПРОГРЕВ", 1),
+                                                                        actionsFactory.GetIdleAction("l001r_lamp_heating", "Дождитесь окончания прогрева", 0),
+                                                                    })
                                };
 
             return newAlgorithm;

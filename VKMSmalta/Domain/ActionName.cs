@@ -3,6 +3,7 @@
     public enum ActionName
     {
         Click,
-        Influent
+        Influent,
+        Idle
     }
 }
