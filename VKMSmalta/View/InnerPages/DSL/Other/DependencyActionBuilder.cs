@@ -28,7 +28,7 @@ namespace VKMSmalta.View.DSL.Other
             return this;
         }
 
-        public DependencyActionBuilder WithDependencyValues(int sourceValue, int targetValue)
+        public DependencyActionBuilder WithDependencyValue(int sourceValue, int targetValue)
         {
             dependencyValues.Add(sourceValue, targetValue);
             return this;
