@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using DevExpress.Mvvm;
 using VKMSmalta.Services;
 using VKMSmalta.Services.Navigate;
+using VKMSmalta.View.Elements.ViewModel.Interfaces;
 using VKMSmalta.View.Hints.ViewModel;
 using VKMSmalta.View.ViewModel;
 
@@ -10,6 +11,8 @@ namespace VKMSmalta.View.Elements.ViewModel
 {
     public class ElementViewModelBase : ViewModelBase, IValuableNamedElement
     {
+        private readonly bool isInitialize;
+
         public string Name { get; set; }
         public InnerRegionPage Page { get; set; }
 
@@ -28,7 +31,13 @@ namespace VKMSmalta.View.Elements.ViewModel
         public int Value
         {
             get { return GetProperty(() => Value); }
-            set { SetProperty(() => Value, value); OnValueChanged(); }
+            set {
+                SetProperty(() => Value, value);
+                if (!isInitialize)
+                {
+                    OnValueChanged();
+                }
+            }
         }
 
         public string ImageSource
@@ -53,8 +62,12 @@ namespace VKMSmalta.View.Elements.ViewModel
 
         public ElementViewModelBase(int value, string name)
         {
+            isInitialize = true;
+
             Name = name;
             Value = value;
+
+            isInitialize = false;
         }
 
         protected virtual void OnValueChanged()

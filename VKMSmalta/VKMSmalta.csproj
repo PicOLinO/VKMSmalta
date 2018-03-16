@@ -119,7 +119,8 @@
       <DependentUpon>DevicePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Elements\ElementBase.cs" />
-    <Compile Include="View\Elements\ViewModel\IDependencyActivatorElement.cs" />
+    <Compile Include="View\Elements\ViewModel\Interfaces\IDependencyActivatorElement.cs" />
+    <Compile Include="View\Elements\ViewModel\Interfaces\ITimingValueChangedElement.cs" />
     <Compile Include="View\Elements\ViewModel\VkmBigButtonViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmLampViewModel.cs" />
     <Compile Include="View\Elements\VkmBigButton.xaml.cs">
@@ -133,7 +134,7 @@
     </Compile>
     <Compile Include="View\Elements\ViewModel\ClickableElementViewModelBase.cs" />
     <Compile Include="View\Elements\ViewModel\ElementViewModelBase.cs" />
-    <Compile Include="View\Elements\ViewModel\IValuableNamedElement.cs" />
+    <Compile Include="View\Elements\ViewModel\Interfaces\IValuableNamedElement.cs" />
     <Compile Include="View\Elements\ViewModel\VkmLightableRectangleViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmBlackTriangleArrowViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmRotateWheelViewModel.cs" />

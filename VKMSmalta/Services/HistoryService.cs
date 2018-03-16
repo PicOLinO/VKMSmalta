@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using VKMSmalta.Domain;
 using VKMSmalta.View.Elements.ViewModel;
+using VKMSmalta.View.Elements.ViewModel.Interfaces;
 using Action = VKMSmalta.Domain.Action;
 
 namespace VKMSmalta.Services

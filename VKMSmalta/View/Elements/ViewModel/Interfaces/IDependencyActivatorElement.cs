@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using VKMSmalta.Domain;
 
-namespace VKMSmalta.View.Elements.ViewModel
+namespace VKMSmalta.View.Elements.ViewModel.Interfaces
 {
     public interface IDependencyActivatorElement
     {

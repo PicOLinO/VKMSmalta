@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
+using VKMSmalta.View.Elements.ViewModel.Interfaces;
 
 #endregion
 
@@ -11,7 +12,6 @@ namespace VKMSmalta.View.Elements.ViewModel
 {
     public sealed class VkmThumblerViewModel : ClickableElementViewModelBase, IDependencyActivatorElement
     {
-        private readonly bool isInitialize;
         private readonly string imageOffSource;
         private readonly string imageOnSource;
 
@@ -39,7 +39,7 @@ namespace VKMSmalta.View.Elements.ViewModel
                     throw new IndexOutOfRangeException();
             }
 
-            if (DependencyActions != null && !isInitialize)
+            if (DependencyActions != null)
             {
                 NotifyDependedElements();
             }
@@ -52,14 +52,10 @@ namespace VKMSmalta.View.Elements.ViewModel
                                     string imageOnSource,
                                     List<DependencyAction> dependencyActions = null) : base(value, name, historyService)
         {
-            isInitialize = true;
-
             this.imageOffSource = imageOffSource;
             this.imageOnSource = imageOnSource;
             DependencyActions = dependencyActions;
             Value = value;
-
-            isInitialize = false;
         }
 
         protected override void OnMouseLeftButtonUp()

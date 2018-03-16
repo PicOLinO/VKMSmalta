@@ -11,6 +11,7 @@ using VKMSmalta.Domain;
 using VKMSmalta.Services;
 using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
+using VKMSmalta.View.Elements.ViewModel.Interfaces;
 using VKMSmalta.View.InnerPages.ViewModel;
 using Action = System.Action;
 

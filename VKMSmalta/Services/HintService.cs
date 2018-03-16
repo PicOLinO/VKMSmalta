@@ -3,6 +3,7 @@ using System.Linq;
 using VKMSmalta.Domain;
 using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
+using VKMSmalta.View.Elements.ViewModel.Interfaces;
 using Action = VKMSmalta.Domain.Action;
 
 namespace VKMSmalta.Services

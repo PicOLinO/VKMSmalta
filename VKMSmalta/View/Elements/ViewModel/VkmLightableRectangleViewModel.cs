@@ -13,6 +13,7 @@ namespace VKMSmalta.View.Elements.ViewModel
         
         public VkmLightableRectangleViewModel(int value, string name) : base(value, name)
         {
+            Value = value;
         }
 
         protected override void OnValueChanged()

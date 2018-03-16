@@ -1,4 +1,4 @@
-﻿namespace VKMSmalta.View.Elements.ViewModel
+﻿namespace VKMSmalta.View.Elements.ViewModel.Interfaces
 {
     public interface IValuableNamedElement
     {
