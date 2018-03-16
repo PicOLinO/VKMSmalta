@@ -1,4 +1,6 @@
-﻿using VKMSmalta.Services;
+﻿using System.Collections;
+using System.Collections.Generic;
+using VKMSmalta.Services;
 using VKMSmalta.Services.Navigate;
 
 namespace VKMSmalta.View.InnerPages.DSL.Elements
@@ -15,6 +17,12 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
         public BaseElementBuilder WithValue(int value)
         {
             this.value = value;
+            return this;
+        }
+
+        public BaseElementBuilder WithValueFrom(IDictionary<string, int> startupValuesDictionary, int defaultValue = 0)
+        {
+            this.value = startupValuesDictionary.TryGetValue(name, out var value) ? value : defaultValue;
             return this;
         }
 
