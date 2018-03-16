@@ -13,16 +13,16 @@ namespace VKMSmalta.Dialogs.Factories
     public class AlgorithmsFactory
     {
         private readonly HintService hintService;
+        private readonly ActionsFactory actionsFactory;
 
         public AlgorithmsFactory(HintService hintService)
         {
             this.hintService = hintService;
+            actionsFactory = new ActionsFactory(hintService);
         }
 
         public Algorithm GetPrepareToLaunchAlgorithm()
         {
-            var actionsFactory = new ActionsFactory(hintService);
-
             var startStateOfElements = new Dictionary<string, int>
                                        {
                                            {"l001p_thumbler_simulator", 1},
@@ -88,8 +88,6 @@ namespace VKMSmalta.Dialogs.Factories
 
         public Algorithm GetLaunchAlgorithm()
         {
-            var actionsFactory = new ActionsFactory(hintService);
-
             var startStateOfElements = new Dictionary<string, int>
                                        {
                                            {"l001p_1cooler", 1},
