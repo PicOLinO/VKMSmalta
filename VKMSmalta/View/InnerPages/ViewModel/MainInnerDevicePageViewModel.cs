@@ -231,7 +231,49 @@ namespace VKMSmalta.View.ViewModel
                            {
                                //L001I
                                GiveMe.Element().On(PageKey).WithName("l001i_thumbler_1generator").WithValueFrom(currentAlgorithm.StartStateOfElements).At(301,369).Thumbler(historyService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("l001i_thumbler_2generator").WithValueFrom(currentAlgorithm.StartStateOfElements).At(302,523).Thumbler(historyService).Please(),
+                               GiveMe.Element().On(PageKey).WithName("l001i_thumbler_2generator").WithValueFrom(currentAlgorithm.StartStateOfElements).At(302,523).Thumbler(historyService)
+                                     .WithDependencyAction(GiveMe.DependencyAction()
+                                                                 .TypeOf(DependencyType.Add)
+                                                                 .WithDependencyElementName("l001p_reciever_1channel_arrow")
+                                                                 .WithDefaultDependencyValues(DependencyActionsDefaultValues.AddedFiveTwoCount)
+                                                                 .Please())
+                                     .WithDependencyAction(GiveMe.DependencyAction()
+                                                                 .TypeOf(DependencyType.Add)
+                                                                 .WithDependencyElementName("l001p_reciever_2channel_arrow")
+                                                                 .WithDefaultDependencyValues(DependencyActionsDefaultValues.AddedFiveTwoCount)
+                                                                 .Please())
+                                     .WithDependencyAction(GiveMe.DependencyAction()
+                                                                 .TypeOf(DependencyType.Add)
+                                                                 .WithDependencyElementName("l001p_reciever_3channel_arrow")
+                                                                 .WithDefaultDependencyValues(DependencyActionsDefaultValues.AddedFiveTwoCount)
+                                                                 .Please())
+                                     .WithDependencyAction(GiveMe.DependencyAction()
+                                                                 .TypeOf(DependencyType.Add)
+                                                                 .WithDependencyElementName("l001p_reciever_4channel_arrow")
+                                                                 .WithDefaultDependencyValues(DependencyActionsDefaultValues.AddedFiveTwoCount)
+                                                                 .Please())
+                                     //////////////////////////////////////////////////////////////////////
+                                     .WithDependencyAction(GiveMe.DependencyAction()
+                                                                 .TypeOf(DependencyType.Add)
+                                                                 .WithDependencyElementName("l001p_transmitter_1channel_arrow")
+                                                                 .WithDefaultDependencyValues(DependencyActionsDefaultValues.RemoveTwoTwoCount)
+                                                                 .Please())
+                                     .WithDependencyAction(GiveMe.DependencyAction()
+                                                                 .TypeOf(DependencyType.Add)
+                                                                 .WithDependencyElementName("l001p_transmitter_2channel_arrow")
+                                                                 .WithDefaultDependencyValues(DependencyActionsDefaultValues.RemoveTwoTwoCount)
+                                                                 .Please())
+                                     .WithDependencyAction(GiveMe.DependencyAction()
+                                                                 .TypeOf(DependencyType.Add)
+                                                                 .WithDependencyElementName("l001p_transmitter_3channel_arrow")
+                                                                 .WithDefaultDependencyValues(DependencyActionsDefaultValues.RemoveTwoTwoCount)
+                                                                 .Please())
+                                     .WithDependencyAction(GiveMe.DependencyAction()
+                                                                 .TypeOf(DependencyType.Add)
+                                                                 .WithDependencyElementName("l001p_transmitter_4channel_arrow")
+                                                                 .WithDefaultDependencyValues(DependencyActionsDefaultValues.RemoveTwoTwoCount)
+                                                                 .Please())
+                                     .Please(),
                                GiveMe.Element().On(PageKey).WithName("l001i_thumbler_3generator").WithValueFrom(currentAlgorithm.StartStateOfElements).At(443,364).Thumbler(historyService).Please(),
                                GiveMe.Element().On(PageKey).WithName("l001i_thumbler_4generator").WithValueFrom(currentAlgorithm.StartStateOfElements).At(439,524).Thumbler(historyService).Please(),
 

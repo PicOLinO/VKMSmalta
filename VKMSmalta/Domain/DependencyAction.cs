@@ -9,6 +9,7 @@ namespace VKMSmalta.Domain
 {
     public class DependencyAction
     {
+        private readonly DependencyType type;
         private readonly string dependencyElementName;
         private ElementViewModelBase DependencyElement { get; set; }
         private int DelayedTimeInSeconds { get; }
@@ -17,14 +18,15 @@ namespace VKMSmalta.Domain
         /// </summary>
         private Dictionary<int, int> DependencyValues { get; }
 
-        public DependencyAction(string dependencyElementName, Dictionary<int, int> dependencyValues, int delayedTimeInSeconds = 0)
+        public DependencyAction(DependencyType type, string dependencyElementName, Dictionary<int, int> dependencyValues, int delayedTimeInSeconds = 0)
         {
+            this.type = type;
             this.dependencyElementName = dependencyElementName;
             DependencyValues = dependencyValues;
             DelayedTimeInSeconds = delayedTimeInSeconds;
         }
 
-        public async Task SetDependencyElementValue(int value)
+        public async Task UpdateDependencyElementValue(int value)
         {
             if (DelayedTimeInSeconds != 0)
             {
@@ -32,7 +34,20 @@ namespace VKMSmalta.Domain
             }
 
             DependencyElement = FindElementByName(dependencyElementName);
-            DependencyElement.Value = DependencyValues[value];
+
+            switch (type)
+            {
+                case DependencyType.Replace:
+                    DependencyElement.Value = DependencyValues[value];
+                    break;
+                case DependencyType.Add:
+                    DependencyElement.Value += DependencyValues[value];
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            
         }
 
         private ElementViewModelBase FindElementByName(string elementName)

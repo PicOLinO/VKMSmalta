@@ -6,6 +6,7 @@ namespace VKMSmalta.View.DSL.Other
 {
     public class DependencyActionBuilder
     {
+        private DependencyType type;
         private string name;
         private readonly Dictionary<int, int> dependencyValues;
         private int delayInSeconds;
@@ -13,6 +14,12 @@ namespace VKMSmalta.View.DSL.Other
         public DependencyActionBuilder()
         {
             dependencyValues = new Dictionary<int, int>();
+        }
+
+        public DependencyActionBuilder TypeOf(DependencyType type)
+        {
+            this.type = type;
+            return this;
         }
 
         public DependencyActionBuilder WithDependencyElementName(string name)
@@ -40,6 +47,14 @@ namespace VKMSmalta.View.DSL.Other
                 case DependencyActionsDefaultValues.ToFiveOneCount:
                     dependencyValues.Add(1,5);
                     break;
+                case DependencyActionsDefaultValues.AddedFiveTwoCount:
+                    dependencyValues.Add(0,-5);
+                    dependencyValues.Add(1,5);
+                    break;
+                case DependencyActionsDefaultValues.RemoveTwoTwoCount:
+                    dependencyValues.Add(0, 2);
+                    dependencyValues.Add(1, -2);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(defaultValuesAction), defaultValuesAction, null);
             }
@@ -55,7 +70,7 @@ namespace VKMSmalta.View.DSL.Other
 
         public DependencyAction Please()
         {
-            return new DependencyAction(name, dependencyValues, delayInSeconds);
+            return new DependencyAction(type, name, dependencyValues, delayInSeconds);
         }
     }
 }

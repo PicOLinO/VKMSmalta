@@ -74,7 +74,7 @@ namespace VKMSmalta.View.Elements.ViewModel
         {
             foreach (var dependencyAction in DependencyActions)
             {
-                dependencyAction.SetDependencyElementValue(Value);
+                dependencyAction.UpdateDependencyElementValue(Value);
             }
         }
     }
