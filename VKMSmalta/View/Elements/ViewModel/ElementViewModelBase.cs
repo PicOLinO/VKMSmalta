@@ -72,6 +72,7 @@ namespace VKMSmalta.View.Elements.ViewModel
 
         protected virtual void OnValueChanged()
         {
+            Hint?.ClickNextCommand.RaiseCanExecuteChanged();
         }
     }
 }

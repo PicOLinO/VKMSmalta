@@ -8,6 +8,7 @@ namespace VKMSmalta.View.Elements.ViewModel
 {
     public class VkmBigButtonViewModel : ClickableElementViewModelBase, IDependencyActivatorElement
     {
+        private readonly bool isInitialize;
         private readonly string imageOffSource;
         private readonly string imageOnSource;
 
@@ -15,10 +16,14 @@ namespace VKMSmalta.View.Elements.ViewModel
 
         public VkmBigButtonViewModel(int value, string name, HistoryService historyService, string imageOnSource, string imageOffSource, List<DependencyAction> dependencyActions = null) : base(value, name, historyService)
         {
+            isInitialize = true;
+
             this.imageOffSource = ImageSource = imageOffSource;
             this.imageOnSource = imageOnSource;
             DependencyActions = dependencyActions;
             Value = value;
+
+            isInitialize = false;
         }
 
         protected override void OnMouseLeftButtonDown()
@@ -41,7 +46,7 @@ namespace VKMSmalta.View.Elements.ViewModel
         {
             base.OnValueChanged();
 
-            if (DependencyActions != null)
+            if (DependencyActions != null && !isInitialize)
             {
                 NotifyDependedElements();
             }
