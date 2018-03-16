@@ -4,7 +4,7 @@ using VKMSmalta.View.Elements.ViewModel;
 
 namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
-    public class VkmLampBuilder : VkmElementsBuilderBaseProps
+    public class VkmLampBuilder : BaseElementBuilder
     {
         public VkmLampBuilder(int value, string name, int posTop, int posLeft, InnerRegionPage page)
         {

@@ -6,7 +6,7 @@ using VKMSmalta.View.Elements.ViewModel;
 
 namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
-    public class VkmThumblerBuilder : VkmElementsBuilderBaseProps
+    public class VkmThumblerBuilder : BaseElementBuilder
     {
         private readonly HistoryService historyService;
 

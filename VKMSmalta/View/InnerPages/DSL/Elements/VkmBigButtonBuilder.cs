@@ -6,7 +6,7 @@ using VKMSmalta.View.Elements.ViewModel;
 
 namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
-    public class VkmBigButtonBuilder : VkmElementsBuilderBaseProps
+    public class VkmBigButtonBuilder : BaseElementBuilder
     {
         private readonly HistoryService historyService;
 

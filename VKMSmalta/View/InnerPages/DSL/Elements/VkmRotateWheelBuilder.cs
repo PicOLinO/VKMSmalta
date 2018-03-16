@@ -4,7 +4,7 @@ using VKMSmalta.View.Elements.ViewModel;
 
 namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
-    public class VkmRotateWheelBuilder : VkmElementsBuilderBaseProps
+    public class VkmRotateWheelBuilder : BaseElementBuilder
     {
         private int rotationStepDegrees;
         private int maxRotationSteps;

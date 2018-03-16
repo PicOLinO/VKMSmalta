@@ -157,7 +157,6 @@
     <Compile Include="View\InnerPages\DSL\Elements\VkmLampBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\GiveMe.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmBlackTriangleArrowBuilder.cs" />
-    <Compile Include="View\InnerPages\DSL\Elements\VkmElementsBuilderBaseProps.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmLightableRectangleBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmRotateWheelBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmThumblerBuilder.cs" />

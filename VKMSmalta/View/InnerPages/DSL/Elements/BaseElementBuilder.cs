@@ -3,8 +3,15 @@ using VKMSmalta.Services.Navigate;
 
 namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
-    public class BaseElementBuilder : VkmElementsBuilderBaseProps
+    public class BaseElementBuilder
     {
+        protected int posTop;
+        protected int posLeft;
+        protected int value;
+        protected string name;
+        protected int rotationDegrees;
+        protected InnerRegionPage page;
+
         public BaseElementBuilder WithValue(int value)
         {
             this.value = value;

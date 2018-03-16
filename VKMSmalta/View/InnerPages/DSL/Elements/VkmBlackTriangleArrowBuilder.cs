@@ -3,7 +3,7 @@ using VKMSmalta.View.Elements.ViewModel;
 
 namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
-    public class VkmBlackTriangleArrowBuilder : VkmElementsBuilderBaseProps
+    public class VkmBlackTriangleArrowBuilder : BaseElementBuilder
     {
         public VkmBlackTriangleArrowBuilder(int value, string name, int posTop, int posLeft, int startupRotation, InnerRegionPage page)
         {
