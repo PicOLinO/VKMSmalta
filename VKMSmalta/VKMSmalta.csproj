@@ -163,7 +163,6 @@
     <Compile Include="View\InnerPages\DSL\Elements\VkmRotateWheelBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmThumblerBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Other\DependencyActionBuilder.cs" />
-    <Compile Include="View\InnerPages\DSL\Other\DependencyActionsDefaultValues.cs" />
     <Compile Include="View\InnerPages\MainInnerDevicePage.xaml.cs">
       <DependentUpon>MainInnerDevicePage.xaml</DependentUpon>
     </Compile>

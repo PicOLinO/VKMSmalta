@@ -28,37 +28,9 @@ namespace VKMSmalta.View.DSL.Other
             return this;
         }
 
-        public DependencyActionBuilder WithDefaultDependencyValues(DependencyActionsDefaultValues defaultValuesAction)
+        public DependencyActionBuilder WithDependencyValues(int sourceValue, int targetValue)
         {
-            switch (defaultValuesAction)
-            {
-                case DependencyActionsDefaultValues.EqualsTwoCount:
-                    dependencyValues.Add(0, 0);
-                    dependencyValues.Add(1, 1);
-                    break;
-                case DependencyActionsDefaultValues.ReverseTwoCount:
-                    dependencyValues.Add(0,1);
-                    dependencyValues.Add(1,0);
-                    break;
-                case DependencyActionsDefaultValues.ToZeroTwoCount:
-                    dependencyValues.Add(0,0);
-                    dependencyValues.Add(1,0);
-                    break;
-                case DependencyActionsDefaultValues.ToFiveOneCount:
-                    dependencyValues.Add(1,5);
-                    break;
-                case DependencyActionsDefaultValues.AddedFiveTwoCount:
-                    dependencyValues.Add(0,-5);
-                    dependencyValues.Add(1,5);
-                    break;
-                case DependencyActionsDefaultValues.RemoveTwoTwoCount:
-                    dependencyValues.Add(0, 2);
-                    dependencyValues.Add(1, -2);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(defaultValuesAction), defaultValuesAction, null);
-            }
-
+            dependencyValues.Add(sourceValue, targetValue);
             return this;
         }
 
