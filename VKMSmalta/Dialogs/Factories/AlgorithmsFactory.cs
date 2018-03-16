@@ -95,6 +95,10 @@ namespace VKMSmalta.Dialogs.Factories
                                            {"l001r_lamp_network_27v", 1},
                                            {"l001r_lamp_equal", 1},
                                            {"l001r_lamp_+10v", 1},
+                                           {"l001p_thumbler_1channel", 1},
+                                           {"l001p_thumbler_2channel", 1},
+                                           {"l001p_thumbler_3channel", 1},
+                                           {"l001p_thumbler_4channel", 1},
                                        };
 
             var endStateOfElements = new Dictionary<string, int>

@@ -25,17 +25,20 @@ namespace VKMSmalta.View.DSL.Other
         {
             switch (defaultValuesAction)
             {
-                case DependencyActionsDefaultValues.OneToOneEqualsTwoCount:
+                case DependencyActionsDefaultValues.EqualsTwoCount:
                     dependencyValues.Add(0, 0);
                     dependencyValues.Add(1, 1);
                     break;
-                case DependencyActionsDefaultValues.OneToOneReverseTwoCount:
+                case DependencyActionsDefaultValues.ReverseTwoCount:
                     dependencyValues.Add(0,1);
                     dependencyValues.Add(1,0);
                     break;
-                case DependencyActionsDefaultValues.OneToOneZeroTwoCount:
+                case DependencyActionsDefaultValues.ToZeroTwoCount:
                     dependencyValues.Add(0,0);
                     dependencyValues.Add(1,0);
+                    break;
+                case DependencyActionsDefaultValues.ToFiveOneCount:
+                    dependencyValues.Add(1,5);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(defaultValuesAction), defaultValuesAction, null);
