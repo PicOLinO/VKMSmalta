@@ -23,7 +23,11 @@ namespace VKMSmalta.Dialogs.Factories
         {
             var actionsFactory = new ActionsFactory(hintService);
 
-            var startStateOfElements = new Dictionary<string, int>(); //TODO:
+            var startStateOfElements = new Dictionary<string, int>
+                                       {
+                                           {"l001p_thumbler_simulator", 1},
+                                           {"l001r_modulation", 4},
+                                       };
 
             var endStateOfElements = new Dictionary<string, int>
                                      {
@@ -86,7 +90,14 @@ namespace VKMSmalta.Dialogs.Factories
         {
             var actionsFactory = new ActionsFactory(hintService);
 
-            var startStateOfElements = new Dictionary<string, int>(); //TODO:
+            var startStateOfElements = new Dictionary<string, int>
+                                       {
+                                           {"l001p_1cooler", 1},
+                                           {"l001p_2cooler", 1},
+                                           {"l001r_lamp_network_27v", 1},
+                                           {"l001r_lamp_equal", 1},
+                                           {"l001r_lamp_+10v", 1},
+                                       };
 
             var endStateOfElements = new Dictionary<string, int>
                                      {

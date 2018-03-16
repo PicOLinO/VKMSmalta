@@ -53,15 +53,15 @@ namespace VKMSmalta.View.ViewModel
                            GiveMe.Element().On(PageKey).WithName("l001p_defect_2channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(354,715).LightBox().Please(),
                            GiveMe.Element().On(PageKey).WithName("l001p_defect_3channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(396,714).LightBox().Please(),
                            GiveMe.Element().On(PageKey).WithName("l001p_defect_4channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(441,714).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_1cooler").WithValueFrom(currentAlgorithm.StartStateOfElements, 1).At(484,714).LightBox().Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_1cooler").WithValueFrom(currentAlgorithm.StartStateOfElements).At(484,714).LightBox().Please(),
 
                            GiveMe.Element().On(PageKey).WithName("l001p_glow_on").WithValueFrom(currentAlgorithm.StartStateOfElements).At(310,802).LightBox().Please(),
                            GiveMe.Element().On(PageKey).WithName("l001p_simulator").WithValueFrom(currentAlgorithm.StartStateOfElements).At(353,802).LightBox().Please(),
                            GiveMe.Element().On(PageKey).WithName("l001p_modulation").WithValueFrom(currentAlgorithm.StartStateOfElements).At(441,801).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_2cooler").WithValueFrom(currentAlgorithm.StartStateOfElements, 1).At(484,801).LightBox().Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_2cooler").WithValueFrom(currentAlgorithm.StartStateOfElements).At(484,801).LightBox().Please(),
 
                            //Тумблеры снизу
-                           GiveMe.Element().On(PageKey).WithName("l001p_thumbler_simulator").WithValueFrom(currentAlgorithm.StartStateOfElements, 1).At(582,385).Thumbler(historyService).Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_thumbler_simulator").WithValueFrom(currentAlgorithm.StartStateOfElements).At(582,385).Thumbler(historyService).Please(),
                            GiveMe.Element().On(PageKey).WithName("l001p_thumbler_antenna_leftside").WithValueFrom(currentAlgorithm.StartStateOfElements).At(584,662).Thumbler(historyService).Please(),
                            GiveMe.Element().On(PageKey).WithName("l001p_thumbler_antenna_rightside").WithValueFrom(currentAlgorithm.StartStateOfElements).At(586,752).Thumbler(historyService).Please(),
                            GiveMe.Element().On(PageKey).WithName("l001p_thumbler_light").WithValueFrom(currentAlgorithm.StartStateOfElements).At(656,753).Thumbler(historyService).Please(),
@@ -175,14 +175,14 @@ namespace VKMSmalta.View.ViewModel
                                GiveMe.Element().On(PageKey).WithName("l001r_transmitter_4channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(393,576).Thumbler(historyService).Please(),
 
                                //Лампочки в середине устройства
-                               GiveMe.Element().On(PageKey).WithName("l001r_lamp_network_27v").WithValueFrom(currentAlgorithm.StartStateOfElements, 1).At(109,829).Lamp().Please(),
-                               GiveMe.Element().On(PageKey).WithName("l001r_lamp_equal").WithValueFrom(currentAlgorithm.StartStateOfElements, 1).At(258,786).Lamp().Please(),
-                               GiveMe.Element().On(PageKey).WithName("l001r_lamp_+10v").WithValueFrom(currentAlgorithm.StartStateOfElements, 1).At(257,878).Lamp().Please(),
+                               GiveMe.Element().On(PageKey).WithName("l001r_lamp_network_27v").WithValueFrom(currentAlgorithm.StartStateOfElements).At(109,829).Lamp().Please(),
+                               GiveMe.Element().On(PageKey).WithName("l001r_lamp_equal").WithValueFrom(currentAlgorithm.StartStateOfElements).At(258,786).Lamp().Please(),
+                               GiveMe.Element().On(PageKey).WithName("l001r_lamp_+10v").WithValueFrom(currentAlgorithm.StartStateOfElements).At(257,878).Lamp().Please(),
                                GiveMe.Element().On(PageKey).WithName("l001r_lamp_heating").WithValueFrom(currentAlgorithm.StartStateOfElements).At(575,836).Lamp().Please(),
 
                                //Контролы управления в середине устройства
                                GiveMe.Element().On(PageKey).WithName("l001r_antenna_equal").At(309,788).WithValueFrom(currentAlgorithm.StartStateOfElements).Thumbler(historyService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("l001r_modulation").At(430,806).WithValueFrom(currentAlgorithm.StartStateOfElements, 1).WithStartupRotation(30).RotateWheel(historyService)
+                               GiveMe.Element().On(PageKey).WithName("l001r_modulation").At(430,806).WithValueFrom(currentAlgorithm.StartStateOfElements).WithStartupRotation(30).RotateWheel(historyService)
                                      .WithMaxValue(5).WithRotationStepDegrees(30).Please(),
                                
                            };

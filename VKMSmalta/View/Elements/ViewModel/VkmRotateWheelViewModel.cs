@@ -14,6 +14,12 @@ namespace VKMSmalta.View.Elements.ViewModel
         {
             base.OnValueChanged();
 
+            if (Value > maxValue)
+            {
+                Value = 0;
+                return;
+            }
+
             RotationDegrees = (Value * rotationStepDegrees) + startupRotation;
         }
 
