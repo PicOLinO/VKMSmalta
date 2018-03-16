@@ -30,8 +30,8 @@ namespace VKMSmalta.View.Elements
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
             var vm = DataContext as ElementViewModelBase;
-            var toolTipWithName = new ToolTip { Content = vm.Name };
-            ToolTip = toolTipWithName;
+            var toolTip = new ToolTip { Content = vm.Name };
+            ToolTip = toolTip;
         }
 
         private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

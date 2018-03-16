@@ -25,7 +25,22 @@ namespace VKMSmalta.View.ViewModel
 
         private void InitializeElements()
         {
-            //TODO: Добавить начальное состояние элементам из CurrentAlgorithm.StartStateOfElements
+            if (PageKey == InnerRegionPage.L001I_L001K)
+            {
+                Elements = new ObservableCollection<ElementViewModelBase>
+                           {
+                               //L001I
+                               GiveMe.Element().On(PageKey).WithName("l001i_thumbler_1generator").WithValueFrom(currentAlgorithm.StartStateOfElements).At(301,369).Thumbler(historyService).Please(),
+                               GiveMe.Element().On(PageKey).WithName("l001i_thumbler_2generator").WithValueFrom(currentAlgorithm.StartStateOfElements).At(302,523).Thumbler(historyService).Please(),
+                               GiveMe.Element().On(PageKey).WithName("l001i_thumbler_3generator").WithValueFrom(currentAlgorithm.StartStateOfElements).At(443,364).Thumbler(historyService).Please(),
+                               GiveMe.Element().On(PageKey).WithName("l001i_thumbler_4generator").WithValueFrom(currentAlgorithm.StartStateOfElements).At(439,524).Thumbler(historyService).Please(),
+
+                               //L001K
+                               GiveMe.Element().On(PageKey).WithName("l001k_modulation_13channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(262,1140).Thumbler(historyService).Please(),
+                               GiveMe.Element().On(PageKey).WithName("l001k_modulation_24channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(264,1237).Thumbler(historyService).Please(),
+                           };
+            }
+
             if (PageKey == InnerRegionPage.L001P)
             {
                 Elements = new ObservableCollection<ElementViewModelBase>
@@ -223,15 +238,6 @@ namespace VKMSmalta.View.ViewModel
                                GiveMe.Element().On(PageKey).WithName("l001r_modulation").At(430,806).WithValueFrom(currentAlgorithm.StartStateOfElements).WithStartupRotation(30).RotateWheel(historyService)
                                      .WithMaxValue(5).WithRotationStepDegrees(30).Please(),
                                
-                           };
-            }
-
-            if (PageKey == InnerRegionPage.L001K)
-            {
-                Elements = new ObservableCollection<ElementViewModelBase>
-                           {
-                               GiveMe.Element().On(PageKey).WithName("l001k_modulation_13channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(232,725).Thumbler(historyService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("l001k_modulation_24channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(232,850).Thumbler(historyService).Please(),
                            };
             }
         }

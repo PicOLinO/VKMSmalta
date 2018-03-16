@@ -90,7 +90,7 @@ namespace VKMSmalta.View.ViewModel
                     {
                         new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001P, "/VKMSmalta;component/View/Images/Backgrounds/L001P.png", CurrentAlgorithm),
                         new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001R, "/VKMSmalta;component/View/Images/Backgrounds/L001R.png", CurrentAlgorithm),
-                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001K, "/VKMSmalta;component/View/Images/Backgrounds/L001K.png", CurrentAlgorithm)
+                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001I_L001K, "/VKMSmalta;component/View/Images/Backgrounds/L001I_L001K.png", CurrentAlgorithm)
                     };
 
             foreach (var page in Pages)
