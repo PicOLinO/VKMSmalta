@@ -6,6 +6,7 @@ namespace VKMSmalta.View.Elements.ViewModel
 {
     public class VkmBlackTriangleArrowViewModel : ElementViewModelBase, ITimingValueChangedElement, IDisposable
     {
+        private readonly int maxValue;
         private readonly int startupRotation;
         private int neededRotation;
 
@@ -21,6 +22,11 @@ namespace VKMSmalta.View.Elements.ViewModel
         {
             base.OnValueChanged();
 
+            if (Value >= maxValue)
+            {
+                return;
+            }
+
             neededRotation = (11 * Value) + startupRotation;
             Timer.Start();
         }
@@ -30,6 +36,7 @@ namespace VKMSmalta.View.Elements.ViewModel
             Timer = new Timer(100);
             Timer.Elapsed += TimerOnElapsed;
 
+            maxValue = 10;
             this.startupRotation = RotationDegrees = startupRotation;
             Value = value;
         }
