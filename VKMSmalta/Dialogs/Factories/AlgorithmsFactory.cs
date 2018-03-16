@@ -112,6 +112,19 @@ namespace VKMSmalta.Dialogs.Factories
                                                                     {
                                                                         actionsFactory.GetClickAction("l001p_button_reciever_glow_on", "Включите ПРОГРЕВ", 1),
                                                                         actionsFactory.GetIdleAction("l001r_lamp_heating", "Дождитесь окончания прогрева", 0),
+
+                                                                        actionsFactory.GetIdleAction("l001p_reciever_1channel", "Дождитесь включения высокого напряжения. Должны загореться лампы транспарантов", 1),
+                                                                        actionsFactory.GetInfoAction("l001p_reciever_1channel_arrow", "Заметьте, что стрелки индикаторов \"ПРИЕМ\" показывают значения менее 20 мкА"),
+
+                                                                        actionsFactory.GetClickAction("l001p_button_transmitter_on", "Теперь включите передатчик", 1),
+
+                                                                        actionsFactory.GetInfoAction("l001p_transmitter_1channel_arrow", "Заметьте, что стрелки индикаторов \"ПЕРЕДАЧА\" показывают значения более 10 мкА"),
+
+                                                                        actionsFactory.GetClickAction("l001p_thumbler_simulator", "Включите имитатор", 1),
+                                                                        actionsFactory.GetClickAction("l001i_thumbler_2generator", "Включите генератор 2", 1),
+
+                                                                        actionsFactory.GetInfoAction("l001p_reciever_1channel_arrow", "Заметьте, что стрелки индикаторов \"ПРИЕМ\" показывают завышенные значения"),
+                                                                        actionsFactory.GetInfoAction("l001p_transmitter_1channel_arrow", "А стрелки индикаторов \"ПЕРЕДАЧА\" отклонились от первоначального значения"),
                                                                     })
                                };
 
