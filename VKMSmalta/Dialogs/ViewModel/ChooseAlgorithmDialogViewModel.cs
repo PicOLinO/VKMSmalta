@@ -26,7 +26,8 @@ namespace VKMSmalta.Dialogs.ViewModel
             Algorithms = new ObservableCollection<Algorithm>
                          {
                              algorithmsFactory.GetPrepareToLaunchAlgorithm(),
-                             algorithmsFactory.GetLaunchAlgorithm()
+                             algorithmsFactory.GetLaunchAlgorithm(),
+                             algorithmsFactory.GetStopAlgorithm(),
                          };
         }
     }
