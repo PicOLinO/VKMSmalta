@@ -17,7 +17,7 @@ namespace VKMSmalta.Services
             Actions = new List<Action>();
         }
 
-        public int GetValueByAlgorithm(Algorithm algorithm, List<IValuableNamedElement> elements)
+        public int GetValueByAlgorithmByEndStateOfElements(Algorithm algorithm, List<IValuableNamedElement> elements)
         {
             var rightsCount = 0;
             var allCount = 0;
@@ -29,9 +29,6 @@ namespace VKMSmalta.Services
                 {
                     rightsCount++;
                 }
-
-                //TODO: Если оценка должна зависеть не от окончательного положения элементов, а от производимых действий пользователя - добавить сюда данную проверку. 
-                //Действия пользователя брать из Actions этого класса.
             }
 
             if (allCount == 0)
@@ -41,14 +38,41 @@ namespace VKMSmalta.Services
 
             var value = rightsCount * 5 / allCount;
 
-            if (value <= 0)
+            return value <= 0 ? 1 : value;
+        }
+
+        public int GetValueByAlgorithmByUserActions(Algorithm algorithm, List<IValuableNamedElement> elements)
+        {
+            var allCount = algorithm.Actions.Count;
+            var rightsCount = 0;
+
+            var previousActionIndex = 0;
+
+            foreach (var algorithmAction in algorithm.Actions)
             {
-                return 1;
+                foreach (var action in Actions)
+                {
+                    if (algorithmAction.Name == action.Name && algorithmAction.ParentElementName == action.ParentElementName)
+                    {
+                        var indexOfAction = Actions.IndexOf(action);
+                        if (indexOfAction > previousActionIndex)
+                        {
+                            rightsCount++;
+                            previousActionIndex = indexOfAction;
+                            break;
+                        }
+                    }
+                }
             }
-            else
+
+            if (allCount == 0)
             {
-                return value;
+                return -1;
             }
+
+            var value = rightsCount * 5 / allCount;
+
+            return value <= 0 ? 1 : value;
         }
 
         public void Reset()

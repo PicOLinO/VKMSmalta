@@ -166,7 +166,7 @@ namespace VKMSmalta.View.ViewModel
                 return;
             }
 
-            var value = historyService.GetValueByAlgorithm(CurrentAlgorithm, UnionedElements.Cast<IValuableNamedElement>().ToList());
+            var value = historyService.GetValueByAlgorithmByUserActions(CurrentAlgorithm, UnionedElements.Cast<IValuableNamedElement>().ToList());
             var retry = CheckResults(value);
             
             if (retry)
