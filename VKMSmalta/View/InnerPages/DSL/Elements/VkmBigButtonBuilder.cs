@@ -11,6 +11,7 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
         private readonly HistoryService historyService;
 
         private List<DependencyAction> dependencyActions;
+        private string dependencySecureElementName;
 
         public VkmBigButtonBuilder(int value, string name, int posTop, int posLeft, HistoryService historyService, InnerRegionPage page)
         {
@@ -20,6 +21,12 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
             this.name = name;
             this.historyService = historyService;
             this.page = page;
+        }
+
+        public VkmBigButtonBuilder WithDependencySecureElement(string dependencySecureElementName)
+        {
+            this.dependencySecureElementName = dependencySecureElementName;
+            return this;
         }
 
         public VkmBigButtonBuilder WithDependencyAction(DependencyAction dependencyAction)
@@ -36,7 +43,7 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
         {
             var imageOn = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/BigButtonOn.png");
             var imageOff = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/BigButtonOff.png");
-            return new VkmBigButtonViewModel(value, name, historyService, imageOn, imageOff, dependencyActions) {PosTop = posTop, PosLeft = posLeft, Page = page};
+            return new VkmBigButtonViewModel(value, name, historyService, imageOn, imageOff, dependencyActions, dependencySecureElementName) {PosTop = posTop, PosLeft = posLeft, Page = page };
         }
     }
 }

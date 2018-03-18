@@ -26,7 +26,7 @@ namespace VKMSmalta.Domain
             DelayedTimeInSeconds = delayedTimeInSeconds;
         }
 
-        public async Task UpdateDependencyElementValue(int value)
+        public async Task UpdateDependencyElementValue(int value, System.Action dependencyActionsCounterCallback = null)
         {
             if (DelayedTimeInSeconds > 0)
             {
@@ -50,7 +50,7 @@ namespace VKMSmalta.Domain
                     throw new ArgumentOutOfRangeException();
             }
 
-            
+            dependencyActionsCounterCallback?.Invoke();
         }
 
         private ElementViewModelBase FindElementByName(string elementName)

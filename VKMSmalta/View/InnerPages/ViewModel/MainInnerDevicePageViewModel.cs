@@ -73,6 +73,7 @@ namespace VKMSmalta.View.ViewModel
 
                            //Кнопки снизу
                            GiveMe.Element().On(PageKey).WithName("l001p_button_reciever_glow_on").WithValueFrom(currentAlgorithm.StartStateOfElements).At(581,463).BigButton(historyService)
+                                 .WithDependencySecureElement("l001p_button_reciever_glow_off")
                                  .WithDependencyAction(GiveMe.DependencyAction()
                                                              .WithDependencyElementName("l001p_glow_on")
                                                              .WithDependencyValue(1, 1)
@@ -128,6 +129,7 @@ namespace VKMSmalta.View.ViewModel
                                                              .Please())
                                  .Please(),
                            GiveMe.Element().On(PageKey).WithName("l001p_button_reciever_glow_off").WithValueFrom(currentAlgorithm.StartStateOfElements).At(655,462).BigButton(historyService)
+                                 .WithDependencySecureElement("l001p_button_reciever_glow_on")
                                  .WithDependencyAction(GiveMe.DependencyAction()
                                                              .WithDependencyElementName("l001p_glow_on")
                                                              .WithDependencyValue(1, 0)
