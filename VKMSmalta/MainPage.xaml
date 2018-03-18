@@ -11,21 +11,13 @@
       d:DataContext="{d:DesignInstance Type=viewModel:MainPageViewModel}">
     <Grid>
         <Grid.Background>
-            <VisualBrush>
-                <VisualBrush.Visual>
-                    <MediaElement Source="View/Videos/MainPageBackground.mov" 
-                                  Stretch="Fill" 
-                                  LoadedBehavior="Manual"
-                                  IsMuted="True"
-                                  Loaded="PART_MediaBackground_OnLoaded" 
-                                  MediaEnded="PART_MediaBackground_OnMediaEnded"
-                                  MediaFailed="PART_MediaBackground_OnMediaFailed"/>
-                </VisualBrush.Visual>
-            </VisualBrush>
+            <ImageBrush ImageSource="View/Images/Backgrounds/background.png"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Style="{DynamicResource OuterSeparatingRow}"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Style="{DynamicResource InnerSeparatingRow}"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Style="{DynamicResource InnerSeparatingRow}"/>
             <RowDefinition Height="Auto"/>
@@ -40,11 +32,15 @@
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Style="{DynamicResource InnerSeparatingColumn}"/>
             <ColumnDefinition/>
+            <ColumnDefinition Style="{DynamicResource InnerSeparatingColumn}"/>
+            <ColumnDefinition Width="100"/>
             <ColumnDefinition Style="{DynamicResource OuterSeparatingColumn}"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="2" Grid.Column="1" Text="Студент"/>
-        <Button Grid.Row="4" Grid.Column="1" Content="Вход" Style="{DynamicResource MainButton}" Command="{Binding Path=LoginCommand}" />
-        <Button Grid.Row="6" Grid.Column="1" Content="Обучение" Style="{DynamicResource MainButton}"  Command="{Binding Path=GoTrainingCommand}" />
-        <Button Grid.Row="8" Grid.Column="1" Content="Экзамен" Style="{DynamicResource MainButton}" Command="{Binding Path=GoExamineCommand}" />
+        <Button Grid.Row="2" Grid.Column="1" Content="Вход" Style="{DynamicResource MainButton}" Command="{Binding Path=LoginCommand}" />
+        <Button Grid.Row="4" Grid.Column="1" Content="Обучение" Style="{DynamicResource MainButton}"  Command="{Binding Path=GoTrainingCommand}" />
+        <Button Grid.Row="6" Grid.Column="1" Content="Экзамен" Style="{DynamicResource MainButton}" Command="{Binding Path=GoExamineCommand}" />
+        <Button Grid.Row="8" Grid.Column="1" Content="Статистика" Style="{DynamicResource MainButton}" />
+        <Button Grid.Row="10" Grid.Column="1" Content="Информация" Style="{DynamicResource MainButton}" />
+        <Button Grid.Row="10" Grid.Column="5" Content="Выйти" Style="{DynamicResource MainButton}" Click="ExitButton_OnClick" />
     </Grid>
 </Page>

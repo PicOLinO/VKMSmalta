@@ -312,9 +312,9 @@
     <Resource Include="View\Images\BigButtonOff.png" />
     <Resource Include="View\Images\BigButtonOn.png" />
     <Resource Include="View\Images\Backgrounds\L001I_L001K.png" />
-    <Content Include="View\Videos\MainPageBackground.mov">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Backgrounds\background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

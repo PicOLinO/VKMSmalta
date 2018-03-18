@@ -15,22 +15,9 @@ namespace VKMSmalta
             DataContext = new MainPageViewModel();
         }
 
-        private void PART_MediaBackground_OnMediaEnded(object sender, RoutedEventArgs e)
+        private void ExitButton_OnClick(object sender, RoutedEventArgs e)
         {
-            var element = (MediaElement) sender;
-            element.Stop();
-            element.Play();
-        }
-
-        private void PART_MediaBackground_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            var element = (MediaElement)sender;
-            element.Play();
-        }
-
-        private void PART_MediaBackground_OnMediaFailed(object sender, ExceptionRoutedEventArgs e)
-        {
-            throw e.ErrorException;
+            Application.Current.Shutdown();
         }
     }
 }
