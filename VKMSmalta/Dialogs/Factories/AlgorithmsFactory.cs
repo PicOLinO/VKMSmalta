@@ -174,6 +174,10 @@ namespace VKMSmalta.Dialogs.Factories
                                            {"l001p_reciever_2channel", 1},
                                            {"l001p_reciever_3channel", 1},
                                            {"l001p_reciever_4channel", 1},
+                                           {"l001p_transmitter_1channel", 1},
+                                           {"l001p_transmitter_2channel", 1},
+                                           {"l001p_transmitter_3channel", 1},
+                                           {"l001p_transmitter_4channel", 1},
                                            {"l001p_reciever_1channel_arrow", 6},
                                            {"l001p_reciever_2channel_arrow", 6},
                                            {"l001p_reciever_3channel_arrow", 6},
@@ -184,6 +188,7 @@ namespace VKMSmalta.Dialogs.Factories
                                            {"l001p_transmitter_3channel_arrow", 3},
                                            {"l001p_transmitter_4channel_arrow", 3},
                                            {"l001p_thumbler_simulator", 1},
+                                           {"l001p_simulator", 1},
                                            {"l001i_thumbler_2generator", 1},
                                        };
 
