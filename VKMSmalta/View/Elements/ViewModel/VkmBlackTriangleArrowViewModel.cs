@@ -8,8 +8,8 @@ namespace VKMSmalta.View.Elements.ViewModel
     {
         private const int Coefficient = 11;
 
-        private readonly int maxValue;
-        private readonly int minValue;
+        private const int MaxValue = 10;
+        private const int MinValue = 0;
 
         private readonly int startupRotation;
         private int neededRotation;
@@ -28,7 +28,7 @@ namespace VKMSmalta.View.Elements.ViewModel
         {
             base.OnValueChanged();
 
-            if (Value >= maxValue && Value <= minValue)
+            if (Value >= MaxValue && Value <= MinValue)
             {
                 return;
             }
@@ -50,9 +50,6 @@ namespace VKMSmalta.View.Elements.ViewModel
 
             Timer = new Timer(100);
             Timer.Elapsed += TimerOnElapsed;
-
-            maxValue = 10;
-            minValue = 0;
 
             this.startupRotation = RotationDegrees = startupRotation;
             Value = value;
