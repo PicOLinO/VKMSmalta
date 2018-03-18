@@ -31,6 +31,8 @@ namespace VKMSmalta.View.ViewModel
 
         private Algorithm CurrentAlgorithm { get; }
 
+        private int CurrentPageIndex => Pages.IndexOf(Pages.Single(p => p.PageKey == CurrentPageKey));
+
         public IEnumerable<ElementViewModelBase> UnionedElements
         {
             get
@@ -52,6 +54,18 @@ namespace VKMSmalta.View.ViewModel
         {
             get { return GetProperty(() => CurrentPageKey); }
             set { SetProperty(() => CurrentPageKey, value); }
+        }
+
+        public InnerRegionPage NextPageKey
+        {
+            get { return GetProperty(() => NextPageKey); }
+            set { SetProperty(() => NextPageKey, value); }
+        }
+
+        public InnerRegionPage PreviousPageKey
+        {
+            get { return GetProperty(() => PreviousPageKey); }
+            set { SetProperty(() => PreviousPageKey, value); }
         }
 
         public bool IsGoForwardHintOpen
@@ -104,8 +118,30 @@ namespace VKMSmalta.View.ViewModel
         private void NavigateOnPage(InnerRegionPage page)
         {
             ViewInjectionManager.Default.Navigate(Regions.InnerRegion, page);
+            SetNextAndPreviousPagesByNewPage(page);
             CurrentPageKey = page;
             hintService.OnNavigated(page);
+        }
+
+        private void SetNextAndPreviousPagesByNewPage(InnerRegionPage page)
+        {
+            switch (page)
+            {
+                case InnerRegionPage.L001P:
+                    PreviousPageKey = InnerRegionPage.L001I_L001K;
+                    NextPageKey = InnerRegionPage.L001R;
+                    break;
+                case InnerRegionPage.L001R:
+                    PreviousPageKey = InnerRegionPage.L001P;
+                    NextPageKey = InnerRegionPage.Empty;
+                    break;
+                case InnerRegionPage.L001I_L001K:
+                    PreviousPageKey = InnerRegionPage.Empty;
+                    NextPageKey = InnerRegionPage.L001P;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(page), page, null);
+            }
         }
 
         #region Commands
@@ -124,9 +160,7 @@ namespace VKMSmalta.View.ViewModel
 
         private void OnGoForward()
         {
-            var currentPage = Pages.Single(p => p.PageKey == CurrentPageKey);
-            var currentIndex = Pages.IndexOf(currentPage);
-            NavigateOnPage(Pages[currentIndex + 1].PageKey);
+            NavigateOnPage(NextPageKey);
         }
 
         private bool CanGoPrevious()
@@ -136,9 +170,7 @@ namespace VKMSmalta.View.ViewModel
 
         private void OnGoPrevious()
         {
-            var currentPage = Pages.Single(p => p.PageKey == CurrentPageKey);
-            var currentIndex = Pages.IndexOf(currentPage);
-            NavigateOnPage(Pages[currentIndex - 1].PageKey);
+            NavigateOnPage(PreviousPageKey);
         }
 
         private void OnCheckResult()

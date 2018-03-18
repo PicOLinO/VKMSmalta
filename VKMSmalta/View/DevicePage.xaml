@@ -31,9 +31,9 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" x:Name="PART_GoPrevious" Content="&lt;&lt;&lt;" Style="{DynamicResource MainButton}" Command="{Binding Path=GoPreviousCommand}"/>
+            <Button Grid.Column="0" x:Name="PART_GoPrevious" Content="{Binding Path=PreviousPageKey, Converter={converters:PageKeyToPageNameConverter}}" Style="{DynamicResource MainButton}" Command="{Binding Path=GoPreviousCommand}"/>
             <Button Grid.Column="1" Content="Завершить" Style="{DynamicResource MainButton}" Command="{Binding Path=CheckResultCommand}"/>
-            <Button Grid.Column="2" x:Name="PART_GoNext" Content="&gt;&gt;&gt;" Style="{DynamicResource MainButton}" Command="{Binding Path=GoForwardCommand}"/>
+            <Button Grid.Column="2" x:Name="PART_GoNext" Content="{Binding Path=NextPageKey, Converter={converters:PageKeyToPageNameConverter}}" Style="{DynamicResource MainButton}" Command="{Binding Path=GoForwardCommand}"/>
             <Popup IsOpen="{Binding Path=IsGoPreviousHintOpen}" StaysOpen="True"
                    PlacementTarget="{Binding ElementName=PART_GoPrevious}"
                    Placement="Top" PopupAnimation="Fade" 
