@@ -53,7 +53,13 @@ namespace VKMSmalta.View.ViewModel
         public InnerRegionPage CurrentPageKey
         {
             get { return GetProperty(() => CurrentPageKey); }
-            set { SetProperty(() => CurrentPageKey, value); }
+            private set { SetProperty(() => CurrentPageKey, value, OnCurrentPageKeyChanged); }
+        }
+
+        private void OnCurrentPageKeyChanged()
+        {
+            NextPageKey = CanGoForward() ? Pages[CurrentPageIndex + 1].PageKey : InnerRegionPage.Empty;
+            PreviousPageKey = CanGoPrevious() ? Pages[CurrentPageIndex - 1].PageKey : InnerRegionPage.Empty;
         }
 
         public InnerRegionPage NextPageKey
@@ -118,30 +124,8 @@ namespace VKMSmalta.View.ViewModel
         private void NavigateOnPage(InnerRegionPage page)
         {
             ViewInjectionManager.Default.Navigate(Regions.InnerRegion, page);
-            SetNextAndPreviousPagesByNewPage(page);
             CurrentPageKey = page;
             hintService.OnNavigated(page);
-        }
-
-        private void SetNextAndPreviousPagesByNewPage(InnerRegionPage page)
-        {
-            switch (page)
-            {
-                case InnerRegionPage.L001P:
-                    PreviousPageKey = InnerRegionPage.L001I_L001K;
-                    NextPageKey = InnerRegionPage.L001R;
-                    break;
-                case InnerRegionPage.L001R:
-                    PreviousPageKey = InnerRegionPage.L001P;
-                    NextPageKey = InnerRegionPage.Empty;
-                    break;
-                case InnerRegionPage.L001I_L001K:
-                    PreviousPageKey = InnerRegionPage.Empty;
-                    NextPageKey = InnerRegionPage.L001P;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(page), page, null);
-            }
         }
 
         #region Commands
