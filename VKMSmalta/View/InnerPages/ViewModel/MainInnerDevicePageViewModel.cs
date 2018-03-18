@@ -170,6 +170,7 @@ namespace VKMSmalta.View.ViewModel
 
                                  .Please(),
                            GiveMe.Element().On(PageKey).WithName("l001p_button_transmitter_on").WithValueFrom(currentAlgorithm.StartStateOfElements).At(580,554).BigButton(historyService)
+                                 .WithDependencySecureElement("l001p_button_transmitter_off")
                                  .WithDependencyAction(GiveMe.DependencyAction()
                                                              .WithDependencyElementName("l001p_transmitter_1channel")
                                                              .WithDependencyValue(1, 1)
@@ -204,6 +205,7 @@ namespace VKMSmalta.View.ViewModel
                                                              .Please())
                                  .Please(),
                            GiveMe.Element().On(PageKey).WithName("l001p_button_transmitter_off").WithValueFrom(currentAlgorithm.StartStateOfElements).At(655,554).BigButton(historyService)
+                                 .WithDependencySecureElement("l001p_button_transmitter_on")
                                  .WithDependencyAction(GiveMe.DependencyAction()
                                                              .WithDependencyElementName("l001p_transmitter_1channel")
                                                              .WithDependencyValue(1, 0)
