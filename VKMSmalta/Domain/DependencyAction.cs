@@ -28,12 +28,15 @@ namespace VKMSmalta.Domain
 
         public async Task UpdateDependencyElementValue(int value)
         {
-            if (DelayedTimeInSeconds != 0)
+            if (DelayedTimeInSeconds > 0)
             {
                 await Task.Delay(TimeSpan.FromSeconds(DelayedTimeInSeconds));
             }
 
-            DependencyElement = FindElementByName(dependencyElementName);
+            if (DependencyElement == null)
+            {
+                DependencyElement = FindElementByName(dependencyElementName);
+            }
 
             switch (type)
             {
