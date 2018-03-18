@@ -26,10 +26,10 @@
             <ColumnDefinition Style="{DynamicResource DialogOuterSeparatingColumn}"/>
         </Grid.ColumnDefinitions>
         <ListView Grid.Row="1" Grid.Column="1" SelectedItem="{Binding Path=SelectedAlgorithm}" ItemsSource="{Binding Path=Algorithms}"
-                  SelectionChanged="Selector_OnSelectionChanged">
+                  SelectionChanged="Selector_OnSelectionChanged" BorderThickness="2" BorderBrush="WhiteSmoke">
             <ListView.ItemTemplate>
                 <DataTemplate DataType="{x:Type domain:Algorithm}">
-                    <TextBlock Text="{Binding Path=Name}" />
+                    <TextBlock Text="{Binding Path=Name}" Margin="10 10 10 10" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
