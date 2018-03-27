@@ -9,8 +9,6 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "VKMSmalta.Setup", "VKMSmalt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAMLEx", "..\XAMLEx\XAMLEx\XAMLEx.csproj", "{31DDBC68-CECA-46CA-87F7-1BFD8257623B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VKMSmalta.Admin", "VKMSmalta.Admin\VKMSmalta.Admin.csproj", "{DCC116E0-D11C-4B57-AA50-A865F3DD38EA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,10 +25,6 @@ Global
 		{31DDBC68-CECA-46CA-87F7-1BFD8257623B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31DDBC68-CECA-46CA-87F7-1BFD8257623B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31DDBC68-CECA-46CA-87F7-1BFD8257623B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DCC116E0-D11C-4B57-AA50-A865F3DD38EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DCC116E0-D11C-4B57-AA50-A865F3DD38EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DCC116E0-D11C-4B57-AA50-A865F3DD38EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DCC116E0-D11C-4B57-AA50-A865F3DD38EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
