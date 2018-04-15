@@ -13,7 +13,7 @@ namespace VKMSmalta.Services
         public bool IsDebug { get; set; }
 
         public const string AssemblyName = nameof(VKMSmalta);
-        public readonly Config Config;
+        public Config Config { get; }
 
         private MainWindowViewModel mainWindowVm;
         private DevicePageViewModel devicePageVm;
