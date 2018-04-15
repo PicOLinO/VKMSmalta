@@ -47,7 +47,6 @@ namespace VKMSmalta.Dialogs.ViewModel
                 var response = await httpClient.PostAsync(authorizeUri, body);
                 if (response.IsSuccessStatusCode)
                 {
-                    response.Content
                     //TODO: Логин успешен, сохранить токен.
                 }
                 else
