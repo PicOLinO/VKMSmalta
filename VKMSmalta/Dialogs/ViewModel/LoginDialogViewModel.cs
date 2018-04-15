@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Security;
 using System.Security.Authentication;
+using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Mvvm;
 using Newtonsoft.Json;
@@ -20,10 +21,7 @@ namespace VKMSmalta.Dialogs.ViewModel
             set { SetProperty(() => Login, value); }
         }
 
-        public SecureString Password
-        {
-            get { return GetProperty(() => passwordSupplier.GetPassword()); }
-        }
+        public SecureString Password => passwordSupplier.GetPassword();
 
         public AsyncCommand ClickCommand { get; set; }
 
@@ -43,12 +41,14 @@ namespace VKMSmalta.Dialogs.ViewModel
         {
             using (var httpClient = new HttpClient())
             {
-                var json = JsonConvert.SerializeObject(new { Login = Login, Password = Password });
-                var body = new StringContent(json);
+                var credentials = new NetworkCredential(Login, Password);
+                var json = JsonConvert.SerializeObject(credentials);
+                var body = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await httpClient.PostAsync(authorizeUri, body);
-                if (response.StatusCode == HttpStatusCode.OK)
+                if (response.IsSuccessStatusCode)
                 {
-                    //TODO: Логин успешен
+                    response.Content
+                    //TODO: Логин успешен, сохранить токен.
                 }
                 else
                 {
