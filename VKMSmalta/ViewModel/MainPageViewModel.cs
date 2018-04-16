@@ -32,8 +32,9 @@ namespace VKMSmalta.ViewModel
 
         private void OnLogin()
         {
-            var loginDialog = new LoginDialog();
-            loginDialog.ShowDialog(); //TODO:
+            var authorizationUri = DependencyContainer.Instance.Config.AdminUri.AdminAuthorizeUri;
+            var loginDialog = new LoginDialog(authorizationUri);
+            loginDialog.ShowDialog();
         }
 
         private void OnGoTraining()

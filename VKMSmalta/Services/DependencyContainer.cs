@@ -13,18 +13,24 @@ namespace VKMSmalta.Services
         public bool IsDebug { get; set; }
 
         public const string AssemblyName = nameof(VKMSmalta);
+        public Config Config { get; }
 
         private MainWindowViewModel mainWindowVm;
         private DevicePageViewModel devicePageVm;
         private MainPageViewModel mainPageVm;
 
         public static DependencyContainer Instance { get; private set; }
-        
-        public static void InitializeService()
+
+        private DependencyContainer(Config config)
+        {
+            Config = config;
+        }
+
+        public static void InitializeService(Config config)
         {
             if (Instance == null)
             {
-                Instance = new DependencyContainer();
+                Instance = new DependencyContainer(config);
             }
         }
 

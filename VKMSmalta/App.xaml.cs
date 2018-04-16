@@ -1,6 +1,7 @@
 ﻿#region Usings
 
 using System;
+using System.Configuration;
 using System.Windows;
 using Appccelerate.CommandLineParser;
 using DevExpress.Xpf.Core;
@@ -22,8 +23,17 @@ namespace VKMSmalta
 
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
-            DependencyContainer.InitializeService();
+            var config = CreateConfig();
+
+            DependencyContainer.InitializeService(config);
             ParseArgs(e.Args);
+        }
+
+        private Config CreateConfig()
+        {
+            var adminAddress = ConfigurationManager.AppSettings["AdminBaseAddress"];
+
+            return new Config(adminAddress);
         }
 
         private void ParseArgs(string[] args)
