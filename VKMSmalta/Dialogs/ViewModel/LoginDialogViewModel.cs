@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Mvvm;
 using Newtonsoft.Json;
+using VKMSmalta.Services;
 
 namespace VKMSmalta.Dialogs.ViewModel
 {
@@ -39,21 +40,15 @@ namespace VKMSmalta.Dialogs.ViewModel
 
         protected virtual async Task OnClick()
         {
-            using (var httpClient = new HttpClient())
+            var credentials = new NetworkCredential(Login, Password);
+            var success = await NetworkService.Instance.Authorize(credentials);
+
+            if (success)
             {
-                var credentials = new NetworkCredential(Login, Password);
-                var json = JsonConvert.SerializeObject(credentials);
-                var body = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await httpClient.PostAsync(RequestUri, body);
-                if (response.IsSuccessStatusCode)
-                {
-                    //TODO: Логин успешен, сохранить токен.
-                }
-                else
-                {
-                    throw new AuthenticationException("Неверный логин или пароль");
-                }
+                //TODO: Показать пользователю, что он авторизован.
             }
+
+            throw new AuthenticationException("Неверный логин или пароль");
         }
     }
 }

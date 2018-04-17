@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using VKMSmalta.Dialogs.Factories;
+using VKMSmalta.Services;
 
 namespace VKMSmalta.Dialogs.ViewModel
 {
@@ -31,22 +32,15 @@ namespace VKMSmalta.Dialogs.ViewModel
                 throw new Exception("Пароль и его подтверждение должны совпадать");
             }
 
-            using (var httpClient = new HttpClient())
+            var success = await NetworkService.Instance.Register(new NetworkCredential(Login, Password));
+
+            if (success)
             {
-                var registerCredentials = new RegisterCredentials(Login, password, confirmPassword);
-                var json = JsonConvert.SerializeObject(registerCredentials);
-                var body = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await httpClient.PostAsync(RequestUri, body);
-                if (response.IsSuccessStatusCode)
-                {
-                    CloseCommand.Execute(null);
-                    dialogFactory.ShowLoginDialog();
-                }
-                else
-                {
-                    throw new Exception("Неопознанная ошибка на сервере, пожалуйста, обратитесь к разработчику");
-                }
+                CloseCommand.Execute(null);
+                dialogFactory.ShowLoginDialog();
             }
+            
+            throw new Exception("Ошибка на сервере");
         }
     }
 }

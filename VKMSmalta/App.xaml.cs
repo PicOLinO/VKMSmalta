@@ -26,6 +26,8 @@ namespace VKMSmalta
             var config = CreateConfig();
 
             DependencyContainer.InitializeService(config);
+            NetworkService.InitializeService(config.AdminUri);
+
             ParseArgs(e.Args);
         }
 
