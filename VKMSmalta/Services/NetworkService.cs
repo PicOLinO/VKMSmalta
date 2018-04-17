@@ -14,6 +14,8 @@ namespace VKMSmalta.Services
     {
         private readonly AdminUri adminUri;
 
+        private string accessToken;
+
         public static NetworkService Instance { get; private set; }
 
         public static void InitializeService(AdminUri adminUri)
@@ -31,12 +33,25 @@ namespace VKMSmalta.Services
 
         public async Task<bool> Authorize(NetworkCredential credential)
         {
-            return await SendRequestCore(adminUri.AdminAuthorizeUri, credential);
+            var response =  await SendRequestCore(adminUri.AdminAuthorizeUri, credential);
+            if (response.IsSuccessStatusCode)
+            {
+                //TODO: Save token
+                return true;
+            }
+
+            return false;
         }
 
         public async Task<bool> Register(NetworkCredential credential)
         {
-            return await SendRequestCore(adminUri.AdminRegisterUri, credential);
+            var response = await SendRequestCore(adminUri.AdminRegisterUri, credential);
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public void SendExamineResultToAdmin(ExamineResult examineResult)
@@ -44,19 +59,14 @@ namespace VKMSmalta.Services
             throw new NotImplementedException();
         }
 
-        private async Task<bool> SendRequestCore(string uri, object content)
+        private async Task<HttpResponseMessage> SendRequestCore(string uri, object content)
         {
             using (var httpClient = new HttpClient())
             {
                 var json = JsonConvert.SerializeObject(content);
                 var body = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await httpClient.PostAsync(uri, body);
-                if (response.IsSuccessStatusCode)
-                {
-                    return true;
-                }
-
-                return false;
+                return response;
             }
         }
     }
