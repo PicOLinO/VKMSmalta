@@ -93,6 +93,7 @@
     </Compile>
     <Compile Include="Dialogs\Factories\ActionsFactory.cs" />
     <Compile Include="Dialogs\Factories\AlgorithmsFactory.cs" />
+    <Compile Include="Dialogs\Factories\DialogFactory.cs" />
     <Compile Include="Dialogs\InfoDialog.xaml.cs">
       <DependentUpon>InfoDialog.xaml</DependentUpon>
     </Compile>

@@ -2,6 +2,7 @@
 using System.Windows.Navigation;
 using DevExpress.Mvvm;
 using VKMSmalta.Dialogs;
+using VKMSmalta.Dialogs.Factories;
 using VKMSmalta.Dialogs.ViewModel;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
@@ -13,6 +14,8 @@ namespace VKMSmalta.ViewModel
 {
     public class MainPageViewModel : ViewModelBase
     {
+        private readonly DialogFactory dialogFactory;
+
         public DelegateCommand LoginCommand { get; set; }
         public DelegateCommand RegisterCommand { get; set; }
         public DelegateCommand GoExamineCommand { get; set; }
@@ -24,6 +27,7 @@ namespace VKMSmalta.ViewModel
         {
             DependencyContainer.Instance.ReSetMainPageViewModel(this);
             CreateCommands();
+            dialogFactory = new DialogFactory();
         }
 
         private void CreateCommands()
@@ -38,22 +42,17 @@ namespace VKMSmalta.ViewModel
         private void OnShowInfo()
         {
             var infoText = "some text";
-            var infoDialog = new InfoDialog(infoText);
-            infoDialog.ShowDialog();
+            dialogFactory.ShowInfoDialog(infoText);
         }
 
         private void OnLogin()
         {
-            var authorizationUri = DependencyContainer.Instance.Config.AdminUri.AdminAuthorizeUri;
-            var loginDialog = new LoginDialog(authorizationUri);
-            loginDialog.ShowDialog();
+            dialogFactory.ShowLoginDialog();
         }
 
         private void OnRegister()
         {
-            var registerUri = DependencyContainer.Instance.Config.AdminUri.AdminRegisterUri;
-            var registerDialog = new RegisterDialog(registerUri);
-            registerDialog.ShowDialog();
+            dialogFactory.ShowRegisterDialog();
         }
 
         private void OnGoTraining()

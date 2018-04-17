@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VKMSmalta.Dialogs.Factories;
 using VKMSmalta.Dialogs.ViewModel;
 
 namespace VKMSmalta.Dialogs
@@ -20,10 +21,10 @@ namespace VKMSmalta.Dialogs
     /// </summary>
     public partial class RegisterDialog : IPasswordSupplier
     {
-        public RegisterDialog(string registerUri)
+        public RegisterDialog(string registerUri, DialogFactory dialogFactory)
         {
             InitializeComponent();
-            DataContext = new RegisterDialogViewModel(this, registerUri);
+            DataContext = new RegisterDialogViewModel(this, registerUri, dialogFactory);
             CreateCommands();
         }
 
