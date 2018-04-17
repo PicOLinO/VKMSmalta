@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using VKMSmalta.Dialogs.Factories;
 using VKMSmalta.Dialogs.ViewModel;
 using VKMSmalta.Domain;
 using VKMSmalta.Network;
@@ -63,10 +64,19 @@ namespace VKMSmalta.Services
         {
             using (var httpClient = new HttpClient())
             {
+                httpClient.Timeout = TimeSpan.FromSeconds(10);
                 var json = JsonConvert.SerializeObject(content);
                 var body = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await httpClient.PostAsync(uri, body);
-                return response;
+                try
+                {
+                    var response = await httpClient.PostAsync(uri, body);
+                    return response;
+                }
+                catch (Exception e)
+                {
+                    DialogFactory.ShowErrorMessage(e);
+                    throw;
+                }
             }
         }
     }

@@ -29,7 +29,8 @@ namespace VKMSmalta.Dialogs.ViewModel
 
             if (password != confirmPassword)
             {
-                throw new Exception("Пароль и его подтверждение должны совпадать");
+                DialogFactory.ShowWarningMessage("Пароли должны совпадать");
+                return;
             }
 
             var success = await NetworkService.Instance.Register(new NetworkCredential(Login, Password));
@@ -39,8 +40,8 @@ namespace VKMSmalta.Dialogs.ViewModel
                 CloseCommand.Execute(null);
                 dialogFactory.ShowLoginDialog();
             }
-            
-            throw new Exception("Ошибка на сервере");
+
+            DialogFactory.ShowErrorMessage("Ошибка на сервере, обратитесь к преподавателю");
         }
     }
 }
