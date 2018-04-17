@@ -51,16 +51,16 @@ namespace VKMSmalta.Services
             {
                 return true;
             }
-
+            
             return false;
         }
 
         public async Task SendExamineResultToAdmin(ExamineResult examineResult)
         {
-            await SendRequestCore(adminUri.AdminAddHistoryUri, examineResult);
+            await SendRequestCore(adminUri.AdminAddHistoryUri, examineResult, false);
         }
 
-        private async Task<HttpResponseMessage> SendRequestCore(string uri, object content)
+        private async Task<HttpResponseMessage> SendRequestCore(string uri, object content, bool showError = true)
         {
             using (var httpClient = new HttpClient())
             {
@@ -74,7 +74,10 @@ namespace VKMSmalta.Services
                 }
                 catch (Exception e)
                 {
-                    DialogFactory.ShowErrorMessage(e);
+                    if (showError)
+                    {
+                        DialogFactory.ShowErrorMessage(e);
+                    }
                     throw;
                 }
             }
