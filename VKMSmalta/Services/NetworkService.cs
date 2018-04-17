@@ -57,18 +57,30 @@ namespace VKMSmalta.Services
 
         public async Task SendExamineResultToAdmin(ExamineResult examineResult)
         {
-            await SendRequestCore(adminUri.AdminAddHistoryUri, examineResult, false);
+            await SendRequestCore(adminUri.AdminAddHistoryUri, examineResult, true, false);
         }
 
-        private async Task<HttpResponseMessage> SendRequestCore(string uri, object content, bool showError = true)
+        private async Task<HttpResponseMessage> SendRequestCore(string uri, object content, bool authorize = false, bool showError = true)
         {
             using (var httpClient = new HttpClient())
             {
-                httpClient.Timeout = TimeSpan.FromSeconds(10);
-                var json = JsonConvert.SerializeObject(content);
-                var body = new StringContent(json, Encoding.UTF8, "application/json");
                 try
                 {
+                    if (authorize)
+                    {
+                        if (string.IsNullOrEmpty(accessToken))
+                        {
+                            throw new Exception("Вы не авторизованы в системе");
+                        }
+
+                        httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken}");
+                    }
+
+                    httpClient.Timeout = TimeSpan.FromSeconds(10);
+
+                    var json = JsonConvert.SerializeObject(content);
+                    var body = new StringContent(json, Encoding.UTF8, "application/json");
+                
                     var response = await httpClient.PostAsync(uri, body);
                     return response;
                 }
