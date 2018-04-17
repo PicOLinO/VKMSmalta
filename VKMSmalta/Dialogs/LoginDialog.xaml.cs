@@ -31,5 +31,10 @@ namespace VKMSmalta.Dialogs
         {
             return passwordBox.SecurePassword;
         }
+
+        public SecureString GetConfirmPassword()
+        {
+            return null;
+        }
     }
 }

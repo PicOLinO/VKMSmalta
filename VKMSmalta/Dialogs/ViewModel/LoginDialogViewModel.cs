@@ -12,8 +12,8 @@ namespace VKMSmalta.Dialogs.ViewModel
 {
     public class LoginDialogViewModel : DialogViewModelBase
     {
-        private readonly IPasswordSupplier passwordSupplier;
-        private readonly string authorizeUri;
+        protected readonly IPasswordSupplier PasswordSupplier;
+        protected readonly string RequestUri;
 
         public string Login
         {
@@ -21,14 +21,14 @@ namespace VKMSmalta.Dialogs.ViewModel
             set { SetProperty(() => Login, value); }
         }
 
-        public SecureString Password => passwordSupplier.GetPassword();
+        public SecureString Password => PasswordSupplier.GetPassword();
 
         public AsyncCommand ClickCommand { get; set; }
 
-        public LoginDialogViewModel(IPasswordSupplier passwordSupplier, string authorizeUri)
+        public LoginDialogViewModel(IPasswordSupplier passwordSupplier, string authUri)
         {
-            this.passwordSupplier = passwordSupplier;
-            this.authorizeUri = authorizeUri;
+            PasswordSupplier = passwordSupplier;
+            RequestUri = authUri;
             CreateCommands();
         }
 
@@ -37,14 +37,14 @@ namespace VKMSmalta.Dialogs.ViewModel
             ClickCommand = new AsyncCommand(OnClick);
         }
 
-        private async Task OnClick()
+        protected virtual async Task OnClick()
         {
             using (var httpClient = new HttpClient())
             {
                 var credentials = new NetworkCredential(Login, Password);
                 var json = JsonConvert.SerializeObject(credentials);
                 var body = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await httpClient.PostAsync(authorizeUri, body);
+                var response = await httpClient.PostAsync(RequestUri, body);
                 if (response.IsSuccessStatusCode)
                 {
                     //TODO: Логин успешен, сохранить токен.

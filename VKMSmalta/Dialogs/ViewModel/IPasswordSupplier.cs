@@ -5,5 +5,6 @@ namespace VKMSmalta.Dialogs.ViewModel
     public interface IPasswordSupplier
     {
         SecureString GetPassword();
+        SecureString GetConfirmPassword();
     }
 }

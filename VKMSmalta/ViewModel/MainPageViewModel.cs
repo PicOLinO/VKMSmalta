@@ -14,6 +14,7 @@ namespace VKMSmalta.ViewModel
     public class MainPageViewModel : ViewModelBase
     {
         public DelegateCommand LoginCommand { get; set; }
+        public DelegateCommand RegisterCommand { get; set; }
         public DelegateCommand GoExamineCommand { get; set; }
         public DelegateCommand GoTrainingCommand { get; set; }
         
@@ -28,6 +29,7 @@ namespace VKMSmalta.ViewModel
             LoginCommand = new DelegateCommand(OnLogin);
             GoExamineCommand = new DelegateCommand(OnGoExamine);
             GoTrainingCommand = new DelegateCommand(OnGoTraining);
+            RegisterCommand = new DelegateCommand(OnRegister);
         }
 
         private void OnLogin()
@@ -35,6 +37,13 @@ namespace VKMSmalta.ViewModel
             var authorizationUri = DependencyContainer.Instance.Config.AdminUri.AdminAuthorizeUri;
             var loginDialog = new LoginDialog(authorizationUri);
             loginDialog.ShowDialog();
+        }
+
+        private void OnRegister()
+        {
+            var registerUri = DependencyContainer.Instance.Config.AdminUri.AdminRegisterUri;
+            var registerDialog = new RegisterDialog(registerUri);
+            registerDialog.ShowDialog();
         }
 
         private void OnGoTraining()
