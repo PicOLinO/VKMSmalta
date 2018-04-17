@@ -54,9 +54,9 @@ namespace VKMSmalta.Services
             return false;
         }
 
-        public void SendExamineResultToAdmin(ExamineResult examineResult)
+        public async Task SendExamineResultToAdmin(ExamineResult examineResult)
         {
-            throw new NotImplementedException();
+            await SendRequestCore(adminUri.AdminAddHistoryUri, examineResult);
         }
 
         private async Task<HttpResponseMessage> SendRequestCore(string uri, object content)

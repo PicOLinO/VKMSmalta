@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using DevExpress.Mvvm;
 using VKMSmalta.Dialogs;
 using VKMSmalta.Dialogs.ViewModel;
@@ -25,7 +26,7 @@ namespace VKMSmalta.View.ViewModel
         private readonly HintService hintService;
         private readonly HistoryService historyService;
 
-        public DelegateCommand CheckResultCommand { get; set; }
+        public AsyncCommand CheckResultCommand { get; set; }
         public DelegateCommand GoForwardCommand { get; set; }
         public DelegateCommand GoPreviousCommand { get; set; }
 
@@ -133,7 +134,7 @@ namespace VKMSmalta.View.ViewModel
         private void CreateCommands()
         {
             GoForwardCommand = new DelegateCommand(OnGoForward, CanGoForward);
-            CheckResultCommand = new DelegateCommand(OnCheckResult);
+            CheckResultCommand = new AsyncCommand(OnCheckResult);
             GoPreviousCommand = new DelegateCommand(OnGoPrevious, CanGoPrevious);
         }
 
@@ -157,7 +158,7 @@ namespace VKMSmalta.View.ViewModel
             NavigateOnPage(PreviousPageKey);
         }
 
-        private void OnCheckResult()
+        private async Task OnCheckResult()
         {
             if (applicationMode == ApplicationMode.Training)
             {
@@ -167,6 +168,15 @@ namespace VKMSmalta.View.ViewModel
             }
 
             var value = historyService.GetValueByAlgorithmByUserActions(CurrentAlgorithm, UnionedElements.Cast<IValuableNamedElement>().ToList());
+
+            var examineResult = new ExamineResult
+                                {
+                                    Date = DateTime.Now,
+                                    AlgorithmName = CurrentAlgorithm.Name,
+                                    Value = value
+                                };
+            await NetworkService.Instance.SendExamineResultToAdmin(examineResult);
+
             var retry = CheckResults(value);
             
             if (retry)

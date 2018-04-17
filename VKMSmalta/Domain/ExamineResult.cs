@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace VKMSmalta.Domain
 {
     public class ExamineResult
     {
+        public DateTime Date { get; set; }
         public int Value { get; set; }
-        public List<Action> Actions { get; set; }
-        public Algorithm Algorithm { get; set; }
+        public string AlgorithmName { get; set; }
     }
 }
