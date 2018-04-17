@@ -17,7 +17,9 @@ namespace VKMSmalta.ViewModel
         public DelegateCommand RegisterCommand { get; set; }
         public DelegateCommand GoExamineCommand { get; set; }
         public DelegateCommand GoTrainingCommand { get; set; }
-        
+        public DelegateCommand ShowInfoCommand { get; set; }
+
+
         public MainPageViewModel()
         {
             DependencyContainer.Instance.ReSetMainPageViewModel(this);
@@ -30,6 +32,14 @@ namespace VKMSmalta.ViewModel
             GoExamineCommand = new DelegateCommand(OnGoExamine);
             GoTrainingCommand = new DelegateCommand(OnGoTraining);
             RegisterCommand = new DelegateCommand(OnRegister);
+            ShowInfoCommand = new DelegateCommand(OnShowInfo);
+        }
+
+        private void OnShowInfo()
+        {
+            var infoText = "some text";
+            var infoDialog = new InfoDialog(infoText);
+            infoDialog.ShowDialog();
         }
 
         private void OnLogin()

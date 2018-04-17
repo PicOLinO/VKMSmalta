@@ -93,6 +93,9 @@
     </Compile>
     <Compile Include="Dialogs\Factories\ActionsFactory.cs" />
     <Compile Include="Dialogs\Factories\AlgorithmsFactory.cs" />
+    <Compile Include="Dialogs\InfoDialog.xaml.cs">
+      <DependentUpon>InfoDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\RegisterDialog.xaml.cs">
       <DependentUpon>RegisterDialog.xaml</DependentUpon>
     </Compile>
@@ -106,6 +109,7 @@
     <Compile Include="Dialogs\ViewModel\CheckResultsDialogViewModel.cs" />
     <Compile Include="Dialogs\ViewModel\ChooseAlgorithmDialogViewModel.cs" />
     <Compile Include="Dialogs\ViewModel\DialogViewModelBase.cs" />
+    <Compile Include="Dialogs\ViewModel\InfoDialogViewModel.cs" />
     <Compile Include="Dialogs\ViewModel\IPasswordSupplier.cs" />
     <Compile Include="Dialogs\ViewModel\LoginDialogViewModel.cs" />
     <Compile Include="Dialogs\ViewModel\RegisterCredentials.cs" />
@@ -198,6 +202,10 @@
     <Page Include="Dialogs\DialogResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\InfoDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Dialogs\RegisterDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
