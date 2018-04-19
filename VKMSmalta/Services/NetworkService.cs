@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using VKMSmalta.Dialogs.Factories;
-using VKMSmalta.Dialogs.ViewModel;
 using VKMSmalta.Domain;
 using VKMSmalta.Network;
 
@@ -37,7 +36,9 @@ namespace VKMSmalta.Services
             var response =  await SendRequestCore(adminUri.AdminAuthorizeUri, credential);
             if (response.IsSuccessStatusCode)
             {
-                //TODO: Save token
+                var responseContentJson = await response.Content.ReadAsStringAsync();
+                var responseContent = JsonConvert.DeserializeObject<AuthorizeResponseDto>(responseContentJson);
+                accessToken = responseContent.token;
                 return true;
             }
 

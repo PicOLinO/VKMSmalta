@@ -127,6 +127,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Network\AdminUri.cs" />
+    <Compile Include="Network\AuthorizeResponseDto.cs" />
     <Compile Include="Services\DependencyContainer.cs" />
     <Compile Include="Services\HintService.cs" />
     <Compile Include="Services\HistoryService.cs" />

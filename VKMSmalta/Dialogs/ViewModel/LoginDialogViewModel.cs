@@ -46,6 +46,7 @@ namespace VKMSmalta.Dialogs.ViewModel
             if (success)
             {
                 //TODO: Показать пользователю, что он авторизован.
+                CloseCommand.Execute(null);
             }
 
             throw new AuthenticationException("Неверный логин или пароль");
