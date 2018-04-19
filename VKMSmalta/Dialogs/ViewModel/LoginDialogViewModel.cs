@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Mvvm;
 using Newtonsoft.Json;
+using VKMSmalta.Dialogs.Factories;
 using VKMSmalta.Services;
 
 namespace VKMSmalta.Dialogs.ViewModel
@@ -40,16 +41,23 @@ namespace VKMSmalta.Dialogs.ViewModel
 
         protected virtual async Task OnClick()
         {
-            var credentials = new NetworkCredential(Login, Password);
-            var success = await NetworkService.Instance.Authorize(credentials);
-
-            if (success)
+            try
             {
-                //TODO: Показать пользователю, что он авторизован.
-                CloseCommand.Execute(null);
-            }
+                var credentials = new NetworkCredential(Login, Password);
+                var success = await NetworkService.Instance.Authorize(credentials);
 
-            throw new AuthenticationException("Неверный логин или пароль");
+                if (success)
+                {
+                    //TODO: Показать пользователю, что он авторизован.
+                    CloseCommand.Execute(null);
+                }
+
+                throw new AuthenticationException("Неверный логин или пароль");
+            }
+            catch (AuthenticationException e)
+            {
+                DialogFactory.ShowErrorMessage(e);
+            }
         }
     }
 }
