@@ -21,10 +21,10 @@ namespace VKMSmalta.Dialogs
     /// </summary>
     public partial class RegisterDialog : IPasswordSupplier
     {
-        public RegisterDialog(string registerUri, DialogFactory dialogFactory)
+        public RegisterDialog()
         {
             InitializeComponent();
-            DataContext = new RegisterDialogViewModel(this, registerUri, dialogFactory);
+            DataContext = new RegisterDialogViewModel(this);
             CreateCommands();
         }
 

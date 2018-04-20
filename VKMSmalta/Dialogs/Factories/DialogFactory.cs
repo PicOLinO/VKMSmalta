@@ -8,17 +8,16 @@ namespace VKMSmalta.Dialogs.Factories
 {
     public class DialogFactory
     {
-        public void ShowLoginDialog()
+        public bool ShowLoginDialog()
         {
-            var authUri = DependencyContainer.Instance.Config.AdminUri.AdminAuthorizeUri;
-            var loginDialog = new LoginDialog(authUri);
-            loginDialog.ShowDialog();
+            var loginDialog = new LoginDialog();
+            var result = loginDialog.ShowDialog();
+            return result.HasValue && result.Value;
         }
 
         public void ShowRegisterDialog()
         {
-            var registerUri = DependencyContainer.Instance.Config.AdminUri.AdminRegisterUri;
-            var registerDialog = new RegisterDialog(registerUri, this);
+            var registerDialog = new RegisterDialog();
             registerDialog.ShowDialog();
         }
 

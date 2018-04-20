@@ -15,6 +15,7 @@ namespace VKMSmalta.ViewModel
     public class MainPageViewModel : ViewModelBase
     {
         private readonly DialogFactory dialogFactory;
+        private AppGlobal App => DependencyContainer.GetApp();
 
         public DelegateCommand LoginCommand { get; set; }
         public DelegateCommand RegisterCommand { get; set; }
@@ -39,6 +40,17 @@ namespace VKMSmalta.ViewModel
             ShowInfoCommand = new DelegateCommand(OnShowInfo);
         }
 
+        public bool IsAuthorized
+        {
+            get { return GetProperty(() => IsAuthorized); }
+            set { SetProperty(() => IsAuthorized, value, OnAuthorizedChanged); }
+        }
+
+        private void OnAuthorizedChanged()
+        {
+            App.IsAuthorized = IsAuthorized;
+        }
+
         private void OnShowInfo()
         {
             var infoText = "some text";
@@ -47,7 +59,7 @@ namespace VKMSmalta.ViewModel
 
         private void OnLogin()
         {
-            dialogFactory.ShowLoginDialog();
+            IsAuthorized = dialogFactory.ShowLoginDialog();
         }
 
         private void OnRegister()

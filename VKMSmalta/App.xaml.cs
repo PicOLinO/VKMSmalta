@@ -40,9 +40,11 @@ namespace VKMSmalta
 
         private void ParseArgs(string[] args)
         {
+            var app = DependencyContainer.GetApp();
+
             var configuration = CommandLineParserConfigurator
                                 .Create()
-                                    .WithSwitch("debug", () => DependencyContainer.Instance.IsDebug = true)
+                                    .WithSwitch("debug", () => app.IsDebug = true)
                                         .DescribedBy("Enable debug mode")
                                 .BuildConfiguration();
             var parser = new CommandLineParser(configuration);

@@ -8,7 +8,14 @@ namespace VKMSmalta.Converters
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var boolValue = (bool) value;
+            var stringParameter = (string) parameter;
+            var boolValue = (bool)value;
+
+            if (stringParameter == "Inverse")
+            {
+                boolValue = !boolValue;
+            }
+
             switch (boolValue)
             {
                 case true:

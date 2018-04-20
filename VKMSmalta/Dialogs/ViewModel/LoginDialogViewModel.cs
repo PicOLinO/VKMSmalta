@@ -15,7 +15,7 @@ namespace VKMSmalta.Dialogs.ViewModel
     public class LoginDialogViewModel : DialogViewModelBase
     {
         protected readonly IPasswordSupplier PasswordSupplier;
-        protected readonly string RequestUri;
+        protected AppGlobal App => DependencyContainer.GetApp();
 
         public string Login
         {
@@ -27,10 +27,9 @@ namespace VKMSmalta.Dialogs.ViewModel
 
         public AsyncCommand ClickCommand { get; set; }
 
-        public LoginDialogViewModel(IPasswordSupplier passwordSupplier, string authUri)
+        public LoginDialogViewModel(IPasswordSupplier passwordSupplier)
         {
             PasswordSupplier = passwordSupplier;
-            RequestUri = authUri;
             CreateCommands();
         }
 
@@ -48,11 +47,13 @@ namespace VKMSmalta.Dialogs.ViewModel
 
                 if (success)
                 {
-                    //TODO: Показать пользователю, что он авторизован.
-                    CloseCommand.Execute(null);
+                    App.IsAuthorized = true;
+                    CloseCommand.Execute(true);
                 }
-
-                throw new AuthenticationException("Неверный логин или пароль");
+                else
+                {
+                    throw new AuthenticationException("Неверный логин или пароль");
+                }
             }
             catch (AuthenticationException e)
             {

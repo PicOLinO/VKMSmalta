@@ -11,13 +11,14 @@ namespace VKMSmalta.View.Elements
     {
         private ElementBase movingObject;
         private double firstXPos, firstYPos;
+        private AppGlobal App => DependencyContainer.GetApp();
 
         public ElementBase()
         {
             SnapsToDevicePixels = false;
             AllowDrop = true;
 
-            if (DependencyContainer.Instance.IsDebug)
+            if (App.IsDebug)
             {
                 Loaded += OnLoaded;
                 MouseLeftButtonDown += OnMouseLeftButtonDown;

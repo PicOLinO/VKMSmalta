@@ -16,11 +16,12 @@ namespace VKMSmalta.Dialogs
         protected virtual void CreateCommands()
         {
             var vm = (DialogViewModelBase)DataContext;
-            vm.CloseCommand = new DelegateCommand(OnClosing);
+            vm.CloseCommand = new DelegateCommand<bool?>(OnClosing);
         }
         
-        private void OnClosing()
+        private void OnClosing(bool? parameter = null)
         {
+            DialogResult = parameter;
             Close();
         }
     }

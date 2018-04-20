@@ -13,35 +13,41 @@ namespace VKMSmalta.Dialogs.ViewModel
 {
     public class RegisterDialogViewModel : LoginDialogViewModel
     {
-        private readonly DialogFactory dialogFactory;
-
         public SecureString ConfirmPassword => PasswordSupplier.GetConfirmPassword();
 
-        public RegisterDialogViewModel(IPasswordSupplier passwordSupplier, string registerUri, DialogFactory dialogFactory) : base(passwordSupplier, registerUri)
+        public RegisterDialogViewModel(IPasswordSupplier passwordSupplier) : base(passwordSupplier)
         {
-            this.dialogFactory = dialogFactory;
         }
 
         protected override async Task OnClick()
         {
-            var password = Password.ConvertToUnsecureString();
-            var confirmPassword = ConfirmPassword.ConvertToUnsecureString();
-
-            if (password != confirmPassword)
+            try
             {
-                DialogFactory.ShowWarningMessage("Пароли должны совпадать");
-                return;
+                var password = Password.ConvertToUnsecureString();
+                var confirmPassword = ConfirmPassword.ConvertToUnsecureString();
+
+                if (password != confirmPassword)
+                {
+                    DialogFactory.ShowWarningMessage("Пароли должны совпадать");
+                    return;
+                }
+
+                var success = await NetworkService.Instance.Register(new NetworkCredential(Login, Password));
+
+                if (success)
+                {
+                    CloseCommand.Execute(null);
+                }
+                else
+                {
+                    throw new Exception("Ошибка на сервере");
+                }
+            }
+            catch (Exception e)
+            {
+                DialogFactory.ShowErrorMessage(e);
             }
 
-            var success = await NetworkService.Instance.Register(new NetworkCredential(Login, Password));
-
-            if (success)
-            {
-                CloseCommand.Execute(null);
-                dialogFactory.ShowLoginDialog();
-            }
-
-            DialogFactory.ShowErrorMessage("Ошибка на сервере, обратитесь к преподавателю");
         }
     }
 }

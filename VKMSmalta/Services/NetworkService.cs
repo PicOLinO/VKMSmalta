@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -74,7 +75,7 @@ namespace VKMSmalta.Services
                             throw new Exception("Вы не авторизованы в системе");
                         }
 
-                        httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken}");
+                        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
                     }
 
                     httpClient.Timeout = TimeSpan.FromSeconds(10);

@@ -123,6 +123,7 @@
     <Compile Include="Domain\DependencyAction.cs" />
     <Compile Include="Domain\DependencyType.cs" />
     <Compile Include="Domain\ExamineResult.cs" />
+    <Compile Include="AppGlobal.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

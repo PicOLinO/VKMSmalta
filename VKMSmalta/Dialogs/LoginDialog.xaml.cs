@@ -15,10 +15,10 @@ namespace VKMSmalta.Dialogs
     /// </summary>
     public partial class LoginDialog : IPasswordSupplier
     {
-        public LoginDialog(string authUri)
+        public LoginDialog()
         {
             InitializeComponent();
-            DataContext = new LoginDialogViewModel(this, authUri);
+            DataContext = new LoginDialogViewModel(this);
             CreateCommands();
         }
 

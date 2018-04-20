@@ -10,8 +10,8 @@ namespace VKMSmalta.Services
 {
     public class DependencyContainer
     {
-        public bool IsDebug { get; set; }
-
+        private readonly AppGlobal appGlobal;
+        
         public const string AssemblyName = nameof(VKMSmalta);
         public Config Config { get; }
 
@@ -24,6 +24,7 @@ namespace VKMSmalta.Services
         private DependencyContainer(Config config)
         {
             Config = config;
+            appGlobal = new AppGlobal();
         }
 
         public static void InitializeService(Config config)
@@ -32,6 +33,11 @@ namespace VKMSmalta.Services
             {
                 Instance = new DependencyContainer(config);
             }
+        }
+
+        public static AppGlobal GetApp()
+        {
+            return Instance?.appGlobal;
         }
 
         public void ReSetDevicePageViewModel(DevicePageViewModel vm)

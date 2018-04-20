@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:viewModel="clr-namespace:VKMSmalta.ViewModel"
+      xmlns:converters="clr-namespace:VKMSmalta.Converters"
       mc:Ignorable="d" 
       x:Name="PART_MainPage"
       d:DesignHeight="315.392" d:DesignWidth="627.692"
@@ -36,10 +37,10 @@
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Style="{DynamicResource OuterSeparatingColumn}"/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Row="2" Grid.Column="1" Content="Вход" Style="{DynamicResource MainButton}" Command="{Binding Path=LoginCommand}" />
-        <Button Grid.Row="4" Grid.Column="1" Content="Регистрация" Style="{DynamicResource MainButton}" Command="{Binding Path=RegisterCommand}" />
+        <Button Grid.Row="2" Grid.Column="1" Content="Вход" Style="{DynamicResource MainButton}" Command="{Binding Path=LoginCommand}" Visibility="{Binding Path=IsAuthorized, Converter={converters:BoolToVisibilityConverter}, ConverterParameter=Inverse}"/>
+        <Button Grid.Row="4" Grid.Column="1" Content="Регистрация" Style="{DynamicResource MainButton}" Command="{Binding Path=RegisterCommand}" Visibility="{Binding Path=IsAuthorized, Converter={converters:BoolToVisibilityConverter}, ConverterParameter=Inverse}"/>
         <Button Grid.Row="6" Grid.Column="1" Content="Обучение" Style="{DynamicResource MainButton}"  Command="{Binding Path=GoTrainingCommand}" />
-        <Button Grid.Row="8" Grid.Column="1" Content="Экзамен" Style="{DynamicResource MainButton}" Command="{Binding Path=GoExamineCommand}" />
+        <Button Grid.Row="8" Grid.Column="1" Content="Экзамен" Style="{DynamicResource MainButton}" Command="{Binding Path=GoExamineCommand}" Visibility="{Binding Path=IsAuthorized, Converter={converters:BoolToVisibilityConverter}}"/>
         <!--<Button Grid.Row="10" Grid.Column="1" Content="Статистика" Style="{DynamicResource MainButton}" Command ="{Binding Path=}}" />-->
         <Button Grid.Row="10" Grid.Column="1" Content="Информация" Style="{DynamicResource MainButton}" Command="{Binding Path=ShowInfoCommand}"/>
         <Button Grid.Row="10" Grid.Column="5" Content="Выйти" Style="{DynamicResource MainButton}" Click="ExitButton_OnClick" />
