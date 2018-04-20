@@ -24,6 +24,6 @@
             <ColumnDefinition Style="{DynamicResource DialogOuterSeparatingColumn}" />
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="1" Grid.Column="1" Text="Обучение алгоритму завершено" />
-        <Button Grid.Row="3" Grid.Column="1" Style="{DynamicResource MainButton}" Content="ОК" Command="{Binding Path=CloseCommand}" />
+        <Button Grid.Row="3" Grid.Column="1" Style="{DynamicResource MainButton}" Content="ОК" Command="{Binding Path=CloseCommand}" IsDefault="True" />
     </Grid>
 </local:DialogBase>

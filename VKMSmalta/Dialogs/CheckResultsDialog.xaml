@@ -5,7 +5,6 @@
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:viewModel="clr-namespace:VKMSmalta.Dialogs.ViewModel"
                       xmlns:converters="clr-namespace:VKMSmalta.Converters"
-                      xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
                       xmlns:dialogs="clr-namespace:VKMSmalta.Dialogs"
                       mc:Ignorable="d"
                       Title="Результат"
@@ -29,8 +28,8 @@
                      BorderThickness="0" IsReadOnly="True" />
         </DockPanel>
         <DockPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center">
-            <Button Content="Выход" Style="{DynamicResource MainButton}" Command="{Binding Path=CloseCommand}" Margin="0 0 10 0" />
-            <Button Content="Повторить" Style="{DynamicResource MainButton}" Command="{Binding Path=RetryCommand}"/>
+            <Button Content="Выход" Style="{DynamicResource MainButton}" Command="{Binding Path=CloseCommand}" Margin="0 0 10 0" IsCancel="True" />
+            <Button Content="Повторить" Style="{DynamicResource MainButton}" Command="{Binding Path=RetryCommand}" IsDefault="True" />
         </DockPanel>
     </Grid>
 </dialogs:DialogBase>
