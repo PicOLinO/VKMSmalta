@@ -13,5 +13,6 @@
         public string AdminAuthorizeUri => $"{AdminUriBase}/api/v1/auth/token";
         public string AdminRegisterUri => $"{AdminUriBase}/api/v1/auth/register";
         public string AdminResetPasswordUri => $"{AdminUriBase}/api/v1/auth/resetpwd";
+        public string AdminGetFreeStudentsUri => $"{AdminUriBase}/api/v1/freestudents";
     }
 }

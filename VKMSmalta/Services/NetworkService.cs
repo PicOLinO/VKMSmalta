@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -34,7 +35,7 @@ namespace VKMSmalta.Services
 
         public async Task<bool> Authorize(NetworkCredential credential)
         {
-            var response =  await SendRequestCore(adminUri.AdminAuthorizeUri, credential);
+            var response =  await SendPostRequestCore(adminUri.AdminAuthorizeUri, credential);
             if (response.IsSuccessStatusCode)
             {
                 var responseContentJson = await response.Content.ReadAsStringAsync();
@@ -48,7 +49,7 @@ namespace VKMSmalta.Services
 
         public async Task<bool> Register(NetworkCredential credential)
         {
-            var response = await SendRequestCore(adminUri.AdminRegisterUri, credential);
+            var response = await SendPostRequestCore(adminUri.AdminRegisterUri, credential);
             if (response.IsSuccessStatusCode)
             {
                 return true;
@@ -59,10 +60,55 @@ namespace VKMSmalta.Services
 
         public async Task SendExamineResultToAdmin(ExamineResult examineResult)
         {
-            await SendRequestCore(adminUri.AdminAddHistoryUri, examineResult, true, false);
+            await SendPostRequestCore(adminUri.AdminAddHistoryUri, examineResult, true, false);
         }
 
-        private async Task<HttpResponseMessage> SendRequestCore(string uri, object content, bool authorize = false, bool showError = true)
+        public async Task<IEnumerable<TeamWithStudentsWithoutLoginsDto>> GetTeamsAndStudentsWithoutLogin()
+        {
+            var response = await SendGetRequestCore(adminUri.AdminGetFreeStudentsUri);
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContentJson = await response.Content.ReadAsStringAsync();
+                var responseContent = JsonConvert.DeserializeObject<IEnumerable<TeamWithStudentsWithoutLoginsDto>>(responseContentJson);
+                return responseContent;
+            }
+
+            throw new Exception("Ошибка на сервере");
+        }
+
+        private async Task<HttpResponseMessage> SendGetRequestCore(string uri, bool authorize = false, bool showError = true)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                try
+                {
+                    if (authorize)
+                    {
+                        if (string.IsNullOrEmpty(accessToken))
+                        {
+                            throw new Exception("Вы не авторизованы в системе");
+                        }
+
+                        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                    }
+
+                    httpClient.Timeout = TimeSpan.FromSeconds(10);
+
+                    var response = await httpClient.GetAsync(uri);
+                    return response;
+                }
+                catch (Exception e)
+                {
+                    if (showError)
+                    {
+                        DialogFactory.ShowErrorMessage(e);
+                    }
+                    throw;
+                }
+            }
+        }
+
+        private async Task<HttpResponseMessage> SendPostRequestCore(string uri, object content, bool authorize = false, bool showError = true)
         {
             using (var httpClient = new HttpClient())
             {

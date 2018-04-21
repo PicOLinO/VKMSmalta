@@ -8,10 +8,14 @@
                     xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
                     mc:Ignorable="d"
                     Title="Вход"
-                    d:DataContext="{d:DesignInstance Type=viewModel:LoginDialogViewModel}" d:DesignHeight="153" d:DesignWidth="451">
+                    d:DataContext="{d:DesignInstance Type=viewModel:RegisterDialogViewModel}" d:DesignHeight="153" d:DesignWidth="451">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Style="{StaticResource DialogOuterSeparatingRow}"/>
+            <RowDefinition />
+            <RowDefinition Style="{StaticResource DialogInnerSeparatingRow}"/>
+            <RowDefinition />
+            <RowDefinition Style="{StaticResource DialogInnerSeparatingRow}"/>
             <RowDefinition />
             <RowDefinition Style="{StaticResource DialogInnerSeparatingRow}"/>
             <RowDefinition />
@@ -33,9 +37,13 @@
         <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding Path=Login}" />
         <TextBlock Grid.Row="3" Grid.Column="1" Text="Пароль: " />
         <PasswordBox Grid.Row="3" Grid.Column="3" x:Name="passwordBox" />
-        <TextBlock Grid.Row="5" Grid.Column="1" Text="Подтвердите пароль: " />
+        <TextBlock Grid.Row="5" Grid.Column="1" Text="Подтверждение: " />
         <PasswordBox Grid.Row="5" Grid.Column="3" x:Name="confirmPasswordBox" />
-        <Button Grid.Row="7" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Отмена" Command="{Binding Path=CloseCommand}" IsCancel="True" />
-        <Button Grid.Row="7" Grid.Column="3" Style="{DynamicResource MainButton}" Content="ОК" Command="{Binding Path=ClickCommand}" />
+        <TextBlock Grid.Row="7" Grid.Column="1" Text="Взвод: " />
+        <ComboBox Grid.Row="7" Grid.Column="3" ItemsSource="{Binding Path=Teams}" SelectedItem="{Binding Path=SelectedTeam}" DisplayMemberPath="Number"/>
+        <TextBlock Grid.Row="9" Grid.Column="1" Text="Студент: " />
+        <ComboBox Grid.Row="9" Grid.Column="3" ItemsSource="{Binding Path=Students}" SelectedItem="{Binding Path=SelectedStudent}" DisplayMemberPath="FullName"/>
+        <Button Grid.Row="11" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Отмена" Command="{Binding Path=CloseCommand}" IsCancel="True" />
+        <Button Grid.Row="11" Grid.Column="3" Style="{DynamicResource MainButton}" Content="ОК" Command="{Binding Path=ClickCommand}" />
     </Grid>
 </local:DialogBase>

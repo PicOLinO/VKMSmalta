@@ -123,11 +123,15 @@
     <Compile Include="Domain\DependencyType.cs" />
     <Compile Include="Domain\ExamineResult.cs" />
     <Compile Include="AppGlobal.cs" />
+    <Compile Include="Domain\Student.cs" />
+    <Compile Include="Domain\Team.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Network\AdminUri.cs" />
     <Compile Include="Network\AuthorizeResponseDto.cs" />
+    <Compile Include="Network\StudentDto.cs" />
+    <Compile Include="Network\TeamWithStudentsWithoutLoginsDto.cs" />
     <Compile Include="Services\DependencyContainer.cs" />
     <Compile Include="Services\HintService.cs" />
     <Compile Include="Services\HistoryService.cs" />
