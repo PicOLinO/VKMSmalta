@@ -83,39 +83,31 @@ namespace VKMSmalta.Dialogs.ViewModel
 
         protected override async Task OnClickCore()
         {
-            try
+            var password = Password.ConvertToUnsecureString();
+            var confirmPassword = ConfirmPassword.ConvertToUnsecureString();
+
+            if (password != confirmPassword)
             {
-                var password = Password.ConvertToUnsecureString();
-                var confirmPassword = ConfirmPassword.ConvertToUnsecureString();
-
-                if (password != confirmPassword)
-                {
-                    DialogFactory.ShowWarningMessage("Пароли должны совпадать");
-                    return;
-                }
-
-                var registerData = new RegisterDataDto
-                                   {
-                                       Credential = new NetworkCredential(Login, Password),
-                                       StudentId = SelectedStudent.Id
-                };
-
-                var success = await NetworkService.Instance.Register(registerData);
-
-                if (success)
-                {
-                    CloseCommand.Execute(null);
-                }
-                else
-                {
-                    throw new Exception("Ошибка на сервере");
-                }
-            }
-            catch (Exception e)
-            {
-                DialogFactory.ShowErrorMessage(e);
+                DialogFactory.ShowWarningMessage("Пароли должны совпадать");
+                return;
             }
 
+            var registerData = new RegisterDataDto
+                                {
+                                    Credential = new NetworkCredential(Login, Password),
+                                    StudentId = SelectedStudent.Id
+            };
+
+            var success = await NetworkService.Instance.Register(registerData);
+
+            if (success)
+            {
+                CloseCommand.Execute(null);
+            }
+            else
+            {
+                throw new Exception("Ошибка на сервере");
+            }
         }
     }
 }
