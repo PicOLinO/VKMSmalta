@@ -87,7 +87,7 @@ namespace VKMSmalta.Dialogs.ViewModel
             Task.Run(OnClickCore).Wait();
         }
 
-        protected override async Task OnClickCore()
+        private async Task OnClickCore()
         {
             var password = Password.ConvertToUnsecureString();
             var confirmPassword = ConfirmPassword.ConvertToUnsecureString();

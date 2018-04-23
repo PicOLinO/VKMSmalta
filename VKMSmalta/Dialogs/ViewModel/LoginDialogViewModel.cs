@@ -47,7 +47,7 @@ namespace VKMSmalta.Dialogs.ViewModel
             }
         }
 
-        protected virtual async Task OnClickCore()
+        private async Task OnClickCore()
         {
             var credentials = new NetworkCredential(Login, Password);
             var success = await NetworkService.Instance.Authorize(credentials);
