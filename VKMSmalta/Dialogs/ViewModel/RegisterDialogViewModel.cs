@@ -61,6 +61,7 @@ namespace VKMSmalta.Dialogs.ViewModel
         private void OnSelectedTeamChanged()
         {
             Students = new ObservableCollection<Student>(SelectedTeam.Students);
+            SelectedStudent = Students.FirstOrDefault();
         }
 
         public ObservableCollection<Team> Teams
@@ -79,6 +80,11 @@ namespace VKMSmalta.Dialogs.ViewModel
         {
             get { return GetProperty(() => Students); }
             set { SetProperty(() => Students, value); }
+        }
+
+        protected override void OnClick()
+        {
+            Task.Run(OnClickCore).Wait();
         }
 
         protected override async Task OnClickCore()

@@ -38,7 +38,7 @@ namespace VKMSmalta.Dialogs.ViewModel
             ClickCommand = new DelegateCommand(OnClick);
         }
 
-        private void OnClick()
+        protected virtual void OnClick()
         {
             Task.Run(OnClickCore).Wait();
             if (App.IsAuthorized)
