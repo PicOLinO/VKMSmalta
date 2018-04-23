@@ -39,16 +39,17 @@ namespace VKMSmalta.Dialogs.ViewModel
             {
                 var newTeam = new Team { Id = team.Id, Number = team.Number };
                 var students = team.Students.Select(student => new Student
-                                                               {
-                                                                   Id = student.Id,
-                                                                   FullName = $"{student.LastName} {student.FirstName} {student.MiddleName}"
-                                                               })
-                                   .ToList();
+                                                                {
+                                                                    Id = student.Id,
+                                                                    FullName = $"{student.LastName} {student.FirstName} {student.MiddleName}"
+                                                                })
+                                    .ToList();
                 newTeam.Students = students;
                 Teams.Add(newTeam);
             }
 
             SelectedTeam = Teams.FirstOrDefault();
+            SelectedStudent = SelectedTeam?.Students.FirstOrDefault();
         }
 
         public Team SelectedTeam
@@ -80,7 +81,7 @@ namespace VKMSmalta.Dialogs.ViewModel
             set { SetProperty(() => Students, value); }
         }
 
-        protected override async Task OnClick()
+        protected override async Task OnClickCore()
         {
             try
             {

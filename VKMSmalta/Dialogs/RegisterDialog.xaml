@@ -40,9 +40,9 @@
         <TextBlock Grid.Row="5" Grid.Column="1" Text="Подтверждение: " />
         <PasswordBox Grid.Row="5" Grid.Column="3" x:Name="confirmPasswordBox" />
         <TextBlock Grid.Row="7" Grid.Column="1" Text="Взвод: " />
-        <ComboBox Grid.Row="7" Grid.Column="3" ItemsSource="{Binding Path=Teams}" SelectedItem="{Binding Path=SelectedTeam}" DisplayMemberPath="Number"/>
+        <ComboBox Grid.Row="7" Grid.Column="3" ItemsSource="{Binding Path=Teams}" SelectedItem="{Binding Path=SelectedTeam}" DisplayMemberPath="Number" IsReadOnly="True"/>
         <TextBlock Grid.Row="9" Grid.Column="1" Text="Студент: " />
-        <ComboBox Grid.Row="9" Grid.Column="3" ItemsSource="{Binding Path=Students}" SelectedItem="{Binding Path=SelectedStudent}" DisplayMemberPath="FullName"/>
+        <ComboBox Grid.Row="9" Grid.Column="3" ItemsSource="{Binding Path=Students}" SelectedItem="{Binding Path=SelectedStudent}" DisplayMemberPath="FullName" IsReadOnly="True"/>
         <Button Grid.Row="11" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Отмена" Command="{Binding Path=CloseCommand}" IsCancel="True" />
         <Button Grid.Row="11" Grid.Column="3" Style="{DynamicResource MainButton}" Content="ОК" Command="{Binding Path=ClickCommand}" />
     </Grid>

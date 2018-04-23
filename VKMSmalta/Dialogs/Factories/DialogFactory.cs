@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using DevExpress.Xpf.Core;
+using DevExpress.Xpf.Editors.Helpers;
 using DevExpress.XtraEditors;
 using VKMSmalta.Services;
 
@@ -34,7 +35,9 @@ namespace VKMSmalta.Dialogs.Factories
 
         public static void ShowErrorMessage(Exception error, string caption = null)
         {
-            DXMessageBox.Show(error.Message, caption ?? "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            var msg = error.Message;
+            msg = "\r\n" + error.InnerException?.Message;
+            DXMessageBox.Show(msg, caption ?? "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         public static void ShowErrorMessage(string error, string caption = null)

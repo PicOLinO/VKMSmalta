@@ -60,7 +60,7 @@ namespace VKMSmalta.Services
 
         public async Task SendExamineResultToAdmin(ExamineResult examineResult)
         {
-            await SendPostRequestCore(adminUri.AdminAddHistoryUri, examineResult, true, false);
+            await SendPostRequestCore(adminUri.AdminAddHistoryUri, examineResult, true);
         }
 
         public async Task<IEnumerable<TeamWithStudentsWithoutLoginsDto>> GetTeamsAndStudentsWithoutLogin()
@@ -76,70 +76,49 @@ namespace VKMSmalta.Services
             throw new Exception("Ошибка на сервере");
         }
 
-        private async Task<HttpResponseMessage> SendGetRequestCore(string uri, bool authorize = false, bool showError = true)
+        private async Task<HttpResponseMessage> SendGetRequestCore(string uri, bool authorize = false)
         {
             using (var httpClient = new HttpClient())
             {
-                try
+                if (authorize)
                 {
-                    if (authorize)
+                    if (string.IsNullOrEmpty(accessToken))
                     {
-                        if (string.IsNullOrEmpty(accessToken))
-                        {
-                            throw new Exception("Вы не авторизованы в системе");
-                        }
-
-                        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                        throw new Exception("Вы не авторизованы в системе");
                     }
 
-                    httpClient.Timeout = TimeSpan.FromSeconds(10);
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                }
 
-                    var response = await httpClient.GetAsync(uri);
-                    return response;
-                }
-                catch (Exception e)
-                {
-                    if (showError)
-                    {
-                        DialogFactory.ShowErrorMessage(e);
-                    }
-                    throw;
-                }
+                httpClient.Timeout = TimeSpan.FromSeconds(10);
+
+                var response = await httpClient.GetAsync(uri);
+                return response;
             }
         }
 
-        private async Task<HttpResponseMessage> SendPostRequestCore(string uri, object content, bool authorize = false, bool showError = true)
+        private async Task<HttpResponseMessage> SendPostRequestCore(string uri, object content, bool authorize = false)
         {
             using (var httpClient = new HttpClient())
             {
-                try
+                if (authorize)
                 {
-                    if (authorize)
+                    if (string.IsNullOrEmpty(accessToken))
                     {
-                        if (string.IsNullOrEmpty(accessToken))
-                        {
-                            throw new Exception("Вы не авторизованы в системе");
-                        }
-
-                        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                        throw new Exception("Вы не авторизованы в системе");
                     }
 
-                    httpClient.Timeout = TimeSpan.FromSeconds(10);
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                }
 
-                    var json = JsonConvert.SerializeObject(content);
-                    var body = new StringContent(json, Encoding.UTF8, "application/json");
+                httpClient.Timeout = TimeSpan.FromSeconds(10);
+
+                var json = JsonConvert.SerializeObject(content);
+                var body = new StringContent(json, Encoding.UTF8, "application/json");
                 
-                    var response = await httpClient.PostAsync(uri, body);
-                    return response;
-                }
-                catch (Exception e)
-                {
-                    if (showError)
-                    {
-                        DialogFactory.ShowErrorMessage(e);
-                    }
-                    throw;
-                }
+                var response = await httpClient.PostAsync(uri, body);
+                return response;
+                
             }
         }
     }

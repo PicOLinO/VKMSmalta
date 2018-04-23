@@ -25,7 +25,7 @@ namespace VKMSmalta.Dialogs.ViewModel
 
         public SecureString Password => PasswordSupplier.GetPassword();
 
-        public AsyncCommand ClickCommand { get; set; }
+        public DelegateCommand ClickCommand { get; set; }
 
         public LoginDialogViewModel(IPasswordSupplier passwordSupplier)
         {
@@ -35,29 +35,27 @@ namespace VKMSmalta.Dialogs.ViewModel
 
         private void CreateCommands()
         {
-            ClickCommand = new AsyncCommand(OnClick);
+            ClickCommand = new DelegateCommand(OnClick);
         }
 
-        protected virtual async Task OnClick()
+        private void OnClick()
         {
-            try
-            {
-                var credentials = new NetworkCredential(Login, Password);
-                var success = await NetworkService.Instance.Authorize(credentials);
+            Task.Run(OnClickCore).Wait();
+        }
 
-                if (success)
-                {
-                    App.IsAuthorized = true;
-                    CloseCommand.Execute(true);
-                }
-                else
-                {
-                    throw new AuthenticationException("Неверный логин или пароль");
-                }
-            }
-            catch (AuthenticationException e)
+        protected virtual async Task OnClickCore()
+        {
+            var credentials = new NetworkCredential(Login, Password);
+            var success = await NetworkService.Instance.Authorize(credentials);
+
+            if (success)
             {
-                DialogFactory.ShowErrorMessage(e);
+                App.IsAuthorized = true;
+                CloseCommand.Execute(true);
+            }
+            else
+            {
+                throw new AuthenticationException("Неверный логин или пароль");
             }
         }
     }

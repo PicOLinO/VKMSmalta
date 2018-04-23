@@ -3,8 +3,10 @@
 using System;
 using System.Configuration;
 using System.Windows;
+using System.Windows.Threading;
 using Appccelerate.CommandLineParser;
 using DevExpress.Xpf.Core;
+using VKMSmalta.Dialogs.Factories;
 using VKMSmalta.Services;
 
 #endregion
@@ -29,6 +31,14 @@ namespace VKMSmalta
             NetworkService.InitializeService(config.AdminUri);
 
             ParseArgs(e.Args);
+
+            Current.DispatcherUnhandledException += HandleUnhandledException;
+        }
+
+        private void HandleUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            DialogFactory.ShowErrorMessage(e.Exception);
+            e.Handled = true;
         }
 
         private Config CreateConfig()
