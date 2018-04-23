@@ -102,7 +102,7 @@ namespace VKMSmalta.Dialogs.ViewModel
 
             if (success)
             {
-                CloseCommand.Execute(null);
+                CloseCommand.Execute(true);
             }
             else
             {

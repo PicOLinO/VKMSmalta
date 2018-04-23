@@ -25,7 +25,7 @@ namespace VKMSmalta.Dialogs.ViewModel
 
         public SecureString Password => PasswordSupplier.GetPassword();
 
-        public DelegateCommand ClickCommand { get; set; }
+        public AsyncCommand ClickCommand { get; set; }
 
         public LoginDialogViewModel(IPasswordSupplier passwordSupplier)
         {
@@ -35,12 +35,7 @@ namespace VKMSmalta.Dialogs.ViewModel
 
         private void CreateCommands()
         {
-            ClickCommand = new DelegateCommand(OnClick);
-        }
-
-        private void OnClick()
-        {
-            Task.Run(OnClickCore).Wait();
+            ClickCommand = new AsyncCommand(OnClickCore);
         }
 
         protected virtual async Task OnClickCore()

@@ -64,7 +64,11 @@ namespace VKMSmalta.ViewModel
 
         private void OnRegister()
         {
-            dialogFactory.ShowRegisterDialog();
+            var success = dialogFactory.ShowRegisterDialog();
+            if (success)
+            {
+                dialogFactory.ShowLoginDialog();
+            }
         }
 
         private void OnGoTraining()

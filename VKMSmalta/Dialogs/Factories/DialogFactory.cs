@@ -16,10 +16,11 @@ namespace VKMSmalta.Dialogs.Factories
             return result.HasValue && result.Value;
         }
 
-        public void ShowRegisterDialog()
+        public bool ShowRegisterDialog()
         {
             var registerDialog = new RegisterDialog();
-            registerDialog.ShowDialog();
+            var result = registerDialog.ShowDialog();
+            return result.HasValue && result.Value;
         }
 
         public void ShowInfoDialog(string infoText)
