@@ -84,10 +84,14 @@ namespace VKMSmalta.Dialogs.ViewModel
 
         protected override void OnClick()
         {
-            Task.Run(OnClickCore).Wait();
+            var success = Task.Run(OnClickCore).Result;
+            if (success)
+            {
+                CloseCommand.Execute(true);
+            }
         }
 
-        private async Task OnClickCore()
+        private async Task<bool> OnClickCore()
         {
             var password = Password.ConvertToUnsecureString();
             var confirmPassword = ConfirmPassword.ConvertToUnsecureString();
@@ -95,7 +99,7 @@ namespace VKMSmalta.Dialogs.ViewModel
             if (password != confirmPassword)
             {
                 DialogFactory.ShowWarningMessage("Пароли должны совпадать");
-                return;
+                return false;
             }
 
             var registerData = new RegisterDataDto
@@ -108,7 +112,7 @@ namespace VKMSmalta.Dialogs.ViewModel
 
             if (success)
             {
-                CloseCommand.Execute(true);
+                return true;
             }
             else
             {
