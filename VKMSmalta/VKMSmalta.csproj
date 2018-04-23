@@ -130,6 +130,7 @@
     </Compile>
     <Compile Include="Network\AdminUri.cs" />
     <Compile Include="Network\AuthorizeResponseDto.cs" />
+    <Compile Include="Network\RegisterDataDto.cs" />
     <Compile Include="Network\StudentDto.cs" />
     <Compile Include="Network\TeamWithStudentsWithoutLoginsDto.cs" />
     <Compile Include="Services\DependencyContainer.cs" />

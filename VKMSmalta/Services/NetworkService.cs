@@ -47,9 +47,9 @@ namespace VKMSmalta.Services
             return false;
         }
 
-        public async Task<bool> Register(NetworkCredential credential)
+        public async Task<bool> Register(RegisterDataDto registerData)
         {
-            var response = await SendPostRequestCore(adminUri.AdminRegisterUri, credential);
+            var response = await SendPostRequestCore(adminUri.AdminRegisterUri, registerData);
             if (response.IsSuccessStatusCode)
             {
                 return true;

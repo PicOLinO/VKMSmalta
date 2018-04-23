@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using VKMSmalta.Dialogs.Factories;
 using VKMSmalta.Domain;
+using VKMSmalta.Network;
 using VKMSmalta.Services;
 
 namespace VKMSmalta.Dialogs.ViewModel
@@ -92,7 +93,13 @@ namespace VKMSmalta.Dialogs.ViewModel
                     return;
                 }
 
-                var success = await NetworkService.Instance.Register(new NetworkCredential(Login, Password));
+                var registerData = new RegisterDataDto
+                                   {
+                                       Credential = new NetworkCredential(Login, Password),
+                                       StudentId = SelectedStudent.Id
+                };
+
+                var success = await NetworkService.Instance.Register(registerData);
 
                 if (success)
                 {
