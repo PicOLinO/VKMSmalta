@@ -33,7 +33,7 @@ namespace VKMSmalta.Services
             this.adminUri = adminUri;
         }
 
-        public async Task<bool> Authorize(NetworkCredential credential)
+        public async Task<Student> Authorize(NetworkCredential credential)
         {
             var response =  await SendPostRequestCore(adminUri.AdminAuthorizeUri, credential);
             if (response.IsSuccessStatusCode)
@@ -41,10 +41,10 @@ namespace VKMSmalta.Services
                 var responseContentJson = await response.Content.ReadAsStringAsync();
                 var responseContent = JsonConvert.DeserializeObject<AuthorizeResponseDto>(responseContentJson);
                 accessToken = responseContent.token;
-                return true;
+                return responseContent.Student;
             }
 
-            return false;
+            return null;
         }
 
         public async Task<bool> Register(RegisterDataDto registerData)

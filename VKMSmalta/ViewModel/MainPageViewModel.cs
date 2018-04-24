@@ -43,12 +43,13 @@ namespace VKMSmalta.ViewModel
         public bool IsAuthorized
         {
             get { return GetProperty(() => IsAuthorized); }
-            set { SetProperty(() => IsAuthorized, value, OnAuthorizedChanged); }
+            set { SetProperty(() => IsAuthorized, value); }
         }
 
-        private void OnAuthorizedChanged()
+        public string CurrentUserName
         {
-            App.IsAuthorized = IsAuthorized;
+            get { return GetProperty(() => CurrentUserName); }
+            set { SetProperty(() => CurrentUserName, value); }
         }
 
         private void OnShowInfo()
@@ -59,7 +60,12 @@ namespace VKMSmalta.ViewModel
 
         private void OnLogin()
         {
-            IsAuthorized = dialogFactory.ShowLoginDialog();
+            dialogFactory.ShowLoginDialog();
+            IsAuthorized = App.IsAuthorized;
+            if (App.CurrentUser != null)
+            {
+                CurrentUserName = App.CurrentUser.FullName;
+            }
         }
 
         private void OnRegister()

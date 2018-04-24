@@ -50,11 +50,12 @@ namespace VKMSmalta.Dialogs.ViewModel
         private async Task OnClickCore()
         {
             var credentials = new NetworkCredential(Login, Password);
-            var success = await NetworkService.Instance.Authorize(credentials);
+            var student = await NetworkService.Instance.Authorize(credentials);
 
-            if (success)
+            if (student != null)
             {
                 App.IsAuthorized = true;
+                App.CurrentUser = student;
             }
             else
             {

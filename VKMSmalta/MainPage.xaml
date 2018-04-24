@@ -37,6 +37,7 @@
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Style="{DynamicResource OuterSeparatingColumn}"/>
         </Grid.ColumnDefinitions>
+        <Label Grid.Row="2" Grid.Column="1" Content="{Binding Path=CurrentUserName}" Visibility="{Binding Path=IsAuthorized, Converter={converters:BoolToVisibilityConverter}}"/>
         <Button Grid.Row="2" Grid.Column="1" Content="Вход" Style="{DynamicResource MainButton}" Command="{Binding Path=LoginCommand}" Visibility="{Binding Path=IsAuthorized, Converter={converters:BoolToVisibilityConverter}, ConverterParameter=Inverse}"/>
         <Button Grid.Row="4" Grid.Column="1" Content="Регистрация" Style="{DynamicResource MainButton}" Command="{Binding Path=RegisterCommand}" Visibility="{Binding Path=IsAuthorized, Converter={converters:BoolToVisibilityConverter}, ConverterParameter=Inverse}"/>
         <Button Grid.Row="6" Grid.Column="1" Content="Информация" Style="{DynamicResource MainButton}" Command="{Binding Path=ShowInfoCommand}"/>
