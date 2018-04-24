@@ -8,6 +8,8 @@
         xmlns:viewModel="clr-namespace:VKMSmalta.ViewModel"
         mc:Ignorable="d"
         Title="Смальта v1.0"
+        Topmost="True"
+        ResizeMode="NoResize"
         WindowState="Maximized"
         WindowStyle="None"
         UseLayoutRounding="True"
