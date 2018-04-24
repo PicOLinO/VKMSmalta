@@ -24,6 +24,6 @@
         </Grid.ColumnDefinitions>
 
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=InfoText}" IsReadOnly="True" />
-        <Button Grid.Row="3" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Закрыть" Command="{Binding Path=CloseCommand}" IsCancel="True" />
+        <Button Grid.Row="3" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Закрыть" Command="{Binding Path=CloseCommand}" IsCancel="True" IsDefault="True" />
     </Grid>
 </local:DialogBase>

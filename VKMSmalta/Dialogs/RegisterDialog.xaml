@@ -44,6 +44,6 @@
         <TextBlock Grid.Row="9" Grid.Column="1" Text="Студент: " />
         <ComboBox Grid.Row="9" Grid.Column="3" ItemsSource="{Binding Path=Students}" SelectedItem="{Binding Path=SelectedStudent}" DisplayMemberPath="FullName" IsReadOnly="True"/>
         <Button Grid.Row="11" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Отмена" Command="{Binding Path=CloseCommand}" IsCancel="True" />
-        <Button Grid.Row="11" Grid.Column="3" Style="{DynamicResource MainButton}" Content="ОК" Command="{Binding Path=ClickCommand}" />
+        <Button Grid.Row="11" Grid.Column="3" Style="{DynamicResource MainButton}" Content="ОК" Command="{Binding Path=ClickCommand}" IsDefault="True"/>
     </Grid>
 </local:DialogBase>
