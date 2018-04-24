@@ -13,13 +13,16 @@ AppPublisher=Danila Chervonny
 DefaultDirName={pf}\Smalta Simulator
 DefaultGroupName=Smalta Simulator
 AllowNoIcons=yes
-OutputBaseFilename=SmaplaSimulatorInstaller
+OutputBaseFilename=Smalta Simulator Installer
 Compression=lzma
 SolidCompression=yes
 AppCopyright=Danila Chervonny
 PrivilegesRequired=none
 AppContact=webmaster.pico@gmail.com
-AppSupportPhone=+79852444487
+SetupIconFile=D:\Source\VKMSmalta\VKMSmalta\logo.ico
+VersionInfoVersion=1.1.0000.0
+VersionInfoCopyright=Danila Chervonny
+VersionInfoProductName=Smalta SImulator
 
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
