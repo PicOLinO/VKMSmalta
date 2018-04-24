@@ -349,5 +349,8 @@
   <ItemGroup>
     <Resource Include="View\Images\Backgrounds\background.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="InnoSetupScript.iss" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
