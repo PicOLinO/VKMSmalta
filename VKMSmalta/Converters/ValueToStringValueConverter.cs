@@ -13,15 +13,15 @@ namespace VKMSmalta.Converters
             switch (intValue)
             {
                 case 1:
-                    return "Неудовлетворительно";
+                    return "Неудовлетворительно (1)";
                 case 2:
-                    return "Неудовлетворительно";
+                    return "Неудовлетворительно (2)";
                 case 3:
-                    return "Удовлетворительно";
+                    return "Удовлетворительно (3)";
                 case 4:
-                    return "Хорошо";
+                    return "Хорошо (4)";
                 case 5:
-                    return "Отлично";
+                    return "Отлично (5)";
                 default:
                     return null;
             }

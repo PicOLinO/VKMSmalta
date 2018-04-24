@@ -25,7 +25,7 @@
         <DockPanel Grid.Row="1" Grid.Column="1">
             <TextBox Text="Ваш результат: " BorderThickness="0" IsReadOnly="True" />
             <TextBox Text="{Binding Path=Value, Converter={converters:ValueToStringValueConverter}}"
-                     BorderThickness="0" IsReadOnly="True" />
+                     BorderThickness="0" IsReadOnly="True" FontSize="12" FontWeight="Heavy" FontFamily="Arial"/>
         </DockPanel>
         <DockPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center">
             <Button Content="Выход" Style="{DynamicResource MainButton}" Command="{Binding Path=CloseCommand}" Margin="0 0 10 0" IsCancel="True" />
