@@ -50,5 +50,11 @@ namespace VKMSmalta.Dialogs.Factories
         {
             DXMessageBox.Show(text, caption ?? "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        public static bool AskYesNo(string text, string caption = null)
+        {
+            var result = DXMessageBox.Show(text, caption ?? "Вы уверены?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            return result == MessageBoxResult.Yes;
+        }
     }
 }

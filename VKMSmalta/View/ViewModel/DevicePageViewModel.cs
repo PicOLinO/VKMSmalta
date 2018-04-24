@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DevExpress.Mvvm;
 using VKMSmalta.Dialogs;
+using VKMSmalta.Dialogs.Factories;
 using VKMSmalta.Dialogs.ViewModel;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
@@ -164,6 +165,12 @@ namespace VKMSmalta.View.ViewModel
             {
                 ExitInMainMenu();
                 Dispose();
+                return;
+            }
+
+            var isContinue = DialogFactory.AskYesNo("Завершить выполнение экзамена?\nВаш результат сразу же будет отправлен преподавателю");
+            if (!isContinue)
+            {
                 return;
             }
 
