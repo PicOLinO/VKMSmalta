@@ -16,7 +16,7 @@ namespace VKMSmalta.ViewModel
         {
             Mouse.OverrideCursor = IsLoadingSplashVisible
                                        ? Cursors.Wait
-                                       : Cursors.Arrow;
+                                       : null;
         }
     }
 }
