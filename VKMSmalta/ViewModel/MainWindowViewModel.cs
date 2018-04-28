@@ -1,4 +1,6 @@
-﻿using DevExpress.Mvvm;
+﻿using System;
+using System.Windows.Input;
+using DevExpress.Mvvm;
 
 namespace VKMSmalta.ViewModel
 {
@@ -7,7 +9,14 @@ namespace VKMSmalta.ViewModel
         public bool IsLoadingSplashVisible
         {
             get { return GetProperty(() => IsLoadingSplashVisible); }
-            set { SetProperty(() => IsLoadingSplashVisible, value); }
+            set { SetProperty(() => IsLoadingSplashVisible, value, OnIsLoadingSplashVisibleChanged); }
+        }
+
+        private void OnIsLoadingSplashVisibleChanged()
+        {
+            Mouse.OverrideCursor = IsLoadingSplashVisible
+                                       ? Cursors.Wait
+                                       : Cursors.Arrow;
         }
     }
 }
