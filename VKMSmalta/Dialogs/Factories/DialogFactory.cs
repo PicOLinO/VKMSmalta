@@ -23,9 +23,9 @@ namespace VKMSmalta.Dialogs.Factories
             return result.HasValue && result.Value;
         }
 
-        public void ShowInfoDialog(string infoText)
+        public void ShowInfoDialog()
         {
-            var infoDialog = new InfoDialog(infoText);
+            var infoDialog = new InfoDialog();
             infoDialog.ShowDialog();
         }
 

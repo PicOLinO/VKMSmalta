@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System.Windows.Navigation;
 using VKMSmalta.Dialogs.ViewModel;
 
 #endregion
@@ -11,11 +12,16 @@ namespace VKMSmalta.Dialogs
     /// </summary>
     public partial class InfoDialog
     {
-        public InfoDialog(string infoText)
+        public InfoDialog()
         {
             InitializeComponent();
-            DataContext = new InfoDialogViewModel(infoText);
+            DataContext = new InfoDialogViewModel();
             CreateCommands();
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Uri.ToString());
         }
     }
 }
