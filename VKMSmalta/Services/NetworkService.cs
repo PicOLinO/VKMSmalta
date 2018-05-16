@@ -50,17 +50,13 @@ namespace VKMSmalta.Services
         public async Task<bool> Register(RegisterDataDto registerData)
         {
             var response = await SendPostRequestCore(adminUri.AdminRegisterUri, registerData);
-            if (response.IsSuccessStatusCode)
-            {
-                return true;
-            }
-            
-            return false;
+            return response.IsSuccessStatusCode;
         }
 
-        public async Task SendExamineResultToAdmin(ExamineResult examineResult)
+        public async Task<bool> SendExamineResultToAdmin(ExamineResult examineResult)
         {
-            await SendPostRequestCore(adminUri.AdminAddHistoryUri, examineResult, true);
+            var result = await SendPostRequestCore(adminUri.AdminAddHistoryUri, examineResult, true);
+            return result.IsSuccessStatusCode;
         }
 
         public async Task<IEnumerable<TeamWithStudentsWithoutLoginsDto>> GetTeamsAndStudentsWithoutLogin()

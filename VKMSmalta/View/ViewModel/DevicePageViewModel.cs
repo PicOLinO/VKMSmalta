@@ -182,7 +182,14 @@ namespace VKMSmalta.View.ViewModel
                                     AlgorithmName = CurrentAlgorithm.Name,
                                     Value = value
                                 };
-            await NetworkService.Instance.SendExamineResultToAdmin(examineResult);
+            try
+            {
+                await NetworkService.Instance.SendExamineResultToAdmin(examineResult);
+            }
+            catch (Exception e)
+            {
+                DialogFactory.ShowErrorMessage(e);
+            }
 
             var retry = CheckResults(value);
             

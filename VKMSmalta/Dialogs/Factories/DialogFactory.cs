@@ -37,7 +37,8 @@ namespace VKMSmalta.Dialogs.Factories
         public static void ShowErrorMessage(Exception error, string caption = null)
         {
             var msg = error.Message;
-            msg = "\r\n" + error.InnerException?.Message;
+            if (!string.IsNullOrEmpty(error.InnerException?.Message))
+                msg += "\r\n" + error.InnerException?.Message;
             DXMessageBox.Show(msg, caption ?? "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 

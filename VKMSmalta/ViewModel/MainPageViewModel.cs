@@ -29,6 +29,7 @@ namespace VKMSmalta.ViewModel
             DependencyContainer.Instance.ReSetMainPageViewModel(this);
             CreateCommands();
             dialogFactory = new DialogFactory();
+            IsAuthorized = App.IsAuthorized;
         }
 
         private void CreateCommands()

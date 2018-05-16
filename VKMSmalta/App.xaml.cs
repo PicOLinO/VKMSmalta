@@ -56,6 +56,8 @@ namespace VKMSmalta
                                 .Create()
                                     .WithSwitch("debug", () => app.IsDebug = true)
                                         .DescribedBy("Enable debug mode")
+                                    .WithSwitch("authorized", () => app.IsAuthorized = true)
+                                        .DescribedBy("Dont needed to authorize")
                                 .BuildConfiguration();
             var parser = new CommandLineParser(configuration);
             var parseResult = parser.Parse(args);
