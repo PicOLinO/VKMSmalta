@@ -36,28 +36,28 @@ namespace VKMSmalta.View.ViewModel
                            GiveMe.Element().On(PageKey).WithName("l001p_thumbler_4channel").WithValueFrom(currentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(411,341).Thumbler(historyService).Please(),
 
                            //Подсветка в середине
-                           GiveMe.Element().On(PageKey).WithName("l001p_reciever_1channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(309,540).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_reciever_2channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(353,540).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_reciever_3channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(396,540).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_reciever_4channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(441,541).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_antenna_leftside").WithValueFrom(currentAlgorithm.StartStateOfElements).At(483,540).LightBox().Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_reciever_1channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(309,540).LightBox("ПРИЕМНИК\nI КАНАЛ").Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_reciever_2channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(353,540).LightBox("ПРИЕМНИК\nII КАНАЛ").Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_reciever_3channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(396,540).LightBox("ПРИЕМНИК\nIII КАНАЛ").Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_reciever_4channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(441,541).LightBox("ПРИЕМНИК\nIV КАНАЛ").Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_antenna_leftside").WithValueFrom(currentAlgorithm.StartStateOfElements).At(483,540).LightBox("АНТЕННА\nЛЕВЫЙ БОРТ").Please(),
 
-                           GiveMe.Element().On(PageKey).WithName("l001p_transmitter_1channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(309,628).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_transmitter_2channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(353,628).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_transmitter_3channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(396,628).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_transmitter_4channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(441,627).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_antenna_rightside").WithValueFrom(currentAlgorithm.StartStateOfElements).At(484,627).LightBox().Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_transmitter_1channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(309,628).LightBox("ПЕРЕДАТЧИК\nI КАНАЛ").Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_transmitter_2channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(353,628).LightBox("ПЕРЕДАТЧИК\nI КАНАЛ").Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_transmitter_3channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(396,628).LightBox("ПЕРЕДАТЧИК\nI КАНАЛ").Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_transmitter_4channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(441,627).LightBox("ПЕРЕДАТЧИК\nI КАНАЛ").Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_antenna_rightside").WithValueFrom(currentAlgorithm.StartStateOfElements).At(484,627).LightBox("АНТЕННА\nПРАВЫЙ БОРТ").Please(),
 
-                           GiveMe.Element().On(PageKey).WithName("l001p_defect_1channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(311,715).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_defect_2channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(354,715).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_defect_3channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(396,714).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_defect_4channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(441,714).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_1cooler").WithValueFrom(currentAlgorithm.StartStateOfElements).At(484,714).LightBox().Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_defect_1channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(311,715).LightBox("НЕИСПРАВНОСТЬ\nI КАНАЛ").Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_defect_2channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(354,715).LightBox("НЕИСПРАВНОСТЬ\nII КАНАЛ").Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_defect_3channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(396,714).LightBox("НЕИСПРАВНОСТЬ\nIII КАНАЛ").Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_defect_4channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(441,714).LightBox("НЕИСПРАВНОСТЬ\nIV КАНАЛ").Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_1cooler").WithValueFrom(currentAlgorithm.StartStateOfElements).At(484,714).LightBox("ВЕНТИЛЯТОР I").Please(),
 
-                           GiveMe.Element().On(PageKey).WithName("l001p_glow_on").WithValueFrom(currentAlgorithm.StartStateOfElements).At(310,802).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_simulator").WithValueFrom(currentAlgorithm.StartStateOfElements).At(353,802).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_modulation").WithValueFrom(currentAlgorithm.StartStateOfElements).At(441,801).LightBox().Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_2cooler").WithValueFrom(currentAlgorithm.StartStateOfElements).At(484,801).LightBox().Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_glow_on").WithValueFrom(currentAlgorithm.StartStateOfElements).At(310,802).LightBox("НАКАЛ\nВКЛЮЧЕН").Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_simulator").WithValueFrom(currentAlgorithm.StartStateOfElements).At(353,802).LightBox("ИМИТАТОР").Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_modulation").WithValueFrom(currentAlgorithm.StartStateOfElements).At(441,801).LightBox("МОДУЛЯЦИЯ").Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_2cooler").WithValueFrom(currentAlgorithm.StartStateOfElements).At(484,801).LightBox("ВЕНТИЛЯТОР II").Please(),
 
                            //Тумблеры снизу
                            GiveMe.Element().On(PageKey).WithName("l001p_thumbler_simulator").WithValueFrom(currentAlgorithm.StartStateOfElements).At(582,385).Thumbler(historyService)

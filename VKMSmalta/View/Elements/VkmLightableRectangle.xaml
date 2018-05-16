@@ -10,8 +10,15 @@
                    d:DesignHeight="300" d:DesignWidth="200"
                    d:DataContext="{d:DesignInstance Type=viewModel:VkmLightableRectangleViewModel}">
     <Grid>
-        <Border x:Name="PART_LightBox" CornerRadius="3" Width="75" Height="25" Background="White" Opacity=".4"
-                Visibility="{Binding Path=LightableRectangleVisibility}">
+        <TextBlock Text="{Binding Path=Text}"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Panel.ZIndex="1000"
+                   FontWeight="Medium"
+                   FontSize="8" />
+        <Border x:Name="PART_LightBox" CornerRadius="3" Width="75" Height="25" Background="White" Opacity="{Binding Path=LightableRectangleOpacity}">
             <Border.Effect>
                 <DropShadowEffect Color="White" BlurRadius="15" RenderingBias="Performance" Opacity="100" ShadowDepth="0"
                                   Direction="0" />

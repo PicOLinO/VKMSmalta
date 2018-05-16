@@ -22,7 +22,7 @@ AppContact=webmaster.pico@gmail.com
 SetupIconFile=D:\Source\VKMSmalta\VKMSmalta\logo.ico
 VersionInfoVersion=1.1.0000.0
 VersionInfoCopyright=Danila Chervonny
-VersionInfoProductName=Smalta SImulator
+VersionInfoProductName=Smalta Simulator
 
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"

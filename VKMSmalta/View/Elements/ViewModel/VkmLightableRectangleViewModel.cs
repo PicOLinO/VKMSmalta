@@ -5,15 +5,22 @@ namespace VKMSmalta.View.Elements.ViewModel
 {
     public class VkmLightableRectangleViewModel : ElementViewModelBase
     {
-        public Visibility LightableRectangleVisibility
+        public double LightableRectangleOpacity
         {
-            get { return GetProperty(() => LightableRectangleVisibility); }
-            set { SetProperty(() => LightableRectangleVisibility, value); }
+            get { return GetProperty(() => LightableRectangleOpacity); }
+            set { SetProperty(() => LightableRectangleOpacity, value); }
         }
-        
-        public VkmLightableRectangleViewModel(int value, string name) : base(value, name)
+
+        public string Text
+        {
+            get { return GetProperty(() => Text); }
+            set { SetProperty(() => Text, value); }
+        }
+
+        public VkmLightableRectangleViewModel(int value, string name, string text) : base(value, name)
         {
             Value = value;
+            Text = text;
         }
 
         protected override void OnValueChanged()
@@ -23,10 +30,10 @@ namespace VKMSmalta.View.Elements.ViewModel
             switch (Value)
             {
                 case 0:
-                    LightableRectangleVisibility = Visibility.Collapsed;
+                    LightableRectangleOpacity = 0.4;
                     break;
                 case 1:
-                    LightableRectangleVisibility = Visibility.Visible;
+                    LightableRectangleOpacity = 1;
                     break;
                 default:
                     throw new IndexOutOfRangeException();
