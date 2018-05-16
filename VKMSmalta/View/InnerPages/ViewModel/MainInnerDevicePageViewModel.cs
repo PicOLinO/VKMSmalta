@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Media;
 using DevExpress.Mvvm;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
@@ -48,10 +49,10 @@ namespace VKMSmalta.View.ViewModel
                            GiveMe.Element().On(PageKey).WithName("l001p_transmitter_4channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(441,627).LightBox("ПЕРЕДАТЧИК\nI КАНАЛ").Please(),
                            GiveMe.Element().On(PageKey).WithName("l001p_antenna_rightside").WithValueFrom(currentAlgorithm.StartStateOfElements).At(484,627).LightBox("АНТЕННА\nПРАВЫЙ БОРТ").Please(),
 
-                           GiveMe.Element().On(PageKey).WithName("l001p_defect_1channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(311,715).LightBox("НЕИСПРАВНОСТЬ\nI КАНАЛ").Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_defect_2channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(354,715).LightBox("НЕИСПРАВНОСТЬ\nII КАНАЛ").Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_defect_3channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(396,714).LightBox("НЕИСПРАВНОСТЬ\nIII КАНАЛ").Please(),
-                           GiveMe.Element().On(PageKey).WithName("l001p_defect_4channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(441,714).LightBox("НЕИСПРАВНОСТЬ\nIV КАНАЛ").Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_defect_1channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(311,715).LightBox("НЕИСПРАВНОСТЬ\nI КАНАЛ").WithBackgroundColor(Colors.Orange).Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_defect_2channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(354,715).LightBox("НЕИСПРАВНОСТЬ\nII КАНАЛ").WithBackgroundColor(Colors.Orange).Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_defect_3channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(396,714).LightBox("НЕИСПРАВНОСТЬ\nIII КАНАЛ").WithBackgroundColor(Colors.Orange).Please(),
+                           GiveMe.Element().On(PageKey).WithName("l001p_defect_4channel").WithValueFrom(currentAlgorithm.StartStateOfElements).At(441,714).LightBox("НЕИСПРАВНОСТЬ\nIV КАНАЛ").WithBackgroundColor(Colors.Orange).Please(),
                            GiveMe.Element().On(PageKey).WithName("l001p_1cooler").WithValueFrom(currentAlgorithm.StartStateOfElements).At(484,714).LightBox("ВЕНТИЛЯТОР I").Please(),
 
                            GiveMe.Element().On(PageKey).WithName("l001p_glow_on").WithValueFrom(currentAlgorithm.StartStateOfElements).At(310,802).LightBox("НАКАЛ\nВКЛЮЧЕН").Please(),

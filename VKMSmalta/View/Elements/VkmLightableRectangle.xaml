@@ -18,11 +18,14 @@
                    Panel.ZIndex="1000"
                    FontWeight="Medium"
                    FontSize="8" />
-        <Border x:Name="PART_LightBox" CornerRadius="3" Width="75" Height="25" Background="White" Opacity="{Binding Path=LightableRectangleOpacity}">
+        <Border x:Name="PART_LightBox" CornerRadius="3" Width="75" Height="25" Opacity="{Binding Path=LightableRectangleOpacity}">
             <Border.Effect>
-                <DropShadowEffect Color="White" BlurRadius="15" RenderingBias="Performance" Opacity="100" ShadowDepth="0"
+                <DropShadowEffect Color="{Binding Path=BackgroundColor}" BlurRadius="15" RenderingBias="Performance" Opacity="100" ShadowDepth="0"
                                   Direction="0" />
             </Border.Effect>
+            <Border.Background>
+                <SolidColorBrush Color="{Binding Path=BackgroundColor}"/>
+            </Border.Background>
         </Border>
         <Popup IsOpen="{Binding Path=IsHintOpen}" StaysOpen="True"
                VerticalOffset="20" HorizontalOffset="10"

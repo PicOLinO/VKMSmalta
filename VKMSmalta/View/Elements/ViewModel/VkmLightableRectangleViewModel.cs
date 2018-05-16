@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Media;
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
@@ -17,10 +18,17 @@ namespace VKMSmalta.View.Elements.ViewModel
             set { SetProperty(() => Text, value); }
         }
 
-        public VkmLightableRectangleViewModel(int value, string name, string text) : base(value, name)
+        public Color BackgroundColor
+        {
+            get { return GetProperty(() => BackgroundColor); }
+            set { SetProperty(() => BackgroundColor, value); }
+        }
+
+        public VkmLightableRectangleViewModel(int value, string name, string text, Color backgroundColor) : base(value, name)
         {
             Value = value;
             Text = text;
+            BackgroundColor = backgroundColor;
         }
 
         protected override void OnValueChanged()
@@ -30,7 +38,7 @@ namespace VKMSmalta.View.Elements.ViewModel
             switch (Value)
             {
                 case 0:
-                    LightableRectangleOpacity = 0.4;
+                    LightableRectangleOpacity = 0.3;
                     break;
                 case 1:
                     LightableRectangleOpacity = 1;
