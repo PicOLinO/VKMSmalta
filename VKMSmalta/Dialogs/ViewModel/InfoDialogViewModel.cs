@@ -2,15 +2,8 @@
 {
     public class InfoDialogViewModel : DialogViewModelBase
     {
-        public InfoDialogViewModel(string infoText)
+        public InfoDialogViewModel()
         {
-            InfoText = infoText;
-        }
-
-        public string InfoText
-        {
-            get { return GetProperty(() => InfoText); }
-            set { SetProperty(() => InfoText, value); }
         }
     }
 }

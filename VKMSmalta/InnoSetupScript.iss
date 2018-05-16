@@ -23,6 +23,10 @@ SetupIconFile=D:\Source\VKMSmalta\VKMSmalta\logo.ico
 VersionInfoVersion=1.1.0000.0
 VersionInfoCopyright=Danila Chervonny
 VersionInfoProductName=Smalta Simulator
+AppPublisherURL=https://picolino.github.io/
+AppSupportURL=https://picolino.github.io/
+AppComments=Please enjoy
+VersionInfoProductVersion=1.1.0000.0
 
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"

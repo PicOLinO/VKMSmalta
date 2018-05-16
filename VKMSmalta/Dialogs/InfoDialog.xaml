@@ -8,13 +8,15 @@
                     xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
                     mc:Ignorable="d"
                     Title="Информация"
-                    d:DataContext="{d:DesignInstance Type=viewModel:InfoDialogViewModel}" d:DesignHeight="153" d:DesignWidth="451">
+                    d:DataContext="{d:DesignInstance Type=viewModel:InfoDialogViewModel}" d:DesignHeight="600" d:DesignWidth="451">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Style="{StaticResource DialogOuterSeparatingRow}"/>
-            <RowDefinition Height="500"/>
+            <RowDefinition MaxHeight="500"/>
             <RowDefinition Style="{StaticResource DialogInnerSeparatingRow}"/>
-            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Style="{StaticResource DialogInnerSeparatingRow}"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Style="{StaticResource DialogOuterSeparatingRow}"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -23,7 +25,17 @@
             <ColumnDefinition Style="{StaticResource DialogOuterSeparatingColumn}"/>
         </Grid.ColumnDefinitions>
 
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=InfoText}" IsReadOnly="True" />
+        <TextBox Grid.Row="1" Grid.Column="1" IsReadOnly="True" >
+            Данный раздел находится в процессе разработки.
+        </TextBox>
         <Button Grid.Row="3" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Закрыть" Command="{Binding Path=CloseCommand}" IsCancel="True" IsDefault="True" />
+        <TextBlock Grid.Row="5" 
+                   Grid.Column="1" 
+                   TextWrapping="Wrap" 
+                   FontStyle="Italic"
+                   Foreground="DarkGray">
+            По вопросам, предложениям и при возникновении ошибок просьба обращаться к разработчику по 
+            <Hyperlink NavigateUri="https://picolino.github.io/" RequestNavigate="Hyperlink_RequestNavigate">ссылке</Hyperlink>.
+            </TextBlock>
     </Grid>
 </local:DialogBase>

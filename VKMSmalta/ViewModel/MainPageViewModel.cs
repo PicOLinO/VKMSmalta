@@ -55,10 +55,7 @@ namespace VKMSmalta.ViewModel
 
         private void OnShowInfo()
         {
-            var infoText = @"
-Данная программа представляет собой симулятор станции 'Смальта'.
-";
-            dialogFactory.ShowInfoDialog(infoText);
+            dialogFactory.ShowInfoDialog();
         }
 
         private void OnLogin()
