@@ -30,6 +30,10 @@ namespace VKMSmalta.ViewModel
             CreateCommands();
             dialogFactory = new DialogFactory();
             IsAuthorized = App.IsAuthorized;
+            if (App.CurrentUser != null)
+            {
+                CurrentUserName = App.CurrentUser.FullName;
+            }
         }
 
         private void CreateCommands()
