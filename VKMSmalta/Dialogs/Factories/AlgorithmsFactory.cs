@@ -24,6 +24,7 @@ namespace VKMSmalta.Dialogs.Factories
             var startStateOfElements = new Dictionary<string, int>
                                        {
                                            {"l001p_thumbler_simulator", 1},
+                                           {"l001p_simulator", 1},
                                            {"l001r_modulation", 4}
                                        };
 
