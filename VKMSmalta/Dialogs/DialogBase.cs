@@ -1,17 +1,14 @@
 ﻿#region Usings
 
-using System;
 using System.Windows;
-using System.Windows.Input;
 using DevExpress.Mvvm;
-using DevExpress.Xpf.WindowsUI;
 using VKMSmalta.Dialogs.ViewModel;
 
 #endregion
 
 namespace VKMSmalta.Dialogs
 {
-    public class DialogBase : WinUIDialogWindow
+    public class DialogBase : Window
     {
         protected virtual void CreateCommands()
         {

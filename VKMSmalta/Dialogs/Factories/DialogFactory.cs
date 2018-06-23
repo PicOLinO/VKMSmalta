@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Windows;
-using DevExpress.Xpf.Core;
-using DevExpress.Xpf.Editors.Helpers;
-using DevExpress.XtraEditors;
-using VKMSmalta.Services;
+using DevExpress.Mvvm;
+using DevExpress.Mvvm.UI;
 
 namespace VKMSmalta.Dialogs.Factories
 {
     public class DialogFactory
     {
+        private static readonly IMessageBoxService Service = new MessageBoxService();
+
         public bool ShowLoginDialog()
         {
             var loginDialog = new LoginDialog();
@@ -31,7 +31,7 @@ namespace VKMSmalta.Dialogs.Factories
 
         public static void ShowWarningMessage(string text, string caption = null)
         {
-            DXMessageBox.Show(text, caption ?? "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
+            Service.Show(text, caption ?? "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
         public static void ShowErrorMessage(Exception error, string caption = null)
@@ -39,22 +39,22 @@ namespace VKMSmalta.Dialogs.Factories
             var msg = error.Message;
             if (!string.IsNullOrEmpty(error.InnerException?.Message))
                 msg += "\r\n" + error.InnerException?.Message;
-            DXMessageBox.Show(msg, caption ?? "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            Service.Show(msg, caption ?? "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         public static void ShowErrorMessage(string error, string caption = null)
         {
-            DXMessageBox.Show(error, caption ?? "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            Service.Show(error, caption ?? "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         public static void ShowInfoMessage(string text, string caption = null)
         {
-            DXMessageBox.Show(text, caption ?? "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            Service.Show(text, caption ?? "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         public static bool AskYesNo(string text, string caption = null)
         {
-            var result = DXMessageBox.Show(text, caption ?? "Вы уверены?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var result = Service.Show(text, caption ?? "Вы уверены?", MessageBoxButton.YesNo, MessageBoxImage.Question);
             return result == MessageBoxResult.Yes;
         }
     }

@@ -19,18 +19,18 @@
                 <dxmvvm:ViewInjectionService RegionName="Outer" />
             </dxmvvm:Interaction.Behaviors>
         </Frame>
-        <dx:WaitIndicator HorizontalAlignment="Center" 
+        <dxmvvm:WaitIndicator HorizontalAlignment="Center" 
                           VerticalAlignment="Center" 
                           DeferedVisibility="{Binding Path=IsLoadingSplashVisible}" 
                           Content="Идет Загрузка...">
-            <dx:WaitIndicator.ContentTemplate>
+            <dxmvvm:WaitIndicator.ContentTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
                         <TextBlock Text="Ждите" FontSize="20"/>
                         <TextBlock Text="{Binding}"/>
                     </StackPanel>
                 </DataTemplate>
-            </dx:WaitIndicator.ContentTemplate>
-        </dx:WaitIndicator>
+            </dxmvvm:WaitIndicator.ContentTemplate>
+        </dxmvvm:WaitIndicator>
     </Grid>
 </Window>

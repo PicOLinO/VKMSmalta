@@ -18,11 +18,6 @@ namespace VKMSmalta
     /// </summary>
     public partial class App : Application
     {
-        public App()
-        {
-            ApplicationThemeHelper.ApplicationThemeName = "Office2016White";
-        }
-
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
             var config = CreateConfig();
