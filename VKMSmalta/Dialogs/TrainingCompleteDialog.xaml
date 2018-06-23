@@ -7,8 +7,9 @@
                   xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
                   xmlns:viewModel="clr-namespace:VKMSmalta.Dialogs.ViewModel"
                   mc:Ignorable="d"
-                  WindowStartupLocation="CenterScreen"
-                  Title="Обучение завершено" d:DesignHeight="127" d:DesignWidth="240"
+                  Title="Обучение завершено" 
+                  Style="{DynamicResource DialogStyle}"
+                  d:DesignHeight="127" d:DesignWidth="240"
                   d:DataContext="{d:DesignInstance Type=viewModel:DialogViewModelBase}">
     <Grid>
         <Grid.RowDefinitions>
