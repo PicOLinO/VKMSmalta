@@ -78,15 +78,10 @@ namespace VKMSmalta.Services
             {
                 if (authorize)
                 {
-                    if (string.IsNullOrEmpty(accessToken))
-                    {
-                        throw new Exception("Вы не авторизованы в системе");
-                    }
-
-                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                    AuthValidate(httpClient);
                 }
 
-                httpClient.Timeout = TimeSpan.FromSeconds(10);
+                InsertDefaultHttpClientSettings(httpClient);
 
                 var response = await httpClient.GetAsync(uri);
                 return response;
@@ -99,15 +94,10 @@ namespace VKMSmalta.Services
             {
                 if (authorize)
                 {
-                    if (string.IsNullOrEmpty(accessToken))
-                    {
-                        throw new Exception("Вы не авторизованы в системе");
-                    }
-
-                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                    AuthValidate(httpClient);
                 }
 
-                httpClient.Timeout = TimeSpan.FromSeconds(10);
+                InsertDefaultHttpClientSettings(httpClient);
 
                 var json = JsonConvert.SerializeObject(content);
                 var body = new StringContent(json, Encoding.UTF8, "application/json");
@@ -116,6 +106,21 @@ namespace VKMSmalta.Services
                 return response;
                 
             }
+        }
+
+        private void AuthValidate(HttpClient client)
+        {
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                throw new Exception("Вы не авторизованы в системе");
+            }
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+        }
+
+        private void InsertDefaultHttpClientSettings(HttpClient client)
+        {
+            client.Timeout = TimeSpan.FromSeconds(10);
         }
     }
 }
