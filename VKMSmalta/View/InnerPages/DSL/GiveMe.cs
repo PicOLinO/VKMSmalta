@@ -1,7 +1,7 @@
-﻿using VKMSmalta.View.DSL.Other;
-using VKMSmalta.View.InnerPages.DSL.Elements;
+﻿using VKMSmalta.View.InnerPages.DSL.Elements;
+using VKMSmalta.View.InnerPages.DSL.Other;
 
-namespace VKMSmalta.View.DSL
+namespace VKMSmalta.View.InnerPages.DSL
 {
     public class GiveMe
     {

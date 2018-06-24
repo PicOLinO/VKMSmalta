@@ -1,16 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Media;
-using DevExpress.Mvvm;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
 using VKMSmalta.Services.Navigate;
-using VKMSmalta.View.DSL;
-using VKMSmalta.View.DSL.Other;
 using VKMSmalta.View.Elements.ViewModel;
-using VKMSmalta.View.InnerPages.ViewModel;
 
-namespace VKMSmalta.View.ViewModel
+namespace VKMSmalta.View.InnerPages.ViewModel
 {
     public class MainInnerDevicePageViewModel : InnerPageViewModelBase
     {

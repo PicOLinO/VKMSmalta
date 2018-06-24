@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using VKMSmalta.Domain;
 
-namespace VKMSmalta.View.DSL.Other
+namespace VKMSmalta.View.InnerPages.DSL.Other
 {
     public class DependencyActionBuilder
     {

@@ -1,11 +1,10 @@
 ﻿#region Usings
 
 using System.Windows.Controls;
-using System.Windows.Input;
 
 #endregion
 
-namespace VKMSmalta.View
+namespace VKMSmalta.View.InnerPages
 {
     /// <summary>
     /// Interaction logic for DevicePage.xaml

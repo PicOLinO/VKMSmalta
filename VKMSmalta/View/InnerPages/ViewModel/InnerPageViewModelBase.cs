@@ -6,8 +6,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using DevExpress.Mvvm;
 using VKMSmalta.Services.Navigate;
-using VKMSmalta.View.DSL;
 using VKMSmalta.View.Elements.ViewModel;
+using VKMSmalta.View.InnerPages.DSL;
 
 namespace VKMSmalta.View.InnerPages.ViewModel
 {

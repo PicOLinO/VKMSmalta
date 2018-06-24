@@ -117,7 +117,7 @@ namespace VKMSmalta.View.ViewModel
 
             foreach (var page in Pages)
             {
-                ViewInjectionManager.Default.Inject(Regions.InnerRegion, page.PageKey, () => page, typeof(MainInnerDevicePage));
+                ViewInjectionManager.Default.Inject(Regions.InnerRegion, page.PageKey, () => page, typeof(InnerPages.MainInnerDevicePage));
             }
 
             NavigateOnPage(InnerRegionPage.L001P);
