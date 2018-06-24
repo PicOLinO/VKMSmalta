@@ -5,7 +5,6 @@
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:local="clr-namespace:VKMSmalta.Dialogs"
                   xmlns:viewModel="clr-namespace:VKMSmalta.Dialogs.ViewModel"
-                  xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
                   mc:Ignorable="d"
                   Title="Регистрация"
                   Style="{DynamicResource DialogStyle}"
@@ -38,9 +37,9 @@
         <TextBlock Grid.Row="1" Grid.Column="1" Text="Логин: " />
         <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding Path=Login}" />
         <TextBlock Grid.Row="3" Grid.Column="1" Text="Пароль: " />
-        <PasswordBox Grid.Row="3" Grid.Column="3" x:Name="passwordBox" />
+        <PasswordBox Grid.Row="3" Grid.Column="3" x:Name="PasswordBox" />
         <TextBlock Grid.Row="5" Grid.Column="1" Text="Подтверждение: " />
-        <PasswordBox Grid.Row="5" Grid.Column="3" x:Name="confirmPasswordBox" />
+        <PasswordBox Grid.Row="5" Grid.Column="3" x:Name="ConfirmPasswordBox" />
         <TextBlock Grid.Row="7" Grid.Column="1" Text="Взвод: " />
         <ComboBox Grid.Row="7" Grid.Column="3" ItemsSource="{Binding Path=Teams}"
                   SelectedItem="{Binding Path=SelectedTeam}" DisplayMemberPath="Number" IsReadOnly="True" />

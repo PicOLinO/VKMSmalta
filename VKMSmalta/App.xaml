@@ -7,8 +7,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Dialogs/DialogResources.xaml"/>
-                <ResourceDictionary Source="MainResources.xaml"/>
+                <ResourceDictionary Source="Dialogs/DialogResources.xaml" />
+                <ResourceDictionary Source="MainResources.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

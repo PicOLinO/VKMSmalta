@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
+﻿#region Usings
 
+using System.Security;
 using VKMSmalta.Dialogs.ViewModel;
+
+#endregion
 
 namespace VKMSmalta.Dialogs
 {
@@ -19,17 +16,21 @@ namespace VKMSmalta.Dialogs
         {
             InitializeComponent();
             DataContext = new LoginDialogViewModel(this);
-            CreateCommands();
+            Initialize();
         }
 
-        public SecureString GetPassword()
-        {
-            return passwordBox.SecurePassword;
-        }
+        #region IPasswordSupplier
 
         public SecureString GetConfirmPassword()
         {
             return null;
         }
+
+        public SecureString GetPassword()
+        {
+            return PasswordBox.SecurePassword;
+        }
+
+        #endregion
     }
 }

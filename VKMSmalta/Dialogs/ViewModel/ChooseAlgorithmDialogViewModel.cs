@@ -11,14 +11,6 @@ namespace VKMSmalta.Dialogs.ViewModel
 {
     public class ChooseAlgorithmDialogViewModel : DialogViewModelBase
     {
-        public ObservableCollection<Algorithm> Algorithms { get; set; }
-
-        public Algorithm SelectedAlgorithm
-        {
-            get { return GetProperty(() => SelectedAlgorithm); }
-            set { SetProperty(() => SelectedAlgorithm, value); }
-        }
-
         public ChooseAlgorithmDialogViewModel(HintService hintService)
         {
             var algorithmsFactory = new AlgorithmsFactory(hintService);
@@ -27,8 +19,16 @@ namespace VKMSmalta.Dialogs.ViewModel
                          {
                              algorithmsFactory.GetPrepareToLaunchAlgorithm(),
                              algorithmsFactory.GetLaunchAlgorithm(),
-                             algorithmsFactory.GetStopAlgorithm(),
+                             algorithmsFactory.GetStopAlgorithm()
                          };
+        }
+
+        public ObservableCollection<Algorithm> Algorithms { get; set; }
+
+        public Algorithm SelectedAlgorithm
+        {
+            get { return GetProperty(() => SelectedAlgorithm); }
+            set { SetProperty(() => SelectedAlgorithm, value); }
         }
     }
 }

@@ -1,11 +1,27 @@
-﻿using System;
-using System.Windows;
+﻿#region Usings
+
+using System;
 using System.Windows.Media;
+
+#endregion
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
     public class VkmLightableRectangleViewModel : ElementViewModelBase
     {
+        public VkmLightableRectangleViewModel(int value, string name, string text, Color backgroundColor) : base(value, name)
+        {
+            Value = value;
+            Text = text;
+            BackgroundColor = backgroundColor;
+        }
+
+        public Color BackgroundColor
+        {
+            get { return GetProperty(() => BackgroundColor); }
+            set { SetProperty(() => BackgroundColor, value); }
+        }
+
         public double LightableRectangleOpacity
         {
             get { return GetProperty(() => LightableRectangleOpacity); }
@@ -16,19 +32,6 @@ namespace VKMSmalta.View.Elements.ViewModel
         {
             get { return GetProperty(() => Text); }
             set { SetProperty(() => Text, value); }
-        }
-
-        public Color BackgroundColor
-        {
-            get { return GetProperty(() => BackgroundColor); }
-            set { SetProperty(() => BackgroundColor, value); }
-        }
-
-        public VkmLightableRectangleViewModel(int value, string name, string text, Color backgroundColor) : base(value, name)
-        {
-            Value = value;
-            Text = text;
-            BackgroundColor = backgroundColor;
         }
 
         protected override void OnValueChanged()

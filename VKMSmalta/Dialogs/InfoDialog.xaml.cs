@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System.Diagnostics;
 using System.Windows.Navigation;
 using VKMSmalta.Dialogs.ViewModel;
 
@@ -16,12 +17,12 @@ namespace VKMSmalta.Dialogs
         {
             InitializeComponent();
             DataContext = new InfoDialogViewModel();
-            CreateCommands();
+            Initialize();
         }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
-            System.Diagnostics.Process.Start(e.Uri.ToString());
+            Process.Start(e.Uri.ToString());
         }
     }
 }

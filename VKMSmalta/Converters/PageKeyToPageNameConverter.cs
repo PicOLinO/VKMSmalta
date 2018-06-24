@@ -1,6 +1,10 @@
-﻿using System;
+﻿#region Usings
+
+using System;
 using System.Globalization;
 using VKMSmalta.Services.Navigate;
+
+#endregion
 
 namespace VKMSmalta.Converters
 {

@@ -1,8 +1,13 @@
-﻿using System.Collections.Generic;
+﻿#region Usings
+
+using System.Collections.Generic;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
 using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
+using XAMLEx;
+
+#endregion
 
 namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
@@ -15,18 +20,19 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
 
         public VkmBigButtonBuilder(int value, string name, int posTop, int posLeft, HistoryService historyService, InnerRegionPage page)
         {
-            this.posTop = posTop;
-            this.posLeft = posLeft;
-            this.value = value;
-            this.name = name;
+            PosTop = posTop;
+            PosLeft = posLeft;
+            Value = value;
+            Name = name;
             this.historyService = historyService;
-            this.page = page;
+            Page = page;
         }
 
-        public VkmBigButtonBuilder WithDependencySecureElement(string dependencySecureElementName)
+        public VkmBigButtonViewModel Please()
         {
-            this.dependencySecureElementName = dependencySecureElementName;
-            return this;
+            var imageOn = ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/BigButtonOn.png");
+            var imageOff = ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/BigButtonOff.png");
+            return new VkmBigButtonViewModel(Value, Name, historyService, imageOn, imageOff, dependencyActions, dependencySecureElementName) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
         }
 
         public VkmBigButtonBuilder WithDependencyAction(DependencyAction dependencyAction)
@@ -35,15 +41,15 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
             {
                 dependencyActions = new List<DependencyAction>();
             }
+
             dependencyActions.Add(dependencyAction);
             return this;
         }
 
-        public VkmBigButtonViewModel Please()
+        public VkmBigButtonBuilder WithDependencySecureElement(string dependencySecureElementName)
         {
-            var imageOn = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/BigButtonOn.png");
-            var imageOff = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/BigButtonOff.png");
-            return new VkmBigButtonViewModel(value, name, historyService, imageOn, imageOff, dependencyActions, dependencySecureElementName) {PosTop = posTop, PosLeft = posLeft, Page = page };
+            this.dependencySecureElementName = dependencySecureElementName;
+            return this;
         }
     }
 }

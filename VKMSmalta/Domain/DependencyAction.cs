@@ -1,22 +1,20 @@
-﻿using System;
+﻿#region Usings
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using VKMSmalta.Services;
 using VKMSmalta.View.Elements.ViewModel;
 
+#endregion
+
 namespace VKMSmalta.Domain
 {
     public class DependencyAction
     {
-        private readonly DependencyType type;
         private readonly string dependencyElementName;
-        private ElementViewModelBase DependencyElement { get; set; }
-        private int DelayedTimeInSeconds { get; }
-        /// <summary>
-        /// Ключ: значение передающееся. Значение: значение выставляющееся у DependencyElement
-        /// </summary>
-        private Dictionary<int, int> DependencyValues { get; }
+        private readonly DependencyType type;
 
         public DependencyAction(DependencyType type, string dependencyElementName, Dictionary<int, int> dependencyValues, int delayedTimeInSeconds = 0)
         {
@@ -24,6 +22,19 @@ namespace VKMSmalta.Domain
             this.dependencyElementName = dependencyElementName;
             DependencyValues = dependencyValues;
             DelayedTimeInSeconds = delayedTimeInSeconds;
+        }
+
+        private int DelayedTimeInSeconds { get; }
+        private ElementViewModelBase DependencyElement { get; set; }
+
+        /// <summary>
+        /// Ключ: значение передающееся. Значение: значение выставляющееся у DependencyElement
+        /// </summary>
+        private Dictionary<int, int> DependencyValues { get; }
+
+        private ElementViewModelBase FindElementByName(string elementName)
+        {
+            return DependencyContainer.Instance.GetAllElementsOfCurrentDevicePage().Single(e => e.Name == elementName);
         }
 
         public async Task UpdateDependencyElementValue(int value, System.Action dependencyActionsCounterCallback = null)
@@ -51,11 +62,6 @@ namespace VKMSmalta.Domain
             }
 
             dependencyActionsCounterCallback?.Invoke();
-        }
-
-        private ElementViewModelBase FindElementByName(string elementName)
-        {
-            return DependencyContainer.Instance.GetAllElementsOfCurrentDevicePage().Single(e => e.Name == elementName);
         }
     }
 }

@@ -1,84 +1,89 @@
-﻿using System.Collections;
+﻿#region Usings
+
 using System.Collections.Generic;
 using VKMSmalta.Services;
 using VKMSmalta.Services.Navigate;
+
+#endregion
 
 namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
     public class BaseElementBuilder
     {
-        protected int posTop;
-        protected int posLeft;
-        protected int value;
-        protected string name;
-        protected int rotationDegrees;
-        protected InnerRegionPage page;
+        protected string Name;
+        protected InnerRegionPage Page;
+        protected int PosLeft;
+        protected int PosTop;
+        protected int RotationDegrees;
+        protected int Value;
 
-        public BaseElementBuilder WithValue(int value)
+        public BaseElementBuilder At(int posTop, int posLeft)
         {
-            this.value = value;
+            PosTop = posTop;
+            PosLeft = posLeft;
             return this;
         }
 
-        public BaseElementBuilder WithValueFrom(IDictionary<string, int> startupValuesDictionary, int defaultValue = 0)
+        public VkmBigButtonBuilder BigButton(HistoryService historyService)
         {
-            this.value = startupValuesDictionary.TryGetValue(name, out var value) ? value : defaultValue;
+            return new VkmBigButtonBuilder(Value, Name, PosTop, PosLeft, historyService, Page);
+        }
+
+        public VkmLampBuilder Lamp()
+        {
+            return new VkmLampBuilder(Value, Name, PosTop, PosLeft, Page);
+        }
+
+        public VkmLightableRectangleBuilder LightBox(string innerText)
+        {
+            return new VkmLightableRectangleBuilder(Value, Name, innerText, PosTop, PosLeft, RotationDegrees, Page);
+        }
+
+        public VkmBlackTriangleArrowBuilder LittleArrow()
+        {
+            return new VkmBlackTriangleArrowBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, Page);
+        }
+
+        public BaseElementBuilder On(InnerRegionPage page)
+        {
+            Page = page;
             return this;
+        }
+
+        public VkmRotateWheelBuilder RotateWheel(HistoryService historyService)
+        {
+            return new VkmRotateWheelBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, historyService, Page);
+        }
+
+        public VkmThumblerBuilder Thumbler(HistoryService historyService)
+        {
+            return new VkmThumblerBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, historyService, Page);
         }
 
         public BaseElementBuilder WithName(string name)
         {
-            this.name = name;
+            Name = name;
             return this;
         }
 
         public BaseElementBuilder WithStartupRotation(int rotationDegrees)
         {
-            this.rotationDegrees = rotationDegrees;
+            RotationDegrees = rotationDegrees;
             return this;
         }
 
-        public BaseElementBuilder At(int posTop, int posLeft)
+        public BaseElementBuilder WithValue(int value)
         {
-            this.posTop = posTop;
-            this.posLeft = posLeft;
+            Value = value;
             return this;
         }
 
-        public BaseElementBuilder On(InnerRegionPage page)
+        public BaseElementBuilder WithValueFrom(IDictionary<string, int> startupValuesDictionary, int defaultValue = 0)
         {
-            this.page = page;
+            Value = startupValuesDictionary.TryGetValue(Name, out var value)
+                        ? value
+                        : defaultValue;
             return this;
-        }
-
-        public VkmThumblerBuilder Thumbler(HistoryService historyService)
-        {
-            return new VkmThumblerBuilder(value, name, posTop, posLeft, rotationDegrees, historyService, page);
-        }
-
-        public VkmRotateWheelBuilder RotateWheel(HistoryService historyService)
-        {
-            return new VkmRotateWheelBuilder(value, name, posTop, posLeft, rotationDegrees, historyService, page);
-        }
-
-        public VkmBlackTriangleArrowBuilder LittleArrow()
-        {
-            return new VkmBlackTriangleArrowBuilder(value, name, posTop, posLeft, rotationDegrees, page);
-        }
-
-        public VkmLightableRectangleBuilder LightBox(string innerText)
-        {
-            return new VkmLightableRectangleBuilder(value, name, innerText, posTop, posLeft, rotationDegrees, page);
-        }
-
-        public VkmBigButtonBuilder BigButton(HistoryService historyService)
-        {
-            return new VkmBigButtonBuilder(value, name, posTop, posLeft, historyService, page);
-        }
-
-        public VkmLampBuilder Lamp()
-        {
-            return new VkmLampBuilder(value, name, posTop, posLeft, page);
         }
     }
 }

@@ -1,10 +1,14 @@
-﻿using System.Security;
+﻿#region Usings
+
+using System.Security;
+
+#endregion
 
 namespace VKMSmalta.Dialogs.ViewModel
 {
     public interface IPasswordSupplier
     {
-        SecureString GetPassword();
         SecureString GetConfirmPassword();
+        SecureString GetPassword();
     }
 }

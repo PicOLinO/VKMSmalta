@@ -1,4 +1,8 @@
-﻿using System.Net;
+﻿#region Usings
+
+using System.Net;
+
+#endregion
 
 namespace VKMSmalta.Network
 {

@@ -1,49 +1,59 @@
 ﻿<Page x:Class="VKMSmalta.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:viewModel="clr-namespace:VKMSmalta.ViewModel"
       xmlns:converters="clr-namespace:VKMSmalta.Converters"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       x:Name="PART_MainPage"
       d:DesignHeight="315.392" d:DesignWidth="627.692"
       Title="Смальта v1.0"
       d:DataContext="{d:DesignInstance Type=viewModel:MainPageViewModel}">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="View/Images/Backgrounds/background.png"/>
+            <ImageBrush ImageSource="View/Images/Backgrounds/background.png" />
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Style="{DynamicResource OuterSeparatingRow}"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Style="{DynamicResource InnerSeparatingRow}"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Style="{DynamicResource InnerSeparatingRow}"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Style="{DynamicResource InnerSeparatingRow}"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Style="{DynamicResource InnerSeparatingRow}"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Style="{DynamicResource OuterSeparatingRow}"/>
+            <RowDefinition />
+            <RowDefinition Style="{DynamicResource OuterSeparatingRow}" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Style="{DynamicResource InnerSeparatingRow}" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Style="{DynamicResource InnerSeparatingRow}" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Style="{DynamicResource InnerSeparatingRow}" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Style="{DynamicResource InnerSeparatingRow}" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Style="{DynamicResource OuterSeparatingRow}" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Style="{DynamicResource OuterSeparatingColumn}"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Style="{DynamicResource InnerSeparatingColumn}"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Style="{DynamicResource InnerSeparatingColumn}"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Style="{DynamicResource OuterSeparatingColumn}"/>
+            <ColumnDefinition Style="{DynamicResource OuterSeparatingColumn}" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Style="{DynamicResource InnerSeparatingColumn}" />
+            <ColumnDefinition />
+            <ColumnDefinition Style="{DynamicResource InnerSeparatingColumn}" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Style="{DynamicResource OuterSeparatingColumn}" />
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Content="{Binding Path=CurrentUserName}" Visibility="{Binding Path=IsAuthorized, Converter={converters:BoolToVisibilityConverter}}"/>
-        <Button Grid.Row="2" Grid.Column="1" Content="Вход" Style="{DynamicResource MainButton}" Command="{Binding Path=LoginCommand}" Visibility="{Binding Path=IsAuthorized, Converter={converters:BoolToVisibilityConverter}, ConverterParameter=Inverse}"/>
-        <Button Grid.Row="4" Grid.Column="1" Content="Регистрация" Style="{DynamicResource MainButton}" Command="{Binding Path=RegisterCommand}" Visibility="{Binding Path=IsAuthorized, Converter={converters:BoolToVisibilityConverter}, ConverterParameter=Inverse}"/>
-        <Button Grid.Row="6" Grid.Column="1" Content="Информация" Style="{DynamicResource MainButton}" Command="{Binding Path=ShowInfoCommand}"/>
-        <Button Grid.Row="8" Grid.Column="1" Content="Обучение" Style="{DynamicResource MainButton}"  Command="{Binding Path=GoTrainingCommand}" />
-        <Button Grid.Row="10" Grid.Column="1" Content="Экзамен" Style="{DynamicResource MainButton}" Command="{Binding Path=GoExamineCommand}" Visibility="{Binding Path=IsAuthorized, Converter={converters:BoolToVisibilityConverter}}"/>
+        <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Content="{Binding Path=CurrentUserName}"
+               Visibility="{Binding Path=IsAuthorized, Converter={converters:BoolToVisibilityConverter}}" />
+        <Button Grid.Row="2" Grid.Column="1" Content="Вход" Style="{DynamicResource MainButton}"
+                Command="{Binding Path=LoginCommand}"
+                Visibility="{Binding Path=IsAuthorized, Converter={converters:BoolToVisibilityConverter}, ConverterParameter=Inverse}" />
+        <Button Grid.Row="4" Grid.Column="1" Content="Регистрация" Style="{DynamicResource MainButton}"
+                Command="{Binding Path=RegisterCommand}"
+                Visibility="{Binding Path=IsAuthorized, Converter={converters:BoolToVisibilityConverter}, ConverterParameter=Inverse}" />
+        <Button Grid.Row="6" Grid.Column="1" Content="Информация" Style="{DynamicResource MainButton}"
+                Command="{Binding Path=ShowInfoCommand}" />
+        <Button Grid.Row="8" Grid.Column="1" Content="Обучение" Style="{DynamicResource MainButton}"
+                Command="{Binding Path=GoTrainingCommand}" />
+        <Button Grid.Row="10" Grid.Column="1" Content="Экзамен" Style="{DynamicResource MainButton}"
+                Command="{Binding Path=GoExamineCommand}"
+                Visibility="{Binding Path=IsAuthorized, Converter={converters:BoolToVisibilityConverter}}" />
         <!--<Button Grid.Row="10" Grid.Column="1" Content="Статистика" Style="{DynamicResource MainButton}" Command ="{Binding Path=}}" />-->
-        <Button Grid.Row="10" Grid.Column="5" Content="Выйти" Style="{DynamicResource MainButton}" Click="ExitButton_OnClick" />
+        <Button Grid.Row="10" Grid.Column="5" Content="Выйти" Style="{DynamicResource MainButton}"
+                Click="ExitButton_OnClick" />
     </Grid>
 </Page>

@@ -10,13 +10,70 @@ namespace VKMSmalta.Dialogs.Factories
 {
     public class AlgorithmsFactory
     {
-        private readonly HintService hintService;
         private readonly ActionsFactory actionsFactory;
+        private readonly HintService hintService;
 
         public AlgorithmsFactory(HintService hintService)
         {
             this.hintService = hintService;
             actionsFactory = new ActionsFactory(hintService);
+        }
+
+        public Algorithm GetLaunchAlgorithm()
+        {
+            var startStateOfElements = new Dictionary<string, int>
+                                       {
+                                           {"l001p_1cooler", 1},
+                                           {"l001p_2cooler", 1},
+                                           {"l001r_lamp_network_27v", 1},
+                                           {"l001r_lamp_equal", 1},
+                                           {"l001r_lamp_+10v", 1},
+                                           {"l001p_thumbler_light", 1},
+                                           {"l001p_thumbler_1channel", 1},
+                                           {"l001p_thumbler_2channel", 1},
+                                           {"l001p_thumbler_3channel", 1},
+                                           {"l001p_thumbler_4channel", 1},
+                                           {"l001p_thumbler_simulator", 0},
+                                           {"l001r_reciever_1channel", 1},
+                                           {"l001r_reciever_2channel", 1},
+                                           {"l001r_reciever_3channel", 1},
+                                           {"l001r_reciever_4channel", 1},
+                                           {"l001r_transmitter_1channel", 1},
+                                           {"l001r_transmitter_2channel", 1},
+                                           {"l001r_transmitter_3channel", 1},
+                                           {"l001r_transmitter_4channel", 1},
+                                           {"l001r_antenna_equal", 1},
+                                           {"l001r_modulation", 0},
+                                           {"l001k_modulation_13channel", 1},
+                                           {"l001k_modulation_24channel", 1}
+                                       };
+
+            var endStateOfElements = new Dictionary<string, int>();
+
+            var newAlgorithm = new Algorithm(startStateOfElements, endStateOfElements)
+                               {
+                                   Name = "Включение изделия Л001",
+                                   Actions = new LinkedList<Action>(new[]
+                                                                    {
+                                                                        actionsFactory.GetClickAction("l001p_button_reciever_glow_on", "Включите ПРОГРЕВ", 1),
+                                                                        actionsFactory.GetIdleAction("l001r_lamp_heating", "Дождитесь окончания прогрева", 0),
+
+                                                                        actionsFactory.GetIdleAction("l001p_reciever_1channel", "Дождитесь включения высокого напряжения. Должны загореться лампы транспарантов", 1),
+                                                                        actionsFactory.GetInfoAction("l001p_reciever_1channel_arrow", "Заметьте, что стрелки индикаторов \"ПРИЕМ\" показывают значения менее 20 мкА"),
+
+                                                                        actionsFactory.GetClickAction("l001p_button_transmitter_on", "Теперь включите передатчик", 1),
+
+                                                                        actionsFactory.GetInfoAction("l001p_transmitter_1channel_arrow", "Заметьте, что стрелки индикаторов \"ПЕРЕДАЧА\" показывают значения более 10 мкА"),
+
+                                                                        actionsFactory.GetClickAction("l001p_thumbler_simulator", "Включите имитатор", 1),
+                                                                        actionsFactory.GetClickAction("l001i_thumbler_2generator", "Включите генератор 2", 1),
+
+                                                                        actionsFactory.GetInfoAction("l001p_reciever_1channel_arrow", "Заметьте, что стрелки индикаторов \"ПРИЕМ\" показывают завышенные значения"),
+                                                                        actionsFactory.GetInfoAction("l001p_transmitter_1channel_arrow", "А стрелки индикаторов \"ПЕРЕДАЧА\" отклонились от первоначального значения")
+                                                                    })
+                               };
+
+            return newAlgorithm;
         }
 
         public Algorithm GetPrepareToLaunchAlgorithm()
@@ -85,63 +142,6 @@ namespace VKMSmalta.Dialogs.Factories
             return newAlgorithm;
         }
 
-        public Algorithm GetLaunchAlgorithm()
-        {
-            var startStateOfElements = new Dictionary<string, int>
-                                       {
-                                           {"l001p_1cooler", 1},
-                                           {"l001p_2cooler", 1},
-                                           {"l001r_lamp_network_27v", 1},
-                                           {"l001r_lamp_equal", 1},
-                                           {"l001r_lamp_+10v", 1},
-                                           {"l001p_thumbler_light", 1},
-                                           {"l001p_thumbler_1channel", 1},
-                                           {"l001p_thumbler_2channel", 1},
-                                           {"l001p_thumbler_3channel", 1},
-                                           {"l001p_thumbler_4channel", 1},
-                                           {"l001p_thumbler_simulator", 0},
-                                           {"l001r_reciever_1channel", 1},
-                                           {"l001r_reciever_2channel", 1},
-                                           {"l001r_reciever_3channel", 1},
-                                           {"l001r_reciever_4channel", 1},
-                                           {"l001r_transmitter_1channel", 1},
-                                           {"l001r_transmitter_2channel", 1},
-                                           {"l001r_transmitter_3channel", 1},
-                                           {"l001r_transmitter_4channel", 1},
-                                           {"l001r_antenna_equal", 1},
-                                           {"l001r_modulation", 0},
-                                           {"l001k_modulation_13channel", 1},
-                                           {"l001k_modulation_24channel", 1}
-                                       };
-
-            var endStateOfElements = new Dictionary<string, int>();
-
-            var newAlgorithm = new Algorithm(startStateOfElements, endStateOfElements)
-                               {
-                                   Name = "Включение изделия Л001",
-                                   Actions = new LinkedList<Action>(new[]
-                                                                    {
-                                                                        actionsFactory.GetClickAction("l001p_button_reciever_glow_on", "Включите ПРОГРЕВ", 1),
-                                                                        actionsFactory.GetIdleAction("l001r_lamp_heating", "Дождитесь окончания прогрева", 0),
-
-                                                                        actionsFactory.GetIdleAction("l001p_reciever_1channel", "Дождитесь включения высокого напряжения. Должны загореться лампы транспарантов", 1),
-                                                                        actionsFactory.GetInfoAction("l001p_reciever_1channel_arrow", "Заметьте, что стрелки индикаторов \"ПРИЕМ\" показывают значения менее 20 мкА"),
-
-                                                                        actionsFactory.GetClickAction("l001p_button_transmitter_on", "Теперь включите передатчик", 1),
-
-                                                                        actionsFactory.GetInfoAction("l001p_transmitter_1channel_arrow", "Заметьте, что стрелки индикаторов \"ПЕРЕДАЧА\" показывают значения более 10 мкА"),
-
-                                                                        actionsFactory.GetClickAction("l001p_thumbler_simulator", "Включите имитатор", 1),
-                                                                        actionsFactory.GetClickAction("l001i_thumbler_2generator", "Включите генератор 2", 1),
-
-                                                                        actionsFactory.GetInfoAction("l001p_reciever_1channel_arrow", "Заметьте, что стрелки индикаторов \"ПРИЕМ\" показывают завышенные значения"),
-                                                                        actionsFactory.GetInfoAction("l001p_transmitter_1channel_arrow", "А стрелки индикаторов \"ПЕРЕДАЧА\" отклонились от первоначального значения")
-                                                                    })
-                               };
-
-            return newAlgorithm;
-        }
-
         public Algorithm GetStopAlgorithm()
         {
             var startStateOfElements = new Dictionary<string, int>
@@ -190,7 +190,7 @@ namespace VKMSmalta.Dialogs.Factories
                                            {"l001p_transmitter_4channel_arrow", 3},
                                            {"l001p_thumbler_simulator", 1},
                                            {"l001p_simulator", 1},
-                                           {"l001i_thumbler_2generator", 1},
+                                           {"l001i_thumbler_2generator", 1}
                                        };
 
             var endStateOfElements = new Dictionary<string, int>();
@@ -203,7 +203,7 @@ namespace VKMSmalta.Dialogs.Factories
                                                                         actionsFactory.GetClickAction("l001p_thumbler_simulator", "Отключите имитатор", 0),
                                                                         actionsFactory.GetClickAction("l001p_button_transmitter_off", "Отключите передатчик", 1),
                                                                         actionsFactory.GetClickAction("l001p_button_reciever_glow_off", "Отключите приемник", 1),
-                                                                        actionsFactory.GetIdleAction("l001p_glow_on", "Дождитесь выключения накала", 0),
+                                                                        actionsFactory.GetIdleAction("l001p_glow_on", "Дождитесь выключения накала", 0)
                                                                     })
                                };
 

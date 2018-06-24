@@ -10,7 +10,7 @@
                    d:DesignHeight="450" d:DesignWidth="800"
                    d:DataContext="{d:DesignInstance Type=viewModel:VkmLampViewModel}">
     <Grid>
-        <Image x:Name="PART_Lamp" Source="{Binding Path=ImageSource}"/>
+        <Image x:Name="PART_Lamp" Source="{Binding Path=ImageSource}" />
         <Popup IsOpen="{Binding Path=IsHintOpen}" StaysOpen="True"
                VerticalOffset="20" HorizontalOffset="10"
                PlacementTarget="{Binding ElementName=PART_Lamp}"

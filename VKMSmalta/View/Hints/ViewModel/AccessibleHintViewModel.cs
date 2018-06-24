@@ -1,4 +1,8 @@
-﻿using VKMSmalta.Services;
+﻿#region Usings
+
+using VKMSmalta.Services;
+
+#endregion
 
 namespace VKMSmalta.View.Hints.ViewModel
 {
@@ -13,7 +17,7 @@ namespace VKMSmalta.View.Hints.ViewModel
 
         protected override bool CanOnClickNext()
         {
-            var element = hintService.GetValuableElementByCurrentHint();
+            var element = HintService.GetValuableElementByCurrentHint();
             return element?.Value == accessibleValue;
         }
     }

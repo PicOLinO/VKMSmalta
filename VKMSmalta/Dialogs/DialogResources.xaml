@@ -2,16 +2,16 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:VKMSmalta.Dialogs">
     <Style x:Key="DialogOuterSeparatingRow" TargetType="RowDefinition">
-        <Setter Property="Height" Value="15"/>
+        <Setter Property="Height" Value="15" />
     </Style>
     <Style x:Key="DialogInnerSeparatingRow" TargetType="RowDefinition">
-        <Setter Property="Height" Value="10"/>
+        <Setter Property="Height" Value="10" />
     </Style>
     <Style x:Key="DialogOuterSeparatingColumn" TargetType="ColumnDefinition">
-        <Setter Property="Width" Value="15"/>
+        <Setter Property="Width" Value="15" />
     </Style>
     <Style x:Key="DialogInnerSeparatingColumn" TargetType="ColumnDefinition">
-        <Setter Property="Width" Value="10"/>
+        <Setter Property="Width" Value="10" />
     </Style>
 
     <Style TargetType="{x:Type Button}" x:Key="WindowButtonDialogStyle">
@@ -37,11 +37,11 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="FontFamily" Value="Webdings"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="FontFamily" Value="Webdings" />
         <Setter Property="FontSize" Value="13.333" />
         <Setter Property="Foreground" Value="Black" />
-        <Setter Property="Margin" Value="0,2,3,0"/>
+        <Setter Property="Margin" Value="0,2,3,0" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="Gray" />
@@ -50,13 +50,13 @@
     </Style>
 
     <Style x:Key="DialogStyle" TargetType="{x:Type local:DialogBase}">
-        <Setter Property="Background" Value="White"/>
-        <Setter Property="WindowStyle" Value="None"/>
-        <Setter Property="ResizeMode" Value="NoResize"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="GhostWhite"/>
-        <Setter Property="ShowInTaskbar" Value="False"/>
-        <Setter Property="SizeToContent" Value="WidthAndHeight"/>
+        <Setter Property="Background" Value="White" />
+        <Setter Property="WindowStyle" Value="None" />
+        <Setter Property="ResizeMode" Value="NoResize" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="GhostWhite" />
+        <Setter Property="ShowInTaskbar" Value="False" />
+        <Setter Property="SizeToContent" Value="WidthAndHeight" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:DialogBase}">
@@ -65,21 +65,21 @@
                         <Grid>
                             <Grid Background="{TemplateBinding Background}">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto" />
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
                                     <Button x:Name="closeButton" Style="{StaticResource WindowButtonDialogStyle}"
                                             Content="r" />
                                 </StackPanel>
                                 <Grid Background="{TemplateBinding Background}"
-                                           Grid.Row="1" Grid.ColumnSpan="2" Margin="5,5,5,5">
+                                      Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,5,5,5">
                                     <AdornerDecorator>
-                                        <ContentPresenter/>
+                                        <ContentPresenter />
                                     </AdornerDecorator>
                                 </Grid>
                             </Grid>

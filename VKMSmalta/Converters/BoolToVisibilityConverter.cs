@@ -1,6 +1,10 @@
-﻿using System;
+﻿#region Usings
+
+using System;
 using System.Globalization;
 using System.Windows;
+
+#endregion
 
 namespace VKMSmalta.Converters
 {
@@ -9,7 +13,7 @@ namespace VKMSmalta.Converters
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var stringParameter = (string) parameter;
-            var boolValue = (bool)value;
+            var boolValue = (bool) value;
 
             if (stringParameter == "Inverse")
             {

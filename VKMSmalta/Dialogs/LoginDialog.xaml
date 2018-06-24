@@ -5,7 +5,6 @@
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:local="clr-namespace:VKMSmalta.Dialogs"
                   xmlns:viewModel="clr-namespace:VKMSmalta.Dialogs.ViewModel"
-                  xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
                   mc:Ignorable="d"
                   Title="Вход"
                   Style="{DynamicResource DialogStyle}"
@@ -32,7 +31,7 @@
         <TextBlock Grid.Row="1" Grid.Column="1" Text="Логин: " />
         <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding Path=Login}" />
         <TextBlock Grid.Row="3" Grid.Column="1" Text="Пароль: " />
-        <PasswordBox Grid.Row="3" Grid.Column="3" x:Name="passwordBox" />
+        <PasswordBox Grid.Row="3" Grid.Column="3" x:Name="PasswordBox" />
         <Button Grid.Row="5" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Отмена"
                 Command="{Binding Path=CloseCommand}" IsCancel="True" />
         <Button Grid.Row="5" Grid.Column="3" Style="{DynamicResource MainButton}" Content="ОК"

@@ -6,7 +6,6 @@
                   xmlns:local="clr-namespace:VKMSmalta.Dialogs"
                   xmlns:viewModel="clr-namespace:VKMSmalta.Dialogs.ViewModel"
                   xmlns:domain="clr-namespace:VKMSmalta.Domain"
-                  xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
                   mc:Ignorable="d"
                   Title="Выберите алгоритм"
                   Style="{DynamicResource DialogStyle}"

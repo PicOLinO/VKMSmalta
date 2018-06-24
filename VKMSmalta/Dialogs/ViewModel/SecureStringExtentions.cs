@@ -1,6 +1,10 @@
-﻿using System;
+﻿#region Usings
+
+using System;
 using System.Runtime.InteropServices;
 using System.Security;
+
+#endregion
 
 namespace VKMSmalta.Dialogs.ViewModel
 {
@@ -9,7 +13,9 @@ namespace VKMSmalta.Dialogs.ViewModel
         public static string ConvertToUnsecureString(this SecureString securePassword)
         {
             if (securePassword == null)
-                throw new ArgumentNullException("securePassword");
+            {
+                throw new ArgumentNullException(nameof(securePassword));
+            }
 
             var unmanagedString = IntPtr.Zero;
             try

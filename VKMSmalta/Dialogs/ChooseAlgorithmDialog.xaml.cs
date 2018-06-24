@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
+﻿#region Usings
+
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using VKMSmalta.Dialogs.ViewModel;
 using VKMSmalta.Domain;
+
+#endregion
 
 namespace VKMSmalta.Dialogs
 {
@@ -24,7 +17,7 @@ namespace VKMSmalta.Dialogs
         {
             InitializeComponent();
             DataContext = vm;
-            CreateCommands();
+            Initialize();
         }
 
         public Algorithm SelectedAlgorithm => (DataContext as ChooseAlgorithmDialogViewModel)?.SelectedAlgorithm;

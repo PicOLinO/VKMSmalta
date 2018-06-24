@@ -1,11 +1,23 @@
-﻿using DevExpress.Mvvm;
+﻿#region Usings
+
+using DevExpress.Mvvm;
 using VKMSmalta.Services;
+
+#endregion
 
 namespace VKMSmalta.View.Hints.ViewModel
 {
     public class HintViewModelBase : ViewModelBase
     {
-        protected readonly HintService hintService;
+        protected readonly HintService HintService;
+
+        public HintViewModelBase(string hintText, HintService hintService)
+        {
+            HintService = hintService;
+            HintText = hintText;
+
+            CreateCommands();
+        }
 
         public DelegateCommand ClickNextCommand { get; set; }
 
@@ -13,14 +25,6 @@ namespace VKMSmalta.View.Hints.ViewModel
         {
             get { return GetProperty(() => HintText); }
             set { SetProperty(() => HintText, value); }
-        }
-
-        public HintViewModelBase(string hintText, HintService hintService)
-        {
-            this.hintService = hintService;
-            HintText = hintText;
-
-            CreateCommands();
         }
 
         private void CreateCommands()
@@ -35,7 +39,7 @@ namespace VKMSmalta.View.Hints.ViewModel
 
         protected virtual void OnClickNext()
         {
-            hintService.ShowNextHint();
+            HintService.ShowNextHint();
         }
     }
 }

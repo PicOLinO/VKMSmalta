@@ -5,7 +5,6 @@
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
                       xmlns:viewModel="clr-namespace:VKMSmalta.View.Elements.ViewModel"
-                      xmlns:view="clr-namespace:VKMSmalta.View"
                       xmlns:elements="clr-namespace:VKMSmalta.View.Elements"
                       xmlns:hints="clr-namespace:VKMSmalta.View.Hints"
                       mc:Ignorable="d"

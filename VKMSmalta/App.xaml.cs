@@ -5,7 +5,6 @@ using System.Configuration;
 using System.Windows;
 using System.Windows.Threading;
 using Appccelerate.CommandLineParser;
-using DevExpress.Xpf.Core;
 using VKMSmalta.Dialogs.Factories;
 using VKMSmalta.Services;
 
@@ -30,17 +29,17 @@ namespace VKMSmalta
             Current.DispatcherUnhandledException += HandleUnhandledException;
         }
 
-        private void HandleUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
-        {
-            DialogFactory.ShowErrorMessage(e.Exception);
-            e.Handled = true;
-        }
-
         private Config CreateConfig()
         {
             var adminAddress = ConfigurationManager.AppSettings["AdminBaseAddress"];
 
             return new Config(adminAddress);
+        }
+
+        private void HandleUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            DialogFactory.ShowErrorMessage(e.Exception);
+            e.Handled = true;
         }
 
         private void ParseArgs(string[] args)
@@ -49,10 +48,10 @@ namespace VKMSmalta
 
             var configuration = CommandLineParserConfigurator
                                 .Create()
-                                    .WithSwitch("debug", () => app.IsDebug = true)
-                                        .DescribedBy("Enable debug mode")
-                                    .WithSwitch("authorized", () => app.IsAuthorized = true)
-                                        .DescribedBy("Dont needed to authorize")
+                                .WithSwitch("debug", () => app.IsDebug = true)
+                                .DescribedBy("Enable debug mode")
+                                .WithSwitch("authorized", () => app.IsAuthorized = true)
+                                .DescribedBy("Dont needed to authorize")
                                 .BuildConfiguration();
             var parser = new CommandLineParser(configuration);
             var parseResult = parser.Parse(args);

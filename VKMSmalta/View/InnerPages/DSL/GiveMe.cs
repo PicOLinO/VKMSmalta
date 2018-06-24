@@ -1,18 +1,22 @@
-﻿using VKMSmalta.View.DSL.Other;
-using VKMSmalta.View.InnerPages.DSL.Elements;
+﻿#region Usings
 
-namespace VKMSmalta.View.DSL
+using VKMSmalta.View.InnerPages.DSL.Elements;
+using VKMSmalta.View.InnerPages.DSL.Other;
+
+#endregion
+
+namespace VKMSmalta.View.InnerPages.DSL
 {
     public class GiveMe
     {
-        public BaseElementBuilder Element()
-        {
-            return new BaseElementBuilder();
-        }
-
         public DependencyActionBuilder DependencyAction()
         {
             return new DependencyActionBuilder();
+        }
+
+        public BaseElementBuilder Element()
+        {
+            return new BaseElementBuilder();
         }
     }
 }

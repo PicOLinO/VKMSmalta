@@ -6,7 +6,6 @@
                    xmlns:local="clr-namespace:VKMSmalta.View.Elements"
                    xmlns:viewModel="clr-namespace:VKMSmalta.View.Elements.ViewModel"
                    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
-                   xmlns:view="clr-namespace:VKMSmalta.View"
                    xmlns:hints="clr-namespace:VKMSmalta.View.Hints"
                    mc:Ignorable="d"
                    d:DesignHeight="450" d:DesignWidth="800"
@@ -15,7 +14,8 @@
         <Image x:Name="PART_Button" Cursor="Hand" Source="{Binding Path=ImageSource}">
             <dxmvvm:Interaction.Behaviors>
                 <dxmvvm:EventToCommand EventName="MouseLeftButtonUp" Command="{Binding Path=MouseLeftButtonUpCommand}" />
-                <dxmvvm:EventToCommand EventName="MouseLeftButtonDown" Command="{Binding Path=MouseLeftButtonDownCommand}" />
+                <dxmvvm:EventToCommand EventName="MouseLeftButtonDown"
+                                       Command="{Binding Path=MouseLeftButtonDownCommand}" />
             </dxmvvm:Interaction.Behaviors>
         </Image>
         <Popup IsOpen="{Binding Path=IsHintOpen}" StaysOpen="True"

@@ -1,5 +1,5 @@
-﻿using System;
-using System.Windows.Navigation;
+﻿#region Usings
+
 using DevExpress.Mvvm;
 using VKMSmalta.Dialogs;
 using VKMSmalta.Dialogs.Factories;
@@ -10,19 +10,13 @@ using VKMSmalta.Services.Navigate;
 using VKMSmalta.View;
 using VKMSmalta.View.ViewModel;
 
+#endregion
+
 namespace VKMSmalta.ViewModel
 {
     public class MainPageViewModel : ViewModelBase
     {
         private readonly DialogFactory dialogFactory;
-        private AppGlobal App => DependencyContainer.GetApp();
-
-        public DelegateCommand LoginCommand { get; set; }
-        public DelegateCommand RegisterCommand { get; set; }
-        public DelegateCommand GoExamineCommand { get; set; }
-        public DelegateCommand GoTrainingCommand { get; set; }
-        public DelegateCommand ShowInfoCommand { get; set; }
-
 
         public MainPageViewModel()
         {
@@ -36,6 +30,33 @@ namespace VKMSmalta.ViewModel
             }
         }
 
+        public string CurrentUserName
+        {
+            get { return GetProperty(() => CurrentUserName); }
+            set { SetProperty(() => CurrentUserName, value); }
+        }
+
+        public DelegateCommand GoExamineCommand { get; set; }
+        public DelegateCommand GoTrainingCommand { get; set; }
+
+        public bool IsAuthorized
+        {
+            get { return GetProperty(() => IsAuthorized); }
+            set { SetProperty(() => IsAuthorized, value); }
+        }
+
+        public DelegateCommand LoginCommand { get; set; }
+        public DelegateCommand RegisterCommand { get; set; }
+        public DelegateCommand ShowInfoCommand { get; set; }
+        private AppGlobal App => DependencyContainer.GetApp();
+
+        private Algorithm ChooseAlgorithm(HintService hintService)
+        {
+            var chooseDialog = new ChooseAlgorithmDialog(new ChooseAlgorithmDialogViewModel(hintService));
+            chooseDialog.ShowDialog();
+            return chooseDialog.SelectedAlgorithm;
+        }
+
         private void CreateCommands()
         {
             LoginCommand = new DelegateCommand(OnLogin);
@@ -45,21 +66,38 @@ namespace VKMSmalta.ViewModel
             ShowInfoCommand = new DelegateCommand(OnShowInfo);
         }
 
-        public bool IsAuthorized
+        private void OnGoExamine()
         {
-            get { return GetProperty(() => IsAuthorized); }
-            set { SetProperty(() => IsAuthorized, value); }
+            var hintService = new HintService();
+            var algorithm = ChooseAlgorithm(hintService);
+            if (algorithm != null)
+            {
+                DependencyContainer.Instance.SetLoadingSplash(true);
+
+                var vm = new DevicePageViewModel(ApplicationMode.Examine, algorithm, hintService, new HistoryService());
+
+                ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
+                ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
+
+                DependencyContainer.Instance.SetLoadingSplash(false);
+            }
         }
 
-        public string CurrentUserName
+        private void OnGoTraining()
         {
-            get { return GetProperty(() => CurrentUserName); }
-            set { SetProperty(() => CurrentUserName, value); }
-        }
+            var hintService = new HintService();
+            var algorithm = ChooseAlgorithm(hintService);
+            if (algorithm != null)
+            {
+                DependencyContainer.Instance.SetLoadingSplash(true);
 
-        private void OnShowInfo()
-        {
-            dialogFactory.ShowInfoDialog();
+                var vm = new DevicePageViewModel(ApplicationMode.Training, algorithm, hintService, new HistoryService());
+
+                ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
+                ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
+
+                DependencyContainer.Instance.SetLoadingSplash(false);
+            }
         }
 
         private void OnLogin()
@@ -81,45 +119,9 @@ namespace VKMSmalta.ViewModel
             }
         }
 
-        private void OnGoTraining()
+        private void OnShowInfo()
         {
-            var hintService = new HintService();
-            var algorithm = ChooseAlgorithm(hintService);
-            if (algorithm != null)
-            {
-                DependencyContainer.Instance.SetLoadingSplash(true);
-
-                var vm = new DevicePageViewModel(ApplicationMode.Training, algorithm, hintService, new HistoryService());
-
-                ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
-                ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
-
-                DependencyContainer.Instance.SetLoadingSplash(false);
-            }
-        }
-
-        private void OnGoExamine()
-        {
-            var hintService = new HintService();
-            var algorithm = ChooseAlgorithm(hintService);
-            if (algorithm != null)
-            {
-                DependencyContainer.Instance.SetLoadingSplash(true);
-
-                var vm = new DevicePageViewModel(ApplicationMode.Examine, algorithm, hintService, new HistoryService());
-
-                ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
-                ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
-
-                DependencyContainer.Instance.SetLoadingSplash(false);
-            }
-        }
-
-        private Algorithm ChooseAlgorithm(HintService hintService)
-        {
-            var chooseDialog = new ChooseAlgorithmDialog(new ChooseAlgorithmDialogViewModel(hintService));
-            chooseDialog.ShowDialog();
-            return chooseDialog.SelectedAlgorithm;
+            dialogFactory.ShowInfoDialog();
         }
     }
 }

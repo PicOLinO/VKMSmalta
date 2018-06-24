@@ -1,5 +1,8 @@
-﻿using System;
+﻿#region Usings
+
 using DevExpress.Mvvm;
+
+#endregion
 
 namespace VKMSmalta.Dialogs.ViewModel
 {
