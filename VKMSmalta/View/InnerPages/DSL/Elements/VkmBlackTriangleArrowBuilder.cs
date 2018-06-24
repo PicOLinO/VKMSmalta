@@ -1,5 +1,9 @@
-﻿using VKMSmalta.Services.Navigate;
+﻿#region Usings
+
+using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
+
+#endregion
 
 namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
@@ -7,17 +11,17 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
     {
         public VkmBlackTriangleArrowBuilder(int value, string name, int posTop, int posLeft, int startupRotation, InnerRegionPage page)
         {
-            this.posTop = posTop;
-            this.posLeft = posLeft;
-            this.rotationDegrees = startupRotation;
-            this.value = value;
-            this.name = name;
-            this.page = page;
+            PosTop = posTop;
+            PosLeft = posLeft;
+            RotationDegrees = startupRotation;
+            Value = value;
+            Name = name;
+            Page = page;
         }
 
         public VkmBlackTriangleArrowViewModel Please()
         {
-            return new VkmBlackTriangleArrowViewModel(value, name, rotationDegrees) {PosTop = posTop, PosLeft = posLeft, Page = page};
+            return new VkmBlackTriangleArrowViewModel(Value, Name, RotationDegrees) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
         }
     }
 }

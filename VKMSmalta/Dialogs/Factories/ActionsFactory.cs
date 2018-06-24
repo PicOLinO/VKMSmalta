@@ -1,7 +1,10 @@
-﻿using VKMSmalta.Domain;
+﻿#region Usings
+
+using VKMSmalta.Domain;
 using VKMSmalta.Services;
 using VKMSmalta.View.Hints.ViewModel;
-using VKMSmalta.View.ViewModel;
+
+#endregion
 
 namespace VKMSmalta.Dialogs.Factories
 {
@@ -19,14 +22,14 @@ namespace VKMSmalta.Dialogs.Factories
             return new Action(ActionName.Click, elementName, new AccessibleHintViewModel(hint, accessibleValue, hintService));
         }
 
-        public Action GetInfluentAction(string elementName, string hint, int newElementValue)
-        {
-            return new Action(ActionName.Influent, elementName, new InfluentialHintViewModel(hint, hintService, newElementValue));
-        }
-
         public Action GetIdleAction(string elementName, string hint, int accessibleValue)
         {
             return new Action(ActionName.Idle, elementName, new AccessibleHintViewModel(hint, accessibleValue, hintService));
+        }
+
+        public Action GetInfluentAction(string elementName, string hint, int newElementValue)
+        {
+            return new Action(ActionName.Influent, elementName, new InfluentialHintViewModel(hint, hintService, newElementValue));
         }
 
         public Action GetInfoAction(string elementName, string hint)

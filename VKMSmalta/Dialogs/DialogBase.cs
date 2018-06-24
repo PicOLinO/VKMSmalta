@@ -17,6 +17,11 @@ namespace VKMSmalta.Dialogs
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
+        protected void Initialize()
+        {
+            CreateCommands();
+        }
+
         public override void OnApplyTemplate()
         {
             if (GetTemplateChild("closeButton") is Button closeButton)
@@ -24,7 +29,7 @@ namespace VKMSmalta.Dialogs
             base.OnApplyTemplate();
         }
 
-        protected virtual void CreateCommands()
+        private void CreateCommands()
         {
             var vm = (DialogViewModelBase)DataContext;
             vm.CloseCommand = new DelegateCommand<bool?>(OnClosing);

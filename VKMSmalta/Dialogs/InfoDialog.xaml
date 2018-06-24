@@ -5,11 +5,11 @@
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:local="clr-namespace:VKMSmalta.Dialogs"
                   xmlns:viewModel="clr-namespace:VKMSmalta.Dialogs.ViewModel"
-                  xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
                   mc:Ignorable="d"
                   Title="Информация"
                   Style="{DynamicResource DialogStyle}"
-                  d:DataContext="{d:DesignInstance Type=viewModel:InfoDialogViewModel}" d:DesignHeight="600"
+                  d:DataContext="{d:DesignInstance Type=viewModel:InfoDialogViewModel}" 
+                  d:DesignHeight="600"
                   d:DesignWidth="451">
     <Grid>
         <Grid.RowDefinitions>

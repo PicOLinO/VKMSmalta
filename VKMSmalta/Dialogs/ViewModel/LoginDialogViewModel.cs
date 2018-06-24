@@ -1,31 +1,19 @@
-﻿using System;
+﻿#region Usings
+
 using System.Net;
-using System.Net.Http;
 using System.Security;
 using System.Security.Authentication;
-using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Mvvm;
-using Newtonsoft.Json;
-using VKMSmalta.Dialogs.Factories;
 using VKMSmalta.Services;
+
+#endregion
 
 namespace VKMSmalta.Dialogs.ViewModel
 {
     public class LoginDialogViewModel : DialogViewModelBase
     {
         protected readonly IPasswordSupplier PasswordSupplier;
-        protected AppGlobal App => DependencyContainer.GetApp();
-
-        public string Login
-        {
-            get { return GetProperty(() => Login); }
-            set { SetProperty(() => Login, value); }
-        }
-
-        public SecureString Password => PasswordSupplier.GetPassword();
-
-        public DelegateCommand ClickCommand { get; set; }
 
         public LoginDialogViewModel(IPasswordSupplier passwordSupplier)
         {
@@ -33,18 +21,20 @@ namespace VKMSmalta.Dialogs.ViewModel
             CreateCommands();
         }
 
+        public DelegateCommand ClickCommand { get; set; }
+
+        public string Login
+        {
+            get { return GetProperty(() => Login); }
+            set { SetProperty(() => Login, value); }
+        }
+
+        protected SecureString Password => PasswordSupplier.GetPassword();
+        private AppGlobal App => DependencyContainer.GetApp();
+
         private void CreateCommands()
         {
             ClickCommand = new DelegateCommand(OnClick);
-        }
-
-        protected virtual void OnClick()
-        {
-            Task.Run(OnClickCore).Wait();
-            if (App.IsAuthorized)
-            {
-                CloseCommand.Execute(true);
-            }
         }
 
         private async Task OnClickCore()
@@ -60,6 +50,15 @@ namespace VKMSmalta.Dialogs.ViewModel
             else
             {
                 throw new AuthenticationException("Неверный логин или пароль");
+            }
+        }
+
+        protected virtual void OnClick()
+        {
+            Task.Run(OnClickCore).Wait();
+            if (App.IsAuthorized)
+            {
+                CloseCommand.Execute(true);
             }
         }
     }

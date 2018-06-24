@@ -1,21 +1,22 @@
-﻿using System;
+﻿#region Usings
+
 using System.Collections.Generic;
 using System.Linq;
 using VKMSmalta.Domain;
-using VKMSmalta.View.Elements.ViewModel;
 using VKMSmalta.View.Elements.ViewModel.Interfaces;
-using Action = VKMSmalta.Domain.Action;
+
+#endregion
 
 namespace VKMSmalta.Services
 {
     public class HistoryService
     {
-        public List<Action> Actions { get; }
-
         public HistoryService()
         {
             Actions = new List<Action>();
         }
+
+        public List<Action> Actions { get; }
 
         public int GetValueByAlgorithmByEndStateOfElements(Algorithm algorithm, List<IValuableNamedElement> elements)
         {
@@ -38,7 +39,9 @@ namespace VKMSmalta.Services
 
             var value = rightsCount * 5 / allCount;
 
-            return value <= 0 ? 1 : value;
+            return value <= 0
+                       ? 1
+                       : value;
         }
 
         public int GetValueByAlgorithmByUserActions(Algorithm algorithm, List<IValuableNamedElement> elements)
@@ -74,7 +77,9 @@ namespace VKMSmalta.Services
 
             var value = rightsCount * 5 / allCount;
 
-            return value <= 0 ? 1 : value;
+            return value <= 0
+                       ? 1
+                       : value;
         }
 
         public void Reset()

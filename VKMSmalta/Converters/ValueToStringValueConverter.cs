@@ -1,7 +1,9 @@
-﻿using System;
+﻿#region Usings
+
+using System;
 using System.Globalization;
-using System.Windows.Data;
-using System.Windows.Markup;
+
+#endregion
 
 namespace VKMSmalta.Converters
 {
@@ -9,7 +11,7 @@ namespace VKMSmalta.Converters
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var intValue = (int)value;
+            var intValue = (int) value;
             switch (intValue)
             {
                 case 1:

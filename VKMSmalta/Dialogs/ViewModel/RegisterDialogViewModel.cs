@@ -1,28 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region Usings
+
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Security;
-using System.Security.Authentication;
-using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using VKMSmalta.Dialogs.Factories;
 using VKMSmalta.Domain;
 using VKMSmalta.Network;
 using VKMSmalta.Services;
 
+#endregion
+
 namespace VKMSmalta.Dialogs.ViewModel
 {
     public class RegisterDialogViewModel : LoginDialogViewModel
     {
-        public SecureString ConfirmPassword => PasswordSupplier.GetConfirmPassword();
-
         public RegisterDialogViewModel(IPasswordSupplier passwordSupplier) : base(passwordSupplier)
         {
             Initialize();
+        }
+
+        private SecureString ConfirmPassword => PasswordSupplier.GetConfirmPassword();
+
+        public Student SelectedStudent
+        {
+            get { return GetProperty(() => SelectedStudent); }
+            set { SetProperty(() => SelectedStudent, value); }
+        }
+
+        public Team SelectedTeam
+        {
+            get { return GetProperty(() => SelectedTeam); }
+            set { SetProperty(() => SelectedTeam, value, OnSelectedTeamChanged); }
+        }
+
+        public ObservableCollection<Student> Students
+        {
+            get { return GetProperty(() => Students); }
+            set { SetProperty(() => Students, value); }
+        }
+
+        public ObservableCollection<Team> Teams
+        {
+            get { return GetProperty(() => Teams); }
+            set { SetProperty(() => Teams, value); }
         }
 
         private void Initialize()
@@ -37,58 +60,19 @@ namespace VKMSmalta.Dialogs.ViewModel
 
             foreach (var team in teamWithStudentsWithoutLogins)
             {
-                var newTeam = new Team { Id = team.Id, Number = team.Number };
+                var newTeam = new Team {Id = team.Id, Number = team.Number};
                 var students = team.Students.Select(student => new Student
-                                                                {
-                                                                    Id = student.Id,
-                                                                    FullName = $"{student.LastName} {student.FirstName} {student.MiddleName}"
-                                                                })
-                                    .ToList();
+                                                               {
+                                                                   Id = student.Id,
+                                                                   FullName = $"{student.LastName} {student.FirstName} {student.MiddleName}"
+                                                               })
+                                   .ToList();
                 newTeam.Students = students;
                 Teams.Add(newTeam);
             }
 
             SelectedTeam = Teams.FirstOrDefault();
             SelectedStudent = SelectedTeam?.Students.FirstOrDefault();
-        }
-
-        public Team SelectedTeam
-        {
-            get { return GetProperty(() => SelectedTeam); }
-            set { SetProperty(() => SelectedTeam, value, OnSelectedTeamChanged); }
-        }
-
-        private void OnSelectedTeamChanged()
-        {
-            Students = new ObservableCollection<Student>(SelectedTeam.Students);
-            SelectedStudent = Students.FirstOrDefault();
-        }
-
-        public ObservableCollection<Team> Teams
-        {
-            get { return GetProperty(() => Teams); }
-            set { SetProperty(() => Teams, value); }
-        }
-
-        public Student SelectedStudent
-        {
-            get { return GetProperty(() => SelectedStudent); }
-            set { SetProperty(() => SelectedStudent, value); }
-        }
-
-        public ObservableCollection<Student> Students
-        {
-            get { return GetProperty(() => Students); }
-            set { SetProperty(() => Students, value); }
-        }
-
-        protected override void OnClick()
-        {
-            var success = Task.Run(OnClickCore).Result;
-            if (success)
-            {
-                CloseCommand.Execute(true);
-            }
         }
 
         private async Task<bool> OnClickCore()
@@ -103,10 +87,10 @@ namespace VKMSmalta.Dialogs.ViewModel
             }
 
             var registerData = new RegisterDataDto
-                                {
-                                    Credential = new NetworkCredential(Login, Password),
-                                    StudentId = SelectedStudent.Id
-            };
+                               {
+                                   Credential = new NetworkCredential(Login, Password),
+                                   StudentId = SelectedStudent.Id
+                               };
 
             var success = await NetworkService.Instance.Register(registerData);
 
@@ -114,9 +98,22 @@ namespace VKMSmalta.Dialogs.ViewModel
             {
                 return true;
             }
-            else
+
+            throw new Exception("Ошибка на сервере");
+        }
+
+        private void OnSelectedTeamChanged()
+        {
+            Students = new ObservableCollection<Student>(SelectedTeam.Students);
+            SelectedStudent = Students.FirstOrDefault();
+        }
+
+        protected override void OnClick()
+        {
+            var success = Task.Run(OnClickCore).Result;
+            if (success)
             {
-                throw new Exception("Ошибка на сервере");
+                CloseCommand.Execute(true);
             }
         }
     }

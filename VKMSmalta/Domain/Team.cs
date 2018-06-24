@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿#region Usings
+
+using System.Collections.Generic;
+
+#endregion
 
 namespace VKMSmalta.Domain
 {

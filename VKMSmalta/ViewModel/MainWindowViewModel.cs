@@ -1,6 +1,9 @@
-﻿using System;
+﻿#region Usings
+
 using System.Windows.Input;
 using DevExpress.Mvvm;
+
+#endregion
 
 namespace VKMSmalta.ViewModel
 {

@@ -1,5 +1,8 @@
-﻿using VKMSmalta.View.Hints.ViewModel;
-using VKMSmalta.View.ViewModel;
+﻿#region Usings
+
+using VKMSmalta.View.Hints.ViewModel;
+
+#endregion
 
 namespace VKMSmalta.Domain
 {
@@ -12,8 +15,9 @@ namespace VKMSmalta.Domain
             Hint = hint;
         }
 
-        public ActionName Name { get; set; }
-        public string ParentElementName { get; set; }
-        public HintViewModelBase Hint { get; set; }
+        public HintViewModelBase Hint { get; }
+
+        public ActionName Name { get; }
+        public string ParentElementName { get; }
     }
 }

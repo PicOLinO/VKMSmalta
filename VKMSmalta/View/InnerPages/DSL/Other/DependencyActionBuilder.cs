@@ -1,23 +1,38 @@
-﻿using System.Collections.Generic;
+﻿#region Usings
+
+using System.Collections.Generic;
 using VKMSmalta.Domain;
+
+#endregion
 
 namespace VKMSmalta.View.InnerPages.DSL.Other
 {
     public class DependencyActionBuilder
     {
-        private DependencyType type;
-        private string name;
         private readonly Dictionary<int, int> dependencyValues;
         private int delayInSeconds;
+        private string name;
+        private DependencyType type;
 
         public DependencyActionBuilder()
         {
             dependencyValues = new Dictionary<int, int>();
         }
 
+        public DependencyAction Please()
+        {
+            return new DependencyAction(type, name, dependencyValues, delayInSeconds);
+        }
+
         public DependencyActionBuilder TypeOf(DependencyType type)
         {
             this.type = type;
+            return this;
+        }
+
+        public DependencyActionBuilder WithDelay(int delayInSeconds)
+        {
+            this.delayInSeconds = delayInSeconds;
             return this;
         }
 
@@ -31,17 +46,6 @@ namespace VKMSmalta.View.InnerPages.DSL.Other
         {
             dependencyValues.Add(sourceValue, targetValue);
             return this;
-        }
-
-        public DependencyActionBuilder WithDelay(int delayInSeconds)
-        {
-            this.delayInSeconds = delayInSeconds;
-            return this;
-        }
-
-        public DependencyAction Please()
-        {
-            return new DependencyAction(type, name, dependencyValues, delayInSeconds);
         }
     }
 }

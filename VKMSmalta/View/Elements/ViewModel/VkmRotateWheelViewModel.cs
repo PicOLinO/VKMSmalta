@@ -1,33 +1,16 @@
-﻿using DevExpress.Mvvm;
-using VKMSmalta.Domain;
+﻿#region Usings
+
 using VKMSmalta.Services;
+
+#endregion
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
     public sealed class VkmRotateWheelViewModel : ClickableElementViewModelBase
     {
-        private readonly int rotationStepDegrees;
         private readonly int maxValue;
+        private readonly int rotationStepDegrees;
         private readonly int startupRotation;
-
-        protected override void OnValueChanged()
-        {
-            base.OnValueChanged();
-
-            if (Value > maxValue)
-            {
-                Value = 0;
-                return;
-            }
-
-            RotationDegrees = (Value * rotationStepDegrees) + startupRotation;
-        }
-
-        public int RotationDegrees
-        {
-            get { return GetProperty(() => RotationDegrees); }
-            set { SetProperty(() => RotationDegrees, value); }
-        }
 
         public VkmRotateWheelViewModel(int value, string name, int startupRotation, int rotationStepDegrees, int maxValue, HistoryService historyService, string image) : base(value, name, historyService)
         {
@@ -36,6 +19,12 @@ namespace VKMSmalta.View.Elements.ViewModel
             this.maxValue = maxValue;
             ImageSource = image;
             Value = value;
+        }
+
+        public int RotationDegrees
+        {
+            get { return GetProperty(() => RotationDegrees); }
+            set { SetProperty(() => RotationDegrees, value); }
         }
 
         protected override void OnMouseLeftButtonUp()
@@ -50,6 +39,19 @@ namespace VKMSmalta.View.Elements.ViewModel
             {
                 Value = 0;
             }
+        }
+
+        protected override void OnValueChanged()
+        {
+            base.OnValueChanged();
+
+            if (Value > maxValue)
+            {
+                Value = 0;
+                return;
+            }
+
+            RotationDegrees = (Value * rotationStepDegrees) + startupRotation;
         }
     }
 }

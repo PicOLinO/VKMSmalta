@@ -14,8 +14,8 @@ using VKMSmalta.Services;
 using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
 using VKMSmalta.View.Elements.ViewModel.Interfaces;
+using VKMSmalta.View.InnerPages;
 using VKMSmalta.View.InnerPages.ViewModel;
-using Action = System.Action;
 
 #endregion
 
@@ -23,70 +23,10 @@ namespace VKMSmalta.View.ViewModel
 {
     public class DevicePageViewModel : ViewModelBase, IDisposable
     {
+        public ObservableCollection<InnerPageViewModelBase> Pages;
         private readonly ApplicationMode applicationMode;
         private readonly HintService hintService;
         private readonly HistoryService historyService;
-
-        public AsyncCommand CheckResultCommand { get; set; }
-        public DelegateCommand GoForwardCommand { get; set; }
-        public DelegateCommand GoPreviousCommand { get; set; }
-
-        private Algorithm CurrentAlgorithm { get; }
-
-        private int CurrentPageIndex => Pages.IndexOf(Pages.Single(p => p.PageKey == CurrentPageKey));
-
-        public IEnumerable<ElementViewModelBase> UnionedElements
-        {
-            get
-            {
-                var unionedElements = new List<ElementViewModelBase>();
-
-                foreach (var mainInnerDevicePageViewModel in Pages)
-                {
-                    unionedElements.AddRange(mainInnerDevicePageViewModel.Elements.ToList());
-                }
-
-                return unionedElements;
-            }
-        }
-
-        public ObservableCollection<InnerPageViewModelBase> Pages;
-
-        public InnerRegionPage CurrentPageKey
-        {
-            get { return GetProperty(() => CurrentPageKey); }
-            private set { SetProperty(() => CurrentPageKey, value, OnCurrentPageKeyChanged); }
-        }
-
-        private void OnCurrentPageKeyChanged()
-        {
-            NextPageKey = CanGoForward() ? Pages[CurrentPageIndex + 1].PageKey : InnerRegionPage.Empty;
-            PreviousPageKey = CanGoPrevious() ? Pages[CurrentPageIndex - 1].PageKey : InnerRegionPage.Empty;
-        }
-
-        public InnerRegionPage NextPageKey
-        {
-            get { return GetProperty(() => NextPageKey); }
-            set { SetProperty(() => NextPageKey, value); }
-        }
-
-        public InnerRegionPage PreviousPageKey
-        {
-            get { return GetProperty(() => PreviousPageKey); }
-            set { SetProperty(() => PreviousPageKey, value); }
-        }
-
-        public bool IsGoForwardHintOpen
-        {
-            get { return GetProperty(() => IsGoForwardHintOpen); }
-            set { SetProperty(() => IsGoForwardHintOpen, value); }
-        }
-
-        public bool IsGoPreviousHintOpen
-        {
-            get { return GetProperty(() => IsGoPreviousHintOpen); }
-            set { SetProperty(() => IsGoPreviousHintOpen, value); }
-        }
 
         public DevicePageViewModel(ApplicationMode appMode, Algorithm algorithm, HintService hintService, HistoryService historyService)
         {
@@ -106,6 +46,113 @@ namespace VKMSmalta.View.ViewModel
             }
         }
 
+        public AsyncCommand CheckResultCommand { get; set; }
+
+        public InnerRegionPage CurrentPageKey
+        {
+            get { return GetProperty(() => CurrentPageKey); }
+            private set { SetProperty(() => CurrentPageKey, value, OnCurrentPageKeyChanged); }
+        }
+
+        public DelegateCommand GoForwardCommand { get; set; }
+        public DelegateCommand GoPreviousCommand { get; set; }
+
+        public bool IsGoForwardHintOpen
+        {
+            get { return GetProperty(() => IsGoForwardHintOpen); }
+            set { SetProperty(() => IsGoForwardHintOpen, value); }
+        }
+
+        public bool IsGoPreviousHintOpen
+        {
+            get { return GetProperty(() => IsGoPreviousHintOpen); }
+            set { SetProperty(() => IsGoPreviousHintOpen, value); }
+        }
+
+        public InnerRegionPage NextPageKey
+        {
+            get { return GetProperty(() => NextPageKey); }
+            set { SetProperty(() => NextPageKey, value); }
+        }
+
+        public InnerRegionPage PreviousPageKey
+        {
+            get { return GetProperty(() => PreviousPageKey); }
+            set { SetProperty(() => PreviousPageKey, value); }
+        }
+
+        public IEnumerable<ElementViewModelBase> UnionedElements
+        {
+            get
+            {
+                var unionedElements = new List<ElementViewModelBase>();
+
+                foreach (var mainInnerDevicePageViewModel in Pages)
+                {
+                    unionedElements.AddRange(mainInnerDevicePageViewModel.Elements.ToList());
+                }
+
+                return unionedElements;
+            }
+        }
+
+        private Algorithm CurrentAlgorithm { get; }
+
+        private int CurrentPageIndex => Pages.IndexOf(Pages.Single(p => p.PageKey == CurrentPageKey));
+
+        private bool CanGoForward()
+        {
+            return CurrentPageKey != Pages.Last().PageKey;
+        }
+
+        private bool CanGoPrevious()
+        {
+            return CurrentPageKey != Pages.First().PageKey;
+        }
+
+        private bool CheckResults(int value)
+        {
+            var dialog = new CheckResultsDialog(value);
+            dialog.ShowDialog();
+
+            if (((CheckResultsDialogViewModel) dialog.DataContext).IsRetry)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private void CreateCommands()
+        {
+            GoForwardCommand = new DelegateCommand(OnGoForward, CanGoForward);
+            CheckResultCommand = new AsyncCommand(OnCheckResult);
+            GoPreviousCommand = new DelegateCommand(OnGoPrevious, CanGoPrevious);
+        }
+
+        private void EndTraining()
+        {
+            var dialog = new TrainingCompleteDialog();
+            dialog.ShowDialog();
+            Dispose();
+            ExitInMainMenu();
+        }
+
+        private void ExitInMainMenu()
+        {
+            ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.MainMenu);
+        }
+
+        private void GoTraining(Algorithm algorithm)
+        {
+            foreach (var element in UnionedElements)
+            {
+                element.IsEnabled = false;
+            }
+
+            hintService.StartTraining(algorithm, UnionedElements.ToList(), EndTraining);
+        }
+
         private void InitializeInnerPages()
         {
             Pages = new ObservableCollection<InnerPageViewModelBase>
@@ -117,7 +164,7 @@ namespace VKMSmalta.View.ViewModel
 
             foreach (var page in Pages)
             {
-                ViewInjectionManager.Default.Inject(Regions.InnerRegion, page.PageKey, () => page, typeof(InnerPages.MainInnerDevicePage));
+                ViewInjectionManager.Default.Inject(Regions.InnerRegion, page.PageKey, () => page, typeof(MainInnerDevicePage));
             }
 
             NavigateOnPage(InnerRegionPage.L001P);
@@ -128,35 +175,6 @@ namespace VKMSmalta.View.ViewModel
             ViewInjectionManager.Default.Navigate(Regions.InnerRegion, page);
             CurrentPageKey = page;
             hintService.OnNavigated(page);
-        }
-
-        #region Commands
-
-        private void CreateCommands()
-        {
-            GoForwardCommand = new DelegateCommand(OnGoForward, CanGoForward);
-            CheckResultCommand = new AsyncCommand(OnCheckResult);
-            GoPreviousCommand = new DelegateCommand(OnGoPrevious, CanGoPrevious);
-        }
-
-        private bool CanGoForward()
-        {
-            return CurrentPageKey != Pages.Last().PageKey;
-        }
-
-        private void OnGoForward()
-        {
-            NavigateOnPage(NextPageKey);
-        }
-
-        private bool CanGoPrevious()
-        {
-            return CurrentPageKey != Pages.First().PageKey;
-        }
-
-        private void OnGoPrevious()
-        {
-            NavigateOnPage(PreviousPageKey);
         }
 
         private async Task OnCheckResult()
@@ -192,7 +210,7 @@ namespace VKMSmalta.View.ViewModel
             }
 
             var retry = CheckResults(value);
-            
+
             if (retry)
             {
                 Reset();
@@ -205,42 +223,24 @@ namespace VKMSmalta.View.ViewModel
             }
         }
 
-        #endregion
-
-        private void GoTraining(Algorithm algorithm)
+        private void OnCurrentPageKeyChanged()
         {
-            foreach (var element in UnionedElements)
-            {
-                element.IsEnabled = false;
-            }
-
-            hintService.StartTraining(algorithm, UnionedElements.ToList(), EndTraining);
+            NextPageKey = CanGoForward()
+                              ? Pages[CurrentPageIndex + 1].PageKey
+                              : InnerRegionPage.Empty;
+            PreviousPageKey = CanGoPrevious()
+                                  ? Pages[CurrentPageIndex - 1].PageKey
+                                  : InnerRegionPage.Empty;
         }
 
-        private void EndTraining()
+        private void OnGoForward()
         {
-            var dialog = new TrainingCompleteDialog();
-            dialog.ShowDialog();
-            Dispose();
-            ExitInMainMenu();
+            NavigateOnPage(NextPageKey);
         }
 
-        private bool CheckResults(int value)
+        private void OnGoPrevious()
         {
-            var dialog = new CheckResultsDialog(value);
-            dialog.ShowDialog();
-
-            if (((CheckResultsDialogViewModel)dialog.DataContext).IsRetry)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private void ExitInMainMenu()
-        {
-            ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.MainMenu);
+            NavigateOnPage(PreviousPageKey);
         }
 
         private void Reset()
@@ -256,10 +256,14 @@ namespace VKMSmalta.View.ViewModel
             historyService.Reset();
         }
 
+        #region IDisposable
+
         public void Dispose()
         {
             ViewInjectionManager.Default.Remove(Regions.OuterRegion, OuterRegionPages.Device);
             Reset();
         }
+
+        #endregion
     }
 }

@@ -12,16 +12,40 @@ namespace VKMSmalta.View.Elements.ViewModel
 {
     public sealed class VkmThumblerViewModel : ClickableElementViewModelBase, IDependencyActivatorElement
     {
-        private readonly bool isInitialize;
         private readonly string imageOffSource;
         private readonly string imageOnSource;
+        private readonly bool isInitialize;
 
-        public List<DependencyAction> DependencyActions { get; }
+        public VkmThumblerViewModel(int value,
+                                    string name,
+                                    HistoryService historyService,
+                                    string imageOffSource,
+                                    string imageOnSource,
+                                    List<DependencyAction> dependencyActions = null) : base(value, name, historyService)
+        {
+            isInitialize = true;
+
+            this.imageOffSource = imageOffSource;
+            this.imageOnSource = imageOnSource;
+            DependencyActions = dependencyActions;
+            Value = value;
+
+            isInitialize = false;
+        }
 
         public int StartupRotation
         {
             get { return GetProperty(() => StartupRotation); }
             set { SetProperty(() => StartupRotation, value); }
+        }
+
+        protected override void OnMouseLeftButtonUp()
+        {
+            base.OnMouseLeftButtonUp();
+
+            Value = Value == 0
+                        ? 1
+                        : 0;
         }
 
         protected override void OnValueChanged()
@@ -46,29 +70,7 @@ namespace VKMSmalta.View.Elements.ViewModel
             }
         }
 
-        public VkmThumblerViewModel(int value,
-                                    string name,
-                                    HistoryService historyService,
-                                    string imageOffSource,
-                                    string imageOnSource,
-                                    List<DependencyAction> dependencyActions = null) : base(value, name, historyService)
-        {
-            isInitialize = true;
-
-            this.imageOffSource = imageOffSource;
-            this.imageOnSource = imageOnSource;
-            DependencyActions = dependencyActions;
-            Value = value;
-
-            isInitialize = false;
-        }
-
-        protected override void OnMouseLeftButtonUp()
-        {
-            base.OnMouseLeftButtonUp();
-
-            Value = Value == 0 ? 1 : 0;
-        }
+        #region IDependencyActivatorElement
 
         public void NotifyDependedElements()
         {
@@ -77,5 +79,9 @@ namespace VKMSmalta.View.Elements.ViewModel
                 dependencyAction.UpdateDependencyElementValue(Value);
             }
         }
+
+        public List<DependencyAction> DependencyActions { get; }
+
+        #endregion
     }
 }

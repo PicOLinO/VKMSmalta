@@ -1,25 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region Usings
+
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using DevExpress.Mvvm;
 using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
 using VKMSmalta.View.InnerPages.DSL;
 
+#endregion
+
 namespace VKMSmalta.View.InnerPages.ViewModel
 {
     public class InnerPageViewModelBase : ViewModelBase
     {
-        protected GiveMe GiveMe { get; }
-        public InnerRegionPage PageKey { get; }
-
-        public ObservableCollection<ElementViewModelBase> Elements
+        protected InnerPageViewModelBase(InnerRegionPage pageKey, string backgroundSource)
         {
-            get { return GetProperty(() => Elements); }
-            set { SetProperty(() => Elements, value); }
+            PageKey = pageKey;
+            BackgroundSource = backgroundSource;
+            GiveMe = new GiveMe();
         }
 
         public string BackgroundSource
@@ -28,11 +25,13 @@ namespace VKMSmalta.View.InnerPages.ViewModel
             set { SetProperty(() => BackgroundSource, value); }
         }
 
-        public InnerPageViewModelBase(InnerRegionPage pageKey, string backgroundSource)
+        public ObservableCollection<ElementViewModelBase> Elements
         {
-            PageKey = pageKey;
-            BackgroundSource = backgroundSource;
-            GiveMe = new GiveMe();
+            get { return GetProperty(() => Elements); }
+            set { SetProperty(() => Elements, value); }
         }
+
+        public InnerRegionPage PageKey { get; }
+        protected GiveMe GiveMe { get; }
     }
 }

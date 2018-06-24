@@ -5,7 +5,7 @@
         Empty,
         L001P,
         L001R,
-        L001I_L001K,
+        L001I_L001K
     }
 
     public enum OuterRegionPages

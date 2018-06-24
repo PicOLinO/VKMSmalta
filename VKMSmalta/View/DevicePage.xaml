@@ -1,12 +1,9 @@
 ﻿<Page x:Class="VKMSmalta.View.DevicePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:viewModel="clr-namespace:VKMSmalta.View.ViewModel"
-      xmlns:elementsVM="clr-namespace:VKMSmalta.View.Elements.ViewModel"
-      xmlns:elements="clr-namespace:VKMSmalta.View.Elements"
-      xmlns:view="clr-namespace:VKMSmalta.View"
       xmlns:converters="clr-namespace:VKMSmalta.Converters"
       xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
       xmlns:hints="clr-namespace:VKMSmalta.View.Hints"
@@ -15,11 +12,11 @@
       d:DataContext="{d:DesignInstance Type=viewModel:DevicePageViewModel}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
-            <Frame NavigationUIVisibility="Hidden" Width="1600" Height="800" >
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Frame NavigationUIVisibility="Hidden" Width="1600" Height="800">
                 <dxmvvm:Interaction.Behaviors>
                     <dxmvvm:ViewInjectionService RegionName="Inner" />
                 </dxmvvm:Interaction.Behaviors>
@@ -27,16 +24,21 @@
         </ScrollViewer>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" x:Name="PART_GoPrevious" Content="{Binding Path=PreviousPageKey, Converter={converters:PageKeyToPageNameConverter}}" Style="{DynamicResource MainButton}" Command="{Binding Path=GoPreviousCommand}"/>
-            <Button Grid.Column="1" Content="Завершить" Style="{DynamicResource MainButton}" Command="{Binding Path=CheckResultCommand}"/>
-            <Button Grid.Column="2" x:Name="PART_GoNext" Content="{Binding Path=NextPageKey, Converter={converters:PageKeyToPageNameConverter}}" Style="{DynamicResource MainButton}" Command="{Binding Path=GoForwardCommand}"/>
+            <Button Grid.Column="0" x:Name="PART_GoPrevious"
+                    Content="{Binding Path=PreviousPageKey, Converter={converters:PageKeyToPageNameConverter}}"
+                    Style="{DynamicResource MainButton}" Command="{Binding Path=GoPreviousCommand}" />
+            <Button Grid.Column="1" Content="Завершить" Style="{DynamicResource MainButton}"
+                    Command="{Binding Path=CheckResultCommand}" />
+            <Button Grid.Column="2" x:Name="PART_GoNext"
+                    Content="{Binding Path=NextPageKey, Converter={converters:PageKeyToPageNameConverter}}"
+                    Style="{DynamicResource MainButton}" Command="{Binding Path=GoForwardCommand}" />
             <Popup IsOpen="{Binding Path=IsGoPreviousHintOpen}" StaysOpen="True"
                    PlacementTarget="{Binding ElementName=PART_GoPrevious}"
-                   Placement="Top" PopupAnimation="Fade" 
+                   Placement="Top" PopupAnimation="Fade"
                    HorizontalOffset="120"
                    VerticalOffset="-10"
                    AllowsTransparency="True">
@@ -44,7 +46,7 @@
             </Popup>
             <Popup IsOpen="{Binding Path=IsGoForwardHintOpen}" StaysOpen="True"
                    PlacementTarget="{Binding ElementName=PART_GoNext}"
-                   Placement="Top" PopupAnimation="Fade" 
+                   Placement="Top" PopupAnimation="Fade"
                    HorizontalOffset="120"
                    VerticalOffset="-10"
                    AllowsTransparency="True">

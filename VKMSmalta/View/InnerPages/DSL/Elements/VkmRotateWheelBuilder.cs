@@ -1,31 +1,35 @@
-﻿using VKMSmalta.Services;
+﻿#region Usings
+
+using VKMSmalta.Services;
 using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
+using XAMLEx;
+
+#endregion
 
 namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
     public class VkmRotateWheelBuilder : BaseElementBuilder
     {
-        private int rotationStepDegrees;
-        private int maxRotationSteps;
-        
         private readonly HistoryService historyService;
+        private int maxRotationSteps;
+        private int rotationStepDegrees;
 
         public VkmRotateWheelBuilder(int value, string name, int posTop, int posLeft, int startupRotation, HistoryService historyService, InnerRegionPage page)
         {
-            this.posTop = posTop;
-            this.posLeft = posLeft;
-            this.rotationDegrees = startupRotation;
-            this.value = value;
-            this.name = name;
+            PosTop = posTop;
+            PosLeft = posLeft;
+            RotationDegrees = startupRotation;
+            Value = value;
+            Name = name;
             this.historyService = historyService;
-            this.page = page;
+            Page = page;
         }
 
-        public VkmRotateWheelBuilder WithRotationStepDegrees(int rotationStepDegrees)
+        public VkmRotateWheelViewModel Please()
         {
-            this.rotationStepDegrees = rotationStepDegrees;
-            return this;
+            var image = ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/Wheel.png");
+            return new VkmRotateWheelViewModel(Value, Name, RotationDegrees, rotationStepDegrees, maxRotationSteps, historyService, image) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
         }
 
         public VkmRotateWheelBuilder WithMaxValue(int maxRotationSteps)
@@ -34,10 +38,10 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
             return this;
         }
 
-        public VkmRotateWheelViewModel Please()
+        public VkmRotateWheelBuilder WithRotationStepDegrees(int rotationStepDegrees)
         {
-            var image = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/Wheel.png");
-            return new VkmRotateWheelViewModel(value, name, rotationDegrees, rotationStepDegrees, maxRotationSteps, historyService, image) { PosTop = posTop, PosLeft = posLeft, Page = page};
+            this.rotationStepDegrees = rotationStepDegrees;
+            return this;
         }
     }
 }

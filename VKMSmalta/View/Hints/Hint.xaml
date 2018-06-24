@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:viewModel="clr-namespace:VKMSmalta.View.ViewModel"
              xmlns:viewModel1="clr-namespace:VKMSmalta.View.Hints.ViewModel"
              mc:Ignorable="d"
              BorderThickness="0"
@@ -15,7 +14,7 @@
              d:DataContext="{d:DesignInstance Type=viewModel1:HintViewModelBase}">
     <Grid>
         <Grid.OpacityMask>
-            <SolidColorBrush Color="White" Opacity="0.9"/>
+            <SolidColorBrush Color="White" Opacity="0.9" />
         </Grid.OpacityMask>
         <Polygon Fill="GhostWhite" Points="0, 0, 40, 10, 10, 40" />
         <Border Margin="10 10 0 0" Background="GhostWhite" CornerRadius="30">
@@ -25,8 +24,9 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Margin="10 10 10 10" Text="{Binding Path=HintText}" TextWrapping="Wrap" />
-                <Button Grid.Row="1" Style="{DynamicResource MainButton}" Command="{Binding ClickNextCommand}" Content="Далее" Width="100"
-                            Margin="10 10 10 10" />
+                <Button Grid.Row="1" Style="{DynamicResource MainButton}" Command="{Binding ClickNextCommand}"
+                        Content="Далее" Width="100"
+                        Margin="10 10 10 10" />
             </Grid>
         </Border>
     </Grid>

@@ -1,8 +1,13 @@
-﻿using System.Collections.Generic;
+﻿#region Usings
+
+using System.Collections.Generic;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
 using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
+using XAMLEx;
+
+#endregion
 
 namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
@@ -14,30 +19,31 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
 
         public VkmThumblerBuilder(int value, string name, int posTop, int posLeft, int startupRotation, HistoryService historyService, InnerRegionPage page)
         {
-            this.posTop = posTop;
-            this.posLeft = posLeft;
-            this.rotationDegrees = startupRotation;
-            this.value = value;
-            this.name = name;
+            PosTop = posTop;
+            PosLeft = posLeft;
+            RotationDegrees = startupRotation;
+            Value = value;
+            Name = name;
             this.historyService = historyService;
-            this.page = page;
+            Page = page;
         }
-        
+
+        public VkmThumblerViewModel Please()
+        {
+            var imageOn = ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/ThumblerOn.png");
+            var imageOff = ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/ThumblerOff.png");
+            return new VkmThumblerViewModel(Value, Name, historyService, imageOff, imageOn, dependencyActions) {PosTop = PosTop, PosLeft = PosLeft, StartupRotation = RotationDegrees, Page = Page};
+        }
+
         public VkmThumblerBuilder WithDependencyAction(DependencyAction dependencyAction)
         {
             if (dependencyActions == null)
             {
                 dependencyActions = new List<DependencyAction>();
             }
+
             dependencyActions.Add(dependencyAction);
             return this;
-        }
-        
-        public VkmThumblerViewModel Please()
-        {
-            var imageOn = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/ThumblerOn.png");
-            var imageOff = XAMLEx.ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/ThumblerOff.png");
-            return new VkmThumblerViewModel(value, name, historyService, imageOff, imageOn, dependencyActions) {PosTop = posTop, PosLeft = posLeft, StartupRotation = rotationDegrees, Page = page};
         }
     }
 }

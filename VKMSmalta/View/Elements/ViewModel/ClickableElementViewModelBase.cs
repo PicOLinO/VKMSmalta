@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿#region Usings
+
 using DevExpress.Mvvm;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
-using VKMSmalta.View.ViewModel;
-using Action = VKMSmalta.Domain.Action;
+
+#endregion
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
@@ -12,24 +12,25 @@ namespace VKMSmalta.View.Elements.ViewModel
     {
         private readonly HistoryService historyService;
 
-        public DelegateCommand MouseLeftButtonUpCommand { get; set; }
-        public DelegateCommand MouseLeftButtonDownCommand { get; set; }
-
-        public ClickableElementViewModelBase(int value, string name, HistoryService historyService) : base(value, name)
+        protected ClickableElementViewModelBase(int value, string name, HistoryService historyService) : base(value, name)
         {
             this.historyService = historyService;
             CreateCommands();
+        }
+
+        public DelegateCommand MouseLeftButtonDownCommand { get; set; }
+
+        public DelegateCommand MouseLeftButtonUpCommand { get; set; }
+
+        private bool CanOnMouseLeftButtonUse()
+        {
+            return IsEnabled;
         }
 
         private void CreateCommands()
         {
             MouseLeftButtonUpCommand = new DelegateCommand(OnMouseLeftButtonUp, CanOnMouseLeftButtonUse);
             MouseLeftButtonDownCommand = new DelegateCommand(OnMouseLeftButtonDown, CanOnMouseLeftButtonUse);
-        }
-        
-        private bool CanOnMouseLeftButtonUse()
-        {
-            return IsEnabled;
         }
 
         protected virtual void OnMouseLeftButtonDown()
@@ -41,7 +42,7 @@ namespace VKMSmalta.View.Elements.ViewModel
             SendActionToHistoryService();
         }
 
-        protected virtual void SendActionToHistoryService()
+        private void SendActionToHistoryService()
         {
             var action = new Action(ActionName.Click, Name);
             historyService.Actions.Add(action);

@@ -1,23 +1,23 @@
-﻿using System;
+﻿#region Usings
+
 using System.Collections.Generic;
 using System.Linq;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
 using VKMSmalta.View.Elements.ViewModel.Interfaces;
 
+#endregion
+
 namespace VKMSmalta.View.Elements.ViewModel
 {
     public class VkmBigButtonViewModel : ClickableElementViewModelBase, IDependencyActivatorElement
     {
-        private readonly bool isInitialize;
         private readonly string imageOffSource;
         private readonly string imageOnSource;
+        private readonly bool isInitialize;
 
         private int dependencyActionsCounter;
-        private string dependencySecureElementName;
-
-        public bool IsDependencyActionsRunning { get; private set; }
-        public List<DependencyAction> DependencyActions { get; }
+        private readonly string dependencySecureElementName;
 
         public VkmBigButtonViewModel(int value, string name, HistoryService historyService, string imageOnSource, string imageOffSource, List<DependencyAction> dependencyActions = null, string dependencySecureElementName = null) : base(value, name, historyService)
         {
@@ -30,6 +30,18 @@ namespace VKMSmalta.View.Elements.ViewModel
             Value = value;
 
             isInitialize = false;
+        }
+
+        public bool IsDependencyActionsRunning { get; private set; }
+
+        private void DependencyActionsCounterCallback()
+        {
+            dependencyActionsCounter++;
+
+            if (DependencyActions.Count == dependencyActionsCounter)
+            {
+                IsDependencyActionsRunning = false;
+            }
         }
 
         protected override void OnMouseLeftButtonDown()
@@ -58,6 +70,8 @@ namespace VKMSmalta.View.Elements.ViewModel
             }
         }
 
+        #region IDependencyActivatorElement
+
         public void NotifyDependedElements()
         {
             if (!string.IsNullOrEmpty(dependencySecureElementName))
@@ -82,14 +96,8 @@ namespace VKMSmalta.View.Elements.ViewModel
             }
         }
 
-        private void DependencyActionsCounterCallback()
-        {
-            dependencyActionsCounter++;
+        public List<DependencyAction> DependencyActions { get; }
 
-            if (DependencyActions.Count == dependencyActionsCounter)
-            {
-                IsDependencyActionsRunning = false;
-            }
-        }
+        #endregion
     }
 }

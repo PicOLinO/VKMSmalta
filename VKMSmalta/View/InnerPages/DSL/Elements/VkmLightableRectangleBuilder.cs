@@ -1,6 +1,10 @@
-﻿using System.Windows.Media;
+﻿#region Usings
+
+using System.Windows.Media;
 using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
+
+#endregion
 
 namespace VKMSmalta.View.InnerPages.DSL.Elements
 {
@@ -11,24 +15,24 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
 
         public VkmLightableRectangleBuilder(int value, string name, string innerText, int posTop, int posLeft, int startupRotation, InnerRegionPage page)
         {
-            this.posTop = posTop;
-            this.posLeft = posLeft;
-            this.rotationDegrees = startupRotation;
-            this.value = value;
-            this.name = name;
-            this.page = page;
+            PosTop = posTop;
+            PosLeft = posLeft;
+            RotationDegrees = startupRotation;
+            Value = value;
+            Name = name;
+            Page = page;
             this.innerText = innerText;
+        }
+
+        public VkmLightableRectangleViewModel Please()
+        {
+            return new VkmLightableRectangleViewModel(Value, Name, innerText, backgroundColor) {PosLeft = PosLeft, PosTop = PosTop, Page = Page};
         }
 
         public VkmLightableRectangleBuilder WithBackgroundColor(Color color)
         {
             backgroundColor = color;
             return this;
-        }
-
-        public VkmLightableRectangleViewModel Please()
-        {
-            return new VkmLightableRectangleViewModel(value, name, innerText, backgroundColor) {PosLeft = posLeft, PosTop = posTop, Page = page};
         }
     }
 }

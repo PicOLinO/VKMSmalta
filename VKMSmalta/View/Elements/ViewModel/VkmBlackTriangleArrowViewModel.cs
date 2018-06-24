@@ -1,6 +1,10 @@
-﻿using System;
+﻿#region Usings
+
+using System;
 using System.Timers;
 using VKMSmalta.View.Elements.ViewModel.Interfaces;
+
+#endregion
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
@@ -11,17 +15,44 @@ namespace VKMSmalta.View.Elements.ViewModel
         private const int MaxValue = 10;
         private const int MinValue = 0;
 
+        private readonly bool isInitialize;
+
         private readonly int startupRotation;
         private int neededRotation;
 
-        private readonly bool isInitialize;
+        public VkmBlackTriangleArrowViewModel(int value, string name, int startupRotation) : base(value, name)
+        {
+            isInitialize = true;
 
-        public Timer Timer { get; }
+            Timer = new Timer(100);
+            Timer.Elapsed += TimerOnElapsed;
+
+            this.startupRotation = RotationDegrees = startupRotation;
+            Value = value;
+
+            isInitialize = false;
+        }
 
         public int RotationDegrees
         {
             get { return GetProperty(() => RotationDegrees); }
             set { SetProperty(() => RotationDegrees, value); }
+        }
+
+        private void TimerOnElapsed(object sender, ElapsedEventArgs elapsedEventArgs)
+        {
+            if (RotationDegrees < neededRotation)
+            {
+                RotationDegrees += 1;
+            }
+            else if (RotationDegrees > neededRotation)
+            {
+                RotationDegrees -= 1;
+            }
+            else
+            {
+                Timer.Stop();
+            }
         }
 
         protected override void OnValueChanged()
@@ -44,39 +75,20 @@ namespace VKMSmalta.View.Elements.ViewModel
             Timer.Start();
         }
 
-        public VkmBlackTriangleArrowViewModel(int value, string name, int startupRotation) : base(value, name)
-        {
-            isInitialize = true;
-
-            Timer = new Timer(100);
-            Timer.Elapsed += TimerOnElapsed;
-
-            this.startupRotation = RotationDegrees = startupRotation;
-            Value = value;
-
-            isInitialize = false;
-        }
-
-        private void TimerOnElapsed(object sender, ElapsedEventArgs elapsedEventArgs)
-        {
-            if (RotationDegrees < neededRotation)
-            {
-                RotationDegrees += 1;
-            }
-            else if (RotationDegrees > neededRotation)
-            {
-                RotationDegrees -= 1;
-            }
-            else
-            {
-                Timer.Stop();
-            }
-        }
+        #region IDisposable
 
         public void Dispose()
         {
             Timer.Elapsed -= TimerOnElapsed;
             Timer?.Dispose();
         }
+
+        #endregion
+
+        #region ITimingValueChangedElement
+
+        public Timer Timer { get; }
+
+        #endregion
     }
 }

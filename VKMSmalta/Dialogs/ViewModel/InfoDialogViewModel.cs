@@ -2,8 +2,5 @@
 {
     public class InfoDialogViewModel : DialogViewModelBase
     {
-        public InfoDialogViewModel()
-        {
-        }
     }
 }
