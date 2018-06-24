@@ -35,33 +35,15 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\VKMSmalta.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\Appccelerate.CommandLineParser.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\Appccelerate.CommandLineParser.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\Appccelerate.Fundamentals.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\Appccelerate.Fundamentals.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\DevExpress.Data.v17.2.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\DevExpress.Data.v17.2.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\DevExpress.Mvvm.v17.2.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\DevExpress.Mvvm.v17.2.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\DevExpress.Pdf.v17.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\DevExpress.Pdf.v17.2.Core.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\DevExpress.Printing.v17.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\DevExpress.Printing.v17.2.Core.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\DevExpress.Xpf.Controls.v17.2.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\DevExpress.Xpf.Controls.v17.2.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\DevExpress.Xpf.Core.v17.2.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\DevExpress.Xpf.Core.v17.2.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\DevExpress.Xpf.Themes.Office2016White.v17.2.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\Newtonsoft.Json.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\VKMSmalta.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\XAMLEx.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\ru\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\ja\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\es\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\Source\VKMSmalta\VKMSmalta\bin\Release\de\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+Source: "bin\Release\Appccelerate.CommandLineParser.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\Release\Appccelerate.Fundamentals.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\Release\DevExpress.Mvvm.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\Release\DevExpress.Mvvm.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\Release\VKMSmalta.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\Release\VKMSmalta.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\Release\XAMLEx.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\Smalta Simulator"; Filename: "{app}\VKMSmalta.exe"
