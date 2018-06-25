@@ -22,8 +22,8 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
 
         public VkmLampViewModel Please()
         {
-            var imageOn = ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/LampOn.png");
-            var imageOff = ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/LampOff.png");
+            var imageOn = XamlResource.Resolve("View/Images/LampOn.png");
+            var imageOff = XamlResource.Resolve("View/Images/LampOff.png");
             return new VkmLampViewModel(Value, Name, imageOn, imageOff) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
         }
     }

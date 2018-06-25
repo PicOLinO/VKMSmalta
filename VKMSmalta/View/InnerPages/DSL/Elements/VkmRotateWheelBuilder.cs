@@ -28,7 +28,7 @@ namespace VKMSmalta.View.InnerPages.DSL.Elements
 
         public VkmRotateWheelViewModel Please()
         {
-            var image = ResourcesHelper.GetDefaultResource(DependencyContainer.AssemblyName, "View/Images/Wheel.png");
+            var image = XamlResource.Resolve("View/Images/Wheel.png");
             return new VkmRotateWheelViewModel(Value, Name, RotationDegrees, rotationStepDegrees, maxRotationSteps, historyService, image) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
         }
 
