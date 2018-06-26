@@ -9,9 +9,9 @@ namespace VKMSmalta.View.Hints.ViewModel
 {
     public class HintViewModelBase : ViewModelBase
     {
-        protected readonly HintService HintService;
+        protected readonly IHintService HintService;
 
-        public HintViewModelBase(string hintText, HintService hintService)
+        public HintViewModelBase(string hintText, IHintService hintService)
         {
             HintService = hintService;
             HintText = hintText;

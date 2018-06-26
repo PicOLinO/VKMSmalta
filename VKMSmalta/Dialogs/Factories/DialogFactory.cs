@@ -9,7 +9,7 @@ using DevExpress.Mvvm.UI;
 
 namespace VKMSmalta.Dialogs.Factories
 {
-    public class DialogFactory
+    public class DialogFactory : IDialogFactory
     {
         private static readonly IMessageBoxService Service = new MessageBoxService();
 

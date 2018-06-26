@@ -12,7 +12,6 @@ namespace VKMSmalta
         public MainPage()
         {
             InitializeComponent();
-            DataContext = new MainPageViewModel();
         }
 
         private void ExitButton_OnClick(object sender, RoutedEventArgs e)

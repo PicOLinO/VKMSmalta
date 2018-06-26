@@ -51,9 +51,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fakes\ServicesAndFactories\DialogFactoryStub.cs" />
+    <Compile Include="Fakes\ServicesAndFactories\HintServiceStub.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\MainPageViewModelTests\MainPageViewModelTestBase.cs" />
+    <Compile Include="ViewModels\MainPageViewModelTests\WhenInitialize.cs" />
     <Compile Include="ViewModels\MainWindowViewModelTests\MainWindowViewModelTestBase.cs" />
   </ItemGroup>
   <ItemGroup>

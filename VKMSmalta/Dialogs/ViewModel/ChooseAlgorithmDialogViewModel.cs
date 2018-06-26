@@ -11,7 +11,7 @@ namespace VKMSmalta.Dialogs.ViewModel
 {
     public class ChooseAlgorithmDialogViewModel : DialogViewModelBase
     {
-        public ChooseAlgorithmDialogViewModel(HintService hintService)
+        public ChooseAlgorithmDialogViewModel(IHintService hintService)
         {
             var algorithmsFactory = new AlgorithmsFactory(hintService);
 

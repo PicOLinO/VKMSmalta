@@ -10,9 +10,9 @@ namespace VKMSmalta.Dialogs.Factories
 {
     public class ActionsFactory
     {
-        private readonly HintService hintService;
+        private readonly IHintService hintService;
 
-        public ActionsFactory(HintService hintService)
+        public ActionsFactory(IHintService hintService)
         {
             this.hintService = hintService;
         }

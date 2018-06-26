@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using VKMSmalta.Dialogs.Factories;
 using VKMSmalta.Services.Navigate;
 using VKMSmalta.View.Elements.ViewModel;
 using VKMSmalta.View.ViewModel;
@@ -14,17 +15,18 @@ namespace VKMSmalta.Services
 {
     public class DependencyContainer
     {
-        public const string AssemblyName = nameof(VKMSmalta);
         private readonly AppGlobal appGlobal;
         private DevicePageViewModel devicePageVm;
         private MainPageViewModel mainPageVm;
-
         private MainWindowViewModel mainWindowVm;
+        private readonly DialogFactory dialogFactory;
 
         private DependencyContainer(Config config)
         {
             Config = config;
+
             appGlobal = new AppGlobal();
+            dialogFactory = new DialogFactory();
         }
 
         public Config Config { get; }
@@ -34,6 +36,11 @@ namespace VKMSmalta.Services
         public static AppGlobal GetApp()
         {
             return Instance?.appGlobal;
+        }
+
+        public static DialogFactory GetDialogFactory()
+        {
+            return Instance?.dialogFactory;
         }
 
         public static void InitializeService(Config config)

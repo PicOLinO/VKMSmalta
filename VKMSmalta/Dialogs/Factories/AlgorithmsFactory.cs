@@ -11,9 +11,9 @@ namespace VKMSmalta.Dialogs.Factories
     public class AlgorithmsFactory
     {
         private readonly ActionsFactory actionsFactory;
-        private readonly HintService hintService;
+        private readonly IHintService hintService;
 
-        public AlgorithmsFactory(HintService hintService)
+        public AlgorithmsFactory(IHintService hintService)
         {
             this.hintService = hintService;
             actionsFactory = new ActionsFactory(hintService);

@@ -25,10 +25,10 @@ namespace VKMSmalta.View.ViewModel
     {
         public ObservableCollection<InnerPageViewModelBase> Pages;
         private readonly ApplicationMode applicationMode;
-        private readonly HintService hintService;
+        private readonly IHintService hintService;
         private readonly HistoryService historyService;
 
-        public DevicePageViewModel(ApplicationMode appMode, Algorithm algorithm, HintService hintService, HistoryService historyService)
+        public DevicePageViewModel(ApplicationMode appMode, Algorithm algorithm, IHintService hintService, HistoryService historyService)
         {
             applicationMode = appMode;
             CurrentAlgorithm = algorithm;

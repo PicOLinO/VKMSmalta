@@ -12,7 +12,7 @@ using Action = System.Action;
 
 namespace VKMSmalta.Services
 {
-    public class HintService
+    public class HintService : IHintService
     {
         private Algorithm Algorithm { get; set; }
         private Action Callback { get; set; }

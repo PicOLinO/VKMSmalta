@@ -99,6 +99,7 @@
     <Compile Include="Dialogs\Factories\ActionsFactory.cs" />
     <Compile Include="Dialogs\Factories\AlgorithmsFactory.cs" />
     <Compile Include="Dialogs\Factories\DialogFactory.cs" />
+    <Compile Include="Dialogs\Factories\IDialogFactory.cs" />
     <Compile Include="Dialogs\InfoDialog.xaml.cs">
       <DependentUpon>InfoDialog.xaml</DependentUpon>
     </Compile>
@@ -140,6 +141,7 @@
     <Compile Include="Services\DependencyContainer.cs" />
     <Compile Include="Services\HintService.cs" />
     <Compile Include="Services\HistoryService.cs" />
+    <Compile Include="Services\IHintService.cs" />
     <Compile Include="Services\Navigate\Direction.cs" />
     <Compile Include="Services\Navigate\RegionPages.cs" />
     <Compile Include="Services\Navigate\Regions.cs" />
@@ -350,5 +352,6 @@
   <ItemGroup>
     <Content Include="InnoSetupScript.iss" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

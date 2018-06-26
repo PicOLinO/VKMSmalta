@@ -16,13 +16,21 @@ namespace VKMSmalta.ViewModel
 {
     public class MainPageViewModel : ViewModelBase
     {
-        private readonly DialogFactory dialogFactory;
+        private readonly IDialogFactory dialogFactory;
+        private readonly IHintService hintService;
 
-        public MainPageViewModel()
+        public MainPageViewModel(IHintService hintService, IDialogFactory dialogFactory)
+        {
+            this.hintService = hintService;
+            this.dialogFactory = dialogFactory;
+
+            Initialize();
+        }
+
+        public void Initialize()
         {
             DependencyContainer.Instance.ReSetMainPageViewModel(this);
             CreateCommands();
-            dialogFactory = new DialogFactory();
             IsAuthorized = App.IsAuthorized;
             if (App.CurrentUser != null)
             {
@@ -50,7 +58,7 @@ namespace VKMSmalta.ViewModel
         public DelegateCommand ShowInfoCommand { get; set; }
         private AppGlobal App => DependencyContainer.GetApp();
 
-        private Algorithm ChooseAlgorithm(HintService hintService)
+        private Algorithm ChooseAlgorithm()
         {
             var chooseDialog = new ChooseAlgorithmDialog(new ChooseAlgorithmDialogViewModel(hintService));
             chooseDialog.ShowDialog();
@@ -68,8 +76,7 @@ namespace VKMSmalta.ViewModel
 
         private void OnGoExamine()
         {
-            var hintService = new HintService();
-            var algorithm = ChooseAlgorithm(hintService);
+            var algorithm = ChooseAlgorithm();
             if (algorithm != null)
             {
                 DependencyContainer.Instance.SetLoadingSplash(true);
@@ -85,8 +92,7 @@ namespace VKMSmalta.ViewModel
 
         private void OnGoTraining()
         {
-            var hintService = new HintService();
-            var algorithm = ChooseAlgorithm(hintService);
+            var algorithm = ChooseAlgorithm();
             if (algorithm != null)
             {
                 DependencyContainer.Instance.SetLoadingSplash(true);
