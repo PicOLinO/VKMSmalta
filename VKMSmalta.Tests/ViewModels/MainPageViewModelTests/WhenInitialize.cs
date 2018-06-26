@@ -18,7 +18,7 @@ namespace VKMSmalta.Tests.ViewModels.MainPageViewModelTests
         }
 
         [Test]
-        public void WhenUserIsAuthorizedAndHaveCurrentUserThenViewModelKnowsAboutIt()
+        public void CurrentUserFullNameTakesFromApp()
         {
             var userFullName = "Тестер Тест Тестович";
             App.CurrentUser = new Student
@@ -33,7 +33,7 @@ namespace VKMSmalta.Tests.ViewModels.MainPageViewModelTests
         }
 
         [Test]
-        public void WhenUserIsAuthorizedThenViewModelKnowsAboutIt()
+        public void IsAuthorizedPropertyTakesFromApp()
         {
             App.IsAuthorized = true;
 
