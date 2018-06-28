@@ -29,7 +29,6 @@ namespace VKMSmalta.ViewModel
 
         public void Initialize()
         {
-            DependencyContainer.Instance.ReSetMainPageViewModel(this);
             CreateCommands();
             UpdateLoginInfo();
         }
@@ -85,6 +84,7 @@ namespace VKMSmalta.ViewModel
                 //TODO: Loading splash on
 
                 var vm = new DevicePageViewModel(ApplicationMode.Examine, algorithm, hintService, new HistoryService());
+                CurrentDevicePageService.Initialize(vm);
 
                 ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
                 ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
@@ -101,6 +101,8 @@ namespace VKMSmalta.ViewModel
                 //TODO: Loading splash on
 
                 var vm = new DevicePageViewModel(ApplicationMode.Training, algorithm, hintService, new HistoryService());
+                CurrentDevicePageService.Initialize(vm);
+                vm.LaunchTraining();
 
                 ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
                 ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.Device);

@@ -34,7 +34,7 @@ namespace VKMSmalta.Domain
 
         private ElementViewModelBase FindElementByName(string elementName)
         {
-            return DependencyContainer.Instance.GetAllElementsOfCurrentDevicePage().Single(e => e.Name == elementName);
+            return CurrentDevicePageService.Instance.GetAllElementsOfCurrentDevicePage().Single(e => e.Name == elementName);
         }
 
         public async Task UpdateDependencyElementValue(int value, System.Action dependencyActionsCounterCallback = null)

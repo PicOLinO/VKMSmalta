@@ -15,7 +15,7 @@ namespace VKMSmalta.Tests
         protected virtual void Setup()
         {
             var config = new Config("adminUriBase");
-            DependencyContainer.InitializeService(config);
+            DependencyContainer.Initialize(config);
             App = DependencyContainer.GetApp();
             DialogFactory = new DialogFactoryStub();
             HintService = new HintServiceStub();

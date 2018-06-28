@@ -48,7 +48,7 @@ namespace VKMSmalta.Services
 
             var currentHintedElement = Elements.Single(e => e.Name == CurrentAction?.ParentElementName);
 
-            DependencyContainer.Instance.ManageNavigateButtonHintForElement(currentHintedElement, currentHintedElement.Page == toPage);
+            CurrentDevicePageService.Instance.ManageNavigateButtonHintForElement(currentHintedElement, currentHintedElement.Page == toPage);
         }
 
         public void Reset()
@@ -77,10 +77,10 @@ namespace VKMSmalta.Services
 
             var element = Elements.Single(e => e.Name == action?.ParentElementName);
 
-            var page = DependencyContainer.Instance.GetCurrentInnerPage();
+            var page = CurrentDevicePageService.Instance.GetCurrentInnerPageKey();
             if (page != element.Page)
             {
-                DependencyContainer.Instance.ManageNavigateButtonHintForElement(element);
+                CurrentDevicePageService.Instance.ManageNavigateButtonHintForElement(element);
             }
 
             element.IsEnabled = true;

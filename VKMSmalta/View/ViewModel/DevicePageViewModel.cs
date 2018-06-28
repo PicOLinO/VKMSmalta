@@ -34,16 +34,10 @@ namespace VKMSmalta.View.ViewModel
             CurrentAlgorithm = algorithm;
             this.hintService = hintService;
             this.historyService = historyService;
-
-            DependencyContainer.Instance.ReSetDevicePageViewModel(this);
+            
             CreateCommands();
 
             InitializeInnerPages();
-
-            if (applicationMode == ApplicationMode.Training)
-            {
-                GoTraining(CurrentAlgorithm);
-            }
         }
 
         public AsyncCommand CheckResultCommand { get; set; }
@@ -141,6 +135,11 @@ namespace VKMSmalta.View.ViewModel
         private void ExitInMainMenu()
         {
             ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.MainMenu);
+        }
+
+        public void LaunchTraining()
+        {
+            GoTraining(CurrentAlgorithm);
         }
 
         private void GoTraining(Algorithm algorithm)

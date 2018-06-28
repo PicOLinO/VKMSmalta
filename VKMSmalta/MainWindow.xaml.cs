@@ -44,7 +44,6 @@ namespace VKMSmalta
 
         private void InitializeVmInDependencyContainer(MainWindowViewModel vm)
         {
-            DependencyContainer.Instance.ReSetMainWindowViewModel(vm);
         }
     }
 }
