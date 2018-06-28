@@ -60,9 +60,7 @@ namespace VKMSmalta.ViewModel
 
         private Algorithm ChooseAlgorithm()
         {
-            var chooseDialog = new ChooseAlgorithmDialog(new ChooseAlgorithmDialogViewModel(hintService));
-            chooseDialog.ShowDialog();
-            return chooseDialog.SelectedAlgorithm;
+            return dialogFactory.ShowChooseAlgorithmDialog(hintService);
         }
 
         private void CreateCommands()

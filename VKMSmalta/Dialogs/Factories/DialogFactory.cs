@@ -4,6 +4,9 @@ using System;
 using System.Windows;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.UI;
+using VKMSmalta.Dialogs.ViewModel;
+using VKMSmalta.Domain;
+using VKMSmalta.Services;
 
 #endregion
 
@@ -63,6 +66,14 @@ namespace VKMSmalta.Dialogs.Factories
             var registerDialog = new RegisterDialog();
             var result = registerDialog.ShowDialog();
             return result.HasValue && result.Value;
+        }
+
+        public Algorithm ShowChooseAlgorithmDialog(IHintService hintService)
+        {
+            var vm = new ChooseAlgorithmDialogViewModel(hintService);
+            var dialog = new ChooseAlgorithmDialog(vm);
+            dialog.ShowDialog();
+            return dialog.SelectedAlgorithm;
         }
     }
 }

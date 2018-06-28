@@ -1,4 +1,8 @@
-﻿using VKMSmalta.Dialogs.Factories;
+﻿using VKMSmalta.Dialogs;
+using VKMSmalta.Dialogs.Factories;
+using VKMSmalta.Dialogs.ViewModel;
+using VKMSmalta.Domain;
+using VKMSmalta.Services;
 
 namespace VKMSmalta.Tests.Fakes.ServicesAndFactories
 {
@@ -23,6 +27,11 @@ namespace VKMSmalta.Tests.Fakes.ServicesAndFactories
         {
             IsRegisterDialogShown = true;
             return true;
+        }
+
+        public Algorithm ShowChooseAlgorithmDialog(IHintService hintService)
+        {
+            return new Algorithm(null, null);
         }
     }
 }
