@@ -112,10 +112,5 @@ namespace VKMSmalta.Services
         {
             mainWindowVm = vm;
         }
-
-        public void SetLoadingSplash(bool isLoading)
-        {
-            mainWindowVm.IsLoadingSplashVisible = isLoading;
-        }
     }
 }

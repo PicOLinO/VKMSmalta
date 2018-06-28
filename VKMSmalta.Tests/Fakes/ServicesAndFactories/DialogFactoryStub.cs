@@ -1,8 +1,10 @@
-﻿using VKMSmalta.Dialogs;
+﻿#region Usings
+
 using VKMSmalta.Dialogs.Factories;
-using VKMSmalta.Dialogs.ViewModel;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
+
+#endregion
 
 namespace VKMSmalta.Tests.Fakes.ServicesAndFactories
 {
@@ -11,6 +13,15 @@ namespace VKMSmalta.Tests.Fakes.ServicesAndFactories
         public bool IsInfoDialogShown { get; private set; }
         public bool IsLoginDialogShown { get; private set; }
         public bool IsRegisterDialogShown { get; private set; }
+        public bool IsChooseAlgorithmDialogShown { get; private set; }
+
+        #region IDialogFactory
+
+        public Algorithm ShowChooseAlgorithmDialog(IHintService hintService)
+        {
+            IsChooseAlgorithmDialogShown = true;
+            return new Algorithm(null, null);
+        }
 
         public void ShowInfoDialog()
         {
@@ -29,9 +40,6 @@ namespace VKMSmalta.Tests.Fakes.ServicesAndFactories
             return true;
         }
 
-        public Algorithm ShowChooseAlgorithmDialog(IHintService hintService)
-        {
-            return new Algorithm(null, null);
-        }
+        #endregion
     }
 }

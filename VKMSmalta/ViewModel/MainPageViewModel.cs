@@ -31,6 +31,11 @@ namespace VKMSmalta.ViewModel
         {
             DependencyContainer.Instance.ReSetMainPageViewModel(this);
             CreateCommands();
+            UpdateLoginInfo();
+        }
+
+        private void UpdateLoginInfo()
+        {
             IsAuthorized = App.IsAuthorized;
             if (App.CurrentUser != null)
             {
@@ -77,14 +82,14 @@ namespace VKMSmalta.ViewModel
             var algorithm = ChooseAlgorithm();
             if (algorithm != null)
             {
-                DependencyContainer.Instance.SetLoadingSplash(true);
+                //TODO: Loading splash on
 
                 var vm = new DevicePageViewModel(ApplicationMode.Examine, algorithm, hintService, new HistoryService());
 
                 ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
                 ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
 
-                DependencyContainer.Instance.SetLoadingSplash(false);
+                //TODO: Loading splash off
             }
         }
 
@@ -93,25 +98,21 @@ namespace VKMSmalta.ViewModel
             var algorithm = ChooseAlgorithm();
             if (algorithm != null)
             {
-                DependencyContainer.Instance.SetLoadingSplash(true);
+                //TODO: Loading splash on
 
                 var vm = new DevicePageViewModel(ApplicationMode.Training, algorithm, hintService, new HistoryService());
 
                 ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
                 ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
 
-                DependencyContainer.Instance.SetLoadingSplash(false);
+                //TODO: Loading splash off
             }
         }
 
         private void OnLogin()
         {
             dialogFactory.ShowLoginDialog();
-            IsAuthorized = App.IsAuthorized;
-            if (App.CurrentUser != null)
-            {
-                CurrentUserName = App.CurrentUser.FullName;
-            }
+            UpdateLoginInfo();
         }
 
         private void OnRegister()
