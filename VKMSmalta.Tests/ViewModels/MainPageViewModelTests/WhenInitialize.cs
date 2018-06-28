@@ -33,7 +33,7 @@ namespace VKMSmalta.Tests.ViewModels.MainPageViewModelTests
         }
 
         [Test]
-        public void IsAuthorizedPropertyTakesFromApp()
+        public void LoginInfoIsUpdated()
         {
             App.IsAuthorized = true;
 
