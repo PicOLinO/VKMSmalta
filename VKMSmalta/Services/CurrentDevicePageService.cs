@@ -36,7 +36,7 @@ namespace VKMSmalta.Services
             return devicePageViewModel.CurrentPageKey;
         }
 
-        public void ManageNavigateButtonHintForElement(InnerRegionPage elementPage, bool hideAll = false)
+        public void ShowGoNextPageHint(InnerRegionPage elementPage, bool hideAll = false)
         {
             if (hideAll)
             {
