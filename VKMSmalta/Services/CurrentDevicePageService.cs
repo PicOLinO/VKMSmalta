@@ -36,7 +36,7 @@ namespace VKMSmalta.Services
             return devicePageViewModel.CurrentPageKey;
         }
 
-        public void ShowGoNextPageHint(InnerRegionPage elementPage, bool hideAll = false)
+        public void ShowGoNextPageHint(InnerRegionPage toPage, bool hideAll = false)
         {
             if (hideAll)
             {
@@ -46,7 +46,7 @@ namespace VKMSmalta.Services
             }
 
             var currentPageIndex = devicePageViewModel.Pages.IndexOf(devicePageViewModel.Pages.Single(p => p.PageKey == GetCurrentInnerPageKey()));
-            var nextPageIndex = devicePageViewModel.Pages.IndexOf(devicePageViewModel.Pages.Single(p => p.PageKey == elementPage));
+            var nextPageIndex = devicePageViewModel.Pages.IndexOf(devicePageViewModel.Pages.Single(p => p.PageKey == toPage));
 
             var direction = currentPageIndex > nextPageIndex
                                 ? Direction.Previous
