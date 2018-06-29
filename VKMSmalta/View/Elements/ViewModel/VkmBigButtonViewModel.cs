@@ -10,7 +10,7 @@ using VKMSmalta.View.Elements.ViewModel.Interfaces;
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
-    public class VkmBigButtonViewModel : ClickableElementViewModelBase, IDependencyActivatorElement
+    public class VkmBigButtonViewModel : ClickableDependencyActivatorElementBase
     {
         private readonly string imageOffSource;
         private readonly string imageOnSource;
@@ -19,14 +19,13 @@ namespace VKMSmalta.View.Elements.ViewModel
         private int dependencyActionsCounter;
         private readonly string dependencySecureElementName;
 
-        public VkmBigButtonViewModel(int value, string name, HistoryService historyService, string imageOnSource, string imageOffSource, List<DependencyAction> dependencyActions = null, string dependencySecureElementName = null) : base(value, name, historyService)
+        public VkmBigButtonViewModel(int value, string name, HistoryService historyService, string imageOnSource, string imageOffSource, List<DependencyAction> dependencyActions = null, string dependencySecureElementName = null) : base(value, name, historyService, dependencyActions)
         {
             isInitialize = true;
 
             this.imageOffSource = ImageSource = imageOffSource;
             this.imageOnSource = imageOnSource;
             this.dependencySecureElementName = dependencySecureElementName;
-            DependencyActions = dependencyActions;
             Value = value;
 
             isInitialize = false;
@@ -72,7 +71,7 @@ namespace VKMSmalta.View.Elements.ViewModel
 
         #region IDependencyActivatorElement
 
-        public void NotifyDependedElements()
+        public override void NotifyDependedElements()
         {
             if (!string.IsNullOrEmpty(dependencySecureElementName))
             {
@@ -95,8 +94,6 @@ namespace VKMSmalta.View.Elements.ViewModel
                 dependencyAction.UpdateDependencyElementValue(Value, DependencyActionsCounterCallback);
             }
         }
-
-        public List<DependencyAction> DependencyActions { get; }
 
         #endregion
     }

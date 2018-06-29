@@ -244,6 +244,14 @@ namespace VKMSmalta.View.ViewModel
 
         private void Reset()
         {
+            foreach (var element in UnionedElements)
+            {
+                if (element is IDependencyActivatorElement activatorElement)
+                {
+                    activatorElement.CancelDependencyActionsExecution();
+                }
+            }
+
             //Remove Views Injections
             foreach (var page in Pages)
             {

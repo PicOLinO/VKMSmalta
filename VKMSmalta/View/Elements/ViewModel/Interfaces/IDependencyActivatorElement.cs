@@ -11,5 +11,6 @@ namespace VKMSmalta.View.Elements.ViewModel.Interfaces
     {
         List<DependencyAction> DependencyActions { get; }
         void NotifyDependedElements();
+        void CancelDependencyActionsExecution();
     }
 }

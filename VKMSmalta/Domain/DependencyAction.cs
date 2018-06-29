@@ -37,11 +37,17 @@ namespace VKMSmalta.Domain
             return CurrentDevicePageService.Instance.GetAllElementsOfCurrentDevicePage().Single(e => e.Name == elementName);
         }
 
+        public bool CancellationToken { private get; set; }
+
         public async Task UpdateDependencyElementValue(int value, System.Action dependencyActionsCounterCallback = null)
         {
             if (DelayedTimeInSeconds > 0)
             {
                 await Task.Delay(TimeSpan.FromSeconds(DelayedTimeInSeconds));
+                if (CancellationToken)
+                {
+                    return;
+                }
             }
 
             if (DependencyElement == null)

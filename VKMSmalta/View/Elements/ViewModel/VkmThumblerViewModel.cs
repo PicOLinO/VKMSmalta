@@ -10,7 +10,7 @@ using VKMSmalta.View.Elements.ViewModel.Interfaces;
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
-    public sealed class VkmThumblerViewModel : ClickableElementViewModelBase, IDependencyActivatorElement
+    public sealed class VkmThumblerViewModel : ClickableDependencyActivatorElementBase
     {
         private readonly string imageOffSource;
         private readonly string imageOnSource;
@@ -21,13 +21,12 @@ namespace VKMSmalta.View.Elements.ViewModel
                                     HistoryService historyService,
                                     string imageOffSource,
                                     string imageOnSource,
-                                    List<DependencyAction> dependencyActions = null) : base(value, name, historyService)
+                                    List<DependencyAction> dependencyActions = null) : base(value, name, historyService, dependencyActions)
         {
             isInitialize = true;
 
             this.imageOffSource = imageOffSource;
             this.imageOnSource = imageOnSource;
-            DependencyActions = dependencyActions;
             Value = value;
 
             isInitialize = false;
@@ -72,15 +71,13 @@ namespace VKMSmalta.View.Elements.ViewModel
 
         #region IDependencyActivatorElement
 
-        public void NotifyDependedElements()
+        public override void NotifyDependedElements()
         {
             foreach (var dependencyAction in DependencyActions)
             {
                 dependencyAction.UpdateDependencyElementValue(Value);
             }
         }
-
-        public List<DependencyAction> DependencyActions { get; }
 
         #endregion
     }
