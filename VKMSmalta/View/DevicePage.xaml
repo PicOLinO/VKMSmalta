@@ -39,16 +39,14 @@
             <Popup IsOpen="{Binding Path=IsGoPreviousHintOpen}" StaysOpen="True"
                    PlacementTarget="{Binding ElementName=PART_GoPrevious}"
                    Placement="Top" PopupAnimation="Fade"
-                   HorizontalOffset="120"
-                   VerticalOffset="-10"
-                   AllowsTransparency="True">
+                   AllowsTransparency="True"
+                   Style="{StaticResource CenteredPopup}">
                 <hints:NavigateButtonHint />
             </Popup>
             <Popup IsOpen="{Binding Path=IsGoForwardHintOpen}" StaysOpen="True"
                    PlacementTarget="{Binding ElementName=PART_GoNext}"
                    Placement="Top" PopupAnimation="Fade"
-                   HorizontalOffset="120"
-                   VerticalOffset="-10"
+                   Style="{StaticResource CenteredPopup}"
                    AllowsTransparency="True">
                 <hints:NavigateButtonHint />
             </Popup>

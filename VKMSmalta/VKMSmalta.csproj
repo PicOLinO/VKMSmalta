@@ -88,6 +88,7 @@
     <Compile Include="Config.cs" />
     <Compile Include="Converters\BaseConverter.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\CenterPopupConverter.cs" />
     <Compile Include="Converters\PageKeyToPageNameConverter.cs" />
     <Compile Include="Converters\ValueToStringValueConverter.cs" />
     <Compile Include="Dialogs\CheckResultsDialog.xaml.cs">
@@ -256,6 +257,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Styles\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Hints.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
