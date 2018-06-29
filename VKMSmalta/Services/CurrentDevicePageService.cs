@@ -36,7 +36,7 @@ namespace VKMSmalta.Services
             return devicePageViewModel.CurrentPageKey;
         }
 
-        public void ManageNavigateButtonHintForElement(ElementViewModelBase element, bool hideAll = false)
+        public void ManageNavigateButtonHintForElement(InnerRegionPage elementPage, bool hideAll = false)
         {
             if (hideAll)
             {
@@ -46,7 +46,7 @@ namespace VKMSmalta.Services
             }
 
             var currentPageIndex = devicePageViewModel.Pages.IndexOf(devicePageViewModel.Pages.Single(p => p.PageKey == GetCurrentInnerPageKey()));
-            var nextPageIndex = devicePageViewModel.Pages.IndexOf(devicePageViewModel.Pages.Single(p => p.PageKey == element.Page));
+            var nextPageIndex = devicePageViewModel.Pages.IndexOf(devicePageViewModel.Pages.Single(p => p.PageKey == elementPage));
 
             var direction = currentPageIndex > nextPageIndex
                                 ? Direction.Previous
