@@ -1,7 +1,11 @@
-﻿using System.Collections.Generic;
+﻿#region Usings
+
+using System.Collections.Generic;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
 using VKMSmalta.View.Elements.ViewModel.Interfaces;
+
+#endregion
 
 namespace VKMSmalta.View.Elements.ViewModel
 {
@@ -12,10 +16,7 @@ namespace VKMSmalta.View.Elements.ViewModel
             DependencyActions = dependencyActions;
         }
 
-        public List<DependencyAction> DependencyActions { get; }
-        public virtual void NotifyDependedElements()
-        {
-        }
+        #region IDependencyActivatorElement
 
         public void CancelDependencyActionsExecution()
         {
@@ -29,5 +30,13 @@ namespace VKMSmalta.View.Elements.ViewModel
                 dependencyAction.CancellationToken = true;
             }
         }
+
+        public virtual void NotifyDependedElements()
+        {
+        }
+
+        public List<DependencyAction> DependencyActions { get; }
+
+        #endregion
     }
 }
