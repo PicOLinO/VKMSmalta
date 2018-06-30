@@ -1,6 +1,7 @@
 ﻿#region Usings
 
 using VKMSmalta.Dialogs.ViewModel;
+using VKMSmalta.Domain;
 
 #endregion
 
@@ -11,11 +12,13 @@ namespace VKMSmalta.Dialogs
     /// </summary>
     public partial class TrainingCompleteDialog
     {
-        public TrainingCompleteDialog()
+        public TrainingCompleteDialog(TrainingCompleteDialogViewModel vm)
         {
             InitializeComponent();
-            DataContext = new DialogViewModelBase();
+            DataContext = vm;
             Initialize();
         }
+
+        public bool GoExamine => (DataContext as TrainingCompleteDialogViewModel).IsGoExamine;
     }
 }

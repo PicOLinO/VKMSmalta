@@ -8,11 +8,13 @@
                   mc:Ignorable="d"
                   Title="Обучение завершено"
                   Style="{DynamicResource DialogStyle}"
-                  d:DesignHeight="127" d:DesignWidth="240"
-                  d:DataContext="{d:DesignInstance Type=viewModel:DialogViewModelBase}">
+                  d:DesignHeight="180" d:DesignWidth="240"
+                  d:DataContext="{d:DesignInstance Type=viewModel:TrainingCompleteDialogViewModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Style="{DynamicResource DialogOuterSeparatingRow}" />
+            <RowDefinition />
+            <RowDefinition Style="{DynamicResource DialogInnerSeparatingRow}" />
             <RowDefinition />
             <RowDefinition Style="{DynamicResource DialogInnerSeparatingRow}" />
             <RowDefinition />
@@ -23,8 +25,9 @@
             <ColumnDefinition />
             <ColumnDefinition Style="{DynamicResource DialogOuterSeparatingColumn}" />
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="Обучение алгоритму завершено" />
-        <Button Grid.Row="3" Grid.Column="1" Style="{DynamicResource MainButton}" Content="ОК"
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Обучение алгоритму завершено" HorizontalAlignment="Center" />
+        <Button Grid.Row="3" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Пройти экзамен" Command="{Binding Path=GoExamineCommand}"/>
+        <Button Grid.Row="5" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Выход"
                 Command="{Binding Path=CloseCommand}" IsDefault="True" />
     </Grid>
 </local:DialogBase>

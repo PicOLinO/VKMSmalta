@@ -83,7 +83,7 @@ namespace VKMSmalta.ViewModel
             {
                 //TODO: Loading splash on
 
-                var vm = new DevicePageViewModel(ApplicationMode.Examine, algorithm, hintService, new HistoryService());
+                var vm = new DevicePageViewModel(ApplicationMode.Examine, algorithm, hintService, new HistoryService(), dialogFactory);
                 CurrentDevicePageService.Initialize(vm);
 
                 ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
@@ -100,7 +100,7 @@ namespace VKMSmalta.ViewModel
             {
                 //TODO: Loading splash on
 
-                var vm = new DevicePageViewModel(ApplicationMode.Training, algorithm, hintService, new HistoryService());
+                var vm = new DevicePageViewModel(ApplicationMode.Training, algorithm, hintService, new HistoryService(), dialogFactory);
                 CurrentDevicePageService.Initialize(vm);
                 vm.LaunchTraining();
 

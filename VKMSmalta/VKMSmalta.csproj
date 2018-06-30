@@ -122,6 +122,7 @@
     <Compile Include="Dialogs\ViewModel\LoginDialogViewModel.cs" />
     <Compile Include="Dialogs\ViewModel\RegisterDialogViewModel.cs" />
     <Compile Include="Dialogs\ViewModel\SecureStringExtentions.cs" />
+    <Compile Include="Dialogs\ViewModel\TrainingCompleteDialogViewModel.cs" />
     <Compile Include="Domain\Action.cs" />
     <Compile Include="Domain\ActionName.cs" />
     <Compile Include="Domain\Algorithm.cs" />

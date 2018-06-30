@@ -9,5 +9,6 @@ namespace VKMSmalta.Dialogs.Factories
         bool ShowLoginDialog();
         bool ShowRegisterDialog();
         Algorithm ShowChooseAlgorithmDialog(IHintService vm);
+        bool ShowTrainingCompleteDialog();
     }
 }

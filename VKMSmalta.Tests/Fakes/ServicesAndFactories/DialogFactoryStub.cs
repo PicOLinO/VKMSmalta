@@ -23,6 +23,11 @@ namespace VKMSmalta.Tests.Fakes.ServicesAndFactories
             return new Algorithm(null, null);
         }
 
+        public bool ShowTrainingCompleteDialog()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void ShowInfoDialog()
         {
             IsInfoDialogShown = true;

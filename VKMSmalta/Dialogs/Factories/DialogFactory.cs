@@ -75,5 +75,13 @@ namespace VKMSmalta.Dialogs.Factories
             dialog.ShowDialog();
             return dialog.SelectedAlgorithm;
         }
+
+        public bool ShowTrainingCompleteDialog()
+        {
+            var vm = new TrainingCompleteDialogViewModel();
+            var dialog = new TrainingCompleteDialog(vm);
+            dialog.ShowDialog();
+            return dialog.GoExamine;
+        }
     }
 }

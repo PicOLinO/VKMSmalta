@@ -15,6 +15,7 @@ namespace VKMSmalta.Dialogs
         protected DialogBase()
         {
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ShowInTaskbar = false;
         }
 
         protected void Initialize()

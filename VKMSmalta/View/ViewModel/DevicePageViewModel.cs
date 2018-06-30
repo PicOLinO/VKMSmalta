@@ -24,17 +24,19 @@ namespace VKMSmalta.View.ViewModel
     public class DevicePageViewModel : ViewModelBase, IDisposable
     {
         public ObservableCollection<InnerPageViewModelBase> Pages;
-        private readonly ApplicationMode applicationMode;
+        private ApplicationMode applicationMode;
         private readonly IHintService hintService;
         private readonly HistoryService historyService;
+        private readonly IDialogFactory dialogFactory;
 
-        public DevicePageViewModel(ApplicationMode appMode, Algorithm algorithm, IHintService hintService, HistoryService historyService)
+        public DevicePageViewModel(ApplicationMode appMode, Algorithm algorithm, IHintService hintService, HistoryService historyService, IDialogFactory dialogFactory)
         {
             applicationMode = appMode;
             CurrentAlgorithm = algorithm;
             this.hintService = hintService;
             this.historyService = historyService;
-            
+            this.dialogFactory = dialogFactory;
+
             CreateCommands();
 
             InitializeInnerPages();
@@ -126,10 +128,18 @@ namespace VKMSmalta.View.ViewModel
 
         private void EndTraining()
         {
-            var dialog = new TrainingCompleteDialog();
-            dialog.ShowDialog();
-            Dispose();
-            ExitInMainMenu();
+            var goExamine = dialogFactory.ShowTrainingCompleteDialog();
+            if (goExamine)
+            {
+                applicationMode = ApplicationMode.Examine;
+                Reset();
+                InitializeInnerPages();
+            }
+            else
+            {
+                Dispose();
+                ExitInMainMenu();
+            }
         }
 
         private void ExitInMainMenu()

@@ -60,7 +60,7 @@ namespace VKMSmalta.Services
                     if (algorithmAction.Name == action.Name && algorithmAction.ParentElementName == action.ParentElementName)
                     {
                         var indexOfAction = Actions.IndexOf(action);
-                        if (indexOfAction > previousActionIndex)
+                        if (indexOfAction >= previousActionIndex)
                         {
                             rightsCount++;
                             previousActionIndex = indexOfAction;

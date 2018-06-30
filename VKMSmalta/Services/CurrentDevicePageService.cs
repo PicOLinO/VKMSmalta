@@ -18,10 +18,7 @@ namespace VKMSmalta.Services
 
         public static void Initialize(DevicePageViewModel vm)
         {
-            if (Instance == null)
-            {
-                Instance = new CurrentDevicePageService(vm);
-            }
+            Instance = new CurrentDevicePageService(vm);
         }
 
         public static CurrentDevicePageService Instance { get; private set; }
