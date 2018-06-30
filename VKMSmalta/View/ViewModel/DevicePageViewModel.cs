@@ -166,9 +166,9 @@ namespace VKMSmalta.View.ViewModel
         {
             Pages = new ObservableCollection<InnerPageViewModelBase>
                     {
-                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001I_L001K, "/VKMSmalta;component/View/Images/Backgrounds/L001I_L001K.png", CurrentAlgorithm),
-                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001P, "/VKMSmalta;component/View/Images/Backgrounds/L001P.png", CurrentAlgorithm),
-                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.L001R, "/VKMSmalta;component/View/Images/Backgrounds/L001R.png", CurrentAlgorithm)
+                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.LO01I_LO01K, "/VKMSmalta;component/View/Images/Backgrounds/LO01I_LO01K.png", CurrentAlgorithm),
+                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.LO01P, "/VKMSmalta;component/View/Images/Backgrounds/LO01P.png", CurrentAlgorithm),
+                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.LO01R, "/VKMSmalta;component/View/Images/Backgrounds/LO01R.png", CurrentAlgorithm)
                     };
 
             foreach (var page in Pages)
@@ -176,7 +176,7 @@ namespace VKMSmalta.View.ViewModel
                 ViewInjectionManager.Default.Inject(Regions.InnerRegion, page.PageKey, () => page, typeof(MainInnerDevicePage));
             }
 
-            NavigateOnPage(InnerRegionPage.L001P);
+            NavigateOnPage(InnerRegionPage.LO01P);
         }
 
         private void NavigateOnPage(InnerRegionPage page)

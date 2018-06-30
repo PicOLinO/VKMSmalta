@@ -16,12 +16,12 @@ namespace VKMSmalta.Converters
             {
                 switch (pageKey)
                 {
-                    case InnerRegionPage.L001P:
-                        return "Л001-П";
-                    case InnerRegionPage.L001R:
-                        return "Л001-Р";
-                    case InnerRegionPage.L001I_L001K:
-                        return "Л001-И + Л001-К";
+                    case InnerRegionPage.LO01P:
+                        return "ЛО01-П";
+                    case InnerRegionPage.LO01R:
+                        return "ЛО01-Р";
+                    case InnerRegionPage.LO01I_LO01K:
+                        return "ЛО01-И + ЛО01-К";
                     case InnerRegionPage.Empty:
                         return null;
                     default:

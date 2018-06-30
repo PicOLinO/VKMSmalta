@@ -3,9 +3,9 @@
     public enum InnerRegionPage
     {
         Empty,
-        L001P,
-        L001R,
-        L001I_L001K
+        LO01P,
+        LO01R,
+        LO01I_LO01K
     }
 
     public enum OuterRegionPages

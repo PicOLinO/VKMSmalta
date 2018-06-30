@@ -346,13 +346,13 @@
     <Resource Include="logo.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Images\Backgrounds\L001R.png" />
-    <Resource Include="View\Images\Backgrounds\L001P.png" />
+    <Resource Include="View\Images\Backgrounds\LO01R.png" />
+    <Resource Include="View\Images\Backgrounds\LO01P.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Images\BigButtonOff.png" />
     <Resource Include="View\Images\BigButtonOn.png" />
-    <Resource Include="View\Images\Backgrounds\L001I_L001K.png" />
+    <Resource Include="View\Images\Backgrounds\LO01I_LO01K.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Images\Backgrounds\background.png" />
