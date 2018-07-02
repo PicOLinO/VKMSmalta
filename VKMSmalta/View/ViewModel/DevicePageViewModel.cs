@@ -24,22 +24,20 @@ namespace VKMSmalta.View.ViewModel
     public class DevicePageViewModel : ViewModelBase, IDisposable
     {
         public ObservableCollection<InnerPageViewModelBase> Pages;
-        private ApplicationMode applicationMode;
+        public ApplicationMode Mode { get; private set; }
         private readonly IHintService hintService;
         private readonly HistoryService historyService;
         private readonly IDialogFactory dialogFactory;
 
         public DevicePageViewModel(ApplicationMode appMode, Algorithm algorithm, IHintService hintService, HistoryService historyService, IDialogFactory dialogFactory)
         {
-            applicationMode = appMode;
+            Mode = appMode;
             CurrentAlgorithm = algorithm;
             this.hintService = hintService;
             this.historyService = historyService;
             this.dialogFactory = dialogFactory;
 
-            CreateCommands();
-
-            InitializeInnerPages();
+            Initialize();
         }
 
         public AsyncCommand CheckResultCommand { get; set; }
@@ -106,6 +104,12 @@ namespace VKMSmalta.View.ViewModel
             return CurrentPageKey != Pages.First().PageKey;
         }
 
+        public void Initialize()
+        {
+            CreateCommands();
+            InitializeInnerPages();
+        }
+
         private bool CheckResults(int value)
         {
             var dialog = new CheckResultsDialog(value);
@@ -131,7 +135,7 @@ namespace VKMSmalta.View.ViewModel
             var goExamine = dialogFactory.ShowTrainingCompleteDialog();
             if (goExamine)
             {
-                applicationMode = ApplicationMode.Examine;
+                Mode = ApplicationMode.Examine;
                 Reset();
                 InitializeInnerPages();
             }
@@ -188,7 +192,7 @@ namespace VKMSmalta.View.ViewModel
 
         private async Task OnCheckResult()
         {
-            if (applicationMode == ApplicationMode.Training)
+            if (Mode == ApplicationMode.Training)
             {
                 ExitInMainMenu();
                 Dispose();
