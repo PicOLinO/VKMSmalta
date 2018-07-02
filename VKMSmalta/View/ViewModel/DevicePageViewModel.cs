@@ -28,14 +28,16 @@ namespace VKMSmalta.View.ViewModel
         private readonly IHintService hintService;
         private readonly HistoryService historyService;
         private readonly IDialogFactory dialogFactory;
+        private readonly IViewInjectionManager viewInjectionManager;
 
-        public DevicePageViewModel(ApplicationMode appMode, Algorithm algorithm, IHintService hintService, HistoryService historyService, IDialogFactory dialogFactory)
+        public DevicePageViewModel(ApplicationMode appMode, Algorithm algorithm, IHintService hintService, HistoryService historyService, IDialogFactory dialogFactory, IViewInjectionManager viewInjectionManager)
         {
             Mode = appMode;
             CurrentAlgorithm = algorithm;
             this.hintService = hintService;
             this.historyService = historyService;
             this.dialogFactory = dialogFactory;
+            this.viewInjectionManager = viewInjectionManager;
 
             Initialize();
         }
@@ -148,7 +150,7 @@ namespace VKMSmalta.View.ViewModel
 
         private void ExitInMainMenu()
         {
-            ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.MainMenu);
+            viewInjectionManager.Navigate(Regions.OuterRegion, OuterRegionPages.MainMenu);
         }
 
         public void LaunchTraining()
@@ -177,7 +179,7 @@ namespace VKMSmalta.View.ViewModel
 
             foreach (var page in Pages)
             {
-                ViewInjectionManager.Default.Inject(Regions.InnerRegion, page.PageKey, () => page, typeof(MainInnerDevicePage));
+                viewInjectionManager.Inject(Regions.InnerRegion, page.PageKey, () => page, typeof(MainInnerDevicePage));
             }
 
             NavigateOnPage(InnerRegionPage.LO01P);
@@ -185,7 +187,7 @@ namespace VKMSmalta.View.ViewModel
 
         private void NavigateOnPage(InnerRegionPage page)
         {
-            ViewInjectionManager.Default.Navigate(Regions.InnerRegion, page);
+            viewInjectionManager.Navigate(Regions.InnerRegion, page);
             CurrentPageKey = page;
             hintService.OnNavigated(page);
         }
@@ -269,7 +271,7 @@ namespace VKMSmalta.View.ViewModel
             //Remove Views Injections
             foreach (var page in Pages)
             {
-                ViewInjectionManager.Default.Remove(Regions.InnerRegion, page.PageKey);
+                viewInjectionManager.Remove(Regions.InnerRegion, page.PageKey);
             }
 
             //Reset services
@@ -281,7 +283,7 @@ namespace VKMSmalta.View.ViewModel
 
         public void Dispose()
         {
-            ViewInjectionManager.Default.Remove(Regions.OuterRegion, OuterRegionPages.Device);
+            viewInjectionManager.Remove(Regions.OuterRegion, OuterRegionPages.Device);
             Reset();
         }
 

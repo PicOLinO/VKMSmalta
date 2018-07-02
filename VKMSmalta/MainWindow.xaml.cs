@@ -30,7 +30,6 @@ namespace VKMSmalta
             var vm = new MainWindowViewModel();
             DataContext = vm;
 
-            InitializeVmInDependencyContainer(vm);
             InitializeMainPageViewModel();
         }
 
@@ -38,12 +37,9 @@ namespace VKMSmalta
         {
             var dialogFactory = DependencyContainer.GetDialogFactory();
             var hintService = new HintService();
+            var viewInjectionManager = ViewInjectionManager.Default;
 
-            ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.MainMenu, () => new MainPageViewModel(hintService, dialogFactory), typeof(MainPage));
-        }
-
-        private void InitializeVmInDependencyContainer(MainWindowViewModel vm)
-        {
+            viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.MainMenu, () => new MainPageViewModel(hintService, dialogFactory, viewInjectionManager), typeof(MainPage));
         }
     }
 }

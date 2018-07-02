@@ -18,11 +18,13 @@ namespace VKMSmalta.ViewModel
     {
         private readonly IDialogFactory dialogFactory;
         private readonly IHintService hintService;
+        private readonly IViewInjectionManager viewInjectionManager;
 
-        public MainPageViewModel(IHintService hintService, IDialogFactory dialogFactory)
+        public MainPageViewModel(IHintService hintService, IDialogFactory dialogFactory, IViewInjectionManager viewInjectionManager)
         {
             this.hintService = hintService;
             this.dialogFactory = dialogFactory;
+            this.viewInjectionManager = viewInjectionManager;
 
             Initialize();
         }
@@ -83,11 +85,11 @@ namespace VKMSmalta.ViewModel
             {
                 //TODO: Loading splash on
 
-                var vm = new DevicePageViewModel(ApplicationMode.Examine, algorithm, hintService, new HistoryService(), dialogFactory);
+                var vm = new DevicePageViewModel(ApplicationMode.Examine, algorithm, hintService, new HistoryService(), dialogFactory, viewInjectionManager);
                 CurrentDevicePageService.Initialize(vm);
 
-                ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
-                ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
+                viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
+                viewInjectionManager.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
 
                 //TODO: Loading splash off
             }
@@ -100,12 +102,12 @@ namespace VKMSmalta.ViewModel
             {
                 //TODO: Loading splash on
 
-                var vm = new DevicePageViewModel(ApplicationMode.Training, algorithm, hintService, new HistoryService(), dialogFactory);
+                var vm = new DevicePageViewModel(ApplicationMode.Training, algorithm, hintService, new HistoryService(), dialogFactory, viewInjectionManager);
                 CurrentDevicePageService.Initialize(vm);
                 vm.LaunchTraining();
 
-                ViewInjectionManager.Default.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
-                ViewInjectionManager.Default.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
+                viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
+                viewInjectionManager.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
 
                 //TODO: Loading splash off
             }

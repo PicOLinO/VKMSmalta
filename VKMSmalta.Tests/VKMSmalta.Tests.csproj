@@ -53,9 +53,12 @@
   <ItemGroup>
     <Compile Include="Fakes\ServicesAndFactories\DialogFactoryStub.cs" />
     <Compile Include="Fakes\ServicesAndFactories\HintServiceStub.cs" />
+    <Compile Include="Fakes\ServicesAndFactories\VIewInjectionManagerStub.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\DevicePageViewModelTests\DevicePageViewModelTestBase.cs" />
+    <Compile Include="ViewModels\DevicePageViewModelTests\WhenGoPrevious.cs" />
+    <Compile Include="ViewModels\DevicePageViewModelTests\WhenGoForward.cs" />
     <Compile Include="ViewModels\DevicePageViewModelTests\WhenInitialize.cs" />
     <Compile Include="ViewModels\MainPageViewModelTests\MainPageViewModelTestBase.cs" />
     <Compile Include="ViewModels\MainPageViewModelTests\WhenInitialize.cs" />

@@ -30,6 +30,7 @@ namespace VKMSmalta.Tests.ViewModels.DevicePageViewModelTests
 
             Assert.That(ViewModel.CurrentPageKey, Is.Not.EqualTo(InnerRegionPage.Empty));
             Assert.That(HintService.PageNavigatedOn, Is.Not.EqualTo(InnerRegionPage.Empty));
+            Assert.That(VIewInjectionManagerStub.CurrentPages[Regions.InnerRegion], Is.Not.EqualTo(InnerRegionPage.Empty));
         }
     }
 }

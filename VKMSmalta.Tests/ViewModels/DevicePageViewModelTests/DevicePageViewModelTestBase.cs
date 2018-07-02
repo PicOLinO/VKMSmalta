@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
+﻿#region Usings
+
+using System.Collections.Generic;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
 using VKMSmalta.View.ViewModel;
+
+#endregion
 
 namespace VKMSmalta.Tests.ViewModels.DevicePageViewModelTests
 {
@@ -16,7 +19,9 @@ namespace VKMSmalta.Tests.ViewModels.DevicePageViewModelTests
 
             var startStateOfElements = new Dictionary<string, int>();
             var endStateOfElements = new Dictionary<string, int>();
-            ViewModel = new DevicePageViewModel(ApplicationMode.Training, new Algorithm(startStateOfElements, endStateOfElements), HintService, historyService, DialogFactory);
+            var algorithm = new Algorithm(startStateOfElements, endStateOfElements);
+
+            ViewModel = new DevicePageViewModel(ApplicationMode.Training, algorithm, HintService, historyService, DialogFactory, VIewInjectionManagerStub);
         }
 
         protected DevicePageViewModel ViewModel { get; private set; }

@@ -14,7 +14,7 @@ namespace VKMSmalta.Tests.ViewModels.MainPageViewModelTests
         {
             base.Setup();
             
-            ViewModel = new MainPageViewModel(HintService, DialogFactory);
+            ViewModel = new MainPageViewModel(HintService, DialogFactory, VIewInjectionManagerStub);
         }
 
         protected MainPageViewModel ViewModel;
