@@ -3,7 +3,8 @@
 ![GitHub Next Release Date](https://img.shields.io/badge/next%20release-september-brightgreen.svg)  
 ![Count of commits](https://github-basic-badges.herokuapp.com/commits/PicOLinO/VKMSmalta.svg)
 ![Github Donwloads Releases](https://img.shields.io/github/downloads/PicOLinO/VKMSmalta/latest/total.svg)
-![Count of opened issues](https://github-basic-badges.herokuapp.com/issues/PicOLinO/VKMSmalta.svg)
+![GitHub issues](https://img.shields.io/github/issues/PicOLinO/VKMSmalta.svg)
+![GitHub issues-closed](https://img.shields.io/github/issues-closed/PicOLinO/VKMSmalta.svg)
 
 Программа VKMSmalta создана для тестирования студентов военной кафедры по радиоэлектронному комплексу постановки помех "Смальта".
 
