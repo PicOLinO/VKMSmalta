@@ -1,5 +1,5 @@
 # Vkm.Smalta (ЛО01 "Смальта")
-![GitHub Release Date](https://img.shields.io/github/release-date/SubtitleEdit/subtitleedit.svg?style=flat-square)
+![GitHub Release Date](https://img.shields.io/badge/next%20release-september-brightgreen.svg)
 
 Программа VKMSmalta создана для тестирования студентов военной кафедры по радиоэлектронному комплексу постановки помех "Смальта".
 
