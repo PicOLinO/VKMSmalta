@@ -21,7 +21,7 @@ namespace VKMSmalta.Tests.ViewModels.DevicePageViewModelTests
             var endStateOfElements = new Dictionary<string, int>();
             var algorithm = new Algorithm(startStateOfElements, endStateOfElements);
 
-            ViewModel = new DevicePageViewModel(ApplicationMode.Training, algorithm, HintService, historyService, DialogFactory, VIewInjectionManagerStub);
+            ViewModel = new DevicePageViewModel(ApplicationMode.Training, algorithm, HintService, historyService, DialogFactory, ViewInjectionManagerStub);
         }
 
         protected DevicePageViewModel ViewModel { get; private set; }

@@ -80,31 +80,27 @@ namespace VKMSmalta.ViewModel
 
         private void OnGoExamine()
         {
-            var algorithm = ChooseAlgorithm();
-            if (algorithm != null)
-            {
-                //TODO: Loading splash on
-
-                var vm = new DevicePageViewModel(ApplicationMode.Examine, algorithm, hintService, new HistoryService(), dialogFactory, viewInjectionManager);
-                CurrentDevicePageService.Initialize(vm);
-
-                viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
-                viewInjectionManager.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
-
-                //TODO: Loading splash off
-            }
+            GoAlgorithm();
         }
 
         private void OnGoTraining()
+        {
+            GoAlgorithm(true);
+        }
+
+        private void GoAlgorithm(bool startTraining = false)
         {
             var algorithm = ChooseAlgorithm();
             if (algorithm != null)
             {
                 //TODO: Loading splash on
 
-                var vm = new DevicePageViewModel(ApplicationMode.Training, algorithm, hintService, new HistoryService(), dialogFactory, viewInjectionManager);
+                var vm = new DevicePageViewModel(startTraining ? ApplicationMode.Training : ApplicationMode.Examine, algorithm, hintService, new HistoryService(), dialogFactory, viewInjectionManager);
                 CurrentDevicePageService.Initialize(vm);
-                vm.LaunchTraining();
+                if (startTraining)
+                {
+                    vm.LaunchTraining();
+                }
 
                 viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
                 viewInjectionManager.Navigate(Regions.OuterRegion, OuterRegionPages.Device);

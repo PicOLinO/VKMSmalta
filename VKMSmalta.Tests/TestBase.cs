@@ -10,7 +10,7 @@ namespace VKMSmalta.Tests
         protected AppGlobal App;
         protected DialogFactoryStub DialogFactory;
         protected HintServiceStub HintService;
-        protected VIewInjectionManagerStub VIewInjectionManagerStub;
+        protected VIewInjectionManagerStub ViewInjectionManagerStub;
 
         [SetUp]
         protected virtual void Setup()
@@ -20,7 +20,7 @@ namespace VKMSmalta.Tests
             App = DependencyContainer.GetApp();
             DialogFactory = new DialogFactoryStub();
             HintService = new HintServiceStub();
-            VIewInjectionManagerStub = new VIewInjectionManagerStub();
+            ViewInjectionManagerStub = new VIewInjectionManagerStub();
         }
     }
 }

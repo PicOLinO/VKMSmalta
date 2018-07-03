@@ -61,6 +61,8 @@
     <Compile Include="ViewModels\DevicePageViewModelTests\WhenGoForward.cs" />
     <Compile Include="ViewModels\DevicePageViewModelTests\WhenInitialize.cs" />
     <Compile Include="ViewModels\MainPageViewModelTests\MainPageViewModelTestBase.cs" />
+    <Compile Include="ViewModels\MainPageViewModelTests\WhenGoExamine.cs" />
+    <Compile Include="ViewModels\MainPageViewModelTests\WhenGoTraining.cs" />
     <Compile Include="ViewModels\MainPageViewModelTests\WhenInitialize.cs" />
     <Compile Include="ViewModels\MainPageViewModelTests\WhenLogin.cs" />
     <Compile Include="ViewModels\MainPageViewModelTests\WhenRegister.cs" />

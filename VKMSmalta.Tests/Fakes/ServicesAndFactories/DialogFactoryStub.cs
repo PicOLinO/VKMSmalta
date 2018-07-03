@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System.Collections.Generic;
 using VKMSmalta.Dialogs.Factories;
 using VKMSmalta.Domain;
 using VKMSmalta.Services;
@@ -20,7 +21,7 @@ namespace VKMSmalta.Tests.Fakes.ServicesAndFactories
         public Algorithm ShowChooseAlgorithmDialog(IHintService hintService)
         {
             IsChooseAlgorithmDialogShown = true;
-            return new Algorithm(null, null);
+            return new Algorithm(new Dictionary<string, int>(), new Dictionary<string, int>());
         }
 
         public bool ShowTrainingCompleteDialog()

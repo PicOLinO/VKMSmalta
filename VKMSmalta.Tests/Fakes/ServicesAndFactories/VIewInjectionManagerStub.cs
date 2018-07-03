@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using DevExpress.Mvvm;
 using VKMSmalta.Services.Navigate;
+using VKMSmalta.View.InnerPages.ViewModel;
+using VKMSmalta.View.ViewModel;
 
 namespace VKMSmalta.Tests.Fakes.ServicesAndFactories
 {
     public class VIewInjectionManagerStub : IViewInjectionManager
     {
-        public Dictionary<string, object> CurrentPages;
+        public readonly Dictionary<string, object> CurrentPages;
 
-        public List<InnerRegionPage> InjectedInnerPages;
-        public List<OuterRegionPages> InjectedOuterPages;
+        public readonly Dictionary<InnerRegionPage, InnerPageViewModelBase> InjectedInnerPages;
+        public readonly Dictionary<OuterRegionPages, DevicePageViewModel> InjectedOuterPages;
 
         public VIewInjectionManagerStub()
         {
-            InjectedInnerPages = new List<InnerRegionPage>();
-            InjectedOuterPages = new List<OuterRegionPages>();
+            InjectedInnerPages = new Dictionary<InnerRegionPage, InnerPageViewModelBase>();
+            InjectedOuterPages = new Dictionary<OuterRegionPages, DevicePageViewModel>();
             CurrentPages = new Dictionary<string, object>
                            {
                                {Regions.InnerRegion, null},
@@ -43,10 +45,10 @@ namespace VKMSmalta.Tests.Fakes.ServicesAndFactories
             switch (key)
             {
                 case InnerRegionPage innerPage:
-                    InjectedInnerPages.Add(innerPage);
+                    InjectedInnerPages.Add(innerPage, (InnerPageViewModelBase)viewModelFactory.Invoke());
                     break;
                 case OuterRegionPages outerPage:
-                    InjectedOuterPages.Add(outerPage);
+                    InjectedOuterPages.Add(outerPage, (DevicePageViewModel)viewModelFactory.Invoke());
                     break;
             }
         }
