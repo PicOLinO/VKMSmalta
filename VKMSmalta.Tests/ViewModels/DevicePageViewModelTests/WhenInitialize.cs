@@ -18,6 +18,8 @@ namespace VKMSmalta.Tests.ViewModels.DevicePageViewModelTests
         [Test]
         public void InnerPagesAreInitialized()
         {
+            ViewModel.Pages.Clear();
+
             ViewModel.Initialize();
 
             Assert.That(ViewModel.Pages.Count, Is.GreaterThan(0));

@@ -18,9 +18,11 @@ namespace VKMSmalta.Tests.ViewModels.MainPageViewModelTests
         [Test]
         public void InnerPajesAreCreated()
         {
+            ViewInjectionManagerStub.InjectedOuterPages.Clear();
+
             ViewModel.GoTrainingCommand.Execute(null);
 
-            Assert.That(ViewInjectionManagerStub.InjectedOuterPages.Count > 0);
+            Assert.That(ViewInjectionManagerStub.InjectedOuterPages.Count, Is.GreaterThan(0));
         }
 
         [Test]
