@@ -45,10 +45,16 @@ namespace VKMSmalta.Tests.Fakes.ServicesAndFactories
             switch (key)
             {
                 case InnerRegionPage innerPage:
-                    InjectedInnerPages.Add(innerPage, (InnerPageViewModelBase)viewModelFactory.Invoke());
+                    if (!InjectedInnerPages.ContainsKey(innerPage))
+                    {
+                        InjectedInnerPages.Add(innerPage, (InnerPageViewModelBase)viewModelFactory.Invoke());
+                    }
                     break;
                 case OuterRegionPages outerPage:
-                    InjectedOuterPages.Add(outerPage, (DevicePageViewModel)viewModelFactory.Invoke());
+                    if (!InjectedOuterPages.ContainsKey(outerPage))
+                    {
+                        InjectedOuterPages.Add(outerPage, (DevicePageViewModel)viewModelFactory.Invoke());
+                    }
                     break;
             }
         }
