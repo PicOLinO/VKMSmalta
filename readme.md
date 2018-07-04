@@ -1,4 +1,4 @@
-# Vkm.Smalta (ЛО01 "Смальта")
+# Vkm.Smalta (Симулятор ЛО01 "Смальта")
 ![Latest release version](https://github-basic-badges.herokuapp.com/release/PicOLinO/Vkm.Smalta.svg)
 ![Github Downloads Releases](https://img.shields.io/github/downloads/PicOLinO/Vkm.Smalta/latest/total.svg)
 ![GitHub Next Release Date](https://img.shields.io/badge/next%20release-september-brightgreen.svg)  
