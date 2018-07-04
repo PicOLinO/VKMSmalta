@@ -132,7 +132,7 @@ namespace VKMSmalta.View.ViewModel
             GoPreviousCommand = new DelegateCommand(OnGoPrevious, CanGoPrevious);
         }
 
-        private void EndTraining()
+        public void EndTraining()
         {
             var goExamine = dialogFactory.ShowTrainingCompleteDialog();
             if (goExamine)

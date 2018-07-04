@@ -26,8 +26,11 @@ namespace VKMSmalta.Tests.Fakes.ServicesAndFactories
 
         public bool ShowTrainingCompleteDialog()
         {
-            throw new System.NotImplementedException();
+            TrainingCompleteDialogShown = true;
+            return true;
         }
+
+        public bool TrainingCompleteDialogShown { get; private set; }
 
         public void ShowInfoDialog()
         {
