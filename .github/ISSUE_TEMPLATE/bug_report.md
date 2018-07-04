@@ -1,28 +1,28 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+name: Ошибка
+about: Создайте отчет об ошибке для ее скорейшего исправления
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Подробно опишите ошибку**
+Точное описание, в чем конкретно заключается ошибка
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+**Воспроизведение ошибки**
+Шаги воспроизведения данной ошибки
+1. Пойти в '...'
+2. Кликнуть на '....'
+3. Перейти в '....'
+4. Ошибка в '...'
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Ожидаемое поведение**
+Какое поведение вы ожидаете от программы _(будет рассмотрено как вариант исправления ошибки)_
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**Снимки экрана**
+Вы можете приложить снимок экрана на котором видно возникшую ошибку.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Version [e.g. 1.1]
+**Информация о вашей системе (пожалуйста, заполните следующую информацию):**
+ - Операционная система: [Windows 7, Windows 8.1...]
+ - Версия используемого приложения [1.1, 1.2...]
 
-**Additional context**
-Add any other context about the problem here.
+**Дополнительная информация**
+Любая дополнительная информация, которая поможет в решении возникшей проблемы
