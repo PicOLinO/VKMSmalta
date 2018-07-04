@@ -1,4 +1,6 @@
-# Vkm.Smalta (Симулятор ЛО01 "Смальта")
+# Vkm.Smalta (Симулятор ЛО01 "Смальта") 
+![Visual Studio Team services Build Status](https://img.shields.io/vso/build/danila-chervonny/992b783f-d643-4a7e-b310-eadf0b29a2d9/1.svg)
+
 ![Latest release version](https://github-basic-badges.herokuapp.com/release/PicOLinO/Vkm.Smalta.svg)
 ![Github Downloads Releases](https://img.shields.io/github/downloads/PicOLinO/Vkm.Smalta/latest/total.svg)
 ![GitHub Next Release Date](https://img.shields.io/badge/next%20release-september-brightgreen.svg)  
