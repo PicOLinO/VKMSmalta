@@ -1,17 +1,17 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
+name: Добавление функциональности
+about: Предложите свою идею, улучшающую работу с приложением
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**Пожалуйста опишите, относится ли новая функциональность к решению какой-либо проблемы?**
+Точное описание в чем заключается ваша проблема, например: "Мне, как пользователю, не удобно [...]"
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+**Опишите предлагаемый вариант решения проблемы или добавления функцональности**
+Описание того, какой функционал вы хотите добавить к приложению
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**Опишите альтернативные варианты решения проблемы или добавления функциональности**
+Описание альтернативных вариантов добавления функциональности или решения проблемы, которые устраивали бы вас
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**AДополнительная информация**
+Любая дополнительная информация, относящаяся к новой идее. Снимки экрана и т.д.
