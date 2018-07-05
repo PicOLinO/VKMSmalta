@@ -52,7 +52,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\VKMSmalta\Properties\AssemblyInfo.cs">
+    <Compile Include="..\Vkm.Smalta\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Fakes\ServicesAndFactories\DialogFactoryStub.cs" />
