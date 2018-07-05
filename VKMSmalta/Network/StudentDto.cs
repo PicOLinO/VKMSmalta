@@ -1,4 +1,4 @@
-﻿namespace VKMSmalta.Network
+﻿namespace Vkm.Smalta.Network
 {
     public class StudentDto
     {

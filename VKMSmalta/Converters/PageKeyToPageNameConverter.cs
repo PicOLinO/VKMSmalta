@@ -2,11 +2,11 @@
 
 using System;
 using System.Globalization;
-using VKMSmalta.Services.Navigate;
+using Vkm.Smalta.Services.Navigate;
 
 #endregion
 
-namespace VKMSmalta.Converters
+namespace Vkm.Smalta.Converters
 {
     public class PageKeyToPageNameConverter : BaseConverter<PageKeyToPageNameConverter>
     {

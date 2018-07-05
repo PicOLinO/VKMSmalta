@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using VKMSmalta.Services.Navigate;
-using VKMSmalta.View.Elements.ViewModel;
-using VKMSmalta.View.ViewModel;
+using Vkm.Smalta.Services.Navigate;
+using Vkm.Smalta.View.Elements.ViewModel;
+using Vkm.Smalta.View.ViewModel;
 
-namespace VKMSmalta.Services
+namespace Vkm.Smalta.Services
 {
     public class CurrentDevicePageService
     {

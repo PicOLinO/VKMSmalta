@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace VKMSmalta.Converters
+namespace Vkm.Smalta.Converters
 {
     public class CenterPopupConverter : MarkupExtension, IMultiValueConverter
     {

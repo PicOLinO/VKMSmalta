@@ -1,10 +1,10 @@
 ﻿#region Usings
 
-using VKMSmalta.Services;
+using Vkm.Smalta.Services;
 
 #endregion
 
-namespace VKMSmalta.View.Elements.ViewModel
+namespace Vkm.Smalta.View.Elements.ViewModel
 {
     public sealed class VkmRotateWheelViewModel : ClickableElementViewModelBase
     {

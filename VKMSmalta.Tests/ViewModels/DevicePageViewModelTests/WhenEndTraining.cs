@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace VKMSmalta.Tests.ViewModels.DevicePageViewModelTests
+namespace Vkm.Smalta.Tests.ViewModels.DevicePageViewModelTests
 {
     public class WhenEndTraining : DevicePageViewModelTestBase
     {

@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
-using VKMSmalta.Services.Navigate;
+using Vkm.Smalta.Services.Navigate;
 
-namespace VKMSmalta.Tests.ViewModels.DevicePageViewModelTests
+namespace Vkm.Smalta.Tests.ViewModels.DevicePageViewModelTests
 {
     public class WhenInitialize : DevicePageViewModelTestBase
     {

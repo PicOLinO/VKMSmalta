@@ -1,11 +1,11 @@
 ﻿#region Usings
 
-using VKMSmalta.View.InnerPages.DSL.Elements;
-using VKMSmalta.View.InnerPages.DSL.Other;
+using Vkm.Smalta.View.InnerPages.DSL.Elements;
+using Vkm.Smalta.View.InnerPages.DSL.Other;
 
 #endregion
 
-namespace VKMSmalta.View.InnerPages.DSL
+namespace Vkm.Smalta.View.InnerPages.DSL
 {
     public class GiveMe
     {

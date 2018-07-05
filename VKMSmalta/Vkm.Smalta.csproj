@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1931FFEB-4A78-4CFB-A0F9-0A7E47CA0A78}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>VKMSmalta</RootNamespace>
-    <AssemblyName>VKMSmalta</AssemblyName>
+    <RootNamespace>Vkm.Smalta</RootNamespace>
+    <AssemblyName>Vkm.Smalta</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -55,7 +55,7 @@
     <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>VKMSmalta.App</StartupObject>
+    <StartupObject>Vkm.Smalta.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Appccelerate.CommandLineParser, Version=1.2.0.0, Culture=neutral, PublicKeyToken=917bca444d1f2b4c, processorArchitecture=MSIL">

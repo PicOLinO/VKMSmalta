@@ -1,12 +1,12 @@
 ﻿#region Usings
 
 using System.Collections.Generic;
-using VKMSmalta.Services;
-using VKMSmalta.Services.Navigate;
+using Vkm.Smalta.Services;
+using Vkm.Smalta.Services.Navigate;
 
 #endregion
 
-namespace VKMSmalta.View.InnerPages.DSL.Elements
+namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
     public class BaseElementBuilder
     {

@@ -1,4 +1,4 @@
-﻿namespace VKMSmalta.Services.Navigate
+﻿namespace Vkm.Smalta.Services.Navigate
 {
     public enum Direction
     {

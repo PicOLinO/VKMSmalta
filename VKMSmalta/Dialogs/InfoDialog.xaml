@@ -1,10 +1,10 @@
-﻿<local:DialogBase x:Class="VKMSmalta.Dialogs.InfoDialog"
+﻿<dialogs:DialogBase x:Class="Vkm.Smalta.Dialogs.InfoDialog"
                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                  xmlns:local="clr-namespace:VKMSmalta.Dialogs"
-                  xmlns:viewModel="clr-namespace:VKMSmalta.Dialogs.ViewModel"
+                  xmlns:dialogs="clr-namespace:Vkm.Smalta.Dialogs"
+                  xmlns:viewModel="clr-namespace:Vkm.Smalta.Dialogs.ViewModel"
                   mc:Ignorable="d"
                   Title="Информация"
                   Style="{DynamicResource DialogStyle}"
@@ -42,4 +42,4 @@
             .
         </TextBlock>
     </Grid>
-</local:DialogBase>
+</dialogs:DialogBase>

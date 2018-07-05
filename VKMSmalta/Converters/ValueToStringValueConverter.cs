@@ -5,7 +5,7 @@ using System.Globalization;
 
 #endregion
 
-namespace VKMSmalta.Converters
+namespace Vkm.Smalta.Converters
 {
     public class ValueToStringValueConverter : BaseConverter<ValueToStringValueConverter>
     {

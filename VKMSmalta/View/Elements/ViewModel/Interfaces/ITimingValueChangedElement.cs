@@ -4,7 +4,7 @@ using System.Timers;
 
 #endregion
 
-namespace VKMSmalta.View.Elements.ViewModel.Interfaces
+namespace Vkm.Smalta.View.Elements.ViewModel.Interfaces
 {
     public interface ITimingValueChangedElement
     {

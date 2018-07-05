@@ -1,10 +1,10 @@
 ﻿#region Usings
 
-using VKMSmalta.Domain;
+using Vkm.Smalta.Domain;
 
 #endregion
 
-namespace VKMSmalta.Network
+namespace Vkm.Smalta.Network
 {
     public class AuthorizeResponseDto
     {

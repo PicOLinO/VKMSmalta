@@ -1,4 +1,4 @@
-﻿namespace VKMSmalta.Domain
+﻿namespace Vkm.Smalta.Domain
 {
     public class Student
     {

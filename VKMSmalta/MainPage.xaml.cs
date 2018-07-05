@@ -1,8 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using VKMSmalta.ViewModel;
 
-namespace VKMSmalta
+namespace Vkm.Smalta
 {
     /// <summary>
     /// Interaction logic for MainPage.xaml

@@ -1,11 +1,10 @@
 ﻿#region Usings
 
-using VKMSmalta.Dialogs.ViewModel;
-using VKMSmalta.Domain;
+using Vkm.Smalta.Dialogs.ViewModel;
 
 #endregion
 
-namespace VKMSmalta.Dialogs
+namespace Vkm.Smalta.Dialogs
 {
     /// <summary>
     /// Interaction logic for TrainingCompleteDialog.xaml

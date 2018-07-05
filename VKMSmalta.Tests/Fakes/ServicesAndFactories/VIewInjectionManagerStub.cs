@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using DevExpress.Mvvm;
-using VKMSmalta.Services.Navigate;
-using VKMSmalta.View.InnerPages.ViewModel;
-using VKMSmalta.View.ViewModel;
+using Vkm.Smalta.Services.Navigate;
+using Vkm.Smalta.View.InnerPages.ViewModel;
+using Vkm.Smalta.View.ViewModel;
 
-namespace VKMSmalta.Tests.Fakes.ServicesAndFactories
+namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
 {
     public class VIewInjectionManagerStub : IViewInjectionManager
     {

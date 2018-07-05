@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
-using VKMSmalta.Services.Navigate;
+using Vkm.Smalta.Services.Navigate;
 
-namespace VKMSmalta.Tests.ViewModels.MainPageViewModelTests
+namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
 {
     public class WhenGoExamine : MainPageViewModelTestBase
     {

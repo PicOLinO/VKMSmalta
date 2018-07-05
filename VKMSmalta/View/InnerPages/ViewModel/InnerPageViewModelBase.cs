@@ -2,13 +2,13 @@
 
 using System.Collections.ObjectModel;
 using DevExpress.Mvvm;
-using VKMSmalta.Services.Navigate;
-using VKMSmalta.View.Elements.ViewModel;
-using VKMSmalta.View.InnerPages.DSL;
+using Vkm.Smalta.Services.Navigate;
+using Vkm.Smalta.View.Elements.ViewModel;
+using Vkm.Smalta.View.InnerPages.DSL;
 
 #endregion
 
-namespace VKMSmalta.View.InnerPages.ViewModel
+namespace Vkm.Smalta.View.InnerPages.ViewModel
 {
     public class InnerPageViewModelBase : ViewModelBase
     {

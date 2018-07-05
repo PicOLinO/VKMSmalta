@@ -5,7 +5,7 @@ using System.Windows.Media;
 
 #endregion
 
-namespace VKMSmalta.View.Elements.ViewModel
+namespace Vkm.Smalta.View.Elements.ViewModel
 {
     public class VkmLightableRectangleViewModel : ElementViewModelBase
     {

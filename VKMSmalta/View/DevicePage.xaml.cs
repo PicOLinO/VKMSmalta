@@ -4,7 +4,7 @@ using System.Windows.Controls;
 
 #endregion
 
-namespace VKMSmalta.View
+namespace Vkm.Smalta.View
 {
     /// <summary>
     /// Interaction logic for DevicePage.xaml

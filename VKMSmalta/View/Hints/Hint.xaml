@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="VKMSmalta.View.Hints.Hint"
+﻿<UserControl x:Class="Vkm.Smalta.View.Hints.Hint"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:viewModel1="clr-namespace:VKMSmalta.View.Hints.ViewModel"
+             xmlns:viewModel="clr-namespace:Vkm.Smalta.View.Hints.ViewModel"
              mc:Ignorable="d"
              BorderThickness="0"
              Background="Transparent"
@@ -11,7 +11,7 @@
              MinWidth="170"
              MaxWidth="270"
              d:DesignHeight="80" d:DesignWidth="271"
-             d:DataContext="{d:DesignInstance Type=viewModel1:HintViewModelBase}">
+             d:DataContext="{d:DesignInstance Type=viewModel:HintViewModelBase}">
     <Grid>
         <Grid.OpacityMask>
             <SolidColorBrush Color="White" Opacity="0.9" />

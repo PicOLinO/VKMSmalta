@@ -1,11 +1,11 @@
-﻿<Page x:Class="VKMSmalta.View.InnerPages.MainInnerDevicePage"
+﻿<Page x:Class="Vkm.Smalta.View.InnerPages.MainInnerDevicePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:elementsVM="clr-namespace:VKMSmalta.View.Elements.ViewModel"
-      xmlns:elements="clr-namespace:VKMSmalta.View.Elements"
-      xmlns:viewModel="clr-namespace:VKMSmalta.View.InnerPages.ViewModel"
+      xmlns:elementsVM="clr-namespace:Vkm.Smalta.View.Elements.ViewModel"
+      xmlns:elements1="clr-namespace:Vkm.Smalta.View.Elements"
+      xmlns:viewModel="clr-namespace:Vkm.Smalta.View.InnerPages.ViewModel"
       mc:Ignorable="d"
       d:DesignHeight="355.479" d:DesignWidth="534.091"
       d:DataContext="{d:DesignInstance Type=viewModel:MainInnerDevicePageViewModel}">
@@ -35,22 +35,22 @@
             </ItemsControl.ItemContainerStyle>
             <ItemsControl.Resources>
                 <DataTemplate DataType="{x:Type elementsVM:VkmThumblerViewModel}">
-                    <elements:VkmThumbler Tag="{Binding ElementName=PART_Canvas}" />
+                    <elements1:VkmThumbler Tag="{Binding ElementName=PART_Canvas}" />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type elementsVM:VkmRotateWheelViewModel}">
-                    <elements:VkmRotateWheel Tag="{Binding ElementName=PART_Canvas}" />
+                    <elements1:VkmRotateWheel Tag="{Binding ElementName=PART_Canvas}" />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type elementsVM:VkmBlackTriangleArrowViewModel}">
-                    <elements:VkmBlackTriangleArrow Tag="{Binding ElementName=PART_Canvas}" />
+                    <elements1:VkmBlackTriangleArrow Tag="{Binding ElementName=PART_Canvas}" />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type elementsVM:VkmLightableRectangleViewModel}">
-                    <elements:VkmLightableRectangle Tag="{Binding ElementName=PART_Canvas}" />
+                    <elements1:VkmLightableRectangle Tag="{Binding ElementName=PART_Canvas}" />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type elementsVM:VkmBigButtonViewModel}">
-                    <elements:VkmBigButton Tag="{Binding ElementName=PART_Canvas}" />
+                    <elements1:VkmBigButton Tag="{Binding ElementName=PART_Canvas}" />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type elementsVM:VkmLampViewModel}">
-                    <elements:VkmLamp Tag="{Binding ElementName=PART_Canvas}" />
+                    <elements1:VkmLamp Tag="{Binding ElementName=PART_Canvas}" />
                 </DataTemplate>
             </ItemsControl.Resources>
         </ItemsControl>

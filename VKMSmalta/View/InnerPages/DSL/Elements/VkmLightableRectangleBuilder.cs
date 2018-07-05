@@ -1,12 +1,12 @@
 ﻿#region Usings
 
 using System.Windows.Media;
-using VKMSmalta.Services.Navigate;
-using VKMSmalta.View.Elements.ViewModel;
+using Vkm.Smalta.Services.Navigate;
+using Vkm.Smalta.View.Elements.ViewModel;
 
 #endregion
 
-namespace VKMSmalta.View.InnerPages.DSL.Elements
+namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
     public class VkmLightableRectangleBuilder : BaseElementBuilder
     {

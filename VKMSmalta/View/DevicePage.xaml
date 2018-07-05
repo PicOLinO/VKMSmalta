@@ -1,12 +1,12 @@
-﻿<Page x:Class="VKMSmalta.View.DevicePage"
+﻿<Page x:Class="Vkm.Smalta.View.DevicePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:viewModel="clr-namespace:VKMSmalta.View.ViewModel"
-      xmlns:converters="clr-namespace:VKMSmalta.Converters"
       xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
-      xmlns:hints="clr-namespace:VKMSmalta.View.Hints"
+      xmlns:converters="clr-namespace:Vkm.Smalta.Converters"
+      xmlns:hints1="clr-namespace:Vkm.Smalta.View.Hints"
+      xmlns:viewModel="clr-namespace:Vkm.Smalta.View.ViewModel"
       mc:Ignorable="d"
       d:DesignHeight="355.479" d:DesignWidth="534.091"
       d:DataContext="{d:DesignInstance Type=viewModel:DevicePageViewModel}">
@@ -41,14 +41,14 @@
                    Placement="Top" PopupAnimation="Fade"
                    AllowsTransparency="True"
                    Style="{StaticResource CenteredPopup}">
-                <hints:NavigateButtonHint />
+                <hints1:NavigateButtonHint />
             </Popup>
             <Popup IsOpen="{Binding Path=IsGoForwardHintOpen}" StaysOpen="True"
                    PlacementTarget="{Binding ElementName=PART_GoNext}"
                    Placement="Top" PopupAnimation="Fade"
                    Style="{StaticResource CenteredPopup}"
                    AllowsTransparency="True">
-                <hints:NavigateButtonHint />
+                <hints1:NavigateButtonHint />
             </Popup>
         </Grid>
     </Grid>

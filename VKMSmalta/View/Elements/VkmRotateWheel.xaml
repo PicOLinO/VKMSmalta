@@ -1,12 +1,12 @@
-﻿<elements:ElementBase x:Class="VKMSmalta.View.Elements.VkmRotateWheel"
+﻿<elements1:ElementBase x:Class="Vkm.Smalta.View.Elements.VkmRotateWheel"
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
-                      xmlns:viewModel="clr-namespace:VKMSmalta.View.Elements.ViewModel"
-                      xmlns:elements="clr-namespace:VKMSmalta.View.Elements"
-                      xmlns:hints="clr-namespace:VKMSmalta.View.Hints"
+                      xmlns:elements1="clr-namespace:Vkm.Smalta.View.Elements"
+                      xmlns:hints1="clr-namespace:Vkm.Smalta.View.Hints"
+                      xmlns:viewModel="clr-namespace:Vkm.Smalta.View.Elements.ViewModel"
                       mc:Ignorable="d"
                       d:DesignHeight="300" d:DesignWidth="300"
                       d:DataContext="{d:DesignInstance Type=viewModel:VkmRotateWheelViewModel}">
@@ -21,7 +21,7 @@
         </Image>
         <Popup IsOpen="{Binding Path=IsHintOpen}" StaysOpen="True" Placement="Right" MinWidth="170" MinHeight="60"
                PopupAnimation="Fade" AllowsTransparency="True">
-            <hints:Hint DataContext="{Binding Path=Hint}" />
+            <hints1:Hint DataContext="{Binding Path=Hint}" />
         </Popup>
     </Grid>
-</elements:ElementBase>
+</elements1:ElementBase>

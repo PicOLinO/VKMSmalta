@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
-using VKMSmalta.Services;
-using VKMSmalta.Tests.Fakes.ServicesAndFactories;
+using Vkm.Smalta.Services;
+using Vkm.Smalta.Tests.Fakes.ServicesAndFactories;
 
-namespace VKMSmalta.Tests
+namespace Vkm.Smalta.Tests
 {
     [TestFixture]
     public abstract class TestBase

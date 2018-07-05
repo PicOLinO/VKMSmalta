@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using VKMSmalta.Services;
-using VKMSmalta.View.Elements.ViewModel;
+using Vkm.Smalta.Services;
+using Vkm.Smalta.View.Elements.ViewModel;
 
 #endregion
 
-namespace VKMSmalta.Domain
+namespace Vkm.Smalta.Domain
 {
     public class DependencyAction
     {

@@ -1,15 +1,15 @@
 ﻿#region Usings
 
 using System.Collections.Generic;
-using VKMSmalta.Domain;
-using VKMSmalta.Services;
-using VKMSmalta.Services.Navigate;
-using VKMSmalta.View.Elements.ViewModel;
+using Vkm.Smalta.Domain;
+using Vkm.Smalta.Services;
+using Vkm.Smalta.Services.Navigate;
+using Vkm.Smalta.View.Elements.ViewModel;
 using XAMLEx;
 
 #endregion
 
-namespace VKMSmalta.View.InnerPages.DSL.Elements
+namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
     public class VkmThumblerBuilder : BaseElementBuilder
     {

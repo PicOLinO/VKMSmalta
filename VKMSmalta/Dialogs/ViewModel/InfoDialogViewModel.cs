@@ -1,4 +1,4 @@
-﻿namespace VKMSmalta.Dialogs.ViewModel
+﻿namespace Vkm.Smalta.Dialogs.ViewModel
 {
     public class InfoDialogViewModel : DialogViewModelBase
     {

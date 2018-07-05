@@ -5,11 +5,11 @@ using System.Security;
 using System.Security.Authentication;
 using System.Threading.Tasks;
 using DevExpress.Mvvm;
-using VKMSmalta.Services;
+using Vkm.Smalta.Services;
 
 #endregion
 
-namespace VKMSmalta.Dialogs.ViewModel
+namespace Vkm.Smalta.Dialogs.ViewModel
 {
     public class LoginDialogViewModel : DialogViewModelBase
     {

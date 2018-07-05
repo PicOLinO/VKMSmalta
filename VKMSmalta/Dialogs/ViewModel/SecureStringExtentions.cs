@@ -6,7 +6,7 @@ using System.Security;
 
 #endregion
 
-namespace VKMSmalta.Dialogs.ViewModel
+namespace Vkm.Smalta.Dialogs.ViewModel
 {
     public static class SecureStringExtentions
     {

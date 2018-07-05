@@ -2,12 +2,12 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using VKMSmalta.Domain;
-using VKMSmalta.View.Elements.ViewModel.Interfaces;
+using Vkm.Smalta.Domain;
+using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
 
 #endregion
 
-namespace VKMSmalta.Services
+namespace Vkm.Smalta.Services
 {
     public class HistoryService
     {

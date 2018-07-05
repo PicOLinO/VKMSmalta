@@ -1,13 +1,13 @@
 ﻿#region Usings
 
 using DevExpress.Mvvm;
-using VKMSmalta.Services.Navigate;
-using VKMSmalta.View.Elements.ViewModel.Interfaces;
-using VKMSmalta.View.Hints.ViewModel;
+using Vkm.Smalta.Services.Navigate;
+using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
+using Vkm.Smalta.View.Hints.ViewModel;
 
 #endregion
 
-namespace VKMSmalta.View.Elements.ViewModel
+namespace Vkm.Smalta.View.Elements.ViewModel
 {
     public class ElementViewModelBase : ViewModelBase, IValuableNamedElement
     {

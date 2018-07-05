@@ -4,7 +4,7 @@ using System;
 
 #endregion
 
-namespace VKMSmalta.Domain
+namespace Vkm.Smalta.Domain
 {
     public class ExamineResult
     {

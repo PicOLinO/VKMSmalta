@@ -1,12 +1,12 @@
 ﻿#region Usings
 
 using DevExpress.Mvvm;
-using VKMSmalta.Domain;
-using VKMSmalta.Services;
+using Vkm.Smalta.Domain;
+using Vkm.Smalta.Services;
 
 #endregion
 
-namespace VKMSmalta.View.Elements.ViewModel
+namespace Vkm.Smalta.View.Elements.ViewModel
 {
     public abstract class ClickableElementViewModelBase : ElementViewModelBase
     {

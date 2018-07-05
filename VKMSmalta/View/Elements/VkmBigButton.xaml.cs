@@ -1,4 +1,4 @@
-﻿namespace VKMSmalta.View.Elements
+﻿namespace Vkm.Smalta.View.Elements
 {
     /// <summary>
     /// Interaction logic for VkmBigButton.xaml

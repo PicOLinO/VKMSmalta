@@ -6,20 +6,20 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using DevExpress.Mvvm;
-using VKMSmalta.Dialogs;
-using VKMSmalta.Dialogs.Factories;
-using VKMSmalta.Dialogs.ViewModel;
-using VKMSmalta.Domain;
-using VKMSmalta.Services;
-using VKMSmalta.Services.Navigate;
-using VKMSmalta.View.Elements.ViewModel;
-using VKMSmalta.View.Elements.ViewModel.Interfaces;
-using VKMSmalta.View.InnerPages;
-using VKMSmalta.View.InnerPages.ViewModel;
+using Vkm.Smalta.Dialogs;
+using Vkm.Smalta.Dialogs.Factories;
+using Vkm.Smalta.Dialogs.ViewModel;
+using Vkm.Smalta.Domain;
+using Vkm.Smalta.Services;
+using Vkm.Smalta.Services.Navigate;
+using Vkm.Smalta.View.Elements.ViewModel;
+using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
+using Vkm.Smalta.View.InnerPages;
+using Vkm.Smalta.View.InnerPages.ViewModel;
 
 #endregion
 
-namespace VKMSmalta.View.ViewModel
+namespace Vkm.Smalta.View.ViewModel
 {
     public class DevicePageViewModel : ViewModelBase, IDisposable
     {
@@ -172,9 +172,9 @@ namespace VKMSmalta.View.ViewModel
         {
             Pages = new ObservableCollection<InnerPageViewModelBase>
                     {
-                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.LO01I_LO01K, "/VKMSmalta;component/View/Images/Backgrounds/LO01I_LO01K.png", CurrentAlgorithm),
-                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.LO01P, "/VKMSmalta;component/View/Images/Backgrounds/LO01P.png", CurrentAlgorithm),
-                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.LO01R, "/VKMSmalta;component/View/Images/Backgrounds/LO01R.png", CurrentAlgorithm)
+                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.LO01I_LO01K, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01I_LO01K.png", CurrentAlgorithm),
+                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.LO01P, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01P.png", CurrentAlgorithm),
+                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.LO01R, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01R.png", CurrentAlgorithm)
                     };
 
             foreach (var page in Pages)

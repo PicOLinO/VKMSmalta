@@ -7,7 +7,7 @@ using System.Windows.Markup;
 
 #endregion
 
-namespace VKMSmalta.Converters
+namespace Vkm.Smalta.Converters
 {
     public abstract class BaseConverter<T> : MarkupExtension, IValueConverter where T : class, new()
     {

@@ -1,11 +1,11 @@
 ﻿#region Usings
 
 using System.Collections.Generic;
-using VKMSmalta.Domain;
+using Vkm.Smalta.Domain;
 
 #endregion
 
-namespace VKMSmalta.View.Elements.ViewModel.Interfaces
+namespace Vkm.Smalta.View.Elements.ViewModel.Interfaces
 {
     public interface IDependencyActivatorElement
     {

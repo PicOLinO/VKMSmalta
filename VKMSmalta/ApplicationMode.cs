@@ -1,4 +1,4 @@
-﻿namespace VKMSmalta
+﻿namespace Vkm.Smalta
 {
     public enum ApplicationMode
     {

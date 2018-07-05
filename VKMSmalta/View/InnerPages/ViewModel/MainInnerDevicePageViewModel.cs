@@ -2,14 +2,14 @@
 
 using System.Collections.ObjectModel;
 using System.Windows.Media;
-using VKMSmalta.Domain;
-using VKMSmalta.Services;
-using VKMSmalta.Services.Navigate;
-using VKMSmalta.View.Elements.ViewModel;
+using Vkm.Smalta.Domain;
+using Vkm.Smalta.Services;
+using Vkm.Smalta.Services.Navigate;
+using Vkm.Smalta.View.Elements.ViewModel;
 
 #endregion
 
-namespace VKMSmalta.View.InnerPages.ViewModel
+namespace Vkm.Smalta.View.InnerPages.ViewModel
 {
     public class MainInnerDevicePageViewModel : InnerPageViewModelBase
     {

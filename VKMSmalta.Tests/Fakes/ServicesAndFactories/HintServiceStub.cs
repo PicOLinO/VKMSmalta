@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using VKMSmalta.Domain;
-using VKMSmalta.Services;
-using VKMSmalta.Services.Navigate;
-using VKMSmalta.View.Elements.ViewModel;
-using VKMSmalta.View.Elements.ViewModel.Interfaces;
+using Vkm.Smalta.Domain;
+using Vkm.Smalta.Services;
+using Vkm.Smalta.Services.Navigate;
+using Vkm.Smalta.View.Elements.ViewModel;
+using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
 using Action = System.Action;
 
-namespace VKMSmalta.Tests.Fakes.ServicesAndFactories
+namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
 {
     public class HintServiceStub : IHintService
     {

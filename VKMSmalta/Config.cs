@@ -1,10 +1,10 @@
 ﻿#region Usings
 
-using VKMSmalta.Network;
+using Vkm.Smalta.Network;
 
 #endregion
 
-namespace VKMSmalta
+namespace Vkm.Smalta
 {
     public class Config
     {

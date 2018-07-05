@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace VKMSmalta.View.Hints
+namespace Vkm.Smalta.View.Hints
 {
     /// <summary>
     /// Interaction logic for NavigateButtonHint.xaml

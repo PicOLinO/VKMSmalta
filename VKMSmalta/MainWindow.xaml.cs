@@ -1,23 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using DevExpress.Mvvm;
-using VKMSmalta.Services;
-using VKMSmalta.Services.Navigate;
-using VKMSmalta.ViewModel;
+using Vkm.Smalta.Services;
+using Vkm.Smalta.Services.Navigate;
+using Vkm.Smalta.ViewModel;
 
-namespace VKMSmalta
+namespace Vkm.Smalta
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

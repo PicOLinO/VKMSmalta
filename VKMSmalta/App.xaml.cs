@@ -5,12 +5,12 @@ using System.Configuration;
 using System.Windows;
 using System.Windows.Threading;
 using Appccelerate.CommandLineParser;
-using VKMSmalta.Dialogs.Factories;
-using VKMSmalta.Services;
+using Vkm.Smalta.Dialogs.Factories;
+using Vkm.Smalta.Services;
 
 #endregion
 
-namespace VKMSmalta
+namespace Vkm.Smalta
 {
     /// <summary>
     /// Interaction logic for App.xaml

@@ -6,7 +6,7 @@ using System.Windows;
 
 #endregion
 
-namespace VKMSmalta.Converters
+namespace Vkm.Smalta.Converters
 {
     public class BoolToVisibilityConverter : BaseConverter<BoolToVisibilityConverter>
     {

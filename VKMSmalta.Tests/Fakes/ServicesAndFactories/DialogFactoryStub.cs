@@ -1,13 +1,13 @@
 ﻿#region Usings
 
 using System.Collections.Generic;
-using VKMSmalta.Dialogs.Factories;
-using VKMSmalta.Domain;
-using VKMSmalta.Services;
+using Vkm.Smalta.Dialogs.Factories;
+using Vkm.Smalta.Domain;
+using Vkm.Smalta.Services;
 
 #endregion
 
-namespace VKMSmalta.Tests.Fakes.ServicesAndFactories
+namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
 {
     public class DialogFactoryStub : IDialogFactory
     {

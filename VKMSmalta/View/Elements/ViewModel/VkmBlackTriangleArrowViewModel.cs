@@ -2,11 +2,11 @@
 
 using System;
 using System.Timers;
-using VKMSmalta.View.Elements.ViewModel.Interfaces;
+using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
 
 #endregion
 
-namespace VKMSmalta.View.Elements.ViewModel
+namespace Vkm.Smalta.View.Elements.ViewModel
 {
     public class VkmBlackTriangleArrowViewModel : ElementViewModelBase, ITimingValueChangedElement, IDisposable
     {

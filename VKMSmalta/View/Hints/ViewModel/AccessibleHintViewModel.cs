@@ -1,10 +1,10 @@
 ﻿#region Usings
 
-using VKMSmalta.Services;
+using Vkm.Smalta.Services;
 
 #endregion
 
-namespace VKMSmalta.View.Hints.ViewModel
+namespace Vkm.Smalta.View.Hints.ViewModel
 {
     public class AccessibleHintViewModel : HintViewModelBase
     {

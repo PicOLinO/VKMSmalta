@@ -4,13 +4,13 @@ using System;
 using System.Windows;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.UI;
-using VKMSmalta.Dialogs.ViewModel;
-using VKMSmalta.Domain;
-using VKMSmalta.Services;
+using Vkm.Smalta.Dialogs.ViewModel;
+using Vkm.Smalta.Domain;
+using Vkm.Smalta.Services;
 
 #endregion
 
-namespace VKMSmalta.Dialogs.Factories
+namespace Vkm.Smalta.Dialogs.Factories
 {
     public class DialogFactory : IDialogFactory
     {

@@ -1,10 +1,10 @@
 ﻿#region Usings
 
-using VKMSmalta.ViewModel;
+using Vkm.Smalta.ViewModel;
 
 #endregion
 
-namespace VKMSmalta.Tests.ViewModels.MainPageViewModelTests
+namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
 {
     public class MainPageViewModelTestBase : TestBase
     {

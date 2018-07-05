@@ -1,13 +1,13 @@
 ﻿#region Usings
 
 using System.Collections.Generic;
-using VKMSmalta.Domain;
-using VKMSmalta.Services;
-using VKMSmalta.View.Elements.ViewModel.Interfaces;
+using Vkm.Smalta.Domain;
+using Vkm.Smalta.Services;
+using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
 
 #endregion
 
-namespace VKMSmalta.View.Elements.ViewModel
+namespace Vkm.Smalta.View.Elements.ViewModel
 {
     public abstract class ClickableDependencyActivatorElementBase : ClickableElementViewModelBase, IDependencyActivatorElement
     {

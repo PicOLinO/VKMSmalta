@@ -4,12 +4,12 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using VKMSmalta.Services;
-using VKMSmalta.View.Elements.ViewModel;
+using Vkm.Smalta.Services;
+using Vkm.Smalta.View.Elements.ViewModel;
 
 #endregion
 
-namespace VKMSmalta.View.Elements
+namespace Vkm.Smalta.View.Elements
 {
     public class ElementBase : UserControl, IDisposable
     {

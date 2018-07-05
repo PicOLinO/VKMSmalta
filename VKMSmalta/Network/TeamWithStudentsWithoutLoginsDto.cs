@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace VKMSmalta.Network
+namespace Vkm.Smalta.Network
 {
     public class TeamWithStudentsWithoutLoginsDto
     {

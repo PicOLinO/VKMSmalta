@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
-using VKMSmalta.Domain;
+using Vkm.Smalta.Domain;
 
-namespace VKMSmalta.Tests.ViewModels.MainPageViewModelTests
+namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
 {
     public class WhenInitialize : MainPageViewModelTestBase
     {

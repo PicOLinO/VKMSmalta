@@ -6,14 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Security;
 using System.Threading.Tasks;
-using VKMSmalta.Dialogs.Factories;
-using VKMSmalta.Domain;
-using VKMSmalta.Network;
-using VKMSmalta.Services;
+using Vkm.Smalta.Dialogs.Factories;
+using Vkm.Smalta.Domain;
+using Vkm.Smalta.Network;
+using Vkm.Smalta.Services;
 
 #endregion
 
-namespace VKMSmalta.Dialogs.ViewModel
+namespace Vkm.Smalta.Dialogs.ViewModel
 {
     public class RegisterDialogViewModel : LoginDialogViewModel
     {

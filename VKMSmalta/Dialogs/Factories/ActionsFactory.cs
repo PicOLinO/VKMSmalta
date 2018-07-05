@@ -1,12 +1,12 @@
 ﻿#region Usings
 
-using VKMSmalta.Domain;
-using VKMSmalta.Services;
-using VKMSmalta.View.Hints.ViewModel;
+using Vkm.Smalta.Domain;
+using Vkm.Smalta.Services;
+using Vkm.Smalta.View.Hints.ViewModel;
 
 #endregion
 
-namespace VKMSmalta.Dialogs.Factories
+namespace Vkm.Smalta.Dialogs.Factories
 {
     public class ActionsFactory
     {

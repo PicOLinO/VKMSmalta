@@ -4,7 +4,7 @@ using System.Net;
 
 #endregion
 
-namespace VKMSmalta.Network
+namespace Vkm.Smalta.Network
 {
     public class RegisterDataDto
     {

@@ -1,7 +1,7 @@
-﻿using VKMSmalta.Domain;
-using VKMSmalta.Services;
+﻿using Vkm.Smalta.Domain;
+using Vkm.Smalta.Services;
 
-namespace VKMSmalta.Dialogs.Factories
+namespace Vkm.Smalta.Dialogs.Factories
 {
     public interface IDialogFactory
     {

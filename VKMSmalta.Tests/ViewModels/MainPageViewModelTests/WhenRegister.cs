@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace VKMSmalta.Tests.ViewModels.MainPageViewModelTests
+namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
 {
     public class WhenRegister : MainPageViewModelTestBase
     {

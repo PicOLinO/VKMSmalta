@@ -1,12 +1,12 @@
 ﻿#region Usings
 
 using System.Windows.Controls;
-using VKMSmalta.Dialogs.ViewModel;
-using VKMSmalta.Domain;
+using Vkm.Smalta.Dialogs.ViewModel;
+using Vkm.Smalta.Domain;
 
 #endregion
 
-namespace VKMSmalta.Dialogs
+namespace Vkm.Smalta.Dialogs
 {
     /// <summary>
     /// Interaction logic for ChoseAlgorithmDialog.xaml

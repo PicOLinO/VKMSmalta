@@ -8,8 +8,8 @@
     <ProjectGuid>{0A0D03DA-0129-4D91-925D-DBC3CDA7BD40}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VKMSmalta.Tests</RootNamespace>
-    <AssemblyName>VKMSmalta.Tests</AssemblyName>
+    <RootNamespace>Vkm.Smalta.Tests</RootNamespace>
+    <AssemblyName>Vkm.Smalta.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -52,11 +52,13 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\VKMSmalta\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Fakes\ServicesAndFactories\DialogFactoryStub.cs" />
     <Compile Include="Fakes\ServicesAndFactories\HintServiceStub.cs" />
     <Compile Include="Fakes\ServicesAndFactories\VIewInjectionManagerStub.cs" />
     <Compile Include="TestBase.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\DevicePageViewModelTests\DevicePageViewModelTestBase.cs" />
     <Compile Include="ViewModels\DevicePageViewModelTests\WhenEndTraining.cs" />
     <Compile Include="ViewModels\DevicePageViewModelTests\WhenGoPrevious.cs" />
@@ -74,9 +76,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VKMSmalta\VKMSmalta.csproj">
+    <ProjectReference Include="..\VKMSmalta\Vkm.Smalta.csproj">
       <Project>{1931ffeb-4a78-4cfb-a0f9-0a7e47ca0a78}</Project>
-      <Name>VKMSmalta</Name>
+      <Name>Vkm.Smalta</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

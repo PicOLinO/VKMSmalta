@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace VKMSmalta.Domain
+namespace Vkm.Smalta.Domain
 {
     public class Team
     {

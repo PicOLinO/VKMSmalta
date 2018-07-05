@@ -2,13 +2,12 @@
 
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using DevExpress.Mvvm;
-using VKMSmalta.Dialogs.ViewModel;
+using Vkm.Smalta.Dialogs.ViewModel;
 
 #endregion
 
-namespace VKMSmalta.Dialogs
+namespace Vkm.Smalta.Dialogs
 {
     public class DialogBase : Window
     {

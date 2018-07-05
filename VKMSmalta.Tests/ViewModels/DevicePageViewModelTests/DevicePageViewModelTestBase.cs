@@ -1,13 +1,13 @@
 ﻿#region Usings
 
 using System.Collections.Generic;
-using VKMSmalta.Domain;
-using VKMSmalta.Services;
-using VKMSmalta.View.ViewModel;
+using Vkm.Smalta.Domain;
+using Vkm.Smalta.Services;
+using Vkm.Smalta.View.ViewModel;
 
 #endregion
 
-namespace VKMSmalta.Tests.ViewModels.DevicePageViewModelTests
+namespace Vkm.Smalta.Tests.ViewModels.DevicePageViewModelTests
 {
     public class DevicePageViewModelTestBase : TestBase
     {

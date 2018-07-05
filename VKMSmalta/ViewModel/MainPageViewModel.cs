@@ -1,18 +1,16 @@
 ﻿#region Usings
 
 using DevExpress.Mvvm;
-using VKMSmalta.Dialogs;
-using VKMSmalta.Dialogs.Factories;
-using VKMSmalta.Dialogs.ViewModel;
-using VKMSmalta.Domain;
-using VKMSmalta.Services;
-using VKMSmalta.Services.Navigate;
-using VKMSmalta.View;
-using VKMSmalta.View.ViewModel;
+using Vkm.Smalta.Dialogs.Factories;
+using Vkm.Smalta.Domain;
+using Vkm.Smalta.Services;
+using Vkm.Smalta.Services.Navigate;
+using Vkm.Smalta.View;
+using Vkm.Smalta.View.ViewModel;
 
 #endregion
 
-namespace VKMSmalta.ViewModel
+namespace Vkm.Smalta.ViewModel
 {
     public class MainPageViewModel : ViewModelBase
     {

@@ -2,11 +2,11 @@
 
 using System.Diagnostics;
 using System.Windows.Navigation;
-using VKMSmalta.Dialogs.ViewModel;
+using Vkm.Smalta.Dialogs.ViewModel;
 
 #endregion
 
-namespace VKMSmalta.Dialogs
+namespace Vkm.Smalta.Dialogs
 {
     /// <summary>
     /// Interaction logic for LoginDialog.xaml

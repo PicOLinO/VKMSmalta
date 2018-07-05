@@ -1,17 +1,10 @@
 ﻿#region Usings
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using VKMSmalta.Dialogs.Factories;
-using VKMSmalta.Services.Navigate;
-using VKMSmalta.View.Elements.ViewModel;
-using VKMSmalta.View.ViewModel;
-using VKMSmalta.ViewModel;
+using Vkm.Smalta.Dialogs.Factories;
 
 #endregion
 
-namespace VKMSmalta.Services
+namespace Vkm.Smalta.Services
 {
     public class DependencyContainer
     {

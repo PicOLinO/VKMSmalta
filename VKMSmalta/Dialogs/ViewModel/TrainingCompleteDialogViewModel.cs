@@ -1,8 +1,6 @@
-﻿using System;
-using DevExpress.Mvvm;
-using VKMSmalta.Domain;
+﻿using DevExpress.Mvvm;
 
-namespace VKMSmalta.Dialogs.ViewModel
+namespace Vkm.Smalta.Dialogs.ViewModel
 {
     public class TrainingCompleteDialogViewModel : DialogViewModelBase
     {

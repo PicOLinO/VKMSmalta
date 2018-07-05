@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using VKMSmalta.Domain;
-using VKMSmalta.Services.Navigate;
-using VKMSmalta.View.Elements.ViewModel;
-using VKMSmalta.View.Elements.ViewModel.Interfaces;
+using Vkm.Smalta.Domain;
+using Vkm.Smalta.Services.Navigate;
+using Vkm.Smalta.View.Elements.ViewModel;
+using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
 using Action = System.Action;
 
-namespace VKMSmalta.Services
+namespace Vkm.Smalta.Services
 {
     public interface IHintService
     {

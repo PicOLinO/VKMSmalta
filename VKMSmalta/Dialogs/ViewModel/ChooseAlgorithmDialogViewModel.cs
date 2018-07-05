@@ -1,13 +1,13 @@
 ﻿#region Usings
 
 using System.Collections.ObjectModel;
-using VKMSmalta.Dialogs.Factories;
-using VKMSmalta.Domain;
-using VKMSmalta.Services;
+using Vkm.Smalta.Dialogs.Factories;
+using Vkm.Smalta.Domain;
+using Vkm.Smalta.Services;
 
 #endregion
 
-namespace VKMSmalta.Dialogs.ViewModel
+namespace Vkm.Smalta.Dialogs.ViewModel
 {
     public class ChooseAlgorithmDialogViewModel : DialogViewModelBase
     {
