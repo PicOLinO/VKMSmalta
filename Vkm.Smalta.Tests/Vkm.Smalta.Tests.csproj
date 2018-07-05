@@ -76,7 +76,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VKMSmalta\Vkm.Smalta.csproj">
+    <ProjectReference Include="..\Vkm.Smalta\Vkm.Smalta.csproj">
       <Project>{1931ffeb-4a78-4cfb-a0f9-0a7e47ca0a78}</Project>
       <Name>Vkm.Smalta</Name>
     </ProjectReference>
