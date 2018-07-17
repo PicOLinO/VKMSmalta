@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.Services;
 
@@ -74,7 +75,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
         {
             foreach (var dependencyAction in DependencyActions)
             {
-                dependencyAction.UpdateDependencyElementValue(Value);
+                Task.Run(() => dependencyAction.UpdateDependencyElementValue(Value));
             }
         }
 
