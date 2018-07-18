@@ -16,11 +16,11 @@ namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
         [Test]
         public void InnerPajesAreCreated()
         {
-            ViewInjectionManagerStub.InjectedOuterPages.Clear();
+            ViewInjectionManager.InjectedOuterPages.Clear();
 
             ViewModel.GoExamineCommand.Execute(null);
 
-            Assert.That(ViewInjectionManagerStub.InjectedOuterPages.Count > 0);
+            Assert.That(ViewInjectionManager.InjectedOuterPages.Count > 0);
         }
 
         [Test]
@@ -28,7 +28,7 @@ namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
         {
             ViewModel.GoExamineCommand.Execute(null);
 
-            Assert.That(ViewInjectionManagerStub.CurrentPages[Regions.OuterRegion], Is.Not.EqualTo(OuterRegionPages.MainMenu));
+            Assert.That(ViewInjectionManager.CurrentPages[Regions.OuterRegion], Is.Not.EqualTo(OuterRegionPages.MainMenu));
         }
 
         [Test]
@@ -36,7 +36,7 @@ namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
         {
             ViewModel.GoExamineCommand.Execute(null);
 
-            Assert.That(ViewInjectionManagerStub.InjectedOuterPages[OuterRegionPages.Device].Mode, Is.EqualTo(ApplicationMode.Examine));
+            Assert.That(ViewInjectionManager.InjectedOuterPages[OuterRegionPages.Device].Mode, Is.EqualTo(ApplicationMode.Examine));
         }
     }
 }

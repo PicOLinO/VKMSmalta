@@ -17,12 +17,14 @@ namespace Vkm.Smalta.ViewModel
         private readonly IDialogFactory dialogFactory;
         private readonly IHintService hintService;
         private readonly IViewInjectionManager viewInjectionManager;
+        private readonly ILoadingService loadingService;
 
-        public MainPageViewModel(IHintService hintService, IDialogFactory dialogFactory, IViewInjectionManager viewInjectionManager)
+        public MainPageViewModel(IHintService hintService, IDialogFactory dialogFactory, IViewInjectionManager viewInjectionManager, ILoadingService loadingService)
         {
             this.hintService = hintService;
             this.dialogFactory = dialogFactory;
             this.viewInjectionManager = viewInjectionManager;
+            this.loadingService = loadingService;
 
             Initialize();
         }
@@ -91,7 +93,7 @@ namespace Vkm.Smalta.ViewModel
             var algorithm = ChooseAlgorithm();
             if (algorithm != null)
             {
-                //TODO: Loading splash on
+                loadingService.LoadingOn();
 
                 var vm = new DevicePageViewModel(startTraining ? ApplicationMode.Training : ApplicationMode.Examine, algorithm, hintService, new HistoryService(), dialogFactory, viewInjectionManager);
                 CurrentDevicePageService.Initialize(vm);
@@ -103,7 +105,7 @@ namespace Vkm.Smalta.ViewModel
                 viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
                 viewInjectionManager.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
 
-                //TODO: Loading splash off
+                loadingService.LoadingOff();
             }
         }
 

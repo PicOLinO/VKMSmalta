@@ -7,14 +7,14 @@ using Vkm.Smalta.View.ViewModel;
 
 namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
 {
-    public class VIewInjectionManagerStub : IViewInjectionManager
+    public class ViewInjectionManagerStub : IViewInjectionManager
     {
         public readonly Dictionary<string, object> CurrentPages;
 
         public readonly Dictionary<InnerRegionPage, InnerPageViewModelBase> InjectedInnerPages;
         public readonly Dictionary<OuterRegionPages, DevicePageViewModel> InjectedOuterPages;
 
-        public VIewInjectionManagerStub()
+        public ViewInjectionManagerStub()
         {
             InjectedInnerPages = new Dictionary<InnerRegionPage, InnerPageViewModelBase>();
             InjectedOuterPages = new Dictionary<OuterRegionPages, DevicePageViewModel>();

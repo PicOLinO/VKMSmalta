@@ -10,17 +10,20 @@ namespace Vkm.Smalta.Tests
         protected AppGlobal App;
         protected DialogFactoryStub DialogFactory;
         protected HintServiceStub HintService;
-        protected VIewInjectionManagerStub ViewInjectionManagerStub;
+        protected ViewInjectionManagerStub ViewInjectionManager;
+        protected LoadingServiceStub LoadingService;
 
         [SetUp]
         protected virtual void Setup()
         {
             var config = new Config("adminUriBase");
             DependencyContainer.Initialize(config);
+
             App = DependencyContainer.GetApp();
             DialogFactory = new DialogFactoryStub();
             HintService = new HintServiceStub();
-            ViewInjectionManagerStub = new VIewInjectionManagerStub();
+            ViewInjectionManager = new ViewInjectionManagerStub();
+            LoadingService = new LoadingServiceStub();
         }
     }
 }

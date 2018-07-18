@@ -25,8 +25,11 @@ namespace Vkm.Smalta
             var dialogFactory = DependencyContainer.GetDialogFactory();
             var hintService = new HintService();
             var viewInjectionManager = ViewInjectionManager.Default;
+            var loadingService = new LoadingService();
 
-            viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.MainMenu, () => new MainPageViewModel(hintService, dialogFactory, viewInjectionManager), typeof(MainPage));
+            var mainPageViewModel = new MainPageViewModel(hintService, dialogFactory, viewInjectionManager, loadingService);
+
+            viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.MainMenu, () => mainPageViewModel, typeof(MainPage));
         }
     }
 }

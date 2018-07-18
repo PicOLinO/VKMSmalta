@@ -160,6 +160,8 @@
     <Compile Include="Services\HistoryService.cs" />
     <Compile Include="Services\IHintService.cs" />
     <Compile Include="Services\CurrentDevicePageService.cs" />
+    <Compile Include="Services\ILoadingService.cs" />
+    <Compile Include="Services\LoadingService.cs" />
     <Compile Include="Services\Navigate\Direction.cs" />
     <Compile Include="Services\Navigate\RegionPages.cs" />
     <Compile Include="Services\Navigate\Regions.cs" />

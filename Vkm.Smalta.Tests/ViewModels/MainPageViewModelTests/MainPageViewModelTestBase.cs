@@ -12,7 +12,7 @@ namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
         {
             base.Setup();
 
-            ViewModel = new MainPageViewModel(HintService, DialogFactory, ViewInjectionManagerStub);
+            ViewModel = new MainPageViewModel(HintService, DialogFactory, ViewInjectionManager, LoadingService);
         }
 
         protected MainPageViewModel ViewModel;

@@ -30,7 +30,12 @@ namespace Vkm.Smalta.View.ViewModel
         private readonly IDialogFactory dialogFactory;
         private readonly IViewInjectionManager viewInjectionManager;
 
-        public DevicePageViewModel(ApplicationMode appMode, Algorithm algorithm, IHintService hintService, HistoryService historyService, IDialogFactory dialogFactory, IViewInjectionManager viewInjectionManager)
+        public DevicePageViewModel(ApplicationMode appMode, 
+                                   Algorithm algorithm, 
+                                   IHintService hintService, 
+                                   HistoryService historyService, 
+                                   IDialogFactory dialogFactory, 
+                                   IViewInjectionManager viewInjectionManager)
         {
             Mode = appMode;
             CurrentAlgorithm = algorithm;
