@@ -33,9 +33,10 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 
         public bool IsDependencyActionsRunning { get; private set; }
 
-        private void DependencyActionsCounterCallback()
+        private void DependencyActionsCounterCallback(string dependencyElementName)
         {
             dependencyActionsCounter++;
+            HistoryService.Actions.Add(new Action(ActionName.Idle, dependencyElementName));
 
             if (DependencyActions.Count == dependencyActionsCounter)
             {

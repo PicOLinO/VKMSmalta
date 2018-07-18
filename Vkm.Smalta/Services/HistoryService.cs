@@ -47,7 +47,6 @@ namespace Vkm.Smalta.Services
         public int GetValueByAlgorithmByUserActions(Algorithm algorithm, List<IValuableNamedElement> elements)
         {
             //TODO: Несовершенно. Много ошибок. Надо превращать фабрику по производству алгоритмов в DSL и добавлять зависимости.
-            //TODO: К тому же нужно как то обрабатывать действия "простоя" и т.д.
             var allCount = algorithm.Actions.Count;
             var rightsCount = 0;
 

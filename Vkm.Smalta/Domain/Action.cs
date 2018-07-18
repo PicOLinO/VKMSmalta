@@ -19,5 +19,10 @@ namespace Vkm.Smalta.Domain
 
         public ActionName Name { get; }
         public string ParentElementName { get; }
+
+        public override string ToString()
+        {
+            return $"{nameof(Name)}: {Name}, {nameof(ParentElementName)}: {ParentElementName}";
+        }
     }
 }

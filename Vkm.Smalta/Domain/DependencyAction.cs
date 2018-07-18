@@ -39,7 +39,7 @@ namespace Vkm.Smalta.Domain
 
         public bool CancellationToken { private get; set; }
 
-        public async Task UpdateDependencyElementValue(int value, System.Action dependencyActionsCounterCallback = null)
+        public async Task UpdateDependencyElementValue(int value, Action<string> dependencyActionsCounterCallback = null)
         {
             if (DelayedTimeInSeconds > 0)
             {
@@ -67,7 +67,7 @@ namespace Vkm.Smalta.Domain
                     throw new ArgumentOutOfRangeException();
             }
 
-            dependencyActionsCounterCallback?.Invoke();
+            dependencyActionsCounterCallback?.Invoke(dependencyElementName);
         }
     }
 }

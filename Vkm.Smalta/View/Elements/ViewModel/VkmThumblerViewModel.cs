@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.Services;
+using Action = Vkm.Smalta.Domain.Action;
 
 #endregion
 
@@ -75,8 +76,13 @@ namespace Vkm.Smalta.View.Elements.ViewModel
         {
             foreach (var dependencyAction in DependencyActions)
             {
-                Task.Run(() => dependencyAction.UpdateDependencyElementValue(Value));
+                Task.Run(() => dependencyAction.UpdateDependencyElementValue(Value, DependencyActionExecutedCallback));
             }
+        }
+
+        private void DependencyActionExecutedCallback(string dependencyElementName)
+        {
+            HistoryService.Actions.Add(new Action(ActionName.Idle, dependencyElementName));
         }
 
         #endregion
