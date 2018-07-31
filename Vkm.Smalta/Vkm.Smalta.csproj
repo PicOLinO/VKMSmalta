@@ -378,6 +378,7 @@
   <ItemGroup>
     <Content Include="InnoSetupScript.iss" />
     <Content Include="lib\XAMLEx.dll" />
+    <Resource Include="View\Images\TrollFace.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7">

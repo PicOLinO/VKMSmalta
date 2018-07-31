@@ -137,6 +137,12 @@ namespace Vkm.Smalta.View.ViewModel
             return false;
         }
 
+        public bool IsTrollFaceOpen
+        {
+            get { return GetProperty(() => IsTrollFaceOpen); }
+            set { SetProperty(() => IsTrollFaceOpen, value); }
+        }
+
         private void CreateCommands()
         {
             GoForwardCommand = new DelegateCommand(OnGoForward, CanGoForward);
@@ -148,7 +154,7 @@ namespace Vkm.Smalta.View.ViewModel
             }
         }
 
-        private void OnKeyDown(Key key)
+        private async void OnKeyDown(Key key)
         {
             cheatInput.Enqueue(key);
             if (cheatInput.Count >= 8)
@@ -156,6 +162,9 @@ namespace Vkm.Smalta.View.ViewModel
                 if (cheatInput.ToArray().SequenceEqual(cheatEthalon))
                 {   
                     IsGodModeOn = true;
+                    IsTrollFaceOpen = true;
+                    await Task.Delay(1000);
+                    IsTrollFaceOpen = false;
                 }
                 cheatInput.Dequeue();
             }
