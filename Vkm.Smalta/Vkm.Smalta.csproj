@@ -104,6 +104,7 @@
     <Compile Include="Converters\BaseConverter.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\CenterPopupConverter.cs" />
+    <Compile Include="Converters\KeyDownEventArgsToCharConverter.cs" />
     <Compile Include="Converters\PageKeyToPageNameConverter.cs" />
     <Compile Include="Converters\ValueToStringValueConverter.cs" />
     <Compile Include="Dialogs\CheckResultsDialog.xaml.cs">
