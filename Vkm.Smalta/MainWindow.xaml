@@ -13,7 +13,7 @@
         UseLayoutRounding="True"
         d:DataContext="{d:DesignInstance Type=viewModel:MainWindowViewModel}">
     <Grid>
-        <Frame NavigationUIVisibility="Hidden">
+        <Frame x:Name="NavigationFrame" NavigationUIVisibility="Hidden" >
             <dxmvvm:Interaction.Behaviors>
                 <dxmvvm:ViewInjectionService RegionName="Outer" />
             </dxmvvm:Interaction.Behaviors>

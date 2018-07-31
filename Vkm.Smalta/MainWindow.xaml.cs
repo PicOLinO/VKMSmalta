@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using DevExpress.Mvvm;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.Services.Navigate;
@@ -30,6 +31,13 @@ namespace Vkm.Smalta
             var mainPageViewModel = new MainPageViewModel(hintService, dialogFactory, viewInjectionManager, loadingService);
 
             viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.MainMenu, () => mainPageViewModel, typeof(MainPage));
+
+            NavigationFrame.NavigationService.Navigated += NavigationService_Navigated;
+        }
+
+        private void NavigationService_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+            NavigationFrame.NavigationService.RemoveBackEntry(); //Отключение навигации по горячим клавишам в главном меню.
         }
     }
 }
