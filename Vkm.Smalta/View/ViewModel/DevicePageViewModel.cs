@@ -156,11 +156,16 @@ namespace Vkm.Smalta.View.ViewModel
 
         private async void OnKeyDown(Key key)
         {
+            if (IsGodModeOn)
+            {
+                return;
+            }
+
             cheatInput.Enqueue(key);
             if (cheatInput.Count >= 8)
             {
                 if (cheatInput.ToArray().SequenceEqual(cheatEthalon))
-                {   
+                {
                     IsGodModeOn = true;
                     IsTrollFaceOpen = true;
                     await Task.Delay(1000);
