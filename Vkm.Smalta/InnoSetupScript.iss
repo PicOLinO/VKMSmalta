@@ -19,7 +19,7 @@ SolidCompression=yes
 AppCopyright=Danila Chervonny
 PrivilegesRequired=none
 AppContact=webmaster.pico@gmail.com
-SetupIconFile=D:\Source\VKMSmalta\VKMSmalta\logo.ico
+SetupIconFile=C:\Development\Source\Vkm.Smalta\Vkm.Smalta\logo.ico
 VersionInfoVersion=1.1.0000.0
 VersionInfoCopyright=Danila Chervonny
 VersionInfoProductName=Smalta Simulator
@@ -27,6 +27,7 @@ AppPublisherURL=https://picolino.github.io/
 AppSupportURL=https://picolino.github.io/
 AppComments=Please enjoy
 VersionInfoProductVersion=1.1.0000.0
+LicenseFile=C:\Development\Source\Vkm.Smalta\LICENSE.txt
 
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
@@ -41,24 +42,24 @@ Source: "bin\Release\Appccelerate.Fundamentals.dll"; DestDir: "{app}"; Flags: ig
 Source: "bin\Release\DevExpress.Mvvm.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "bin\Release\DevExpress.Mvvm.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "bin\Release\VKMSmalta.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "bin\Release\VKMSmalta.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\Release\Vkm.Smalta.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\Release\Vkm.Smalta.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "bin\Release\XAMLEx.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
-Name: "{group}\Smalta Simulator"; Filename: "{app}\VKMSmalta.exe"
-Name: "{commondesktop}\Smalta Simulator"; Filename: "{app}\VKMSmalta.exe"; Tasks: desktopicon
+Name: "{group}\Smalta Simulator"; Filename: "{app}\Vkm.Smalta.exe"
+Name: "{commondesktop}\Smalta Simulator"; Filename: "{app}\Vkm.Smalta.exe"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\VKMSmalta.exe"; Description: "{cm:LaunchProgram,Smalta Simulator}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\Vkm.Smalta.exe"; Description: "{cm:LaunchProgram,Smalta Simulator}"; Flags: nowait postinstall skipifsilent
 
-[code]
+[Code]
 var
 AppConfigPage : TInputQueryWizardPage;
 
 procedure InitializeWizard;
 begin
-AppConfigPage := CreateInputQueryPage(wpWelcome,
+AppConfigPage := CreateInputQueryPage(wpLicense,
     'Заполните конфигурацию', 'Пожалуйста, заполните конфигурацию, используемую на машине',
     '');
   AppConfigPage.Add('Сервер администрирования:', False);
@@ -81,7 +82,7 @@ begin
     Result := true;
 
     try
-      MyFile.LoadFromFile(ExpandConstant('{app}' + '\VKMSmalta.exe.config'));
+      MyFile.LoadFromFile(ExpandConstant('{app}' + '\Vkm.Smalta.exe.config'));
       Log('File loaded');
       MyText := MyFile.Text;
 
@@ -90,7 +91,7 @@ begin
       begin;
         Log('IP address inserted');
         MyFile.Text := MyText;
-        MyFile.SaveToFile(ExpandConstant('{app}' + '\VKMSmalta.exe.config'));
+        MyFile.SaveToFile(ExpandConstant('{app}' + '\Vkm.Smalta.exe.config'));
         Log('File saved');
       end;
     except
