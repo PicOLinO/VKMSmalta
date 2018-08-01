@@ -19,15 +19,16 @@ SolidCompression=yes
 AppCopyright=Danila Chervonny
 PrivilegesRequired=none
 AppContact=webmaster.pico@gmail.com
-SetupIconFile=C:\Development\Source\Vkm.Smalta\Vkm.Smalta\logo.ico
+SetupIconFile=logo.ico
 VersionInfoVersion=1.1.0000.0
 VersionInfoCopyright=Danila Chervonny
 VersionInfoProductName=Smalta Simulator
 AppPublisherURL=https://picolino.github.io/
 AppSupportURL=https://picolino.github.io/
-AppComments=Please enjoy
 VersionInfoProductVersion=1.1.0000.0
-LicenseFile=C:\Development\Source\Vkm.Smalta\LICENSE.txt
+LicenseFile=..\LICENSE.txt
+UninstallDisplayName=Smalta Simulator
+UninstallDisplayIcon={app}\logo.ico
 
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
@@ -45,6 +46,8 @@ Source: "bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversio
 Source: "bin\Release\Vkm.Smalta.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "bin\Release\Vkm.Smalta.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "bin\Release\XAMLEx.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "logo.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\Smalta Simulator"; Filename: "{app}\Vkm.Smalta.exe"
