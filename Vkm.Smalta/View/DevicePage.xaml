@@ -19,7 +19,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <Frame NavigationUIVisibility="Hidden" Width="1600" Height="800">
+            <Frame NavigationUIVisibility="Hidden" Width="1600" Height="800" Navigated="Frame_OnNavigated">
                 <dxmvvm:Interaction.Behaviors>
                     <dxmvvm:ViewInjectionService RegionName="Inner" />
                 </dxmvvm:Interaction.Behaviors>

@@ -225,10 +225,10 @@ namespace Vkm.Smalta.View.ViewModel
                 viewInjectionManager.Inject(Regions.InnerRegion, page.PageKey, () => page, typeof(MainInnerDevicePage));
             }
 
-            NavigateOnPage(InnerRegionPage.LO01P);
+            NavigateOnInnerPage(InnerRegionPage.LO01P);
         }
 
-        private void NavigateOnPage(InnerRegionPage page)
+        public void NavigateOnInnerPage(InnerRegionPage page)
         {
             viewInjectionManager.Navigate(Regions.InnerRegion, page);
             CurrentPageKey = page;
@@ -295,12 +295,12 @@ namespace Vkm.Smalta.View.ViewModel
 
         private void OnGoForward()
         {
-            NavigateOnPage(NextPageKey);
+            NavigateOnInnerPage(NextPageKey);
         }
 
         private void OnGoPrevious()
         {
-            NavigateOnPage(PreviousPageKey);
+            NavigateOnInnerPage(PreviousPageKey);
         }
 
         private void Reset()

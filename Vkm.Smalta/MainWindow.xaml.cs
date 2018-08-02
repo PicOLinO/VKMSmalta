@@ -25,7 +25,7 @@ namespace Vkm.Smalta
         {
             var dialogFactory = DependencyContainer.GetDialogFactory();
             var hintService = new HintService();
-            var viewInjectionManager = ViewInjectionManager.Default;
+            var viewInjectionManager = DependencyContainer.GetViewInjectionManager();
             var loadingService = new LoadingService();
 
             var mainPageViewModel = new MainPageViewModel(hintService, dialogFactory, viewInjectionManager, loadingService);

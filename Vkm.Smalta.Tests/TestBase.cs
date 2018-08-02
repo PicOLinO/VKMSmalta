@@ -16,13 +16,14 @@ namespace Vkm.Smalta.Tests
         [SetUp]
         protected virtual void Setup()
         {
+            ViewInjectionManager = new ViewInjectionManagerStub();
+
             var config = new Config("adminUriBase");
-            DependencyContainer.Initialize(config);
+            DependencyContainer.Initialize(config, ViewInjectionManager);
 
             App = DependencyContainer.GetApp();
             DialogFactory = new DialogFactoryStub();
             HintService = new HintServiceStub();
-            ViewInjectionManager = new ViewInjectionManagerStub();
             LoadingService = new LoadingServiceStub();
         }
     }

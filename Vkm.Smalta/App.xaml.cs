@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Windows;
 using System.Windows.Threading;
 using Appccelerate.CommandLineParser;
+using DevExpress.Mvvm;
 using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Services;
 
@@ -21,7 +22,7 @@ namespace Vkm.Smalta
         {
             var config = CreateConfig();
 
-            DependencyContainer.Initialize(config);
+            DependencyContainer.Initialize(config, ViewInjectionManager.Default);
             NetworkService.InitializeService(config.AdminUri);
 
             ParseArgs(e.Args);
