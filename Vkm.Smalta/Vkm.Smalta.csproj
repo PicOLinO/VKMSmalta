@@ -120,6 +120,9 @@
     <Compile Include="Dialogs\InfoDialog.xaml.cs">
       <DependentUpon>InfoDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\MessageBoxDialog.xaml.cs">
+      <DependentUpon>MessageBoxDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\RegisterDialog.xaml.cs">
       <DependentUpon>RegisterDialog.xaml</DependentUpon>
     </Compile>
@@ -163,6 +166,7 @@
     <Compile Include="Services\CurrentDevicePageService.cs" />
     <Compile Include="Services\ILoadingService.cs" />
     <Compile Include="Services\LoadingService.cs" />
+    <Compile Include="Services\MessageBoxService.cs" />
     <Compile Include="Services\Navigate\Direction.cs" />
     <Compile Include="Services\Navigate\RegionPages.cs" />
     <Compile Include="Services\Navigate\Regions.cs" />
@@ -242,6 +246,10 @@
     <Page Include="Dialogs\InfoDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\MessageBoxDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogs\RegisterDialog.xaml">
       <Generator>MSBuild:Compile</Generator>

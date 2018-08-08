@@ -7,6 +7,7 @@ using DevExpress.Mvvm.UI;
 using Vkm.Smalta.Dialogs.ViewModel;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.Services;
+using MessageBoxService = DevExpress.Mvvm.UI.MessageBoxService;
 
 #endregion
 
