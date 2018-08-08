@@ -378,6 +378,9 @@
   <ItemGroup>
     <Content Include="InnoSetupScript.iss" />
     <Content Include="lib\XAMLEx.dll" />
+    <Resource Include="LICENSE.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="View\Images\TrollFace.png" />
   </ItemGroup>
   <ItemGroup>

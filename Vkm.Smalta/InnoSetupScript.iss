@@ -26,7 +26,7 @@ VersionInfoProductName=Smalta Simulator
 AppPublisherURL=https://picolino.github.io/
 AppSupportURL=https://picolino.github.io/
 VersionInfoProductVersion=1.1.0000.0
-LicenseFile=..\LICENSE.txt
+LicenseFile=LICENSE.txt
 UninstallDisplayName=Smalta Simulator
 UninstallDisplayIcon={app}\logo.ico
 
@@ -46,7 +46,7 @@ Source: "bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversio
 Source: "bin\Release\Vkm.Smalta.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "bin\Release\Vkm.Smalta.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "bin\Release\XAMLEx.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "logo.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
