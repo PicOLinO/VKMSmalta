@@ -50,38 +50,46 @@ namespace Vkm.Smalta.Dialogs.Factories
 
         public void ShowInfoDialog()
         {
-            var infoDialog = new InfoDialog();
-            infoDialog.ShowDialog();
+            using (var infoDialog = new InfoDialog())
+            {
+                infoDialog.ShowDialog();
+            }
         }
 
         public bool ShowLoginDialog()
         {
-            var loginDialog = new LoginDialog();
-            var result = loginDialog.ShowDialog();
-            return result.HasValue && result.Value;
+            using (var loginDialog = new LoginDialog())
+            {
+                var result = loginDialog.ShowDialog();
+                return result.HasValue && result.Value;
+            }
         }
 
         public bool ShowRegisterDialog()
         {
-            var registerDialog = new RegisterDialog();
-            var result = registerDialog.ShowDialog();
-            return result.HasValue && result.Value;
+            using (var registerDialog = new RegisterDialog())
+            {
+                var result = registerDialog.ShowDialog();
+                return result.HasValue && result.Value;
+            }
         }
 
         public Algorithm ShowChooseAlgorithmDialog(IHintService hintService)
         {
-            var vm = new ChooseAlgorithmDialogViewModel(hintService);
-            var dialog = new ChooseAlgorithmDialog(vm);
-            dialog.ShowDialog();
-            return dialog.SelectedAlgorithm;
+            using (var dialog = new ChooseAlgorithmDialog(hintService))
+            {
+                dialog.ShowDialog();
+                return dialog.SelectedAlgorithm;
+            }
         }
 
         public bool ShowTrainingCompleteDialog()
         {
-            var vm = new TrainingCompleteDialogViewModel();
-            var dialog = new TrainingCompleteDialog(vm);
-            dialog.ShowDialog();
-            return dialog.GoExamine;
+            using (var dialog = new TrainingCompleteDialog())
+            {
+                dialog.ShowDialog();
+                return dialog.GoExamine;
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using DevExpress.Mvvm;
@@ -9,7 +10,7 @@ using Vkm.Smalta.Dialogs.ViewModel;
 
 namespace Vkm.Smalta.Dialogs
 {
-    public class DialogBase : Window
+    public class DialogBase : Window, IDisposable
     {
         protected DialogBase()
         {
@@ -25,8 +26,15 @@ namespace Vkm.Smalta.Dialogs
         public override void OnApplyTemplate()
         {
             if (GetTemplateChild("closeButton") is Button closeButton)
-                closeButton.Click += (sender, args) => Close();
+            {
+                closeButton.Click += OnCloseButtonClick;
+            }
             base.OnApplyTemplate();
+        }
+
+        private void OnCloseButtonClick(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
 
         private void CreateCommands()
@@ -39,6 +47,14 @@ namespace Vkm.Smalta.Dialogs
         {
             DialogResult = parameter;
             Close();
+        }
+
+        public void Dispose()
+        {
+            if (GetTemplateChild("closeButton") is Button closeButton)
+            {
+                closeButton.Click -= OnCloseButtonClick;
+            }
         }
     }
 }

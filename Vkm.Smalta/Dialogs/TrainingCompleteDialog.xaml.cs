@@ -11,10 +11,10 @@ namespace Vkm.Smalta.Dialogs
     /// </summary>
     public partial class TrainingCompleteDialog
     {
-        public TrainingCompleteDialog(TrainingCompleteDialogViewModel vm)
+        public TrainingCompleteDialog()
         {
             InitializeComponent();
-            DataContext = vm;
+            DataContext = new TrainingCompleteDialog();
             Initialize();
         }
 

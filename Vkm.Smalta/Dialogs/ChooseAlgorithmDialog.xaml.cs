@@ -3,6 +3,7 @@
 using System.Windows.Controls;
 using Vkm.Smalta.Dialogs.ViewModel;
 using Vkm.Smalta.Domain;
+using Vkm.Smalta.Services;
 
 #endregion
 
@@ -13,10 +14,10 @@ namespace Vkm.Smalta.Dialogs
     /// </summary>
     public partial class ChooseAlgorithmDialog
     {
-        public ChooseAlgorithmDialog(ChooseAlgorithmDialogViewModel vm)
+        public ChooseAlgorithmDialog(IHintService hintService)
         {
             InitializeComponent();
-            DataContext = vm;
+            DataContext = new ChooseAlgorithmDialogViewModel(hintService);
             Initialize();
         }
 
