@@ -27,7 +27,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Style="{StaticResource DialogInnerSeparatingRow}"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>

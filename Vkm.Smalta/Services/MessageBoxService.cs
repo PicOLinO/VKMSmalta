@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using DevExpress.Mvvm;
 using Vkm.Smalta.Dialogs;
 
@@ -10,6 +11,7 @@ namespace Vkm.Smalta.Services
         {
             using (var dialog = new MessageBoxDialog(messageBoxText, button, icon, defaultResult))
             {
+                dialog.Owner = Application.Current.MainWindow;
                 dialog.ShowDialog();
                 return dialog.MessageResult;
             }

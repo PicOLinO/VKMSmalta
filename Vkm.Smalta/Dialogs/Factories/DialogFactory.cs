@@ -54,6 +54,7 @@ namespace Vkm.Smalta.Dialogs.Factories
             ShowErrorMessage("Лол как чебурак, кокококок");
             using (var infoDialog = new InfoDialog())
             {
+                infoDialog.Owner = Application.Current.MainWindow;
                 infoDialog.ShowDialog();
             }
         }
@@ -62,6 +63,7 @@ namespace Vkm.Smalta.Dialogs.Factories
         {
             using (var loginDialog = new LoginDialog())
             {
+                loginDialog.Owner = Application.Current.MainWindow;
                 var result = loginDialog.ShowDialog();
                 return result.HasValue && result.Value;
             }
@@ -71,6 +73,7 @@ namespace Vkm.Smalta.Dialogs.Factories
         {
             using (var registerDialog = new RegisterDialog())
             {
+                registerDialog.Owner = Application.Current.MainWindow;
                 var result = registerDialog.ShowDialog();
                 return result.HasValue && result.Value;
             }
@@ -80,6 +83,7 @@ namespace Vkm.Smalta.Dialogs.Factories
         {
             using (var dialog = new ChooseAlgorithmDialog(hintService))
             {
+                dialog.Owner = Application.Current.MainWindow;
                 dialog.ShowDialog();
                 return dialog.SelectedAlgorithm;
             }
@@ -89,6 +93,7 @@ namespace Vkm.Smalta.Dialogs.Factories
         {
             using (var dialog = new TrainingCompleteDialog())
             {
+                dialog.Owner = Application.Current.MainWindow;
                 dialog.ShowDialog();
                 return dialog.GoExamine;
             }
