@@ -15,7 +15,7 @@ namespace Vkm.Smalta.Dialogs.Factories
 {
     public class DialogFactory : IDialogFactory
     {
-        private static readonly IMessageBoxService Service = new MessageBoxService();
+        private static readonly IMessageBoxService Service = new Services.MessageBoxService();
 
         public static bool AskYesNo(string text, string caption = null)
         {
@@ -51,6 +51,7 @@ namespace Vkm.Smalta.Dialogs.Factories
 
         public void ShowInfoDialog()
         {
+            ShowErrorMessage("Лол как чебурак, кокококок");
             using (var infoDialog = new InfoDialog())
             {
                 infoDialog.ShowDialog();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using DevExpress.Mvvm;
+using Vkm.Smalta.Dialogs.ViewModel;
 
 namespace Vkm.Smalta.Dialogs
 {
@@ -9,9 +10,13 @@ namespace Vkm.Smalta.Dialogs
     /// </summary>
     public partial class MessageBoxDialog
     {
+        private MessageBoxDialogViewModel ViewModel => (MessageBoxDialogViewModel) DataContext;
+
         public MessageBoxDialog(string messageBoxText, MessageButton button, MessageIcon icon, MessageResult defaultResult)
         {
             InitializeComponent();
+            DataContext = new MessageBoxDialogViewModel();
+            Initialize();
             Initialize(messageBoxText, button, icon, defaultResult);
         }
 
@@ -27,6 +32,8 @@ namespace Vkm.Smalta.Dialogs
                     PART_Button3.Content = "Oк";
 
                     PART_Button3.IsDefault = true;
+
+                    PART_Button3.Command = ViewModel.CloseOkCommand;
                     break;
                 case MessageButton.OKCancel:
                     PART_Button1.Visibility = Visibility.Collapsed;
@@ -35,6 +42,9 @@ namespace Vkm.Smalta.Dialogs
 
                     PART_Button2.IsDefault = true;
                     PART_Button3.IsCancel = true;
+
+                    PART_Button2.Command = ViewModel.CloseOkCommand;
+                    PART_Button3.Command = ViewModel.CloseCancelCommand;
                     break;
                 case MessageButton.YesNoCancel:
                     PART_Button1.Content = "Да";
@@ -43,6 +53,10 @@ namespace Vkm.Smalta.Dialogs
 
                     PART_Button2.IsDefault = true;
                     PART_Button3.IsCancel = true;
+
+                    PART_Button1.Command = ViewModel.CloseYesCommand;
+                    PART_Button2.Command = ViewModel.CloseNoCommand;
+                    PART_Button3.Command = ViewModel.CloseCancelCommand;
                     break;
                 case MessageButton.YesNo:
                     PART_Button1.Visibility = Visibility.Collapsed;
@@ -51,11 +65,16 @@ namespace Vkm.Smalta.Dialogs
 
                     PART_Button2.IsDefault = true;
                     PART_Button3.IsCancel = true;
+
+                    PART_Button2.Command = ViewModel.CloseYesCommand;
+                    PART_Button3.Command = ViewModel.CloseNoCommand;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(button), button, null);
             }
 
         }
+
+        public MessageResult MessageResult => ViewModel.MessageResult;
     }
 }

@@ -139,6 +139,7 @@
     <Compile Include="Dialogs\ViewModel\InfoDialogViewModel.cs" />
     <Compile Include="Dialogs\ViewModel\IPasswordSupplier.cs" />
     <Compile Include="Dialogs\ViewModel\LoginDialogViewModel.cs" />
+    <Compile Include="Dialogs\ViewModel\MessageBoxDialogViewModel.cs" />
     <Compile Include="Dialogs\ViewModel\RegisterDialogViewModel.cs" />
     <Compile Include="Dialogs\ViewModel\SecureStringExtentions.cs" />
     <Compile Include="Dialogs\ViewModel\TrainingCompleteDialogViewModel.cs" />

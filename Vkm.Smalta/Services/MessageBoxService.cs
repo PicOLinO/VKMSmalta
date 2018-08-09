@@ -10,46 +10,8 @@ namespace Vkm.Smalta.Services
         {
             using (var dialog = new MessageBoxDialog(messageBoxText, button, icon, defaultResult))
             {
-                var result = dialog.ShowDialog();
-                switch (button)
-                {
-                    case MessageButton.OK:
-                        return result.HasValue
-                                   ? MessageResult.OK
-                                   : MessageResult.None;
-                    case MessageButton.OKCancel:
-                        if (!result.HasValue)
-                        {
-                            return MessageResult.None;
-                        }
-                        if (result.Value)
-                        {
-                            return MessageResult.OK;
-                        }
-                        return MessageResult.Cancel;
-                    case MessageButton.YesNoCancel:
-                        if (!result.HasValue)
-                        {
-                            return MessageResult.Cancel;
-                        }
-                        if (result.Value)
-                        {
-                            return MessageResult.Yes;
-                        }
-                        return MessageResult.No;
-                    case MessageButton.YesNo:
-                        if (!result.HasValue)
-                        {
-                            return MessageResult.None;
-                        }
-                        if (result.Value)
-                        {
-                            return MessageResult.Yes;
-                        }
-                        return MessageResult.No;
-                    default:
-                        throw new ArgumentOutOfRangeException(nameof(button), button, null);
-                }
+                dialog.ShowDialog();
+                return dialog.MessageResult;
             }
         }
     }

@@ -34,6 +34,7 @@ namespace Vkm.Smalta.Dialogs
 
         private void OnCloseButtonClick(object sender, RoutedEventArgs e)
         {
+            DialogResult = null;
             Close();
         }
 

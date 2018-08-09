@@ -6,7 +6,9 @@
         xmlns:dialogs="clr-namespace:Vkm.Smalta.Dialogs"
         mc:Ignorable="d"
         Style="{DynamicResource DialogStyle}"
-        Title="MessageBoxDIalog" MinHeight="250" Width="600">
+        Title="MessageBoxDIalog" 
+                    MinHeight="200" 
+                    MinWidth="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Style="{StaticResource DialogOuterSeparatingRow}"/>
@@ -35,9 +37,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock x:Name="PART_MessageTextBlock" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5"/>
-            <Button x:Name="PART_Button1" Grid.Column="0" Grid.Row="2" />
-            <Button x:Name="PART_Button2" Grid.Column="2" Grid.Row="2" />
-            <Button x:Name="PART_Button3" Grid.Column="4" Grid.Row="2" />
+            <Button x:Name="PART_Button1" Style="{StaticResource MainButton}" Grid.Column="0" Grid.Row="2" />
+            <Button x:Name="PART_Button2" Style="{StaticResource MainButton}" Grid.Column="2" Grid.Row="2" />
+            <Button x:Name="PART_Button3" Style="{StaticResource MainButton}" Grid.Column="4" Grid.Row="2" />
         </Grid>
     </Grid>
 </dialogs:DialogBase>
