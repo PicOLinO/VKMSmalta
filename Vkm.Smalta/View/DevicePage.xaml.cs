@@ -22,8 +22,11 @@ namespace Vkm.Smalta.View
 
         private void Frame_OnNavigated(object sender, NavigationEventArgs e)
         {
-            var vm = (DevicePageViewModel) DataContext;
-            vm.NavigateOnInnerPage(((MainInnerDevicePageViewModel)e.Content).PageKey);
+            if (e.Content != null)
+            {
+                var vm = (DevicePageViewModel)DataContext;
+                vm.NavigateOnInnerPage(((MainInnerDevicePageViewModel)e.Content).PageKey);
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Vkm.Smalta.Dialogs
         public TrainingCompleteDialog()
         {
             InitializeComponent();
-            DataContext = new TrainingCompleteDialog();
+            DataContext = new TrainingCompleteDialogViewModel();
             Initialize();
         }
 
