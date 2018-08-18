@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows;
+using System.Windows.Interop;
+using System.Windows.Media.Imaging;
 using DevExpress.Mvvm;
 using Vkm.Smalta.Dialogs.ViewModel;
 
@@ -23,6 +26,26 @@ namespace Vkm.Smalta.Dialogs
         private void Initialize(string messageBoxText, MessageButton button, MessageIcon icon, MessageResult defaultResult)
         {
             PART_MessageTextBlock.Text = messageBoxText;
+
+            switch (icon)
+            {
+                case MessageIcon.None:
+                    break;
+                case MessageIcon.Error:
+                    PART_Icon.Source = Imaging.CreateBitmapSourceFromHIcon(SystemIcons.Error.Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                    break;
+                case MessageIcon.Question:
+                    PART_Icon.Source = Imaging.CreateBitmapSourceFromHIcon(SystemIcons.Question.Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                    break;
+                case MessageIcon.Warning:
+                    PART_Icon.Source = Imaging.CreateBitmapSourceFromHIcon(SystemIcons.Warning.Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                    break;
+                case MessageIcon.Information:
+                    PART_Icon.Source = Imaging.CreateBitmapSourceFromHIcon(SystemIcons.Information.Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(icon), icon, null);
+            }
 
             switch (button)
             {

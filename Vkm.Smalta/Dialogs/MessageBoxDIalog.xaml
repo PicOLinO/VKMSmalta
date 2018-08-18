@@ -6,18 +6,16 @@
         xmlns:dialogs="clr-namespace:Vkm.Smalta.Dialogs"
         mc:Ignorable="d"
         Style="{DynamicResource DialogStyle}"
-        Title="MessageBoxDIalog" 
-                    MinHeight="200" 
-                    MinWidth="600">
+        Title="MessageBoxDIalog" MinWidth="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Style="{StaticResource DialogOuterSeparatingRow}"/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Style="{StaticResource DialogOuterSeparatingRow}"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Style="{StaticResource DialogOuterSeparatingColumn}"/>
-            <ColumnDefinition MaxWidth="200"/>
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Style="{StaticResource DialogInnerSeparatingColumn}"/>
             <ColumnDefinition/>
             <ColumnDefinition Style="{StaticResource DialogOuterSeparatingColumn}"/>
