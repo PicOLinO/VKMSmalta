@@ -6,10 +6,12 @@
         xmlns:dialogs="clr-namespace:Vkm.Smalta.Dialogs"
         mc:Ignorable="d"
         Style="{DynamicResource DialogStyle}"
-        Title="MessageBoxDIalog" MinWidth="600">
+        Title="MessageBoxDialog" MinWidth="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Style="{StaticResource DialogOuterSeparatingRow}"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Style="{StaticResource DialogInnerSeparatingRow}"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Style="{StaticResource DialogOuterSeparatingRow}"/>
         </Grid.RowDefinitions>
@@ -21,7 +23,8 @@
             <ColumnDefinition Style="{StaticResource DialogOuterSeparatingColumn}"/>
         </Grid.ColumnDefinitions>
         <Image x:Name="PART_Icon" Grid.Row="1" Grid.Column="1"/>
-        <Grid Grid.Column="3" Grid.Row="1">
+        <TextBlock x:Name="PART_MessageTextBlock" VerticalAlignment="Center" Grid.Column="3" Grid.Row="1"/>
+        <Grid Grid.Column="3" Grid.Row="3">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Style="{StaticResource DialogInnerSeparatingRow}"/>
@@ -34,7 +37,6 @@
                 <ColumnDefinition Style="{StaticResource DialogInnerSeparatingColumn}"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="PART_MessageTextBlock" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5"/>
             <Button x:Name="PART_Button1" Style="{StaticResource MainButton}" Grid.Column="0" Grid.Row="2" />
             <Button x:Name="PART_Button2" Style="{StaticResource MainButton}" Grid.Column="2" Grid.Row="2" />
             <Button x:Name="PART_Button3" Style="{StaticResource MainButton}" Grid.Column="4" Grid.Row="2" />
