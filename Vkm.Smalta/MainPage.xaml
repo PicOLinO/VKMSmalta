@@ -12,7 +12,7 @@
       d:DataContext="{d:DesignInstance Type=viewModel:MainPageViewModel}">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="View/Images/Backgrounds/background.png" />
+            <ImageBrush ImageSource="View/Images/Backgrounds/background.jpg" />
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition />

@@ -51,7 +51,6 @@ namespace Vkm.Smalta.Dialogs.Factories
 
         public void ShowInfoDialog()
         {
-            ShowErrorMessage("Лол как чебурак, кокококок");
             using (var infoDialog = new InfoDialog())
             {
                 infoDialog.Owner = Application.Current.MainWindow;

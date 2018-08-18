@@ -383,11 +383,9 @@
     <Resource Include="View\Images\Backgrounds\LO01I_LO01K.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Images\Backgrounds\background.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="InnoSetupScript.iss" />
     <Content Include="lib\XAMLEx.dll" />
+    <Resource Include="View\Images\Backgrounds\background.jpg" />
     <Resource Include="LICENSE.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
