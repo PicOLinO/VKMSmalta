@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.View.Elements.ViewModel;
 
@@ -58,16 +59,27 @@ namespace Vkm.Smalta.Domain
             switch (type)
             {
                 case DependencyType.Replace:
-                    DependencyElement.Value = DependencyValues[value];
+                    await Application.Current.Dispatcher.BeginInvoke((System.Action)(() => UpdateDependencyElementValueCore(value)));
                     break;
                 case DependencyType.Add:
-                    DependencyElement.Value += DependencyValues[value];
+                    await Application.Current.Dispatcher.BeginInvoke((System.Action)(() => AddDelepndencyElementValueCore(value)));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
 
             dependencyActionsCounterCallback?.Invoke(dependencyElementName);
+
+        }
+
+        private void UpdateDependencyElementValueCore(int newValue)
+        {
+            DependencyElement.Value = DependencyValues[newValue];
+        }
+
+        private void AddDelepndencyElementValueCore(int newValue)
+        {
+            DependencyElement.Value += DependencyValues[newValue];
         }
     }
 }
