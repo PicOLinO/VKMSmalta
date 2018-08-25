@@ -27,8 +27,8 @@
                     </BeginStoryboard>
                 </EventTrigger>
             </Grid.Triggers>
-            <Border Margin="0 0 0 20" Width="30" Background="DarkBlue" CornerRadius="3"/>
-            <Polygon Points="0,48 40,48 20,70" Fill="DarkBlue"/>
+            <Border Margin="0 0 0 20" Width="30" Background="Gray" CornerRadius="3"/>
+            <Polygon Points="0,48 40,48 20,70" Fill="Gray"/>
         </Grid>
     </Canvas>
 </UserControl>
