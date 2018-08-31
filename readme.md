@@ -8,7 +8,7 @@
 ![GitHub issues](https://img.shields.io/github/issues/PicOLinO/Vkm.Smalta.svg)
 ![GitHub issues-closed](https://img.shields.io/github/issues-closed/PicOLinO/Vkm.Smalta.svg)
 
-Программа VKMSmalta создана для тестирования студентов военной кафедры по радиоэлектронному комплексу постановки помех "Смальта".
+Программа Vkm.Smalta создана для тестирования студентов военной кафедры по радиоэлектронному комплексу постановки помех "Смальта".
 
 ## Системные требования
 |Компонент               |Версия    |
