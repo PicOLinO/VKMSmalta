@@ -90,13 +90,13 @@ namespace Vkm.Smalta.Services
 
             if (ethalonActionsInUserActionsCount > ethalonActionsCount)
                 ethalonActionsInUserActionsCount = ethalonActionsCount;
-            if (rightOrderOfUserActionsCount > ethalonActionsCount)
-                rightOrderOfUserActionsCount = ethalonActionsCount;
+            if (rightOrderOfUserActionsCount > ethalonActionsInUserActionsCount)
+                rightOrderOfUserActionsCount = ethalonActionsInUserActionsCount;
 
             var examineResult = new ExamineResultProperties
                                 {
                                     PercentageOfEthalonActionsInUserActions = ethalonActionsInUserActionsCount / ethalonActionsCount,
-                                    PercentageOfEthalonActionsRightOrderInUserActions = rightOrderOfUserActionsCount / ethalonActionsCount,
+                                    PercentageOfEthalonActionsRightOrderInUserActions = rightOrderOfUserActionsCount / ethalonActionsInUserActionsCount,
                                     WrongActionsCount = wrongActionsCount
                                 };
 

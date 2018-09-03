@@ -203,7 +203,7 @@ namespace Vkm.Smalta.Dialogs.Factories
                                                                         actionsFactory.GetClickAction("lo01p_thumbler_simulator", "Отключите имитатор", 0),
                                                                         actionsFactory.GetClickAction("lo01p_button_transmitter_off", "Отключите передатчик", 1),
                                                                         actionsFactory.GetClickAction("lo01p_button_reciever_glow_off", "Отключите приемник", 1),
-                                                                        actionsFactory.GetIdleAction("lo01p_glow_on", "Дождитесь выключения накала", 0)
+                                                                        actionsFactory.GetIdleAction("lo01p_glow_on", "Дождитесь выключения накала", 0, true)
                                                                     })
                                };
 
