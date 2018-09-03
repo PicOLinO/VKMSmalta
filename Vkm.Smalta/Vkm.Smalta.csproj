@@ -162,6 +162,7 @@
     <Compile Include="Network\StudentDto.cs" />
     <Compile Include="Network\TeamWithStudentsWithoutLoginsDto.cs" />
     <Compile Include="Services\DependencyContainer.cs" />
+    <Compile Include="Domain\ExamineResultProperties.cs" />
     <Compile Include="Services\HintService.cs" />
     <Compile Include="Services\HistoryService.cs" />
     <Compile Include="Services\IHintService.cs" />

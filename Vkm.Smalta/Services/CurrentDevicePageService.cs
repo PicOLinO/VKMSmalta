@@ -25,7 +25,7 @@ namespace Vkm.Smalta.Services
 
         public IEnumerable<ElementViewModelBase> GetAllElementsOfCurrentDevicePage()
         {
-            return devicePageViewModel.UnionedElements;
+            return devicePageViewModel.UnionElements;
         }
 
         public InnerRegionPage GetCurrentInnerPageKey()

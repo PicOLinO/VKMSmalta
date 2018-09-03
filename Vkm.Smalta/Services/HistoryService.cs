@@ -46,35 +46,61 @@ namespace Vkm.Smalta.Services
 
         public int GetValueByAlgorithmByUserActions(Algorithm algorithm, List<IValuableNamedElement> elements)
         {
-            //TODO: Несовершенно. Много ошибок. Надо превращать фабрику по производству алгоритмов в DSL и добавлять зависимости.
-            var allCount = algorithm.Actions.Count;
-            var rightsCount = 0;
+            //TODO: Несовершенно. Ужасно написано, нужна оптимизация с точки зрения не производительности, а бизнес-логики.
 
-            var previousActionIndex = 0;
+            var ethalonActionsCount = algorithm.Actions.Count(a => a.UseInExamineCheck);
+            
+            var previousRightActionIndex = 0;
 
-            foreach (var algorithmAction in algorithm.Actions)
+            double ethalonActionsInUserActionsCount = 0;
+            double rightOrderOfUserActionsCount = 0;
+
+            var wrongActionsCount = 0;
+
+            for (var i = 0; i < Actions.Count; i++)
             {
-                foreach (var action in Actions)
+                var userAction = Actions[i];
+                var actionIsRight = false;
+                for (var j = 0; j < algorithm.Actions.Count; j++)
                 {
-                    if (algorithmAction.Name == action.Name && algorithmAction.ParentElementName == action.ParentElementName)
+                    var ethalonAction = algorithm.Actions.ElementAt(j);
+                    if (ethalonAction.Name == userAction.Name && ethalonAction.ParentElementName == userAction.ParentElementName && ethalonAction.UseInExamineCheck)
                     {
-                        var indexOfAction = Actions.IndexOf(action);
-                        if (indexOfAction >= previousActionIndex)
+                        ethalonActionsInUserActionsCount++;
+                        actionIsRight = true;
+                        if (j >= previousRightActionIndex)
                         {
-                            rightsCount++;
-                            previousActionIndex = indexOfAction;
-                            break;
+                            previousRightActionIndex = j;
+                            rightOrderOfUserActionsCount++;
                         }
+                        break;
                     }
+                }
+
+                if (!actionIsRight && userAction.Name == ActionName.Click)
+                {
+                    wrongActionsCount++;
                 }
             }
 
-            if (allCount == 0)
+            if (ethalonActionsCount == 0)
             {
-                return -1;
+                return -1; 
             }
 
-            var value = rightsCount * 5 / allCount;
+            if (ethalonActionsInUserActionsCount > ethalonActionsCount)
+                ethalonActionsInUserActionsCount = ethalonActionsCount;
+            if (rightOrderOfUserActionsCount > ethalonActionsCount)
+                rightOrderOfUserActionsCount = ethalonActionsCount;
+
+            var examineResult = new ExamineResultProperties
+                                {
+                                    PercentageOfEthalonActionsInUserActions = ethalonActionsInUserActionsCount / ethalonActionsCount,
+                                    PercentageOfEthalonActionsRightOrderInUserActions = rightOrderOfUserActionsCount / ethalonActionsCount,
+                                    WrongActionsCount = wrongActionsCount
+                                };
+
+            var value = examineResult.GetValue();
 
             return value <= 0
                        ? 1

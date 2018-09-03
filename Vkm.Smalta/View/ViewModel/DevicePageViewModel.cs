@@ -89,18 +89,18 @@ namespace Vkm.Smalta.View.ViewModel
             set { SetProperty(() => PreviousPageKey, value); }
         }
 
-        public IEnumerable<ElementViewModelBase> UnionedElements
+        public IEnumerable<ElementViewModelBase> UnionElements
         {
             get
             {
-                var unionedElements = new List<ElementViewModelBase>();
+                var unionElements = new List<ElementViewModelBase>();
 
                 foreach (var mainInnerDevicePageViewModel in Pages)
                 {
-                    unionedElements.AddRange(mainInnerDevicePageViewModel.Elements.ToList());
+                    unionElements.AddRange(mainInnerDevicePageViewModel.Elements.ToList());
                 }
 
-                return unionedElements;
+                return unionElements;
             }
         }
 
@@ -203,12 +203,12 @@ namespace Vkm.Smalta.View.ViewModel
 
         private void GoTraining(Algorithm algorithm)
         {
-            foreach (var element in UnionedElements)
+            foreach (var element in UnionElements)
             {
                 element.IsEnabled = false;
             }
 
-            hintService.StartTraining(algorithm, UnionedElements.ToList(), EndTraining);
+            hintService.StartTraining(algorithm, UnionElements.ToList(), EndTraining);
         }
 
         private void InitializeInnerPages()
@@ -252,7 +252,7 @@ namespace Vkm.Smalta.View.ViewModel
             
             var value = IsGodModeOn
                         ? new Random().Next(4, 6)
-                        : historyService.GetValueByAlgorithmByUserActions(CurrentAlgorithm, UnionedElements.Cast<IValuableNamedElement>().ToList());
+                        : historyService.GetValueByAlgorithmByUserActions(CurrentAlgorithm, UnionElements.Cast<IValuableNamedElement>().ToList());
 
             var examineResult = new ExamineResult
                                 {
@@ -305,7 +305,7 @@ namespace Vkm.Smalta.View.ViewModel
 
         private void Reset()
         {
-            foreach (var element in UnionedElements)
+            foreach (var element in UnionElements)
             {
                 if (element is IDependencyActivatorElement activatorElement)
                 {

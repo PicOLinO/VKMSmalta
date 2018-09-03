@@ -56,7 +56,7 @@ namespace Vkm.Smalta.Dialogs.Factories
                                    Actions = new LinkedList<Action>(new[]
                                                                     {
                                                                         actionsFactory.GetClickAction("lo01p_button_reciever_glow_on", "Включите ПРОГРЕВ", 1),
-                                                                        actionsFactory.GetIdleAction("lo01r_lamp_heating", "Дождитесь окончания прогрева", 0),
+                                                                        actionsFactory.GetIdleAction("lo01r_lamp_heating", "Дождитесь окончания прогрева", 0, true),
 
                                                                         actionsFactory.GetIdleAction("lo01p_reciever_1channel", "Дождитесь включения высокого напряжения. Должны загореться лампы транспарантов", 1),
                                                                         actionsFactory.GetInfoAction("lo01p_reciever_1channel_arrow", "Заметьте, что стрелки индикаторов \"ПРИЕМ\" показывают значения менее 20 мкА"),

@@ -8,10 +8,11 @@ namespace Vkm.Smalta.Domain
 {
     public class Action
     {
-        public Action(ActionName name, string parentElementName, HintViewModelBase hint = null)
+        public Action(ActionName name, string parentElementName, bool useInExamineCheck = true, HintViewModelBase hint = null)
         {
             Name = name;
             ParentElementName = parentElementName;
+            UseInExamineCheck = useInExamineCheck;
             Hint = hint;
         }
 
@@ -19,6 +20,7 @@ namespace Vkm.Smalta.Domain
 
         public ActionName Name { get; }
         public string ParentElementName { get; }
+        public bool UseInExamineCheck { get; }
 
         public override string ToString()
         {
