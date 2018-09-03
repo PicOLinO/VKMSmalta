@@ -7,7 +7,7 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{4C45B9F4-AFA9-4C6B-88D1-1236FE078B8D}
 AppName=Smalta Simulator
-AppVersion=1.1
+AppVersion=1.2
 ;AppVerName=Smalta Simulator 1.1
 AppPublisher=Danila Chervonny
 DefaultDirName={pf}\Smalta Simulator
@@ -20,12 +20,12 @@ AppCopyright=Danila Chervonny
 PrivilegesRequired=none
 AppContact=webmaster.pico@gmail.com
 SetupIconFile=logo.ico
-VersionInfoVersion=1.1.0000.0
+VersionInfoVersion=1.2.0000.0
 VersionInfoCopyright=Danila Chervonny
 VersionInfoProductName=Smalta Simulator
 AppPublisherURL=https://picolino.github.io/
 AppSupportURL=https://picolino.github.io/
-VersionInfoProductVersion=1.1.0000.0
+VersionInfoProductVersion=1.2.0000.0
 LicenseFile=LICENSE.txt
 UninstallDisplayName=Smalta Simulator
 UninstallDisplayIcon={app}\logo.ico
