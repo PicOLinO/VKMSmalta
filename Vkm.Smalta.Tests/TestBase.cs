@@ -31,9 +31,9 @@ namespace Vkm.Smalta.Tests
             HintService = new HintServiceStub();
             LoadingService = new LoadingServiceStub();
 
-            DevicesFactory = new DevicesFactory();
             ActionsFactory = new ActionsFactory(HintService);
             AlgorithmsFactory = new AlgorithmsFactory(ActionsFactory);
+            DevicesFactory = new DevicesFactory(AlgorithmsFactory);
         }
     }
 }

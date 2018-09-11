@@ -14,10 +14,10 @@ namespace Vkm.Smalta.Dialogs
     /// </summary>
     public partial class ChooseDeviceDialog : DialogBase
     {
-        public ChooseDeviceDialog(DevicesFactory devicesFactory, AlgorithmsFactory algorithmsFactory)
+        public ChooseDeviceDialog(DevicesFactory devicesFactory)
         {
             InitializeComponent();
-            DataContext = new ChooseDeviceDialogViewModel(devicesFactory, algorithmsFactory);
+            DataContext = new ChooseDeviceDialogViewModel(devicesFactory);
             Initialize();
         }
 

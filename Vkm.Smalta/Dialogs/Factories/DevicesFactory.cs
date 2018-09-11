@@ -5,7 +5,14 @@ namespace Vkm.Smalta.Dialogs.Factories
 {
     public class DevicesFactory
     {
-        public DeviceEntry GetSmaltaDevice(AlgorithmsFactory algorithmsFactory)
+        private readonly AlgorithmsFactory algorithmsFactory;
+
+        public DevicesFactory(AlgorithmsFactory algorithmsFactory)
+        {
+            this.algorithmsFactory = algorithmsFactory;
+        }
+
+        public DeviceEntry GetSmaltaDevice()
         {
             return new DeviceEntry
                    {

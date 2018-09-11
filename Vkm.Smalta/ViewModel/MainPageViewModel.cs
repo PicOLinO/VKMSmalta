@@ -20,19 +20,15 @@ namespace Vkm.Smalta.ViewModel
         private readonly IViewInjectionManager viewInjectionManager;
         private readonly ILoadingService loadingService;
         private readonly DevicesFactory devicesFactory;
-        private readonly AlgorithmsFactory algorithmsFactory;
-        private readonly ActionsFactory actionsFactory;
 
         public MainPageViewModel(IHintService hintService, IDialogFactory dialogFactory, IViewInjectionManager viewInjectionManager, ILoadingService loadingService,
-            DevicesFactory devicesFactory, AlgorithmsFactory algorithmsFactory, ActionsFactory actionsFactory)
+            DevicesFactory devicesFactory)
         {
             this.hintService = hintService;
             this.dialogFactory = dialogFactory;
             this.viewInjectionManager = viewInjectionManager;
             this.loadingService = loadingService;
             this.devicesFactory = devicesFactory;
-            this.algorithmsFactory = algorithmsFactory;
-            this.actionsFactory = actionsFactory;
 
             Initialize();
         }
@@ -79,7 +75,7 @@ namespace Vkm.Smalta.ViewModel
 
         private DeviceEntry ChooseDevice()
         {
-            return dialogFactory.ShowChooseDeviceDialog(devicesFactory, algorithmsFactory);
+            return dialogFactory.ShowChooseDeviceDialog(devicesFactory);
         }
 
         private void CreateCommands()

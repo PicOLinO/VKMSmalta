@@ -28,11 +28,11 @@ namespace Vkm.Smalta
             var hintService = new HintService();
             var viewInjectionManager = DependencyContainer.GetViewInjectionManager();
             var loadingService = new LoadingService();
-            var devicesFactory = new DevicesFactory();
             var actionsFactory = new ActionsFactory(hintService);
             var algorithmsFactory = new AlgorithmsFactory(actionsFactory);
+            var devicesFactory = new DevicesFactory(algorithmsFactory);
 
-            var mainPageViewModel = new MainPageViewModel(hintService, dialogFactory, viewInjectionManager, loadingService, devicesFactory, algorithmsFactory, actionsFactory);
+            var mainPageViewModel = new MainPageViewModel(hintService, dialogFactory, viewInjectionManager, loadingService, devicesFactory);
 
             viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.MainMenu, () => mainPageViewModel, typeof(MainPage));
 

@@ -89,9 +89,9 @@ namespace Vkm.Smalta.Dialogs.Factories
             }
         }
 
-        public DeviceEntry ShowChooseDeviceDialog(DevicesFactory devicesFactory, AlgorithmsFactory algorithmsFactory)
+        public DeviceEntry ShowChooseDeviceDialog(DevicesFactory devicesFactory)
         {
-            using (var dialog = new ChooseDeviceDialog(devicesFactory, algorithmsFactory))
+            using (var dialog = new ChooseDeviceDialog(devicesFactory))
             {
                 dialog.Owner = Application.Current.MainWindow;
                 dialog.ShowDialog();
