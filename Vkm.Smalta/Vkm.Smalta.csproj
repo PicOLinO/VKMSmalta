@@ -122,6 +122,7 @@
     <Compile Include="Dialogs\Factories\DevicesFactory.cs" />
     <Compile Include="Dialogs\Factories\DialogFactory.cs" />
     <Compile Include="Dialogs\Factories\IDialogFactory.cs" />
+    <Compile Include="Dialogs\Factories\PagesFactory.cs" />
     <Compile Include="Dialogs\InfoDialog.xaml.cs">
       <DependentUpon>InfoDialog.xaml</DependentUpon>
     </Compile>

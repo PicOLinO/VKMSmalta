@@ -27,26 +27,32 @@ namespace Vkm.Smalta.View.ViewModel
         public ObservableCollection<InnerPageViewModelBase> Pages;
         public ApplicationMode Mode { get; private set; }
         public bool IsGodModeOn { get; set; }
+        private readonly DeviceEntry device;
         private readonly IHintService hintService;
         private readonly HistoryService historyService;
         private readonly IDialogFactory dialogFactory;
         private readonly IViewInjectionManager viewInjectionManager;
+        private readonly PagesFactory pagesFactory;
         private readonly Queue<Key> cheatInput;
         private readonly Key[] cheatEthalon = { Key.Z, Key.D, Key.C, Key.T, Key.C, Key.L, Key.F, Key.V };
 
         public DevicePageViewModel(ApplicationMode appMode, 
-                                   Algorithm algorithm, 
+                                   Algorithm algorithm,
+                                   DeviceEntry device,
                                    IHintService hintService, 
                                    HistoryService historyService, 
                                    IDialogFactory dialogFactory, 
-                                   IViewInjectionManager viewInjectionManager)
+                                   IViewInjectionManager viewInjectionManager,
+                                   PagesFactory pagesFactory)
         {
             Mode = appMode;
             CurrentAlgorithm = algorithm;
+            this.device = device;
             this.hintService = hintService;
             this.historyService = historyService;
             this.dialogFactory = dialogFactory;
             this.viewInjectionManager = viewInjectionManager;
+            this.pagesFactory = pagesFactory;
 
             cheatInput = new Queue<Key>(8);
 
@@ -213,19 +219,16 @@ namespace Vkm.Smalta.View.ViewModel
 
         private void InitializeInnerPages()
         {
-            Pages = new ObservableCollection<InnerPageViewModelBase>
-                    {
-                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.LO01I_LO01K, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01I_LO01K.png", CurrentAlgorithm),
-                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.LO01P, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01P.png", CurrentAlgorithm),
-                        new MainInnerDevicePageViewModel(historyService, InnerRegionPage.LO01R, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01R.png", CurrentAlgorithm)
-                    };
+            Pages = new ObservableCollection<InnerPageViewModelBase>();
 
-            foreach (var page in Pages)
+            foreach (var pageKey in device.Pages)
             {
-                viewInjectionManager.Inject(Regions.InnerRegion, page.PageKey, () => page, typeof(MainInnerDevicePage));
+                var page = pagesFactory.CreatePage(pageKey, CurrentAlgorithm);
+                Pages.Add(page);
+                viewInjectionManager.Inject(Regions.InnerRegion, pageKey, () => page, typeof(MainInnerDevicePage));
             }
 
-            NavigateOnInnerPage(InnerRegionPage.LO01P);
+            NavigateOnInnerPage(device.FirstPageKey);
         }
 
         public void NavigateOnInnerPage(InnerRegionPage page)

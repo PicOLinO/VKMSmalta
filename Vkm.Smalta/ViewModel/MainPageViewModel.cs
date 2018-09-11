@@ -20,15 +20,19 @@ namespace Vkm.Smalta.ViewModel
         private readonly IViewInjectionManager viewInjectionManager;
         private readonly ILoadingService loadingService;
         private readonly DevicesFactory devicesFactory;
+        private readonly HistoryService historyService;
+        private readonly PagesFactory pagesFactory;
 
         public MainPageViewModel(IHintService hintService, IDialogFactory dialogFactory, IViewInjectionManager viewInjectionManager, ILoadingService loadingService,
-            DevicesFactory devicesFactory)
+            DevicesFactory devicesFactory, HistoryService historyService, PagesFactory pagesFactory)
         {
             this.hintService = hintService;
             this.dialogFactory = dialogFactory;
             this.viewInjectionManager = viewInjectionManager;
             this.loadingService = loadingService;
             this.devicesFactory = devicesFactory;
+            this.historyService = historyService;
+            this.pagesFactory = pagesFactory;
 
             Initialize();
         }
@@ -100,22 +104,25 @@ namespace Vkm.Smalta.ViewModel
         private void GoAlgorithm(bool startTraining = false)
         {
             var device = ChooseDevice();
-            var algorithm = ChooseAlgorithm(device.Algorithms);
-            if (algorithm != null)
+            if (device != null)
             {
-                loadingService.LoadingOn();
-
-                var vm = new DevicePageViewModel(startTraining ? ApplicationMode.Training : ApplicationMode.Examine, algorithm, hintService, new HistoryService(), dialogFactory, viewInjectionManager);
-                CurrentDevicePageService.Initialize(vm);
-                if (startTraining)
+                var algorithm = ChooseAlgorithm(device.Algorithms);
+                if (algorithm != null)
                 {
-                    vm.LaunchTraining();
+                    loadingService.LoadingOn();
+
+                    var vm = new DevicePageViewModel(startTraining ? ApplicationMode.Training : ApplicationMode.Examine, algorithm, device, hintService, historyService, dialogFactory, viewInjectionManager, pagesFactory);
+                    CurrentDevicePageService.Initialize(vm);
+                    if (startTraining)
+                    {
+                        vm.LaunchTraining();
+                    }
+
+                    viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
+                    viewInjectionManager.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
+
+                    loadingService.LoadingOff();
                 }
-
-                viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.Device, () => vm, typeof(DevicePage));
-                viewInjectionManager.Navigate(Regions.OuterRegion, OuterRegionPages.Device);
-
-                loadingService.LoadingOff();
             }
         }
 

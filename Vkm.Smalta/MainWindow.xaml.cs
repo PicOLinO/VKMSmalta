@@ -30,9 +30,11 @@ namespace Vkm.Smalta
             var loadingService = new LoadingService();
             var actionsFactory = new ActionsFactory(hintService);
             var algorithmsFactory = new AlgorithmsFactory(actionsFactory);
-            var devicesFactory = new DevicesFactory(algorithmsFactory);
+            var historyService = new HistoryService();
+            var devicesFactory = new DevicesFactory(algorithmsFactory, historyService);
+            var pagesFactory = new PagesFactory(historyService);
 
-            var mainPageViewModel = new MainPageViewModel(hintService, dialogFactory, viewInjectionManager, loadingService, devicesFactory);
+            var mainPageViewModel = new MainPageViewModel(hintService, dialogFactory, viewInjectionManager, loadingService, devicesFactory, historyService, pagesFactory);
 
             viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.MainMenu, () => mainPageViewModel, typeof(MainPage));
 

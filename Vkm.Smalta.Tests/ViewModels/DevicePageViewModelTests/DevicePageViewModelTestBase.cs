@@ -20,8 +20,9 @@ namespace Vkm.Smalta.Tests.ViewModels.DevicePageViewModelTests
             var startStateOfElements = new Dictionary<string, int>();
             var endStateOfElements = new Dictionary<string, int>();
             var algorithm = new Algorithm(startStateOfElements, endStateOfElements);
+            var device = new DeviceEntry();
 
-            ViewModel = new DevicePageViewModel(ApplicationMode.Training, algorithm, HintService, historyService, DialogFactory, ViewInjectionManager);
+            ViewModel = new DevicePageViewModel(ApplicationMode.Training, algorithm, device, HintService, historyService, DialogFactory, ViewInjectionManager, PagesFactory);
         }
 
         protected DevicePageViewModel ViewModel { get; private set; }
