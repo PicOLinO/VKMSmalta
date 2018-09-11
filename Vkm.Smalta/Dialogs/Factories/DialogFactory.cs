@@ -88,13 +88,17 @@ namespace Vkm.Smalta.Dialogs.Factories
             }
         }
 
-        public bool ShowTrainingCompleteDialog()
+        public TrainingCompleteDialogResult ShowTrainingCompleteDialog()
         {
             using (var dialog = new TrainingCompleteDialog())
             {
                 dialog.Owner = Application.Current.MainWindow;
                 dialog.ShowDialog();
-                return dialog.GoExamine;
+                return new TrainingCompleteDialogResult
+                       {
+                           GoExamine = dialog.GoExamine,
+                           GoRetry = dialog.GoRetry
+                       };
             }
         }
     }

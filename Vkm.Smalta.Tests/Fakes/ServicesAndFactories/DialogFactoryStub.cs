@@ -24,10 +24,13 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
             return new Algorithm(new Dictionary<string, int>(), new Dictionary<string, int>());
         }
 
-        public bool ShowTrainingCompleteDialog()
+        public TrainingCompleteDialogResult ShowTrainingCompleteDialog()
         {
             TrainingCompleteDialogShown = true;
-            return true;
+            return new TrainingCompleteDialogResult
+                   {
+                       GoExamine = true
+                   };
         }
 
         public bool TrainingCompleteDialogShown { get; private set; }

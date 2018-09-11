@@ -177,12 +177,19 @@ namespace Vkm.Smalta.View.ViewModel
 
         public void EndTraining()
         {
-            var goExamine = dialogFactory.ShowTrainingCompleteDialog();
-            if (goExamine)
+            var result = dialogFactory.ShowTrainingCompleteDialog();
+            if (result.GoExamine)
             {
                 Mode = ApplicationMode.Examine;
                 Reset();
                 InitializeInnerPages();
+            }
+            else if (result.GoRetry)
+            {
+                Reset();
+                InitializeInnerPages();
+                //hintService.ShowNextHint();
+                LaunchTraining();
             }
             else
             {
