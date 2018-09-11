@@ -10,7 +10,8 @@ namespace Vkm.Smalta.Dialogs.ViewModel
         {
             Devices = new ObservableCollection<DeviceEntry>
                       {
-                          devicesFactory.GetSmaltaDevice()
+                          devicesFactory.GetSmaltaDevice(),
+                          devicesFactory.GetImpulseRadioLocationStation()
                       };
         }
 

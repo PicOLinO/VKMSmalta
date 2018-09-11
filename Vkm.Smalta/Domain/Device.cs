@@ -2,6 +2,7 @@
 {
     public enum Device
     {
-        LO01_Smalta
+        LO01_Smalta,
+        RLS_ONC
     }
 }

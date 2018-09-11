@@ -26,5 +26,15 @@ namespace Vkm.Smalta.Dialogs.Factories
                                     }
                    };
         }
+
+        public DeviceEntry GetImpulseRadioLocationStation()
+        {
+            return new DeviceEntry
+                   {
+                       Name = Device.RLS_ONC,
+                       ReadableName = "Импульсная РЛС ОНЦ",
+                       Algorithms = new List<Algorithm>()
+                   };
+        }
     }
 }
