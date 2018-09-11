@@ -11,12 +11,10 @@ namespace Vkm.Smalta.Dialogs.Factories
     public class AlgorithmsFactory
     {
         private readonly ActionsFactory actionsFactory;
-        private readonly IHintService hintService;
 
-        public AlgorithmsFactory(IHintService hintService)
+        public AlgorithmsFactory(ActionsFactory actionsFactory)
         {
-            this.hintService = hintService;
-            actionsFactory = new ActionsFactory(hintService);
+            this.actionsFactory = actionsFactory;
         }
 
         public Algorithm GetLaunchAlgorithm()

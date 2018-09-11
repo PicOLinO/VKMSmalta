@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Domain;
@@ -11,16 +12,9 @@ namespace Vkm.Smalta.Dialogs.ViewModel
 {
     public class ChooseAlgorithmDialogViewModel : DialogViewModelBase
     {
-        public ChooseAlgorithmDialogViewModel(IHintService hintService)
+        public ChooseAlgorithmDialogViewModel(IEnumerable<Algorithm> algorithms)
         {
-            var algorithmsFactory = new AlgorithmsFactory(hintService);
-
-            Algorithms = new ObservableCollection<Algorithm>
-                         {
-                             algorithmsFactory.GetPrepareToLaunchAlgorithm(),
-                             algorithmsFactory.GetLaunchAlgorithm(),
-                             algorithmsFactory.GetStopAlgorithm()
-                         };
+            Algorithms = new ObservableCollection<Algorithm>(algorithms);
         }
 
         public ObservableCollection<Algorithm> Algorithms { get; set; }

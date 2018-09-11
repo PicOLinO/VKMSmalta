@@ -1,29 +1,28 @@
 ﻿#region Usings
 
-using System.Collections.Generic;
 using System.Windows.Controls;
 using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Dialogs.ViewModel;
 using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
 
 #endregion
 
 namespace Vkm.Smalta.Dialogs
 {
     /// <summary>
-    /// Interaction logic for ChoseAlgorithmDialog.xaml
+    /// Interaction logic for ChooseDeviceDialog.xaml
     /// </summary>
-    public partial class ChooseAlgorithmDialog
+    public partial class ChooseDeviceDialog : DialogBase
     {
-        public ChooseAlgorithmDialog(IEnumerable<Algorithm> algorithms)
+        public ChooseDeviceDialog(DevicesFactory devicesFactory, AlgorithmsFactory algorithmsFactory)
         {
             InitializeComponent();
-            DataContext = new ChooseAlgorithmDialogViewModel(algorithms);
+            DataContext = new ChooseDeviceDialogViewModel(devicesFactory, algorithmsFactory);
             Initialize();
         }
 
-        public Algorithm SelectedAlgorithm => (DataContext as ChooseAlgorithmDialogViewModel)?.SelectedAlgorithm;
+
+        public DeviceEntry SelectedDevice => (DataContext as ChooseDeviceDialogViewModel)?.SelectedDeviceEntry;
 
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {

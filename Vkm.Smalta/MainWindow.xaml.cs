@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using DevExpress.Mvvm;
+using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.ViewModel;
@@ -27,8 +28,11 @@ namespace Vkm.Smalta
             var hintService = new HintService();
             var viewInjectionManager = DependencyContainer.GetViewInjectionManager();
             var loadingService = new LoadingService();
+            var devicesFactory = new DevicesFactory();
+            var actionsFactory = new ActionsFactory(hintService);
+            var algorithmsFactory = new AlgorithmsFactory(actionsFactory);
 
-            var mainPageViewModel = new MainPageViewModel(hintService, dialogFactory, viewInjectionManager, loadingService);
+            var mainPageViewModel = new MainPageViewModel(hintService, dialogFactory, viewInjectionManager, loadingService, devicesFactory, algorithmsFactory, actionsFactory);
 
             viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.MainMenu, () => mainPageViewModel, typeof(MainPage));
 

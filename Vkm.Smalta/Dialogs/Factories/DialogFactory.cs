@@ -1,6 +1,7 @@
 ﻿#region Usings
 
 using System;
+using System.Collections.Generic;
 using System.Windows;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.UI;
@@ -78,13 +79,23 @@ namespace Vkm.Smalta.Dialogs.Factories
             }
         }
 
-        public Algorithm ShowChooseAlgorithmDialog(IHintService hintService)
+        public Algorithm ShowChooseAlgorithmDialog(IEnumerable<Algorithm> algorithms)
         {
-            using (var dialog = new ChooseAlgorithmDialog(hintService))
+            using (var dialog = new ChooseAlgorithmDialog(algorithms))
             {
                 dialog.Owner = Application.Current.MainWindow;
                 dialog.ShowDialog();
                 return dialog.SelectedAlgorithm;
+            }
+        }
+
+        public DeviceEntry ShowChooseDeviceDialog(DevicesFactory devicesFactory, AlgorithmsFactory algorithmsFactory)
+        {
+            using (var dialog = new ChooseDeviceDialog(devicesFactory, algorithmsFactory))
+            {
+                dialog.Owner = Application.Current.MainWindow;
+                dialog.ShowDialog();
+                return dialog.SelectedDevice;
             }
         }
 

@@ -15,13 +15,20 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
         public bool IsLoginDialogShown { get; private set; }
         public bool IsRegisterDialogShown { get; private set; }
         public bool IsChooseAlgorithmDialogShown { get; private set; }
+        public bool IsChooseDeviceDialogShown { get; private set; }
 
         #region IDialogFactory
 
-        public Algorithm ShowChooseAlgorithmDialog(IHintService hintService)
+        public Algorithm ShowChooseAlgorithmDialog(IEnumerable<Algorithm> algorithms)
         {
             IsChooseAlgorithmDialogShown = true;
             return new Algorithm(new Dictionary<string, int>(), new Dictionary<string, int>());
+        }
+
+        public DeviceEntry ShowChooseDeviceDialog(DevicesFactory devicesFactory, AlgorithmsFactory algorithmsFactory)
+        {
+            IsChooseDeviceDialogShown = true;
+            return new DeviceEntry();
         }
 
         public bool ShowTrainingCompleteDialog()

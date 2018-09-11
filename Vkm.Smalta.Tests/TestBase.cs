@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.Tests.Fakes.ServicesAndFactories;
 
@@ -13,6 +14,10 @@ namespace Vkm.Smalta.Tests
         protected ViewInjectionManagerStub ViewInjectionManager;
         protected LoadingServiceStub LoadingService;
 
+        protected DevicesFactory DevicesFactory;
+        protected AlgorithmsFactory AlgorithmsFactory;
+        protected ActionsFactory ActionsFactory;
+
         [SetUp]
         protected virtual void Setup()
         {
@@ -25,6 +30,10 @@ namespace Vkm.Smalta.Tests
             DialogFactory = new DialogFactoryStub();
             HintService = new HintServiceStub();
             LoadingService = new LoadingServiceStub();
+
+            DevicesFactory = new DevicesFactory();
+            ActionsFactory = new ActionsFactory(HintService);
+            AlgorithmsFactory = new AlgorithmsFactory(ActionsFactory);
         }
     }
 }

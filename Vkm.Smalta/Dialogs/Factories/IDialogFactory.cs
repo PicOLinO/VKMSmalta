@@ -1,4 +1,5 @@
-﻿using Vkm.Smalta.Domain;
+﻿using System.Collections.Generic;
+using Vkm.Smalta.Domain;
 using Vkm.Smalta.Services;
 
 namespace Vkm.Smalta.Dialogs.Factories
@@ -8,7 +9,8 @@ namespace Vkm.Smalta.Dialogs.Factories
         void ShowInfoDialog();
         bool ShowLoginDialog();
         bool ShowRegisterDialog();
-        Algorithm ShowChooseAlgorithmDialog(IHintService vm);
+        Algorithm ShowChooseAlgorithmDialog(IEnumerable<Algorithm> algorithms);
+        DeviceEntry ShowChooseDeviceDialog(DevicesFactory devicesFactory, AlgorithmsFactory algorithmsFactory);
         bool ShowTrainingCompleteDialog();
     }
 }

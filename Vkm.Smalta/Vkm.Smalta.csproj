@@ -114,8 +114,12 @@
     <Compile Include="Dialogs\ChooseAlgorithmDialog.xaml.cs">
       <DependentUpon>ChooseAlgorithmDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\ChooseDeviceDialog.xaml.cs">
+      <DependentUpon>ChooseDeviceDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\Factories\ActionsFactory.cs" />
     <Compile Include="Dialogs\Factories\AlgorithmsFactory.cs" />
+    <Compile Include="Dialogs\Factories\DevicesFactory.cs" />
     <Compile Include="Dialogs\Factories\DialogFactory.cs" />
     <Compile Include="Dialogs\Factories\IDialogFactory.cs" />
     <Compile Include="Dialogs\InfoDialog.xaml.cs">
@@ -136,6 +140,7 @@
     </Compile>
     <Compile Include="Dialogs\ViewModel\CheckResultsDialogViewModel.cs" />
     <Compile Include="Dialogs\ViewModel\ChooseAlgorithmDialogViewModel.cs" />
+    <Compile Include="Dialogs\ViewModel\ChooseDeviceDialogViewModel.cs" />
     <Compile Include="Dialogs\ViewModel\DialogViewModelBase.cs" />
     <Compile Include="Dialogs\ViewModel\InfoDialogViewModel.cs" />
     <Compile Include="Dialogs\ViewModel\IPasswordSupplier.cs" />
@@ -149,6 +154,8 @@
     <Compile Include="Domain\Algorithm.cs" />
     <Compile Include="Domain\DependencyAction.cs" />
     <Compile Include="Domain\DependencyType.cs" />
+    <Compile Include="Domain\Device.cs" />
+    <Compile Include="Domain\DeviceEntry.cs" />
     <Compile Include="Domain\ExamineResult.cs" />
     <Compile Include="AppGlobal.cs" />
     <Compile Include="Domain\Student.cs" />
@@ -239,6 +246,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogs\ChooseAlgorithmDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ChooseDeviceDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

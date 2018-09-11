@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System.Collections.Generic;
 using DevExpress.Mvvm;
 using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Domain;
@@ -18,13 +19,20 @@ namespace Vkm.Smalta.ViewModel
         private readonly IHintService hintService;
         private readonly IViewInjectionManager viewInjectionManager;
         private readonly ILoadingService loadingService;
+        private readonly DevicesFactory devicesFactory;
+        private readonly AlgorithmsFactory algorithmsFactory;
+        private readonly ActionsFactory actionsFactory;
 
-        public MainPageViewModel(IHintService hintService, IDialogFactory dialogFactory, IViewInjectionManager viewInjectionManager, ILoadingService loadingService)
+        public MainPageViewModel(IHintService hintService, IDialogFactory dialogFactory, IViewInjectionManager viewInjectionManager, ILoadingService loadingService,
+            DevicesFactory devicesFactory, AlgorithmsFactory algorithmsFactory, ActionsFactory actionsFactory)
         {
             this.hintService = hintService;
             this.dialogFactory = dialogFactory;
             this.viewInjectionManager = viewInjectionManager;
             this.loadingService = loadingService;
+            this.devicesFactory = devicesFactory;
+            this.algorithmsFactory = algorithmsFactory;
+            this.actionsFactory = actionsFactory;
 
             Initialize();
         }
@@ -64,9 +72,14 @@ namespace Vkm.Smalta.ViewModel
         public DelegateCommand ShowInfoCommand { get; set; }
         private AppGlobal App => DependencyContainer.GetApp();
 
-        private Algorithm ChooseAlgorithm()
+        private Algorithm ChooseAlgorithm(IEnumerable<Algorithm> algorithms)
         {
-            return dialogFactory.ShowChooseAlgorithmDialog(hintService);
+            return dialogFactory.ShowChooseAlgorithmDialog(algorithms);
+        }
+
+        private DeviceEntry ChooseDevice()
+        {
+            return dialogFactory.ShowChooseDeviceDialog(devicesFactory, algorithmsFactory);
         }
 
         private void CreateCommands()
@@ -90,7 +103,8 @@ namespace Vkm.Smalta.ViewModel
 
         private void GoAlgorithm(bool startTraining = false)
         {
-            var algorithm = ChooseAlgorithm();
+            var device = ChooseDevice();
+            var algorithm = ChooseAlgorithm(device.Algorithms);
             if (algorithm != null)
             {
                 loadingService.LoadingOn();
