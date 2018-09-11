@@ -31,10 +31,13 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
             return new DeviceEntry();
         }
 
-        public bool ShowTrainingCompleteDialog()
+        public TrainingCompleteDialogResult ShowTrainingCompleteDialog()
         {
             TrainingCompleteDialogShown = true;
-            return true;
+            return new TrainingCompleteDialogResult
+                   {
+                       GoExamine = true
+                   };
         }
 
         public bool TrainingCompleteDialogShown { get; private set; }

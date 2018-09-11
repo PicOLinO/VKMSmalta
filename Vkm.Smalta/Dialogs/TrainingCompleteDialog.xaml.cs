@@ -19,5 +19,6 @@ namespace Vkm.Smalta.Dialogs
         }
 
         public bool GoExamine => (DataContext as TrainingCompleteDialogViewModel).IsGoExamine;
+        public bool GoRetry => (DataContext as TrainingCompleteDialogViewModel).IsGoRetry;
     }
 }

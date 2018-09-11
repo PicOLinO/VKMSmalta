@@ -161,6 +161,7 @@
     <Compile Include="AppGlobal.cs" />
     <Compile Include="Domain\Student.cs" />
     <Compile Include="Domain\Team.cs" />
+    <Compile Include="Domain\TrainingCompleteDialogResult.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
