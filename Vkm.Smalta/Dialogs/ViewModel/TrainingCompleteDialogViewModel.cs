@@ -1,4 +1,5 @@
 ﻿using DevExpress.Mvvm;
+using Vkm.Smalta.Services;
 
 namespace Vkm.Smalta.Dialogs.ViewModel
 {
@@ -7,6 +8,7 @@ namespace Vkm.Smalta.Dialogs.ViewModel
         public DelegateCommand GoExamineCommand { get; private set; }
 
         public bool IsGoExamine { get; private set; }
+        public bool IsAuthorized => DependencyContainer.GetApp().IsAuthorized;
 
         public TrainingCompleteDialogViewModel()
         {
