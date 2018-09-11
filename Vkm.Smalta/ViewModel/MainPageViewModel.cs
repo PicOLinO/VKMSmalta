@@ -120,7 +120,7 @@ namespace Vkm.Smalta.ViewModel
             var success = dialogFactory.ShowRegisterDialog();
             if (success)
             {
-                dialogFactory.ShowLoginDialog();
+                OnLogin();
             }
         }
 
