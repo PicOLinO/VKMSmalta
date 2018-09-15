@@ -5,6 +5,7 @@
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:dialogs="clr-namespace:Vkm.Smalta.Dialogs"
                   xmlns:viewModel="clr-namespace:Vkm.Smalta.Dialogs.ViewModel"
+                  xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
                   mc:Ignorable="d"
                   Title="Информация"
                   Style="{DynamicResource DialogStyle}"
@@ -16,7 +17,7 @@
             <RowDefinition Style="{StaticResource DialogOuterSeparatingRow}" />
             <RowDefinition Height="Auto" />
             <RowDefinition Style="{StaticResource DialogInnerSeparatingRow}" />
-            <RowDefinition MaxHeight="500" />
+            <RowDefinition MaxHeight="600" />
             <RowDefinition Style="{StaticResource DialogInnerSeparatingRow}" />
             <RowDefinition Height="Auto" />
             <RowDefinition Style="{StaticResource DialogInnerSeparatingRow}" />
@@ -25,20 +26,37 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Style="{StaticResource DialogOuterSeparatingColumn}" />
-            <ColumnDefinition Width="500" />
+            <ColumnDefinition Width="700" />
             <ColumnDefinition Style="{StaticResource DialogOuterSeparatingColumn}" />
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Style="{StaticResource InnerSeparatingColumn}"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Style="{DynamicResource MainButton}" Content="Лицензионное соглашение"
                     Command="{Binding Path=ShowLicenseCommand}" IsCancel="True" IsDefault="True" IsEnabled="{Binding Path=IsShowLicenseButtonEnabled}" />
+            <Button Grid.Column="2" Style="{DynamicResource MainButton}" Content="Информация об оборудовании"
+                    Command="{Binding Path=ShowAboutDeviceInfoCommand}" IsCancel="True" IsDefault="True" IsEnabled="{Binding Path=IsShowAboutDeviceInfoButtonEnabled}" />
         </Grid>
 
         <TextBox Grid.Row="3" Grid.Column="1" IsReadOnly="True" VerticalScrollBarVisibility="Auto"
-                 Text="{Binding Path=TextInTextBox}" TextWrapping="Wrap"/>
+                 Text="{Binding Path=TextInTextBox}" TextWrapping="Wrap" Visibility="{Binding IsShowAboutDeviceInfoButtonEnabled, Converter={dxmvvm:BooleanToVisibilityConverter}}"/>
+
+        <DocumentViewer x:Name="PART_DocumentViewer" Grid.Row="3" Grid.Column="1" Document="{Binding DocumentInDocumentViewer}" Background="GhostWhite"
+                        MaxPagesAcross="1" ShowPageBorders="False" Visibility="{Binding IsShowLicenseButtonEnabled, Converter={dxmvvm:BooleanToVisibilityConverter}}">
+            <DocumentViewer.Resources>
+                <Style TargetType="ContentControl">
+                    <Setter Property="Background" Value="White" />
+                    <Setter Property="Foreground" Value="White" />
+                </Style>
+                <Style TargetType="ToolBar">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+            </DocumentViewer.Resources>
+        </DocumentViewer>
 
             <Button Grid.Row="5" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Закрыть"
                 Command="{Binding Path=CloseCommand}" IsCancel="True" IsDefault="True" />

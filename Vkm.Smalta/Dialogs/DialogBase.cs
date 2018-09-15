@@ -34,8 +34,7 @@ namespace Vkm.Smalta.Dialogs
 
         private void OnCloseButtonClick(object sender, RoutedEventArgs e)
         {
-            DialogResult = null;
-            Close();
+            OnClosing();
         }
 
         private void CreateCommands()
@@ -44,7 +43,7 @@ namespace Vkm.Smalta.Dialogs
             vm.CloseCommand = new DelegateCommand<bool?>(OnClosing);
         }
 
-        private void OnClosing(bool? parameter = null)
+        protected virtual void OnClosing(bool? parameter = null)
         {
             DialogResult = parameter;
             Close();

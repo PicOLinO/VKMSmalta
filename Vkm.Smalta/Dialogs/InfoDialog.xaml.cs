@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System;
 using System.Diagnostics;
 using System.Windows.Navigation;
 using Vkm.Smalta.Dialogs.ViewModel;
@@ -18,11 +19,18 @@ namespace Vkm.Smalta.Dialogs
             InitializeComponent();
             DataContext = new InfoDialogViewModel();
             Initialize();
+            PART_DocumentViewer.FitToWidth();
         }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(e.Uri.ToString());
+        }
+
+        protected override void OnClosing(bool? parameter = null)
+        {
+            ((IDisposable)DataContext).Dispose();
+            base.OnClosing(parameter);
         }
     }
 }
