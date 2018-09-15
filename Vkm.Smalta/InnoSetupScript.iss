@@ -47,6 +47,7 @@ Source: "bin\Release\Vkm.Smalta.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "bin\Release\Vkm.Smalta.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "bin\Release\XAMLEx.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Documentation.xps"; DestDir: "{app}"; Flags: ignoreversion
 Source: "logo.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
