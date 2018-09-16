@@ -6,7 +6,7 @@
         xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
         xmlns:viewModel="clr-namespace:Vkm.Smalta.ViewModel"
         mc:Ignorable="d"
-        Title="Смальта v1.1"
+        Title="Смальта v1.2.1"
         ResizeMode="NoResize"
         WindowState="Maximized"
         WindowStyle="None"
