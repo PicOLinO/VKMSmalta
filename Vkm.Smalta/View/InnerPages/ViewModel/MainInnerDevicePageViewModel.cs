@@ -16,7 +16,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
         private readonly Algorithm currentAlgorithm;
         private readonly HistoryService historyService;
 
-        public MainInnerDevicePageViewModel(HistoryService historyService, InnerRegionPage pageKey, string background, Algorithm currentAlgorithm) : base(pageKey, background)
+        public MainInnerDevicePageViewModel(HistoryService historyService, SmaltaInnerRegionPage pageKey, string background, Algorithm currentAlgorithm) : base(pageKey, background)
         {
             this.historyService = historyService;
             this.currentAlgorithm = currentAlgorithm;
@@ -25,7 +25,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
 
         private void InitializeElements()
         {
-            if (PageKey == InnerRegionPage.LO01P)
+            if (PageKey == SmaltaInnerRegionPage.LO01P)
             {
                 Elements = new ObservableCollection<ElementViewModelBase>
                            {
@@ -267,7 +267,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                            };
             }
 
-            if (PageKey == InnerRegionPage.LO01R)
+            if (PageKey == SmaltaInnerRegionPage.LO01R)
             {
                 Elements = new ObservableCollection<ElementViewModelBase>
                            {
@@ -295,7 +295,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                            };
             }
 
-            if (PageKey == InnerRegionPage.LO01I_LO01K)
+            if (PageKey == SmaltaInnerRegionPage.LO01I_LO01K)
             {
                 Elements = new ObservableCollection<ElementViewModelBase>
                            {

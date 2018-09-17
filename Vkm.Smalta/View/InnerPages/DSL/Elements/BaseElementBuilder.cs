@@ -11,7 +11,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
     public class BaseElementBuilder
     {
         protected string Name;
-        protected InnerRegionPage Page;
+        protected SmaltaInnerRegionPage Page;
         protected int PosLeft;
         protected int PosTop;
         protected int RotationDegrees;
@@ -44,7 +44,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
             return new VkmBlackTriangleArrowBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, Page);
         }
 
-        public BaseElementBuilder On(InnerRegionPage page)
+        public BaseElementBuilder On(SmaltaInnerRegionPage page)
         {
             Page = page;
             return this;

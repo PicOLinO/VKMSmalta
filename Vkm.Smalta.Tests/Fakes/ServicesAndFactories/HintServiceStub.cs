@@ -10,7 +10,7 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
 {
     public class HintServiceStub : IHintService
     {
-        public InnerRegionPage PageNavigatedOn { get; private set; }
+        public SmaltaInnerRegionPage PageNavigatedOn { get; private set; }
         public bool TrainingStarted { get; private set; }
         public bool NextHintIsShown { get; private set;}
         public bool ResetWasRaised { get; private set; }
@@ -20,7 +20,7 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
             throw new System.NotImplementedException();
         }
 
-        public void OnNavigated(InnerRegionPage toPage)
+        public void OnNavigated(SmaltaInnerRegionPage toPage)
         {
             PageNavigatedOn = toPage;
         }

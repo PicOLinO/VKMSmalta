@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Vkm.Smalta.Dialogs.Factories.Algorithms;
 using Vkm.Smalta.Domain;
@@ -29,13 +30,13 @@ namespace Vkm.Smalta.Dialogs.Factories
                                         algorithmsFactory.GetLaunchAlgorithm(),
                                         algorithmsFactory.GetStopAlgorithm()
                                     },
-                       Pages = new List<InnerRegionPage>
+                       Pages = new List<Enum>
                                {
-                                   InnerRegionPage.LO01I_LO01K,
-                                   InnerRegionPage.LO01P,
-                                   InnerRegionPage.LO01R
+                                   SmaltaInnerRegionPage.LO01I_LO01K,
+                                   SmaltaInnerRegionPage.LO01P,
+                                   SmaltaInnerRegionPage.LO01R
                                },
-                       FirstPageKey = InnerRegionPage.LO01P
+                       FirstPageKey = SmaltaInnerRegionPage.LO01P
                    };
         }
 

@@ -39,7 +39,7 @@ namespace Vkm.Smalta.Services
             return null;
         }
 
-        public void OnNavigated(InnerRegionPage toPage)
+        public void OnNavigated(SmaltaInnerRegionPage toPage)
         {
             if (CurrentAction == null)
             {

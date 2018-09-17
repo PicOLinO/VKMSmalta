@@ -28,12 +28,12 @@ namespace Vkm.Smalta.Services
             return devicePageViewModel.UnionElements;
         }
 
-        public InnerRegionPage GetCurrentInnerPageKey()
+        public SmaltaInnerRegionPage GetCurrentInnerPageKey()
         {
             return devicePageViewModel.CurrentPageKey;
         }
 
-        public void ShowGoNextPageHint(InnerRegionPage toPage, bool hideAll = false)
+        public void ShowGoNextPageHint(SmaltaInnerRegionPage toPage, bool hideAll = false)
         {
             if (hideAll)
             {

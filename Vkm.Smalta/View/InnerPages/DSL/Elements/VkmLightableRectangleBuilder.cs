@@ -13,7 +13,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
         private readonly string innerText;
         private Color backgroundColor = Colors.White;
 
-        public VkmLightableRectangleBuilder(int value, string name, string innerText, int posTop, int posLeft, int startupRotation, InnerRegionPage page)
+        public VkmLightableRectangleBuilder(int value, string name, string innerText, int posTop, int posLeft, int startupRotation, SmaltaInnerRegionPage page)
         {
             PosTop = posTop;
             PosLeft = posLeft;

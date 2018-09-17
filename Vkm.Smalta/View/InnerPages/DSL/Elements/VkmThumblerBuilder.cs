@@ -17,7 +17,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 
         private List<DependencyAction> dependencyActions;
 
-        public VkmThumblerBuilder(int value, string name, int posTop, int posLeft, int startupRotation, HistoryService historyService, InnerRegionPage page)
+        public VkmThumblerBuilder(int value, string name, int posTop, int posLeft, int startupRotation, HistoryService historyService, SmaltaInnerRegionPage page)
         {
             PosTop = posTop;
             PosLeft = posLeft;

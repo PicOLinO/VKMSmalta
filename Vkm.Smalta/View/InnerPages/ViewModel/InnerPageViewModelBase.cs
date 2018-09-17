@@ -12,7 +12,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
 {
     public class InnerPageViewModelBase : ViewModelBase
     {
-        protected InnerPageViewModelBase(InnerRegionPage pageKey, string backgroundSource)
+        protected InnerPageViewModelBase(SmaltaInnerRegionPage pageKey, string backgroundSource)
         {
             PageKey = pageKey;
             BackgroundSource = backgroundSource;
@@ -31,7 +31,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
             set { SetProperty(() => Elements, value); }
         }
 
-        public InnerRegionPage PageKey { get; }
+        public SmaltaInnerRegionPage PageKey { get; }
         protected GiveMe GiveMe { get; }
     }
 }

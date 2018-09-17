@@ -43,7 +43,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             set { SetProperty(() => IsHintOpen, value); }
         }
 
-        public InnerRegionPage Page { get; set; }
+        public SmaltaInnerRegionPage Page { get; set; }
 
         public double PosLeft
         {

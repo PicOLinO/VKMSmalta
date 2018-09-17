@@ -61,7 +61,7 @@ namespace Vkm.Smalta.View.ViewModel
 
         public AsyncCommand CheckResultCommand { get; set; }
 
-        public InnerRegionPage CurrentPageKey
+        public SmaltaInnerRegionPage CurrentPageKey
         {
             get { return GetProperty(() => CurrentPageKey); }
             private set { SetProperty(() => CurrentPageKey, value, OnCurrentPageKeyChanged); }
@@ -83,13 +83,13 @@ namespace Vkm.Smalta.View.ViewModel
             set { SetProperty(() => IsGoPreviousHintOpen, value); }
         }
 
-        public InnerRegionPage NextPageKey
+        public SmaltaInnerRegionPage NextPageKey
         {
             get { return GetProperty(() => NextPageKey); }
             set { SetProperty(() => NextPageKey, value); }
         }
 
-        public InnerRegionPage PreviousPageKey
+        public SmaltaInnerRegionPage PreviousPageKey
         {
             get { return GetProperty(() => PreviousPageKey); }
             set { SetProperty(() => PreviousPageKey, value); }
@@ -226,19 +226,18 @@ namespace Vkm.Smalta.View.ViewModel
 
         private void InitializeInnerPages()
         {
-            Pages = new ObservableCollection<InnerPageViewModelBase>();
+            var pagesList = pagesFactory.CreatePagesFor(device.Name, CurrentAlgorithm);
+            Pages = new ObservableCollection<InnerPageViewModelBase>(pagesList);
 
-            foreach (var pageKey in device.Pages)
+            foreach (var page in Pages)
             {
-                var page = pagesFactory.CreatePage(pageKey, CurrentAlgorithm);
-                Pages.Add(page);
-                viewInjectionManager.Inject(Regions.InnerRegion, pageKey, () => page, typeof(MainInnerDevicePage));
+                viewInjectionManager.Inject(Regions.InnerRegion, page.PageKey, () => page, typeof(MainInnerDevicePage));
             }
 
             NavigateOnInnerPage(device.FirstPageKey);
         }
 
-        public void NavigateOnInnerPage(InnerRegionPage page)
+        public void NavigateOnInnerPage(SmaltaInnerRegionPage page)
         {
             viewInjectionManager.Navigate(Regions.InnerRegion, page);
             CurrentPageKey = page;
@@ -297,10 +296,10 @@ namespace Vkm.Smalta.View.ViewModel
         {
             NextPageKey = CanGoForward()
                               ? Pages[CurrentPageIndex + 1].PageKey
-                              : InnerRegionPage.Empty;
+                              : SmaltaInnerRegionPage.Empty;
             PreviousPageKey = CanGoPrevious()
                                   ? Pages[CurrentPageIndex - 1].PageKey
-                                  : InnerRegionPage.Empty;
+                                  : SmaltaInnerRegionPage.Empty;
         }
 
         private void OnGoForward()

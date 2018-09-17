@@ -1,6 +1,6 @@
 ﻿namespace Vkm.Smalta.Services.Navigate
 {
-    public enum InnerRegionPage
+    public enum SmaltaInnerRegionPage
     {
         Empty,
         LO01P,

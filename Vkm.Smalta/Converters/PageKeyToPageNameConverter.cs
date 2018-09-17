@@ -12,17 +12,17 @@ namespace Vkm.Smalta.Converters
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is InnerRegionPage pageKey)
+            if (value is SmaltaInnerRegionPage pageKey)
             {
                 switch (pageKey)
                 {
-                    case InnerRegionPage.LO01P:
+                    case SmaltaInnerRegionPage.LO01P:
                         return "ЛО01-П";
-                    case InnerRegionPage.LO01R:
+                    case SmaltaInnerRegionPage.LO01R:
                         return "ЛО01-Р";
-                    case InnerRegionPage.LO01I_LO01K:
+                    case SmaltaInnerRegionPage.LO01I_LO01K:
                         return "ЛО01-И + ЛО01-К";
-                    case InnerRegionPage.Empty:
+                    case SmaltaInnerRegionPage.Empty:
                         return null;
                     default:
                         throw new ArgumentOutOfRangeException();

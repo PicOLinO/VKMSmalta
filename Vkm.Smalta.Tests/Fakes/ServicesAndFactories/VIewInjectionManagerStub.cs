@@ -11,12 +11,12 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
     {
         public readonly Dictionary<string, object> CurrentPages;
 
-        public readonly Dictionary<InnerRegionPage, InnerPageViewModelBase> InjectedInnerPages;
+        public readonly Dictionary<SmaltaInnerRegionPage, InnerPageViewModelBase> InjectedInnerPages;
         public readonly Dictionary<OuterRegionPages, DevicePageViewModel> InjectedOuterPages;
 
         public ViewInjectionManagerStub()
         {
-            InjectedInnerPages = new Dictionary<InnerRegionPage, InnerPageViewModelBase>();
+            InjectedInnerPages = new Dictionary<SmaltaInnerRegionPage, InnerPageViewModelBase>();
             InjectedOuterPages = new Dictionary<OuterRegionPages, DevicePageViewModel>();
             CurrentPages = new Dictionary<string, object>
                            {
@@ -44,7 +44,7 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
         {
             switch (key)
             {
-                case InnerRegionPage innerPage:
+                case SmaltaInnerRegionPage innerPage:
                     if (!InjectedInnerPages.ContainsKey(innerPage))
                     {
                         InjectedInnerPages.Add(innerPage, (InnerPageViewModelBase)viewModelFactory.Invoke());
@@ -63,7 +63,7 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
         {
             switch (key)
             {
-                case InnerRegionPage innerPage:
+                case SmaltaInnerRegionPage innerPage:
                     InjectedInnerPages.Remove(innerPage);
                     break;
                 case OuterRegionPages outerPage:

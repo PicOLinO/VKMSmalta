@@ -18,7 +18,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
         private List<DependencyAction> dependencyActions;
         private string dependencySecureElementName;
 
-        public VkmBigButtonBuilder(int value, string name, int posTop, int posLeft, HistoryService historyService, InnerRegionPage page)
+        public VkmBigButtonBuilder(int value, string name, int posTop, int posLeft, HistoryService historyService, SmaltaInnerRegionPage page)
         {
             PosTop = posTop;
             PosLeft = posLeft;

@@ -10,7 +10,7 @@ namespace Vkm.Smalta.Services
     public interface IHintService
     {
         IValuableNamedElement GetValuableElementByCurrentHint();
-        void OnNavigated(InnerRegionPage toPage);
+        void OnNavigated(SmaltaInnerRegionPage toPage);
         void Reset();
         void ShowNextHint();
         void StartTraining(Algorithm algorithm, List<ElementViewModelBase> elements, Action endTraining);

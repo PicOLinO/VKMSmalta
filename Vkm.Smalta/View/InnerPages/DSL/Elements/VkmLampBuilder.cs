@@ -10,7 +10,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
     public class VkmLampBuilder : BaseElementBuilder
     {
-        public VkmLampBuilder(int value, string name, int posTop, int posLeft, InnerRegionPage page)
+        public VkmLampBuilder(int value, string name, int posTop, int posLeft, SmaltaInnerRegionPage page)
         {
             PosTop = posTop;
             PosLeft = posLeft;
