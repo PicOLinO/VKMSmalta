@@ -1,5 +1,7 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 using Vkm.Smalta.Dialogs.Factories;
+using Vkm.Smalta.Dialogs.Factories.Algorithms;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.Tests.Fakes.ServicesAndFactories;
 
@@ -16,7 +18,6 @@ namespace Vkm.Smalta.Tests
         protected HistoryService HistoryService;
 
         protected DevicesFactory DevicesFactory;
-        protected AlgorithmsFactory AlgorithmsFactory;
         protected ActionsFactory ActionsFactory;
         protected PagesFactory PagesFactory;
 
@@ -35,8 +36,12 @@ namespace Vkm.Smalta.Tests
             HistoryService = new HistoryService();
 
             ActionsFactory = new ActionsFactory(HintService);
-            AlgorithmsFactory = new AlgorithmsFactory(ActionsFactory);
-            DevicesFactory = new DevicesFactory(AlgorithmsFactory, HistoryService);
+            var algorithmsFactoriesCollection = new List<AlgorithmsFactoryBase>
+                                                {
+                                                    new SmaltaAlgorithmsFactory(ActionsFactory),
+                                                    new RlsOncAlgorithmsFactory(ActionsFactory)
+                                                };
+            DevicesFactory = new DevicesFactory(algorithmsFactoriesCollection);
             PagesFactory = new PagesFactory(HistoryService);
         }
     }

@@ -119,7 +119,9 @@
       <DependentUpon>ChooseDeviceDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\Factories\ActionsFactory.cs" />
-    <Compile Include="Dialogs\Factories\AlgorithmsFactory.cs" />
+    <Compile Include="Dialogs\Factories\Algorithms\RlsOncAlgorithmsFactory.cs" />
+    <Compile Include="Dialogs\Factories\Algorithms\SmaltaAlgorithmsFactory.cs" />
+    <Compile Include="Dialogs\Factories\Algorithms\AlgorithmsFactoryBase.cs" />
     <Compile Include="Dialogs\Factories\DevicesFactory.cs" />
     <Compile Include="Dialogs\Factories\DialogFactory.cs" />
     <Compile Include="Dialogs\Factories\IDialogFactory.cs" />

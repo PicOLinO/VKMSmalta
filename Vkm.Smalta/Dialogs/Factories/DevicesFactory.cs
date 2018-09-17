@@ -1,24 +1,24 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using Vkm.Smalta.Dialogs.Factories.Algorithms;
 using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
 using Vkm.Smalta.Services.Navigate;
-using Vkm.Smalta.View.InnerPages.ViewModel;
 
 namespace Vkm.Smalta.Dialogs.Factories
 {
     public class DevicesFactory
     {
-        private readonly AlgorithmsFactory algorithmsFactory;
-        private readonly HistoryService historyService;
+        private readonly List<AlgorithmsFactoryBase> algorithmsFactoriesCollection;
 
-        public DevicesFactory(AlgorithmsFactory algorithmsFactory, HistoryService historyService)
+        public DevicesFactory(List<AlgorithmsFactoryBase> algorithmsFactoriesCollection)
         {
-            this.algorithmsFactory = algorithmsFactory;
-            this.historyService = historyService;
+            this.algorithmsFactoriesCollection = algorithmsFactoriesCollection;
         }
 
         public DeviceEntry GetSmaltaDevice()
         {
+            var algorithmsFactory = algorithmsFactoriesCollection.OfType<SmaltaAlgorithmsFactory>().Single();
+
             return new DeviceEntry
                    {
                        Name = Device.LO01_Smalta,
@@ -41,6 +41,8 @@ namespace Vkm.Smalta.Dialogs.Factories
 
         public DeviceEntry GetImpulseRadioLocationStation()
         {
+            var algorithmsFactory = algorithmsFactoriesCollection.OfType<RlsOncAlgorithmsFactory>().Single();
+
             return new DeviceEntry
                    {
                        Name = Device.RLS_ONC,

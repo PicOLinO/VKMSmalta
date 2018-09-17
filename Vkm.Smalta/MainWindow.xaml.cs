@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using DevExpress.Mvvm;
 using Vkm.Smalta.Dialogs.Factories;
+using Vkm.Smalta.Dialogs.Factories.Algorithms;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.ViewModel;
@@ -29,9 +31,15 @@ namespace Vkm.Smalta
             var viewInjectionManager = DependencyContainer.GetViewInjectionManager();
             var loadingService = new LoadingService();
             var actionsFactory = new ActionsFactory(hintService);
-            var algorithmsFactory = new AlgorithmsFactory(actionsFactory);
+
+            var algorithmsFactoriesCollection = new List<AlgorithmsFactoryBase>
+                                                {
+                                                    new SmaltaAlgorithmsFactory(actionsFactory),
+                                                    new RlsOncAlgorithmsFactory(actionsFactory)
+                                                };
+
             var historyService = new HistoryService();
-            var devicesFactory = new DevicesFactory(algorithmsFactory, historyService);
+            var devicesFactory = new DevicesFactory(algorithmsFactoriesCollection);
             var pagesFactory = new PagesFactory(historyService);
 
             var mainPageViewModel = new MainPageViewModel(hintService, dialogFactory, viewInjectionManager, loadingService, devicesFactory, historyService, pagesFactory);
