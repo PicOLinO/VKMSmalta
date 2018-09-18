@@ -11,6 +11,6 @@ namespace Vkm.Smalta.Domain
         public string ReadableName { get; set; }
         public List<Algorithm> Algorithms { get; set; }
         public List<Enum> Pages { get; set; }
-        public SmaltaInnerRegionPage FirstPageKey { get; set; }
+        public Enum FirstPageKey { get; set; }
     }
 }
