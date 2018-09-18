@@ -8,7 +8,7 @@ using Vkm.Smalta.View.Hints.ViewModel;
 
 namespace Vkm.Smalta.Dialogs.Factories
 {
-    public class ActionsFactory
+    public class ActionsFactory : IActionsFactory
     {
         public Action GetClickAction(string elementName, string hint, int accessibleValue, bool useInExamineCheck = true)
         {

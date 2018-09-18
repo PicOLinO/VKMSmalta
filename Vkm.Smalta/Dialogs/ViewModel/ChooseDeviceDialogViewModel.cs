@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using Vkm.Smalta.Dialogs.Factories;
+using Vkm.Smalta.Dialogs.Factories.Algorithms;
 using Vkm.Smalta.Domain;
 
 namespace Vkm.Smalta.Dialogs.ViewModel
@@ -8,10 +9,12 @@ namespace Vkm.Smalta.Dialogs.ViewModel
     {
         public ChooseDeviceDialogViewModel(IDevicesFactory devicesFactory)
         {
+            var actionsFactory = ServiceContainer.GetService<IActionsFactory>();
+
             Devices = new ObservableCollection<DeviceEntry>
                       {
-                          devicesFactory.GetSmaltaDevice(),
-                          devicesFactory.GetImpulseRadioLocationStation()
+                          devicesFactory.GetSmaltaDevice(new SmaltaAlgorithmsFactory(actionsFactory)),
+                          devicesFactory.GetImpulseRadioLocationStation(new RlsOncAlgorithmsFactory(actionsFactory))
                       };
         }
 

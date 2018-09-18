@@ -27,23 +27,16 @@ namespace Vkm.Smalta
         private void InitializeMainPageViewModel()
         {
             var viewInjectionManager = DependencyContainer.GetViewInjectionManager();
-            var actionsFactory = new ActionsFactory();
 
             ServiceContainer.Default.RegisterService(viewInjectionManager);
             ServiceContainer.Default.RegisterService(new HintService());
             ServiceContainer.Default.RegisterService(new LoadingService());
             ServiceContainer.Default.RegisterService(new HistoryService());
-            ServiceContainer.Default.RegisterService(actionsFactory);
             ServiceContainer.Default.RegisterService(new DialogFactory());
             ServiceContainer.Default.RegisterService(new PagesFactory());
+            ServiceContainer.Default.RegisterService(new ActionsFactory());
 
-            var algorithmsFactoriesCollection = new List<AlgorithmsFactoryBase>
-                                                {
-                                                    new SmaltaAlgorithmsFactory(actionsFactory),
-                                                    new RlsOncAlgorithmsFactory(actionsFactory)
-                                                };
-
-            var devicesFactory = new DevicesFactory(algorithmsFactoriesCollection);
+            var devicesFactory = new DevicesFactory();
 
             var mainPageViewModel = new MainPageViewModel(devicesFactory);
 

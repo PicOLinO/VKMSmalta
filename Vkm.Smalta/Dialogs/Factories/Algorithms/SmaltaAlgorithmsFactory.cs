@@ -9,7 +9,7 @@ namespace Vkm.Smalta.Dialogs.Factories.Algorithms
 {
     public class SmaltaAlgorithmsFactory : AlgorithmsFactoryBase
     {
-        public SmaltaAlgorithmsFactory(ActionsFactory actionsFactory) : base(actionsFactory)
+        public SmaltaAlgorithmsFactory(IActionsFactory actionsFactory) : base(actionsFactory)
         {
         }
 

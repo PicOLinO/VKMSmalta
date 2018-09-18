@@ -2,9 +2,9 @@
 {
     public abstract class AlgorithmsFactoryBase
     {
-        protected readonly ActionsFactory ActionsFactory;
+        protected readonly IActionsFactory ActionsFactory;
 
-        public AlgorithmsFactoryBase(ActionsFactory actionsFactory)
+        public AlgorithmsFactoryBase(IActionsFactory actionsFactory)
         {
             ActionsFactory = actionsFactory;
         }

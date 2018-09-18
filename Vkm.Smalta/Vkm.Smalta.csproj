@@ -124,6 +124,7 @@
     <Compile Include="Dialogs\Factories\Algorithms\AlgorithmsFactoryBase.cs" />
     <Compile Include="Dialogs\Factories\DevicesFactory.cs" />
     <Compile Include="Dialogs\Factories\DialogFactory.cs" />
+    <Compile Include="Dialogs\Factories\IActionsFactory.cs" />
     <Compile Include="Dialogs\Factories\IDevicesFactory.cs" />
     <Compile Include="Dialogs\Factories\IDialogFactory.cs" />
     <Compile Include="Dialogs\Factories\IPagesFactory.cs" />

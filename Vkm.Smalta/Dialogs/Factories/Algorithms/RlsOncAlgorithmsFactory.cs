@@ -2,7 +2,7 @@
 {
     public class RlsOncAlgorithmsFactory : AlgorithmsFactoryBase
     {
-        public RlsOncAlgorithmsFactory(ActionsFactory actionsFactory) : base(actionsFactory)
+        public RlsOncAlgorithmsFactory(IActionsFactory actionsFactory) : base(actionsFactory)
         {
         }
     }

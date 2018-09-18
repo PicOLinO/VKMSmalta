@@ -9,17 +9,8 @@ namespace Vkm.Smalta.Dialogs.Factories
 {
     public class DevicesFactory : IDevicesFactory
     {
-        private readonly List<AlgorithmsFactoryBase> algorithmsFactoriesCollection;
-
-        public DevicesFactory(List<AlgorithmsFactoryBase> algorithmsFactoriesCollection)
+        public DeviceEntry GetSmaltaDevice(SmaltaAlgorithmsFactory algorithmsFactory)
         {
-            this.algorithmsFactoriesCollection = algorithmsFactoriesCollection;
-        }
-
-        public DeviceEntry GetSmaltaDevice()
-        {
-            var algorithmsFactory = algorithmsFactoriesCollection.OfType<SmaltaAlgorithmsFactory>().Single();
-
             return new DeviceEntry
                    {
                        Name = Device.LO01_Smalta,
@@ -40,10 +31,8 @@ namespace Vkm.Smalta.Dialogs.Factories
                    };
         }
 
-        public DeviceEntry GetImpulseRadioLocationStation()
+        public DeviceEntry GetImpulseRadioLocationStation(RlsOncAlgorithmsFactory algorithmsFactory)
         {
-            var algorithmsFactory = algorithmsFactoriesCollection.OfType<RlsOncAlgorithmsFactory>().Single();
-
             return new DeviceEntry
                    {
                        Name = Device.RLS_ONC,
