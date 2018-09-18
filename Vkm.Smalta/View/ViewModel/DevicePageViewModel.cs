@@ -116,7 +116,7 @@ namespace Vkm.Smalta.View.ViewModel
 
         private bool CanGoForward()
         {
-            return CurrentPageKey != Pages.Last().PageKey;
+            return !Equals(CurrentPageKey, Pages.Last().PageKey);
         }
 
         private bool CanGoPrevious()
