@@ -7,6 +7,7 @@ using Vkm.Smalta.View.ViewModel;
 
 namespace Vkm.Smalta.Services
 {
+    [Obsolete("Do not use this class. Deprecated", false)]
     public class CurrentDevicePageService
     {
         private readonly DevicePageViewModel devicePageViewModel;

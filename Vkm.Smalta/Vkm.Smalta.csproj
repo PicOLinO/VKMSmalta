@@ -185,7 +185,6 @@
     <Compile Include="Services\Navigate\Direction.cs" />
     <Compile Include="Services\Navigate\RegionPages.cs" />
     <Compile Include="Services\Navigate\Regions.cs" />
-    <Compile Include="Services\Navigate\RlsOncInnerRegionPage.cs" />
     <Compile Include="Services\NetworkService.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
