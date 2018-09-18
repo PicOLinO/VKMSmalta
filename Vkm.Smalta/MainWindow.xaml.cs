@@ -42,6 +42,8 @@ namespace Vkm.Smalta
             var devicesFactory = new DevicesFactory(algorithmsFactoriesCollection);
             var pagesFactory = new PagesFactory(historyService);
 
+            //TODO: Модно применить ServiceContainer.Default. Во всех VM он будет доступен.
+
             var mainPageViewModel = new MainPageViewModel(hintService, dialogFactory, viewInjectionManager, loadingService, devicesFactory, historyService, pagesFactory);
 
             viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.MainMenu, () => mainPageViewModel, typeof(MainPage));
