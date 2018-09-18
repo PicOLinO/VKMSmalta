@@ -30,8 +30,8 @@ namespace Vkm.Smalta.ViewModel
             viewInjectionManager = ServiceContainer.GetService<IViewInjectionManager>();
             loadingService = ServiceContainer.GetService<ILoadingService>();
             historyService = ServiceContainer.GetService<IHistoryService>();
+            pagesFactory = ServiceContainer.GetService<IPagesFactory>();
             this.devicesFactory = devicesFactory;
-            this.pagesFactory = ServiceContainer.GetService<IPagesFactory>();
 
             Initialize();
         }
