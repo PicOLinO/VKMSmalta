@@ -240,6 +240,7 @@
       <DependentUpon>MainInnerDevicePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\InnerPages\ViewModel\InnerPageViewModelBase.cs" />
+    <Compile Include="View\InnerPages\ViewModel\RlsOncInnerDevicePageViewModel.cs" />
     <Compile Include="View\InnerPages\ViewModel\SmaltaInnerDevicePageViewModel.cs" />
     <Compile Include="View\InnerPages\ViewModel\MainInnerDevicePageViewModel.cs" />
     <Compile Include="View\Hints\NavigateButtonHint.xaml.cs">

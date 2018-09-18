@@ -7,6 +7,11 @@
         LO01I_LO01K
     }
 
+    public enum RlsOncInnerRegionPage
+    {
+
+    }
+
     public enum OuterRegionPages
     {
         MainMenu,
