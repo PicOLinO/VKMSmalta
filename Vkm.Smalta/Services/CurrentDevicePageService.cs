@@ -28,12 +28,12 @@ namespace Vkm.Smalta.Services
             return devicePageViewModel.UnionElements;
         }
 
-        public SmaltaInnerRegionPage GetCurrentInnerPageKey()
+        public Enum GetCurrentInnerPageKey()
         {
             return devicePageViewModel.CurrentPageKey;
         }
 
-        public void ShowGoNextPageHint(SmaltaInnerRegionPage toPage, bool hideAll = false)
+        public void ShowGoNextPageHint(Enum toPage, bool hideAll = false)
         {
             if (hideAll)
             {
@@ -42,8 +42,8 @@ namespace Vkm.Smalta.Services
                 return;
             }
 
-            var currentPageIndex = devicePageViewModel.Pages.IndexOf(devicePageViewModel.Pages.Single(p => p.PageKey == GetCurrentInnerPageKey()));
-            var nextPageIndex = devicePageViewModel.Pages.IndexOf(devicePageViewModel.Pages.Single(p => p.PageKey == toPage));
+            var currentPageIndex = devicePageViewModel.Pages.IndexOf(devicePageViewModel.Pages.Single(p => Equals(p.PageKey, GetCurrentInnerPageKey())));
+            var nextPageIndex = devicePageViewModel.Pages.IndexOf(devicePageViewModel.Pages.Single(p => Equals(p.PageKey, toPage)));
 
             var direction = currentPageIndex > nextPageIndex
                                 ? Direction.Previous

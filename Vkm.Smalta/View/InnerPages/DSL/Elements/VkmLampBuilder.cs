@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System;
 using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.View.Elements.ViewModel;
 using XAMLEx;
@@ -10,7 +11,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
     public class VkmLampBuilder : BaseElementBuilder
     {
-        public VkmLampBuilder(int value, string name, int posTop, int posLeft, SmaltaInnerRegionPage page)
+        public VkmLampBuilder(int value, string name, int posTop, int posLeft, Enum page)
         {
             PosTop = posTop;
             PosLeft = posLeft;

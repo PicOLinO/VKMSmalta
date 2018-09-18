@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System;
 using System.Windows.Media;
 using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.View.Elements.ViewModel;
@@ -13,7 +14,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
         private readonly string innerText;
         private Color backgroundColor = Colors.White;
 
-        public VkmLightableRectangleBuilder(int value, string name, string innerText, int posTop, int posLeft, int startupRotation, SmaltaInnerRegionPage page)
+        public VkmLightableRectangleBuilder(int value, string name, string innerText, int posTop, int posLeft, int startupRotation, Enum page)
         {
             PosTop = posTop;
             PosLeft = posLeft;

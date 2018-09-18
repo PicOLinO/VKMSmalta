@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System;
 using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.View.Elements.ViewModel;
 
@@ -9,7 +10,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
     public class VkmBlackTriangleArrowBuilder : BaseElementBuilder
     {
-        public VkmBlackTriangleArrowBuilder(int value, string name, int posTop, int posLeft, int startupRotation, SmaltaInnerRegionPage page)
+        public VkmBlackTriangleArrowBuilder(int value, string name, int posTop, int posLeft, int startupRotation, Enum page)
         {
             PosTop = posTop;
             PosLeft = posLeft;

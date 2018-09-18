@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System;
 using System.Collections.Generic;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.Services;
@@ -18,7 +19,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
         private List<DependencyAction> dependencyActions;
         private string dependencySecureElementName;
 
-        public VkmBigButtonBuilder(int value, string name, int posTop, int posLeft, HistoryService historyService, SmaltaInnerRegionPage page)
+        public VkmBigButtonBuilder(int value, string name, int posTop, int posLeft, HistoryService historyService, Enum page)
         {
             PosTop = posTop;
             PosLeft = posLeft;

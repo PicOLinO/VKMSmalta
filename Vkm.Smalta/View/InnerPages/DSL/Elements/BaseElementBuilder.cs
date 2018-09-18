@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System;
 using System.Collections.Generic;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.Services.Navigate;
@@ -11,7 +12,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
     public class BaseElementBuilder
     {
         protected string Name;
-        protected SmaltaInnerRegionPage Page;
+        protected Enum Page;
         protected int PosLeft;
         protected int PosTop;
         protected int RotationDegrees;
@@ -44,7 +45,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
             return new VkmBlackTriangleArrowBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, Page);
         }
 
-        public BaseElementBuilder On(SmaltaInnerRegionPage page)
+        public BaseElementBuilder On(Enum page)
         {
             Page = page;
             return this;

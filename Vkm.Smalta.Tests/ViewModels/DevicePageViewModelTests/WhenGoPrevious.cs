@@ -30,7 +30,7 @@ namespace Vkm.Smalta.Tests.ViewModels.DevicePageViewModelTests
         {
             ViewModel.GoPreviousCommand.Execute(null);
 
-            Assert.That(ViewInjectionManager.CurrentPages[Regions.InnerRegion], Is.Not.EqualTo(SmaltaInnerRegionPage.Empty));
+            Assert.That(ViewInjectionManager.CurrentPages[Regions.InnerRegion], Is.Not.EqualTo(null));
         }
     }
 }

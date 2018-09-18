@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.View.Elements.ViewModel;
@@ -15,7 +16,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
         private int maxRotationSteps;
         private int rotationStepDegrees;
 
-        public VkmRotateWheelBuilder(int value, string name, int posTop, int posLeft, int startupRotation, HistoryService historyService, SmaltaInnerRegionPage page)
+        public VkmRotateWheelBuilder(int value, string name, int posTop, int posLeft, int startupRotation, HistoryService historyService, Enum page)
         {
             PosTop = posTop;
             PosLeft = posLeft;

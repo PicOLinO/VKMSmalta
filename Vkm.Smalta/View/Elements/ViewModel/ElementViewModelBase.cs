@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System;
 using DevExpress.Mvvm;
 using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
@@ -43,7 +44,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             set { SetProperty(() => IsHintOpen, value); }
         }
 
-        public SmaltaInnerRegionPage Page { get; set; }
+        public Enum Page { get; set; }
 
         public double PosLeft
         {

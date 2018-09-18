@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System;
 using System.Collections.ObjectModel;
 using DevExpress.Mvvm;
 using Vkm.Smalta.Services.Navigate;
@@ -12,7 +13,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
 {
     public class InnerPageViewModelBase : ViewModelBase
     {
-        protected InnerPageViewModelBase(SmaltaInnerRegionPage pageKey, string backgroundSource)
+        protected InnerPageViewModelBase(Enum pageKey, string backgroundSource)
         {
             PageKey = pageKey;
             BackgroundSource = backgroundSource;
@@ -31,7 +32,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
             set { SetProperty(() => Elements, value); }
         }
 
-        public SmaltaInnerRegionPage PageKey { get; }
+        public Enum PageKey { get; }
         protected GiveMe GiveMe { get; }
     }
 }

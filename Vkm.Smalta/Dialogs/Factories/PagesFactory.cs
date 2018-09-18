@@ -23,9 +23,9 @@ namespace Vkm.Smalta.Dialogs.Factories
                 case Device.LO01_Smalta:
                     return new List<MainInnerDevicePageViewModel>
                            {
-                               new MainInnerDevicePageViewModel(historyService, SmaltaInnerRegionPage.LO01P, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01P.png", algorithm),
-                               new MainInnerDevicePageViewModel(historyService, SmaltaInnerRegionPage.LO01R, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01R.png", algorithm),
-                               new MainInnerDevicePageViewModel(historyService, SmaltaInnerRegionPage.LO01I_LO01K, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01I_LO01K.png", algorithm)
+                               new SmaltaInnerDevicePageViewModel(historyService, SmaltaInnerRegionPage.LO01I_LO01K, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01I_LO01K.png", algorithm),
+                               new SmaltaInnerDevicePageViewModel(historyService, SmaltaInnerRegionPage.LO01P, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01P.png", algorithm),
+                               new SmaltaInnerDevicePageViewModel(historyService, SmaltaInnerRegionPage.LO01R, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01R.png", algorithm)
                            };
                 default:
                     throw new ArgumentOutOfRangeException(nameof(device), device, null);

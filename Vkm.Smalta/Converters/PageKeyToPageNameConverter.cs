@@ -12,24 +12,25 @@ namespace Vkm.Smalta.Converters
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is SmaltaInnerRegionPage pageKey)
+            switch (value)
             {
-                switch (pageKey)
-                {
-                    case SmaltaInnerRegionPage.LO01P:
-                        return "ЛО01-П";
-                    case SmaltaInnerRegionPage.LO01R:
-                        return "ЛО01-Р";
-                    case SmaltaInnerRegionPage.LO01I_LO01K:
-                        return "ЛО01-И + ЛО01-К";
-                    case SmaltaInnerRegionPage.Empty:
-                        return null;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                case null:
+                    return null;
+                case SmaltaInnerRegionPage pageKey:
+                    switch (pageKey)
+                    {
+                        case SmaltaInnerRegionPage.LO01P:
+                            return "ЛО01-П";
+                        case SmaltaInnerRegionPage.LO01R:
+                            return "ЛО01-Р";
+                        case SmaltaInnerRegionPage.LO01I_LO01K:
+                            return "ЛО01-И + ЛО01-К";
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                default:
+                    throw new Exception("Unsupported type");
             }
-
-            throw new Exception("Unsupported type");
         }
     }
 }

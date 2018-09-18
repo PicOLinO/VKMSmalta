@@ -61,7 +61,7 @@ namespace Vkm.Smalta.View.ViewModel
 
         public AsyncCommand CheckResultCommand { get; set; }
 
-        public SmaltaInnerRegionPage CurrentPageKey
+        public Enum CurrentPageKey
         {
             get { return GetProperty(() => CurrentPageKey); }
             private set { SetProperty(() => CurrentPageKey, value, OnCurrentPageKeyChanged); }
@@ -83,13 +83,13 @@ namespace Vkm.Smalta.View.ViewModel
             set { SetProperty(() => IsGoPreviousHintOpen, value); }
         }
 
-        public SmaltaInnerRegionPage NextPageKey
+        public Enum NextPageKey
         {
             get { return GetProperty(() => NextPageKey); }
             set { SetProperty(() => NextPageKey, value); }
         }
 
-        public SmaltaInnerRegionPage PreviousPageKey
+        public Enum PreviousPageKey
         {
             get { return GetProperty(() => PreviousPageKey); }
             set { SetProperty(() => PreviousPageKey, value); }
@@ -112,7 +112,7 @@ namespace Vkm.Smalta.View.ViewModel
 
         private Algorithm CurrentAlgorithm { get; }
 
-        private int CurrentPageIndex => Pages.IndexOf(Pages.Single(p => p.PageKey == CurrentPageKey));
+        private int CurrentPageIndex => Pages.IndexOf(Pages.Single(p => Equals(p.PageKey, CurrentPageKey)));
 
         private bool CanGoForward()
         {
@@ -121,7 +121,7 @@ namespace Vkm.Smalta.View.ViewModel
 
         private bool CanGoPrevious()
         {
-            return CurrentPageKey != Pages.First().PageKey;
+            return !Equals(CurrentPageKey, Pages.First().PageKey);
         }
 
         public void Initialize()
@@ -237,7 +237,7 @@ namespace Vkm.Smalta.View.ViewModel
             NavigateOnInnerPage(device.FirstPageKey);
         }
 
-        public void NavigateOnInnerPage(SmaltaInnerRegionPage page)
+        public void NavigateOnInnerPage(Enum page)
         {
             viewInjectionManager.Navigate(Regions.InnerRegion, page);
             CurrentPageKey = page;
@@ -296,10 +296,10 @@ namespace Vkm.Smalta.View.ViewModel
         {
             NextPageKey = CanGoForward()
                               ? Pages[CurrentPageIndex + 1].PageKey
-                              : SmaltaInnerRegionPage.Empty;
+                              : null;
             PreviousPageKey = CanGoPrevious()
                                   ? Pages[CurrentPageIndex - 1].PageKey
-                                  : SmaltaInnerRegionPage.Empty;
+                                  : null;
         }
 
         private void OnGoForward()

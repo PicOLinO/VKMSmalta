@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Vkm.Smalta.Domain;
@@ -39,7 +40,7 @@ namespace Vkm.Smalta.Services
             return null;
         }
 
-        public void OnNavigated(SmaltaInnerRegionPage toPage)
+        public void OnNavigated(Enum toPage)
         {
             if (CurrentAction == null)
             {
