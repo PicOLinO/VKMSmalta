@@ -27,6 +27,8 @@ namespace Vkm.Smalta.Dialogs.Factories
                                new SmaltaInnerDevicePageViewModel(historyService, SmaltaInnerRegionPage.LO01P, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01P.png", algorithm),
                                new SmaltaInnerDevicePageViewModel(historyService, SmaltaInnerRegionPage.LO01R, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01R.png", algorithm)
                            };
+                case Device.RLS_ONC:
+                    return new List<MainInnerDevicePageViewModel>();
                 default:
                     throw new ArgumentOutOfRangeException(nameof(device), device, null);
             }
