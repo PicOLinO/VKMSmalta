@@ -25,9 +25,9 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
             return this;
         }
 
-        public VkmBigButtonBuilder BigButton(HistoryService historyService)
+        public VkmBigButtonBuilder BigButton()
         {
-            return new VkmBigButtonBuilder(Value, Name, PosTop, PosLeft, historyService, Page);
+            return new VkmBigButtonBuilder(Value, Name, PosTop, PosLeft, Page);
         }
 
         public VkmLampBuilder Lamp()
@@ -51,14 +51,14 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
             return this;
         }
 
-        public VkmRotateWheelBuilder RotateWheel(HistoryService historyService)
+        public VkmRotateWheelBuilder RotateWheel()
         {
-            return new VkmRotateWheelBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, historyService, Page);
+            return new VkmRotateWheelBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, Page);
         }
 
-        public VkmThumblerBuilder Thumbler(HistoryService historyService)
+        public VkmThumblerBuilder Thumbler()
         {
-            return new VkmThumblerBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, historyService, Page);
+            return new VkmThumblerBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, Page);
         }
 
         public BaseElementBuilder WithName(string name)

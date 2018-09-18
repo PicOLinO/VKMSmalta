@@ -124,7 +124,9 @@
     <Compile Include="Dialogs\Factories\Algorithms\AlgorithmsFactoryBase.cs" />
     <Compile Include="Dialogs\Factories\DevicesFactory.cs" />
     <Compile Include="Dialogs\Factories\DialogFactory.cs" />
+    <Compile Include="Dialogs\Factories\IDevicesFactory.cs" />
     <Compile Include="Dialogs\Factories\IDialogFactory.cs" />
+    <Compile Include="Dialogs\Factories\IPagesFactory.cs" />
     <Compile Include="Dialogs\Factories\PagesFactory.cs" />
     <Compile Include="Dialogs\InfoDialog.xaml.cs">
       <DependentUpon>InfoDialog.xaml</DependentUpon>
@@ -179,6 +181,7 @@
     <Compile Include="Services\HistoryService.cs" />
     <Compile Include="Services\IHintService.cs" />
     <Compile Include="Services\CurrentDevicePageService.cs" />
+    <Compile Include="Services\IHistoryService.cs" />
     <Compile Include="Services\ILoadingService.cs" />
     <Compile Include="Services\LoadingService.cs" />
     <Compile Include="Services\MessageBoxService.cs" />

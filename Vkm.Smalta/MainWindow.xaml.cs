@@ -26,11 +26,16 @@ namespace Vkm.Smalta
 
         private void InitializeMainPageViewModel()
         {
-            var dialogFactory = DependencyContainer.GetDialogFactory();
-            var hintService = new HintService();
             var viewInjectionManager = DependencyContainer.GetViewInjectionManager();
-            var loadingService = new LoadingService();
-            var actionsFactory = new ActionsFactory(hintService);
+            var actionsFactory = new ActionsFactory();
+
+            ServiceContainer.Default.RegisterService(viewInjectionManager);
+            ServiceContainer.Default.RegisterService(new HintService());
+            ServiceContainer.Default.RegisterService(new LoadingService());
+            ServiceContainer.Default.RegisterService(new HistoryService());
+            ServiceContainer.Default.RegisterService(actionsFactory);
+            ServiceContainer.Default.RegisterService(new DialogFactory());
+            ServiceContainer.Default.RegisterService(new PagesFactory());
 
             var algorithmsFactoriesCollection = new List<AlgorithmsFactoryBase>
                                                 {
@@ -38,13 +43,9 @@ namespace Vkm.Smalta
                                                     new RlsOncAlgorithmsFactory(actionsFactory)
                                                 };
 
-            var historyService = new HistoryService();
             var devicesFactory = new DevicesFactory(algorithmsFactoriesCollection);
-            var pagesFactory = new PagesFactory(historyService);
 
-            //TODO: Можно применить ServiceContainer.Default. Во всех VM он будет доступен.
-
-            var mainPageViewModel = new MainPageViewModel(hintService, dialogFactory, viewInjectionManager, loadingService, devicesFactory, historyService, pagesFactory);
+            var mainPageViewModel = new MainPageViewModel(devicesFactory);
 
             viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.MainMenu, () => mainPageViewModel, typeof(MainPage));
 

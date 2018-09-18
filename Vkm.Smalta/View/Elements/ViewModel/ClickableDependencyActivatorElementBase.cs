@@ -11,7 +11,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 {
     public abstract class ClickableDependencyActivatorElementBase : ClickableElementViewModelBase, IDependencyActivatorElement
     {
-        protected ClickableDependencyActivatorElementBase(int value, string name, HistoryService historyService, List<DependencyAction> dependencyActions) : base(value, name, historyService)
+        protected ClickableDependencyActivatorElementBase(int value, string name, List<DependencyAction> dependencyActions) : base(value, name)
         {
             DependencyActions = dependencyActions;
         }

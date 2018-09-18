@@ -10,7 +10,7 @@ namespace Vkm.Smalta.View.Hints.ViewModel
     {
         private readonly int accessibleValue;
 
-        public AccessibleHintViewModel(string hintText, int accessibleValue, IHintService hintService) : base(hintText, hintService)
+        public AccessibleHintViewModel(string hintText, int accessibleValue) : base(hintText)
         {
             this.accessibleValue = accessibleValue;
         }

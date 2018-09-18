@@ -89,7 +89,7 @@ namespace Vkm.Smalta.Dialogs.Factories
             }
         }
 
-        public DeviceEntry ShowChooseDeviceDialog(DevicesFactory devicesFactory)
+        public DeviceEntry ShowChooseDeviceDialog(IDevicesFactory devicesFactory)
         {
             using (var dialog = new ChooseDeviceDialog(devicesFactory))
             {

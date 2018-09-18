@@ -19,20 +19,19 @@ namespace Vkm.Smalta.ViewModel
         private readonly IHintService hintService;
         private readonly IViewInjectionManager viewInjectionManager;
         private readonly ILoadingService loadingService;
-        private readonly DevicesFactory devicesFactory;
-        private readonly HistoryService historyService;
-        private readonly PagesFactory pagesFactory;
+        private readonly IDevicesFactory devicesFactory;
+        private readonly IHistoryService historyService;
+        private readonly IPagesFactory pagesFactory;
 
-        public MainPageViewModel(IHintService hintService, IDialogFactory dialogFactory, IViewInjectionManager viewInjectionManager, ILoadingService loadingService,
-            DevicesFactory devicesFactory, HistoryService historyService, PagesFactory pagesFactory)
+        public MainPageViewModel(IDevicesFactory devicesFactory)
         {
-            this.hintService = hintService;
-            this.dialogFactory = dialogFactory;
-            this.viewInjectionManager = viewInjectionManager;
-            this.loadingService = loadingService;
+            hintService = ServiceContainer.GetService<IHintService>();
+            dialogFactory = ServiceContainer.GetService<IDialogFactory>();
+            viewInjectionManager = ServiceContainer.GetService<IViewInjectionManager>();
+            loadingService = ServiceContainer.GetService<ILoadingService>();
+            historyService = ServiceContainer.GetService<IHistoryService>();
             this.devicesFactory = devicesFactory;
-            this.historyService = historyService;
-            this.pagesFactory = pagesFactory;
+            this.pagesFactory = ServiceContainer.GetService<IPagesFactory>();
 
             Initialize();
         }

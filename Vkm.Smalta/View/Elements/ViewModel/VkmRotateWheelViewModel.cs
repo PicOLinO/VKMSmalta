@@ -12,7 +12,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
         private readonly int rotationStepDegrees;
         private readonly int startupRotation;
 
-        public VkmRotateWheelViewModel(int value, string name, int startupRotation, int rotationStepDegrees, int maxValue, HistoryService historyService, string image) : base(value, name, historyService)
+        public VkmRotateWheelViewModel(int value, string name, int startupRotation, int rotationStepDegrees, int maxValue, string image) : base(value, name)
         {
             this.startupRotation = RotationDegrees = startupRotation;
             this.rotationStepDegrees = rotationStepDegrees;

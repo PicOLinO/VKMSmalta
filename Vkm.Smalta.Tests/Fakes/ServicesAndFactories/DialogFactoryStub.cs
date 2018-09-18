@@ -25,7 +25,7 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
             return new Algorithm(new Dictionary<string, int>(), new Dictionary<string, int>());
         }
 
-        public DeviceEntry ShowChooseDeviceDialog(DevicesFactory devicesFactory)
+        public DeviceEntry ShowChooseDeviceDialog(IDevicesFactory devicesFactory)
         {
             IsChooseDeviceDialogShown = true;
             return new DeviceEntry();

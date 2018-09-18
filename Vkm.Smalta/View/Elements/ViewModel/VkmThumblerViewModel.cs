@@ -19,10 +19,9 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 
         public VkmThumblerViewModel(int value,
                                     string name,
-                                    HistoryService historyService,
                                     string imageOffSource,
                                     string imageOnSource,
-                                    List<DependencyAction> dependencyActions = null) : base(value, name, historyService, dependencyActions)
+                                    List<DependencyAction> dependencyActions = null) : base(value, name, dependencyActions)
         {
             isInitialize = true;
 

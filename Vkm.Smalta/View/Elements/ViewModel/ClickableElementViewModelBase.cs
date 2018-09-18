@@ -10,11 +10,11 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 {
     public abstract class ClickableElementViewModelBase : ElementViewModelBase
     {
-        protected readonly HistoryService HistoryService;
+        protected readonly IHistoryService HistoryService;
 
-        protected ClickableElementViewModelBase(int value, string name, HistoryService historyService) : base(value, name)
+        protected ClickableElementViewModelBase(int value, string name) : base(value, name)
         {
-            HistoryService = historyService;
+            HistoryService = ServiceContainer.GetService<IHistoryService>();
             CreateCommands();
         }
 

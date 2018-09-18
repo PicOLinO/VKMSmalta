@@ -10,7 +10,7 @@ namespace Vkm.Smalta.View.Hints.ViewModel
     {
         private readonly int newElementValue;
 
-        public InfluentialHintViewModel(string hintText, IHintService hintService, int newElementValue) : base(hintText, hintService)
+        public InfluentialHintViewModel(string hintText, int newElementValue) : base(hintText)
         {
             this.newElementValue = newElementValue;
         }

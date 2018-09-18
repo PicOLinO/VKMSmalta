@@ -19,7 +19,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
         private int dependencyActionsCounter;
         private readonly string dependencySecureElementName;
 
-        public VkmBigButtonViewModel(int value, string name, HistoryService historyService, string imageOnSource, string imageOffSource, List<DependencyAction> dependencyActions = null, string dependencySecureElementName = null) : base(value, name, historyService, dependencyActions)
+        public VkmBigButtonViewModel(int value, string name, string imageOnSource, string imageOffSource, List<DependencyAction> dependencyActions = null, string dependencySecureElementName = null) : base(value, name, dependencyActions)
         {
             isInitialize = true;
 

@@ -29,10 +29,10 @@ namespace Vkm.Smalta.View.ViewModel
         public bool IsGodModeOn { get; set; }
         private readonly DeviceEntry device;
         private readonly IHintService hintService;
-        private readonly HistoryService historyService;
+        private readonly IHistoryService historyService;
         private readonly IDialogFactory dialogFactory;
         private readonly IViewInjectionManager viewInjectionManager;
-        private readonly PagesFactory pagesFactory;
+        private readonly IPagesFactory pagesFactory;
         private readonly Queue<Key> cheatInput;
         private readonly Key[] cheatEthalon = { Key.Z, Key.D, Key.C, Key.T, Key.C, Key.L, Key.F, Key.V };
 
@@ -40,10 +40,10 @@ namespace Vkm.Smalta.View.ViewModel
                                    Algorithm algorithm,
                                    DeviceEntry device,
                                    IHintService hintService, 
-                                   HistoryService historyService, 
+                                   IHistoryService historyService, 
                                    IDialogFactory dialogFactory, 
                                    IViewInjectionManager viewInjectionManager,
-                                   PagesFactory pagesFactory)
+                                   IPagesFactory pagesFactory)
         {
             Mode = appMode;
             CurrentAlgorithm = algorithm;

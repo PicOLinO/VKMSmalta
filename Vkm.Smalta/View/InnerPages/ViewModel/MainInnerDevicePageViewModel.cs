@@ -15,11 +15,9 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
     public abstract class MainInnerDevicePageViewModel : InnerPageViewModelBase
     {
         protected readonly Algorithm CurrentAlgorithm;
-        protected readonly HistoryService HistoryService;
 
-        public MainInnerDevicePageViewModel(HistoryService historyService, Enum pageKey, string background, Algorithm currentAlgorithm) : base(pageKey, background)
+        public MainInnerDevicePageViewModel(Enum pageKey, string background, Algorithm currentAlgorithm) : base(pageKey, background)
         {
-            HistoryService = historyService;
             CurrentAlgorithm = currentAlgorithm;
         }
 

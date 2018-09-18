@@ -14,7 +14,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
 {
     public class SmaltaInnerDevicePageViewModel : MainInnerDevicePageViewModel
     {
-        public SmaltaInnerDevicePageViewModel(HistoryService historyService, Enum pageKey, string background, Algorithm currentAlgorithm) : base(historyService, pageKey, background, currentAlgorithm)
+        public SmaltaInnerDevicePageViewModel(Enum pageKey, string background, Algorithm currentAlgorithm) : base(pageKey, background, currentAlgorithm)
         {
             InitializeElements();
         }
@@ -27,10 +27,10 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                     Elements = new ObservableCollection<ElementViewModelBase>
                            {
                                //Тумблеры в середине
-                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_1channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(280, 341).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_2channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(323, 340).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_3channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(367, 341).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_4channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(411, 341).Thumbler(HistoryService).Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_1channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(280, 341).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_2channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(323, 340).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_3channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(367, 341).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_4channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(411, 341).Thumbler().Please(),
 
                                //Подсветка в середине
                                GiveMe.Element().On(PageKey).WithName("lo01p_reciever_1channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(309, 540).LightBox("ПРИЕМНИК\nI КАНАЛ").Please(),
@@ -57,19 +57,19 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                GiveMe.Element().On(PageKey).WithName("lo01p_2cooler").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(484, 801).LightBox("ВЕНТИЛЯТОР II").Please(),
 
                                //Тумблеры снизу
-                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_simulator").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(582, 385).Thumbler(HistoryService)
+                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_simulator").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(582, 385).Thumbler()
                                      .WithDependencyAction(GiveMe.DependencyAction()
                                                                  .WithDependencyElementName("lo01p_simulator")
                                                                  .WithDependencyValue(0, 0)
                                                                  .WithDependencyValue(1, 1)
                                                                  .Please())
                                      .Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_antenna_leftside").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(584, 662).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_antenna_rightside").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(586, 752).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_light").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(656, 753).Thumbler(HistoryService).Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_antenna_leftside").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(584, 662).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_antenna_rightside").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(586, 752).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_light").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(656, 753).Thumbler().Please(),
 
                                //Кнопки снизу
-                               GiveMe.Element().On(PageKey).WithName("lo01p_button_reciever_glow_on").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(581, 463).BigButton(HistoryService)
+                               GiveMe.Element().On(PageKey).WithName("lo01p_button_reciever_glow_on").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(581, 463).BigButton()
                                      .WithDependencySecureElement("lo01p_button_reciever_glow_off")
                                      .WithDependencyAction(GiveMe.DependencyAction()
                                                                  .WithDependencyElementName("lo01p_glow_on")
@@ -125,7 +125,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                                                  .WithDelay(10)
                                                                  .Please())
                                      .Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_button_reciever_glow_off").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(655, 462).BigButton(HistoryService)
+                               GiveMe.Element().On(PageKey).WithName("lo01p_button_reciever_glow_off").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(655, 462).BigButton()
                                      .WithDependencySecureElement("lo01p_button_reciever_glow_on")
                                      .WithDependencyAction(GiveMe.DependencyAction()
                                                                  .WithDependencyElementName("lo01p_glow_on")
@@ -165,7 +165,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                                                  .WithDependencyValue(1, 0)
                                                                  .Please())
                                      .Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_button_transmitter_on").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(580, 554).BigButton(HistoryService)
+                               GiveMe.Element().On(PageKey).WithName("lo01p_button_transmitter_on").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(580, 554).BigButton()
                                      .WithDependencySecureElement("lo01p_button_transmitter_off")
                                      .WithDependencyAction(GiveMe.DependencyAction()
                                                                  .WithDependencyElementName("lo01p_transmitter_1channel")
@@ -200,7 +200,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                                                  .WithDependencyValue(1, 5)
                                                                  .Please())
                                      .Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_button_transmitter_off").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(655, 554).BigButton(HistoryService)
+                               GiveMe.Element().On(PageKey).WithName("lo01p_button_transmitter_off").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(655, 554).BigButton()
                                      .WithDependencySecureElement("lo01p_button_transmitter_on")
                                      .WithDependencyAction(GiveMe.DependencyAction()
                                                                  .WithDependencyElementName("lo01p_transmitter_1channel")
@@ -235,20 +235,20 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                                                  .WithDependencyValue(1, 0)
                                                                  .Please())
                                      .Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_button_control").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(656, 371).BigButton(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_button_eject").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(655, 645).BigButton(HistoryService).Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_button_control").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(656, 371).BigButton().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_button_eject").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(655, 645).BigButton().Please(),
 
                                //Тумблеры справа сверху
-                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_power").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(68, 1178).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_cold").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(67, 1226).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_autosarpp").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(69, 1278).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_aircontrol").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(70, 1329).Thumbler(HistoryService).Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_power").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(68, 1178).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_cold").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(67, 1226).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_autosarpp").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(69, 1278).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_aircontrol").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(70, 1329).Thumbler().Please(),
 
                                //Тумблеры справа снизу
-                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_cooler").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(636, 1170).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_light_maintance").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(637, 1217).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_light_advanced").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(635, 1262).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_light_table").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(636, 1308).Thumbler(HistoryService).Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_cooler").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(636, 1170).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_light_maintance").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(637, 1217).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_light_advanced").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(635, 1262).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_light_table").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(636, 1308).Thumbler().Please(),
 
                                //Стрелки слева
                                GiveMe.Element().On(PageKey).WithName("lo01p_reciever_1channel_arrow").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(35).At(96, 127).LittleArrow().Please(),
@@ -267,15 +267,15 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                     Elements = new ObservableCollection<ElementViewModelBase>
                            {
                                //Тумблеры приемника-передатчика
-                               GiveMe.Element().On(PageKey).WithName("lo01r_reciever_1channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(400, 104).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01r_reciever_2channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(400, 168).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01r_reciever_3channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(398, 236).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01r_reciever_4channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(395, 303).Thumbler(HistoryService).Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01r_reciever_1channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(400, 104).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01r_reciever_2channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(400, 168).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01r_reciever_3channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(398, 236).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01r_reciever_4channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(395, 303).Thumbler().Please(),
 
-                               GiveMe.Element().On(PageKey).WithName("lo01r_transmitter_1channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(394, 366).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01r_transmitter_2channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(396, 435).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01r_transmitter_3channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(394, 507).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01r_transmitter_4channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(393, 576).Thumbler(HistoryService).Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01r_transmitter_1channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(394, 366).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01r_transmitter_2channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(396, 435).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01r_transmitter_3channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(394, 507).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01r_transmitter_4channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(393, 576).Thumbler().Please(),
 
                                //Лампочки в середине устройства
                                GiveMe.Element().On(PageKey).WithName("lo01r_lamp_network_27v").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(109, 829).Lamp().Please(),
@@ -284,8 +284,8 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                GiveMe.Element().On(PageKey).WithName("lo01r_lamp_heating").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(575, 836).Lamp().Please(),
 
                                //Контролы управления в середине устройства
-                               GiveMe.Element().On(PageKey).WithName("lo01r_antenna_equal").At(309, 788).WithValueFrom(CurrentAlgorithm.StartStateOfElements).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01r_modulation").At(430, 806).WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(30).RotateWheel(HistoryService)
+                               GiveMe.Element().On(PageKey).WithName("lo01r_antenna_equal").At(309, 788).WithValueFrom(CurrentAlgorithm.StartStateOfElements).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01r_modulation").At(430, 806).WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(30).RotateWheel()
                                      .WithMaxValue(5).WithRotationStepDegrees(30).Please()
                            };
                     break;
@@ -293,8 +293,8 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                     Elements = new ObservableCollection<ElementViewModelBase>
                            {
                                //lo01I
-                               GiveMe.Element().On(PageKey).WithName("lo01i_thumbler_1generator").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(301, 369).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01i_thumbler_2generator").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(302, 523).Thumbler(HistoryService)
+                               GiveMe.Element().On(PageKey).WithName("lo01i_thumbler_1generator").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(301, 369).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01i_thumbler_2generator").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(302, 523).Thumbler()
                                      .WithDependencyAction(GiveMe.DependencyAction()
                                                                  .TypeOf(DependencyType.Add)
                                                                  .WithDependencyElementName("lo01p_reciever_1channel_arrow")
@@ -345,7 +345,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                                                  .WithDependencyValue(1, -2)
                                                                  .Please())
                                      .Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01i_thumbler_3generator").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(443, 364).Thumbler(HistoryService)
+                               GiveMe.Element().On(PageKey).WithName("lo01i_thumbler_3generator").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(443, 364).Thumbler()
                                      .WithDependencyAction(GiveMe.DependencyAction()
                                                                  .TypeOf(DependencyType.Add)
                                                                  .WithDependencyElementName("lo01p_reciever_1channel_arrow")
@@ -396,7 +396,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                                                  .WithDependencyValue(1, -2)
                                                                  .Please())
                                      .Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01i_thumbler_4generator").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(439, 524).Thumbler(HistoryService)
+                               GiveMe.Element().On(PageKey).WithName("lo01i_thumbler_4generator").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(439, 524).Thumbler()
                                      .WithDependencyAction(GiveMe.DependencyAction()
                                                                  .TypeOf(DependencyType.Add)
                                                                  .WithDependencyElementName("lo01p_reciever_1channel_arrow")
@@ -449,8 +449,8 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                      .Please(),
 
                                //lo01K
-                               GiveMe.Element().On(PageKey).WithName("lo01k_modulation_13channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(262, 1140).Thumbler(HistoryService).Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01k_modulation_24channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(264, 1237).Thumbler(HistoryService).Please()
+                               GiveMe.Element().On(PageKey).WithName("lo01k_modulation_13channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(262, 1140).Thumbler().Please(),
+                               GiveMe.Element().On(PageKey).WithName("lo01k_modulation_24channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(264, 1237).Thumbler().Please()
                            };
                     break;
                 default:

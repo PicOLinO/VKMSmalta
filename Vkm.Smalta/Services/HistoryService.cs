@@ -9,7 +9,7 @@ using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
 
 namespace Vkm.Smalta.Services
 {
-    public class HistoryService
+    public class HistoryService : IHistoryService
     {
         public HistoryService()
         {

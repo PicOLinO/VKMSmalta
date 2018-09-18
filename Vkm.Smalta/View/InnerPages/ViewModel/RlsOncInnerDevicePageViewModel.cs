@@ -14,7 +14,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
 {
     public class RlsOncInnerDevicePageViewModel : MainInnerDevicePageViewModel
     {
-        public RlsOncInnerDevicePageViewModel(HistoryService historyService, Enum pageKey, string background, Algorithm currentAlgorithm) : base(historyService, pageKey, background, currentAlgorithm)
+        public RlsOncInnerDevicePageViewModel(Enum pageKey, string background, Algorithm currentAlgorithm) : base(pageKey, background, currentAlgorithm)
         {
             InitializeElements();
         }

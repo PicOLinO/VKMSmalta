@@ -14,18 +14,15 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
     public class VkmBigButtonBuilder : BaseElementBuilder
     {
-        private readonly HistoryService historyService;
-
         private List<DependencyAction> dependencyActions;
         private string dependencySecureElementName;
 
-        public VkmBigButtonBuilder(int value, string name, int posTop, int posLeft, HistoryService historyService, Enum page)
+        public VkmBigButtonBuilder(int value, string name, int posTop, int posLeft, Enum page)
         {
             PosTop = posTop;
             PosLeft = posLeft;
             Value = value;
             Name = name;
-            this.historyService = historyService;
             Page = page;
         }
 
@@ -33,7 +30,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
         {
             var imageOn = XamlResource.Resolve("View/Images/BigButtonOn.png");
             var imageOff = XamlResource.Resolve("View/Images/BigButtonOff.png");
-            return new VkmBigButtonViewModel(Value, Name, historyService, imageOn, imageOff, dependencyActions, dependencySecureElementName) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
+            return new VkmBigButtonViewModel(Value, Name, imageOn, imageOff, dependencyActions, dependencySecureElementName) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
         }
 
         public VkmBigButtonBuilder WithDependencyAction(DependencyAction dependencyAction)

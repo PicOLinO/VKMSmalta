@@ -7,7 +7,7 @@ using Vkm.Smalta.Services.Navigate;
 
 namespace Vkm.Smalta.Dialogs.Factories
 {
-    public class DevicesFactory
+    public class DevicesFactory : IDevicesFactory
     {
         private readonly List<AlgorithmsFactoryBase> algorithmsFactoriesCollection;
 

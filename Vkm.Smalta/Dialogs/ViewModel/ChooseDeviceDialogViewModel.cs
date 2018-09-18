@@ -6,7 +6,7 @@ namespace Vkm.Smalta.Dialogs.ViewModel
 {
     public class ChooseDeviceDialogViewModel : DialogViewModelBase
     {
-        public ChooseDeviceDialogViewModel(DevicesFactory devicesFactory)
+        public ChooseDeviceDialogViewModel(IDevicesFactory devicesFactory)
         {
             Devices = new ObservableCollection<DeviceEntry>
                       {

@@ -79,7 +79,7 @@ namespace Vkm.Smalta.Services
             var element = Elements.Single(e => e.Name == action?.ParentElementName);
 
             var page = CurrentDevicePageService.Instance.GetCurrentInnerPageKey();
-            if (page != element.Page)
+            if (!Equals(page, element.Page))
             {
                 CurrentDevicePageService.Instance.ShowGoNextPageHint(element.Page);
             }

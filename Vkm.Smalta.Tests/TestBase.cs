@@ -35,14 +35,14 @@ namespace Vkm.Smalta.Tests
             LoadingService = new LoadingServiceStub();
             HistoryService = new HistoryService();
 
-            ActionsFactory = new ActionsFactory(HintService);
+            ActionsFactory = new ActionsFactory();
             var algorithmsFactoriesCollection = new List<AlgorithmsFactoryBase>
                                                 {
                                                     new SmaltaAlgorithmsFactory(ActionsFactory),
                                                     new RlsOncAlgorithmsFactory(ActionsFactory)
                                                 };
             DevicesFactory = new DevicesFactory(algorithmsFactoriesCollection);
-            PagesFactory = new PagesFactory(HistoryService);
+            PagesFactory = new PagesFactory();
         }
     }
 }

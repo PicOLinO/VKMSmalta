@@ -11,9 +11,9 @@ namespace Vkm.Smalta.View.Hints.ViewModel
     {
         protected readonly IHintService HintService;
 
-        public HintViewModelBase(string hintText, IHintService hintService)
+        public HintViewModelBase(string hintText)
         {
-            HintService = hintService;
+            HintService = ServiceContainer.GetService<IHintService>();
             HintText = hintText;
 
             CreateCommands();

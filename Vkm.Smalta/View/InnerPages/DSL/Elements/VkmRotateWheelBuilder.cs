@@ -12,25 +12,23 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
     public class VkmRotateWheelBuilder : BaseElementBuilder
     {
-        private readonly HistoryService historyService;
         private int maxRotationSteps;
         private int rotationStepDegrees;
 
-        public VkmRotateWheelBuilder(int value, string name, int posTop, int posLeft, int startupRotation, HistoryService historyService, Enum page)
+        public VkmRotateWheelBuilder(int value, string name, int posTop, int posLeft, int startupRotation, Enum page)
         {
             PosTop = posTop;
             PosLeft = posLeft;
             RotationDegrees = startupRotation;
             Value = value;
             Name = name;
-            this.historyService = historyService;
             Page = page;
         }
 
         public VkmRotateWheelViewModel Please()
         {
             var image = XamlResource.Resolve("View/Images/Wheel.png");
-            return new VkmRotateWheelViewModel(Value, Name, RotationDegrees, rotationStepDegrees, maxRotationSteps, historyService, image) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
+            return new VkmRotateWheelViewModel(Value, Name, RotationDegrees, rotationStepDegrees, maxRotationSteps, image) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
         }
 
         public VkmRotateWheelBuilder WithMaxValue(int maxRotationSteps)

@@ -7,15 +7,8 @@ using Vkm.Smalta.View.InnerPages.ViewModel;
 
 namespace Vkm.Smalta.Dialogs.Factories
 {
-    public class PagesFactory
+    public class PagesFactory : IPagesFactory
     {
-        private readonly HistoryService historyService;
-
-        public PagesFactory(HistoryService historyService)
-        {
-            this.historyService = historyService;
-        }
-
         public List<MainInnerDevicePageViewModel> CreatePagesFor(Device device, Algorithm algorithm)
         {
             switch (device)
@@ -23,9 +16,9 @@ namespace Vkm.Smalta.Dialogs.Factories
                 case Device.LO01_Smalta:
                     return new List<MainInnerDevicePageViewModel>
                            {
-                               new SmaltaInnerDevicePageViewModel(historyService, SmaltaInnerRegionPage.LO01I_LO01K, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01I_LO01K.png", algorithm),
-                               new SmaltaInnerDevicePageViewModel(historyService, SmaltaInnerRegionPage.LO01P, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01P.png", algorithm),
-                               new SmaltaInnerDevicePageViewModel(historyService, SmaltaInnerRegionPage.LO01R, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01R.png", algorithm)
+                               new SmaltaInnerDevicePageViewModel(SmaltaInnerRegionPage.LO01I_LO01K, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01I_LO01K.png", algorithm),
+                               new SmaltaInnerDevicePageViewModel(SmaltaInnerRegionPage.LO01P, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01P.png", algorithm),
+                               new SmaltaInnerDevicePageViewModel(SmaltaInnerRegionPage.LO01R, "/Vkm.Smalta;component/View/Images/Backgrounds/LO01R.png", algorithm)
                            };
                 case Device.RLS_ONC:
                     return new List<MainInnerDevicePageViewModel>();
