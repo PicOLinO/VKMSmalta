@@ -194,7 +194,6 @@ namespace Vkm.Smalta.View.ViewModel
             {
                 Reset();
                 InitializeInnerPages();
-                //hintService.ShowNextHint();
                 LaunchTraining();
             }
             else
