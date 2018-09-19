@@ -35,10 +35,9 @@ namespace Vkm.Smalta
             ServiceContainer.Default.RegisterService(new DialogFactory());
             ServiceContainer.Default.RegisterService(new PagesFactory());
             ServiceContainer.Default.RegisterService(new ActionsFactory());
+            ServiceContainer.Default.RegisterService(new DevicesFactory());
 
-            var devicesFactory = new DevicesFactory();
-
-            var mainPageViewModel = new MainPageViewModel(devicesFactory);
+            var mainPageViewModel = new MainPageViewModel();
 
             viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.MainMenu, () => mainPageViewModel, typeof(MainPage));
 

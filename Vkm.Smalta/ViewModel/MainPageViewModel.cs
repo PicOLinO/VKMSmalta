@@ -23,7 +23,7 @@ namespace Vkm.Smalta.ViewModel
         private readonly IHistoryService historyService;
         private readonly IPagesFactory pagesFactory;
 
-        public MainPageViewModel(IDevicesFactory devicesFactory)
+        public MainPageViewModel()
         {
             hintService = ServiceContainer.GetService<IHintService>();
             dialogFactory = ServiceContainer.GetService<IDialogFactory>();
@@ -31,7 +31,7 @@ namespace Vkm.Smalta.ViewModel
             loadingService = ServiceContainer.GetService<ILoadingService>();
             historyService = ServiceContainer.GetService<IHistoryService>();
             pagesFactory = ServiceContainer.GetService<IPagesFactory>();
-            this.devicesFactory = devicesFactory;
+            devicesFactory = ServiceContainer.GetService<IDevicesFactory>();
 
             Initialize();
         }
