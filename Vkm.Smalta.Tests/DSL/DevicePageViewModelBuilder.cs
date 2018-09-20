@@ -4,7 +4,7 @@ using Vkm.Smalta.Services;
 using Vkm.Smalta.Tests.Fakes.ServicesAndFactories;
 using Vkm.Smalta.View.ViewModel;
 
-namespace Vkm.Smalta.Tests.Fakes.DSL
+namespace Vkm.Smalta.Tests.DSL
 {
     public class DevicePageViewModelBuilder : BaseBuilder
     {

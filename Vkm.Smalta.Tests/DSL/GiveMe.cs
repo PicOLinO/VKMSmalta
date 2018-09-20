@@ -2,7 +2,7 @@
 using Vkm.Smalta.Services;
 using Vkm.Smalta.Tests.Fakes.ServicesAndFactories;
 
-namespace Vkm.Smalta.Tests.Fakes.DSL
+namespace Vkm.Smalta.Tests.DSL
 {
     public class GiveMe
     {

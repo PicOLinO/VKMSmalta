@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Services;
-using Vkm.Smalta.Tests.Fakes.DSL;
+using Vkm.Smalta.Tests.DSL;
 using Vkm.Smalta.Tests.Fakes.ServicesAndFactories;
 
 namespace Vkm.Smalta.Tests
