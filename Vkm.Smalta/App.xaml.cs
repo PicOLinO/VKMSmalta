@@ -21,13 +21,27 @@ namespace Vkm.Smalta
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
             var config = CreateConfig();
-
-            DependencyContainer.Initialize(config, ViewInjectionManager.Default);
-            NetworkService.InitializeService(config.AdminUri);
+            
+            InitializeDependencies(config);
 
             ParseArgs(e.Args);
 
             Current.DispatcherUnhandledException += HandleUnhandledException;
+        }
+
+        private void InitializeDependencies(Config config)
+        {
+            ServiceContainer.Default.RegisterService(ViewInjectionManager.Default);
+            ServiceContainer.Default.RegisterService(new HintService());
+            ServiceContainer.Default.RegisterService(new LoadingService());
+            ServiceContainer.Default.RegisterService(new HistoryService());
+            ServiceContainer.Default.RegisterService(new DialogFactory(new MessageBoxService()));
+            ServiceContainer.Default.RegisterService(new PagesFactory());
+            ServiceContainer.Default.RegisterService(new ActionsFactory());
+            ServiceContainer.Default.RegisterService(new DevicesFactory());
+
+            DependencyContainer.Initialize(config, ServiceContainer.Default);
+            NetworkService.InitializeService(config.AdminUri);
         }
 
         private Config CreateConfig()
@@ -39,7 +53,8 @@ namespace Vkm.Smalta
 
         private void HandleUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            DialogFactory.ShowErrorMessage(e.Exception);
+            var dialogFactory = DependencyContainer.GetDialogFactory();
+            dialogFactory.ShowErrorMessage(e.Exception);
             e.Handled = true;
         }
 

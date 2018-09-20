@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System;
 using System.Collections.Generic;
 using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Domain;
@@ -41,6 +42,31 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
         }
 
         public bool TrainingCompleteDialogShown { get; private set; }
+
+        public bool AskYesNo(string text, string caption = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowErrorMessage(Exception error, string caption = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowErrorMessage(string error, string caption = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowInfoMessage(string text, string caption = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowWarningMessage(string text, string caption = null)
+        {
+            throw new NotImplementedException();
+        }
 
         public void ShowInfoDialog()
         {

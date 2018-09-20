@@ -251,8 +251,8 @@ namespace Vkm.Smalta.View.ViewModel
                 Dispose();
                 return;
             }
-
-            var isContinue = DialogFactory.AskYesNo("Завершить выполнение экзамена?\nВаш результат сразу же будет отправлен преподавателю");
+            
+            var isContinue = dialogFactory.AskYesNo("Завершить выполнение экзамена?\nВаш результат сразу же будет отправлен преподавателю");
             if (!isContinue)
             {
                 return;
@@ -274,7 +274,7 @@ namespace Vkm.Smalta.View.ViewModel
             }
             catch (Exception e)
             {
-                DialogFactory.ShowErrorMessage(e);
+                dialogFactory.ShowErrorMessage(e);
             }
 
             var retry = CheckResults(value);

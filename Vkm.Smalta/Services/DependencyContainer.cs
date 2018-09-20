@@ -9,18 +9,25 @@ namespace Vkm.Smalta.Services
 {
     public class DependencyContainer
     {
-        private readonly IViewInjectionManager viewInjectionManager;
         private readonly AppGlobal appGlobal;
-        private readonly DialogFactory dialogFactory;
 
-        private DependencyContainer(Config config, IViewInjectionManager viewInjectionManager)
+        private readonly IServiceContainer serviceContainer;
+
+        private DependencyContainer(Config config, IServiceContainer serviceContainer)
         {
             Config = config;
 
-            appGlobal = new AppGlobal();
-            dialogFactory = new DialogFactory();
+            this.serviceContainer = serviceContainer; 
 
-            this.viewInjectionManager = viewInjectionManager;
+            appGlobal = new AppGlobal();
+        }
+
+        public static void Initialize(Config config, IServiceContainer serviceContainer)
+        {
+            if (Instance == null)
+            {
+                Instance = new DependencyContainer(config, serviceContainer);
+            }
         }
 
         public Config Config { get; }
@@ -34,20 +41,12 @@ namespace Vkm.Smalta.Services
 
         public static IViewInjectionManager GetViewInjectionManager()
         {
-            return Instance?.viewInjectionManager;
+            return Instance?.serviceContainer.GetService<IViewInjectionManager>();
         }
 
-        public static DialogFactory GetDialogFactory()
+        public static IDialogFactory GetDialogFactory()
         {
-            return Instance?.dialogFactory;
-        }
-
-        public static void Initialize(Config config, IViewInjectionManager viewInjectionManager)
-        {
-            if (Instance == null)
-            {
-                Instance = new DependencyContainer(config, viewInjectionManager);
-            }
+            return Instance?.serviceContainer.GetService<IDialogFactory>();
         }
     }
 }

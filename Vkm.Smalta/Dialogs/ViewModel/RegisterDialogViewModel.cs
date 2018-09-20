@@ -82,7 +82,8 @@ namespace Vkm.Smalta.Dialogs.ViewModel
 
             if (password != confirmPassword)
             {
-                DialogFactory.ShowWarningMessage("Пароли должны совпадать");
+                var dialogFactory = ServiceContainer.GetService<IDialogFactory>();
+                dialogFactory.ShowWarningMessage("Пароли должны совпадать");
                 return false;
             }
 

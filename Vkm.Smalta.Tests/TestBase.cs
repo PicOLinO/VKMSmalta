@@ -39,7 +39,6 @@ namespace Vkm.Smalta.Tests
             PagesFactory = new PagesFactory();
 
             var config = new Config("adminUriBase");
-            DependencyContainer.Initialize(config, ViewInjectionManager);
 
             ServiceContainer.Default.RegisterService(ViewInjectionManager);
             ServiceContainer.Default.RegisterService(HintService);
@@ -52,6 +51,8 @@ namespace Vkm.Smalta.Tests
             ServiceContainer.Default.RegisterService(ActionsFactory);
 
             GiveMe = new GiveMe(App, DialogFactory, HintService, LoadingService, HistoryService, ViewInjectionManager, DevicesFactory, ActionsFactory, PagesFactory);
+
+            DependencyContainer.Initialize(config, ServiceContainer.Default);
         }
     }
 }

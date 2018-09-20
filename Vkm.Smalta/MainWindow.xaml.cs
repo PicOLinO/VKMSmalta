@@ -28,15 +28,6 @@ namespace Vkm.Smalta
         {
             var viewInjectionManager = DependencyContainer.GetViewInjectionManager();
 
-            ServiceContainer.Default.RegisterService(viewInjectionManager);
-            ServiceContainer.Default.RegisterService(new HintService());
-            ServiceContainer.Default.RegisterService(new LoadingService());
-            ServiceContainer.Default.RegisterService(new HistoryService());
-            ServiceContainer.Default.RegisterService(new DialogFactory());
-            ServiceContainer.Default.RegisterService(new PagesFactory());
-            ServiceContainer.Default.RegisterService(new ActionsFactory());
-            ServiceContainer.Default.RegisterService(new DevicesFactory());
-
             var mainPageViewModel = new MainPageViewModel();
 
             viewInjectionManager.Inject(Regions.OuterRegion, OuterRegionPages.MainMenu, () => mainPageViewModel, typeof(MainPage));
