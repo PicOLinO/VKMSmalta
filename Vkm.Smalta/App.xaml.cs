@@ -39,9 +39,10 @@ namespace Vkm.Smalta
             ServiceContainer.Default.RegisterService(new PagesFactory());
             ServiceContainer.Default.RegisterService(new ActionsFactory());
             ServiceContainer.Default.RegisterService(new DevicesFactory());
+            ServiceContainer.Default.RegisterService(new AppContext());
 
-            DependencyContainer.Initialize(config, ServiceContainer.Default);
-            NetworkService.InitializeService(config.AdminUri);
+            DependencyContainer.Initialize(ServiceContainer.Default);
+            NetworkService.InitializeService(config.AdminUri); //TODO: Transform into non-static service like above.
         }
 
         private Config CreateConfig()

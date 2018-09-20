@@ -30,7 +30,7 @@ namespace Vkm.Smalta.Dialogs.ViewModel
         }
 
         protected SecureString Password => PasswordSupplier.GetPassword();
-        private AppGlobal App => DependencyContainer.GetApp();
+        private IAppContext App => DependencyContainer.GetApp();
 
         private void CreateCommands()
         {

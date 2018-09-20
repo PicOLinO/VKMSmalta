@@ -69,7 +69,7 @@ namespace Vkm.Smalta.ViewModel
         public DelegateCommand LoginCommand { get; set; }
         public DelegateCommand RegisterCommand { get; set; }
         public DelegateCommand ShowInfoCommand { get; set; }
-        private AppGlobal App => DependencyContainer.GetApp();
+        private IAppContext App => DependencyContainer.GetApp();
 
         private Algorithm ChooseAlgorithm(IEnumerable<Algorithm> algorithms)
         {

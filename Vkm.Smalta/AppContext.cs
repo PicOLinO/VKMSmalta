@@ -6,7 +6,7 @@ using Vkm.Smalta.Domain;
 
 namespace Vkm.Smalta
 {
-    public class AppGlobal
+    public class AppContext : IAppContext
     {
         public Student CurrentUser { get; set; }
         public bool IsAuthorized { get; set; }

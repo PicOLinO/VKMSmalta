@@ -35,7 +35,7 @@ namespace Vkm.Smalta.Tests.DSL
             return new DevicePageViewModel(mode, algorithm, deviceEntry, HintService, HistoryService, DialogFactory, ViewInjectionManager, PagesFactory);
         }
 
-        public DevicePageViewModelBuilder(AppGlobal app, DialogFactoryStub dialogFactory, HintServiceStub hintService, 
+        public DevicePageViewModelBuilder(IAppContext app, DialogFactoryStub dialogFactory, HintServiceStub hintService, 
                                           LoadingServiceStub loadingService, HistoryService historyService, ViewInjectionManagerStub viewInjectionManager, 
                                           DevicesFactory devicesFactory, ActionsFactory actionsFactory, 
                                           PagesFactory pagesFactory) : base(app, dialogFactory, hintService, loadingService, historyService, viewInjectionManager, devicesFactory, actionsFactory, pagesFactory)

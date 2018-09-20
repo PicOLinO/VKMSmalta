@@ -10,7 +10,7 @@ namespace Vkm.Smalta.Tests
     [TestFixture]
     public abstract class TestBase
     {
-        protected AppGlobal App;
+        protected IAppContext App;
         protected DialogFactoryStub DialogFactory;
         protected HintServiceStub HintService;
         protected LoadingServiceStub LoadingService;
@@ -38,8 +38,6 @@ namespace Vkm.Smalta.Tests
             DevicesFactory = new DevicesFactory();
             PagesFactory = new PagesFactory();
 
-            var config = new Config("adminUriBase");
-
             ServiceContainer.Default.RegisterService(ViewInjectionManager);
             ServiceContainer.Default.RegisterService(HintService);
             ServiceContainer.Default.RegisterService(LoadingService);
@@ -52,7 +50,7 @@ namespace Vkm.Smalta.Tests
 
             GiveMe = new GiveMe(App, DialogFactory, HintService, LoadingService, HistoryService, ViewInjectionManager, DevicesFactory, ActionsFactory, PagesFactory);
 
-            DependencyContainer.Initialize(config, ServiceContainer.Default);
+            DependencyContainer.Initialize(ServiceContainer.Default);
         }
     }
 }

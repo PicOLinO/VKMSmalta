@@ -164,10 +164,11 @@
     <Compile Include="Domain\Device.cs" />
     <Compile Include="Domain\DeviceEntry.cs" />
     <Compile Include="Domain\ExamineResult.cs" />
-    <Compile Include="AppGlobal.cs" />
+    <Compile Include="AppContext.cs" />
     <Compile Include="Domain\Student.cs" />
     <Compile Include="Domain\Team.cs" />
     <Compile Include="Domain\TrainingCompleteDialogResult.cs" />
+    <Compile Include="IAppContext.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

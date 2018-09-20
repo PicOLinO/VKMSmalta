@@ -33,7 +33,7 @@ namespace Vkm.Smalta.View.Elements
             Unloaded += OnUnloaded;
         }
 
-        private AppGlobal App => DependencyContainer.GetApp();
+        private IAppContext App => DependencyContainer.GetApp();
 
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {

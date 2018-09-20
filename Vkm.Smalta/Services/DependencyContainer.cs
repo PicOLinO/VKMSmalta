@@ -9,34 +9,26 @@ namespace Vkm.Smalta.Services
 {
     public class DependencyContainer
     {
-        private readonly AppGlobal appGlobal;
-
         private readonly IServiceContainer serviceContainer;
 
-        private DependencyContainer(Config config, IServiceContainer serviceContainer)
+        private DependencyContainer(IServiceContainer serviceContainer)
         {
-            Config = config;
-
             this.serviceContainer = serviceContainer; 
-
-            appGlobal = new AppGlobal();
         }
 
-        public static void Initialize(Config config, IServiceContainer serviceContainer)
+        public static void Initialize(IServiceContainer serviceContainer)
         {
             if (Instance == null)
             {
-                Instance = new DependencyContainer(config, serviceContainer);
+                Instance = new DependencyContainer(serviceContainer);
             }
         }
 
-        public Config Config { get; }
-
         public static DependencyContainer Instance { get; private set; }
 
-        public static AppGlobal GetApp()
+        public static IAppContext GetApp()
         {
-            return Instance?.appGlobal;
+            return Instance?.serviceContainer.GetService<IAppContext>();
         }
 
         public static IViewInjectionManager GetViewInjectionManager()

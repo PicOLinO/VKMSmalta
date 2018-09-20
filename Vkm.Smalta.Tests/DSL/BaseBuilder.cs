@@ -6,7 +6,7 @@ namespace Vkm.Smalta.Tests.DSL
 {
     public class BaseBuilder
     {
-        protected AppGlobal App { get; }
+        protected IAppContext App { get; }
         protected DialogFactoryStub DialogFactory { get; }
         protected HintServiceStub HintService { get; }
         protected LoadingServiceStub LoadingService { get; }
@@ -17,7 +17,7 @@ namespace Vkm.Smalta.Tests.DSL
         protected ActionsFactory ActionsFactory { get; }
         protected PagesFactory PagesFactory { get; }
 
-        public BaseBuilder(AppGlobal app, DialogFactoryStub dialogFactory, HintServiceStub hintService, LoadingServiceStub loadingService,
+        public BaseBuilder(IAppContext app, DialogFactoryStub dialogFactory, HintServiceStub hintService, LoadingServiceStub loadingService,
                            HistoryService historyService, ViewInjectionManagerStub viewInjectionManager, DevicesFactory devicesFactory, ActionsFactory actionsFactory,
                            PagesFactory pagesFactory)
         {
