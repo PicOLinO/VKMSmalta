@@ -55,6 +55,9 @@
     <Compile Include="..\Vkm.Smalta\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Fakes\DSL\BaseBuilder.cs" />
+    <Compile Include="Fakes\DSL\DevicePageViewModelBuilder.cs" />
+    <Compile Include="Fakes\DSL\GiveMe.cs" />
     <Compile Include="Fakes\ServicesAndFactories\DialogFactoryStub.cs" />
     <Compile Include="Fakes\ServicesAndFactories\HintServiceStub.cs" />
     <Compile Include="Fakes\ServicesAndFactories\LoadingServiceStub.cs" />
