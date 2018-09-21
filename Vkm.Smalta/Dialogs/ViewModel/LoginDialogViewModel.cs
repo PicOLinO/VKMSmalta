@@ -39,8 +39,10 @@ namespace Vkm.Smalta.Dialogs.ViewModel
 
         private async Task OnClickCore()
         {
+            var networkService = GetService<INetworkService>();
+
             var credentials = new NetworkCredential(Login, Password);
-            var student = await NetworkService.Instance.Authorize(credentials);
+            var student = await networkService.Authorize(credentials);
 
             if (student != null)
             {

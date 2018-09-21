@@ -270,7 +270,8 @@ namespace Vkm.Smalta.View.ViewModel
                                 };
             try
             {
-                await NetworkService.Instance.SendExamineResultToAdmin(examineResult);
+                var networkService = GetService<INetworkService>();
+                await networkService.SendExamineResultToAdmin(examineResult);
             }
             catch (Exception e)
             {

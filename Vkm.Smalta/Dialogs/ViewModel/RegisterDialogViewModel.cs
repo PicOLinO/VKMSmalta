@@ -17,6 +17,8 @@ namespace Vkm.Smalta.Dialogs.ViewModel
 {
     public class RegisterDialogViewModel : LoginDialogViewModel
     {
+        private INetworkService NetworkService => GetService<INetworkService>();
+
         public RegisterDialogViewModel(IPasswordSupplier passwordSupplier) : base(passwordSupplier)
         {
             Initialize();
@@ -55,7 +57,7 @@ namespace Vkm.Smalta.Dialogs.ViewModel
 
         private async Task LoadTeamsWithStudentsWithoutLogins()
         {
-            var teamWithStudentsWithoutLogins = await NetworkService.Instance.GetTeamsAndStudentsWithoutLogin();
+            var teamWithStudentsWithoutLogins = await NetworkService.GetTeamsAndStudentsWithoutLogin();
             Teams = new ObservableCollection<Team>();
 
             foreach (var team in teamWithStudentsWithoutLogins)
@@ -82,7 +84,7 @@ namespace Vkm.Smalta.Dialogs.ViewModel
 
             if (password != confirmPassword)
             {
-                var dialogFactory = ServiceContainer.GetService<IDialogFactory>();
+                var dialogFactory = GetService<IDialogFactory>();
                 dialogFactory.ShowWarningMessage("Пароли должны совпадать");
                 return false;
             }
@@ -93,7 +95,7 @@ namespace Vkm.Smalta.Dialogs.ViewModel
                                    StudentId = SelectedStudent.Id
                                };
 
-            var success = await NetworkService.Instance.Register(registerData);
+            var success = await NetworkService.Register(registerData);
 
             if (success)
             {

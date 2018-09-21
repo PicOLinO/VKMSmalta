@@ -185,6 +185,7 @@
     <Compile Include="Services\CurrentDevicePageService.cs" />
     <Compile Include="Services\IHistoryService.cs" />
     <Compile Include="Services\ILoadingService.cs" />
+    <Compile Include="Services\INetworkService.cs" />
     <Compile Include="Services\LoadingService.cs" />
     <Compile Include="Services\MessageBoxService.cs" />
     <Compile Include="Services\Navigate\Direction.cs" />

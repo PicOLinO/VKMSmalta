@@ -15,25 +15,15 @@ using Vkm.Smalta.Network;
 
 namespace Vkm.Smalta.Services
 {
-    public class NetworkService
+    public class NetworkService : INetworkService
     {
         private readonly AdminUri adminUri;
 
         private string accessToken;
 
-        private NetworkService(AdminUri adminUri)
+        public NetworkService(AdminUri adminUri)
         {
             this.adminUri = adminUri;
-        }
-
-        public static NetworkService Instance { get; private set; }
-
-        public static void InitializeService(AdminUri adminUri)
-        {
-            if (Instance == null)
-            {
-                Instance = new NetworkService(adminUri);
-            }
         }
 
         private void AuthValidate(HttpClient client)
