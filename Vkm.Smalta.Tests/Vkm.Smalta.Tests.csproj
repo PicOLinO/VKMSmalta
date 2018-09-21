@@ -61,9 +61,11 @@
     <Compile Include="Fakes\ServicesAndFactories\DialogFactoryStub.cs" />
     <Compile Include="Fakes\ServicesAndFactories\HintServiceStub.cs" />
     <Compile Include="Fakes\ServicesAndFactories\LoadingServiceStub.cs" />
+    <Compile Include="Fakes\ServicesAndFactories\NetworkServiceStub.cs" />
     <Compile Include="Fakes\ServicesAndFactories\ViewInjectionManagerStub.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="ViewModels\DevicePageViewModelTests\DevicePageViewModelTestBase.cs" />
+    <Compile Include="ViewModels\DevicePageViewModelTests\WhenCheckResult.cs" />
     <Compile Include="ViewModels\DevicePageViewModelTests\WhenEndTraining.cs" />
     <Compile Include="ViewModels\DevicePageViewModelTests\WhenGoPrevious.cs" />
     <Compile Include="ViewModels\DevicePageViewModelTests\WhenGoForward.cs" />

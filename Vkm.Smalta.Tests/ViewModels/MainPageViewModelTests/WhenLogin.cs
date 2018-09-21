@@ -14,15 +14,6 @@ namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
         }
 
         [Test]
-        [Ignore("Bad test")]
-        public void IfUserIsLogInThenAppIsKnowsAboutIt()
-        {
-            ViewModel.LoginCommand.Execute(null);
-            
-            Assert.That(App.IsAuthorized, Is.True);
-        }
-
-        [Test]
         public void LoginUnfoUpdated()
         {
             var userFullName = "Тестер Тест Тестович";

@@ -11,12 +11,14 @@ namespace Vkm.Smalta.Tests
     public abstract class TestBase
     {
         protected IAppContext App;
-        protected DialogFactoryStub DialogFactory;
+        protected ViewInjectionManagerStub ViewInjectionManager;
+
+        protected NetworkServiceStub NetworkService;
         protected HintServiceStub HintService;
         protected LoadingServiceStub LoadingService;
         protected HistoryService HistoryService;
-        protected ViewInjectionManagerStub ViewInjectionManager;
 
+        protected DialogFactoryStub DialogFactory;
         protected DevicesFactory DevicesFactory;
         protected ActionsFactory ActionsFactory;
         protected PagesFactory PagesFactory;
@@ -32,6 +34,7 @@ namespace Vkm.Smalta.Tests
             HintService = new HintServiceStub();
             LoadingService = new LoadingServiceStub();
             HistoryService = new HistoryService();
+            NetworkService = new NetworkServiceStub();
 
             DialogFactory = new DialogFactoryStub();
             ActionsFactory = new ActionsFactory();
@@ -42,6 +45,7 @@ namespace Vkm.Smalta.Tests
             ServiceContainer.Default.RegisterService(HintService);
             ServiceContainer.Default.RegisterService(LoadingService);
             ServiceContainer.Default.RegisterService(HistoryService);
+            ServiceContainer.Default.RegisterService(NetworkService);
 
             ServiceContainer.Default.RegisterService(DialogFactory);
             ServiceContainer.Default.RegisterService(PagesFactory);

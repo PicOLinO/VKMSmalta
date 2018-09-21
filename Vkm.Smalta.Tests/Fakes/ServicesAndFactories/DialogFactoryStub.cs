@@ -12,11 +12,14 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
 {
     public class DialogFactoryStub : IDialogFactory
     {
+        public bool BoolDialogResult { get; set; }
+
         public bool IsInfoDialogShown { get; private set; }
         public bool IsLoginDialogShown { get; private set; }
         public bool IsRegisterDialogShown { get; private set; }
         public bool IsChooseAlgorithmDialogShown { get; private set; }
         public bool IsChooseDeviceDialogShown { get; private set; }
+        public bool IsAskYesNoDialogShown { get; private set; }
 
         #region IDialogFactory
 
@@ -45,7 +48,8 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
 
         public bool AskYesNo(string text, string caption = null)
         {
-            throw new NotImplementedException();
+            IsAskYesNoDialogShown = true;
+            return BoolDialogResult;
         }
 
         public void ShowErrorMessage(Exception error, string caption = null)

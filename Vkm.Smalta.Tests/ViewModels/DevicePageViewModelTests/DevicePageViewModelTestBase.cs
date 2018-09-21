@@ -24,6 +24,7 @@ namespace Vkm.Smalta.Tests.ViewModels.DevicePageViewModelTests
             base.Setup();
 
             EmptyAlgorithm = new Algorithm(new Dictionary<string, int>(), new Dictionary<string, int>());
+            EmptyAlgorithm.Actions = new LinkedList<Action>();
             ViewModel = GiveMe.DevicePage().WithMode(ApplicationMode.Training).WithDeviceEntry(SmaltaDevice).WithAlgorithm(EmptyAlgorithm).Please();
 
         }

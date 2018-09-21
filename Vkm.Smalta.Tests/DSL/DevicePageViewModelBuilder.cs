@@ -41,6 +41,7 @@ namespace Vkm.Smalta.Tests.DSL
                                           DevicesFactory devicesFactory, ActionsFactory actionsFactory, 
                                           PagesFactory pagesFactory) : base(app, dialogFactory, hintService, loadingService, historyService, viewInjectionManager, devicesFactory, actionsFactory, pagesFactory)
         {
+            algorithm.Actions = new LinkedList<Action>();
         }
     }
 }
