@@ -12,7 +12,7 @@ using Vkm.Smalta.View.ViewModel;
 #endregion
 
 namespace Vkm.Smalta.ViewModel
-{t
+{
     public class MainPageViewModel : ViewModelBase
     {
         private readonly IDialogFactory dialogFactory;
