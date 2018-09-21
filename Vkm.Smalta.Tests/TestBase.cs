@@ -28,7 +28,7 @@ namespace Vkm.Smalta.Tests
         {
             ViewInjectionManager = new ViewInjectionManagerStub();
 
-            App = DependencyContainer.GetApp();
+            App = new AppContext();
             HintService = new HintServiceStub();
             LoadingService = new LoadingServiceStub();
             HistoryService = new HistoryService();
@@ -47,6 +47,7 @@ namespace Vkm.Smalta.Tests
             ServiceContainer.Default.RegisterService(PagesFactory);
             ServiceContainer.Default.RegisterService(DevicesFactory);
             ServiceContainer.Default.RegisterService(ActionsFactory);
+            ServiceContainer.Default.RegisterService(App);
 
             GiveMe = new GiveMe(App, DialogFactory, HintService, LoadingService, HistoryService, ViewInjectionManager, DevicesFactory, ActionsFactory, PagesFactory);
 
