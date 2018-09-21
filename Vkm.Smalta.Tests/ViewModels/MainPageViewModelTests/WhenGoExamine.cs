@@ -6,6 +6,14 @@ namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
     public class WhenGoExamine : MainPageViewModelTestBase
     {
         [Test]
+        public void ChooseDeviceDialogIsShown()
+        {
+            ViewModel.GoExamineCommand.Execute(null);
+
+            Assert.That(DialogFactory.IsChooseDeviceDialogShown, Is.True);
+        }
+
+        [Test]
         public void ChooseAlgorithmDialogIsShown()
         {
             ViewModel.GoExamineCommand.Execute(null);

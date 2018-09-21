@@ -1,4 +1,5 @@
-﻿using Vkm.Smalta.Dialogs.Factories;
+﻿using System.Collections.Generic;
+using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.Tests.Fakes.ServicesAndFactories;
@@ -8,9 +9,9 @@ namespace Vkm.Smalta.Tests.DSL
 {
     public class DevicePageViewModelBuilder : BaseBuilder
     {
-        private ApplicationMode mode;
-        private Algorithm algorithm;
-        private DeviceEntry deviceEntry;
+        private ApplicationMode mode = ApplicationMode.Training;
+        private Algorithm algorithm = new Algorithm(new Dictionary<string, int>(), new Dictionary<string, int>());
+        private DeviceEntry deviceEntry = new DeviceEntry();
 
         public DevicePageViewModelBuilder WithMode(ApplicationMode mode)
         {

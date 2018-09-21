@@ -6,6 +6,14 @@ namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
     public class WhenGoTraining : MainPageViewModelTestBase
     {
         [Test]
+        public void ChooseDeviceDialogIsShown()
+        {
+            ViewModel.GoTrainingCommand.Execute(null);
+
+            Assert.That(DialogFactory.IsChooseDeviceDialogShown, Is.True);
+        }
+
+        [Test]
         public void ChooseAlgorithmDialogIsShown()
         {
             ViewModel.GoTrainingCommand.Execute(null);
@@ -33,6 +41,14 @@ namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
 
         [Test]
         public void TrainingIsStart()
+        {
+            ViewModel.GoTrainingCommand.Execute(null);
+
+            Assert.That(HintService.TrainingStarted);
+        }
+
+        [Test]
+        public void DevicePageModeIsTraining()
         {
             ViewModel.GoTrainingCommand.Execute(null);
 

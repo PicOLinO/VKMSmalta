@@ -92,15 +92,15 @@ namespace Vkm.Smalta.ViewModel
 
         private void OnGoExamine()
         {
-            GoAlgorithm();
+            GoDeviceThenGoAlgorithm();
         }
 
         private void OnGoTraining()
         {
-            GoAlgorithm(true);
+            GoDeviceThenGoAlgorithm(true);
         }
 
-        private void GoAlgorithm(bool startTraining = false)
+        private void GoDeviceThenGoAlgorithm(bool startTraining = false)
         {
             var device = ChooseDevice();
             if (device != null)
