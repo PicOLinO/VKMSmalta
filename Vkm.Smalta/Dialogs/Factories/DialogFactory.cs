@@ -84,6 +84,16 @@ namespace Vkm.Smalta.Dialogs.Factories
             }
         }
 
+        public bool ShowExamineResultDialog(int value)
+        {
+            using (var dialog = new CheckResultsDialog(value))
+            {
+                dialog.Owner = Application.Current.MainWindow;
+                dialog.ShowDialog();
+                return ((CheckResultsDialogViewModel) dialog.DataContext).IsRetry;
+            }
+        }
+
         public Algorithm ShowChooseAlgorithmDialog(IEnumerable<Algorithm> algorithms)
         {
             using (var dialog = new ChooseAlgorithmDialog(algorithms))

@@ -15,6 +15,7 @@ namespace Vkm.Smalta.Dialogs.Factories
         void ShowInfoDialog();
         bool ShowLoginDialog();
         bool ShowRegisterDialog();
+        bool ShowExamineResultDialog(int value);
         Algorithm ShowChooseAlgorithmDialog(IEnumerable<Algorithm> algorithms);
         DeviceEntry ShowChooseDeviceDialog(IDevicesFactory devicesFactory);
         TrainingCompleteDialogResult ShowTrainingCompleteDialog();

@@ -129,20 +129,7 @@ namespace Vkm.Smalta.View.ViewModel
             CreateCommands();
             InitializeInnerPages();
         }
-
-        private bool CheckResults(int value)
-        {
-            var dialog = new CheckResultsDialog(value);
-            dialog.ShowDialog();
-
-            if (((CheckResultsDialogViewModel) dialog.DataContext).IsRetry)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
+        
         public bool IsTrollFaceOpen
         {
             get { return GetProperty(() => IsTrollFaceOpen); }
@@ -278,7 +265,7 @@ namespace Vkm.Smalta.View.ViewModel
                 dialogFactory.ShowErrorMessage(e);
             }
 
-            var retry = CheckResults(value);
+            var retry = dialogFactory.ShowExamineResultDialog(value);
 
             if (retry)
             {

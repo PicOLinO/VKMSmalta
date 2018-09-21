@@ -44,7 +44,7 @@ namespace Vkm.Smalta.Tests.ViewModels.DevicePageViewModelTests
         }
 
         [Test]
-        public void ExamineResultsIsSended()
+        public void IfApplicationModeIsExamineThenExamineResultsIsSended()
         {
             DialogFactory.BoolDialogResult = true;
             ViewModel = GiveMe.DevicePage()
@@ -54,6 +54,19 @@ namespace Vkm.Smalta.Tests.ViewModels.DevicePageViewModelTests
             ViewModel.CheckResultCommand.Execute(null);
 
             Assert.That(NetworkService.ExamineResultSendedToAdmin, Is.True);
+        }
+
+        [Test]
+        public void IfAppModeIsExamineThenShowResultsDialogAppears()
+        {
+            DialogFactory.BoolDialogResult = true;
+            ViewModel = GiveMe.DevicePage()
+                              .WithMode(ApplicationMode.Examine)
+                              .Please();
+
+            ViewModel.CheckResultCommand.Execute(null);
+
+            Assert.That(DialogFactory.IsExamineResultDialogShown, Is.True);
         }
     }
 }

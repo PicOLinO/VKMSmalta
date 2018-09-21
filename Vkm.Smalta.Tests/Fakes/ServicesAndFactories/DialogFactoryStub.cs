@@ -14,6 +14,7 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
     {
         public bool BoolDialogResult { get; set; }
 
+        public bool IsExamineResultDialogShown { get; private set; }
         public bool IsInfoDialogShown { get; private set; }
         public bool IsLoginDialogShown { get; private set; }
         public bool IsRegisterDialogShown { get; private set; }
@@ -22,6 +23,12 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
         public bool IsAskYesNoDialogShown { get; private set; }
 
         #region IDialogFactory
+
+        public bool ShowExamineResultDialog(int value)
+        {
+            IsExamineResultDialogShown = true;
+            return BoolDialogResult;
+        }
 
         public Algorithm ShowChooseAlgorithmDialog(IEnumerable<Algorithm> algorithms)
         {
