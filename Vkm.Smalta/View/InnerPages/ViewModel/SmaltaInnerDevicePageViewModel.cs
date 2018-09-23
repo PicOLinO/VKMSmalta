@@ -285,7 +285,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
 
                                //Контролы управления в середине устройства
                                GiveMe.Element().On(PageKey).WithName("lo01r_antenna_equal").At(309, 788).WithValueFrom(CurrentAlgorithm.StartStateOfElements).Thumbler().Please(),
-                               GiveMe.Element().On(PageKey).WithName("lo01r_modulation").At(430, 806).WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(30).RotateWheel()
+                               GiveMe.Element().On(PageKey).WithName("lo01r_modulation").At(430, 806).WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(30).RotateStepWheel()
                                      .WithMaxValue(5).WithRotationStepDegrees(30).Please()
                            };
                     break;
