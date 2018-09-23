@@ -1,11 +1,11 @@
 ﻿namespace Vkm.Smalta.View.Elements
 {
     /// <summary>
-    /// Interaction logic for VkmRotateWheel.xaml
+    /// Interaction logic for VkmRotateStepWheel.xaml
     /// </summary>
-    public partial class VkmRotateWheel
+    public partial class VkmRotateStepWheel
     {
-        public VkmRotateWheel()
+        public VkmRotateStepWheel()
         {
             InitializeComponent();
         }

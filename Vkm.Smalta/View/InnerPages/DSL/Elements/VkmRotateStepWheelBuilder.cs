@@ -10,12 +10,12 @@ using XAMLEx;
 
 namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
-    public class VkmRotateWheelBuilder : BaseElementBuilder
+    public class VkmRotateStepWheelBuilder : BaseElementBuilder
     {
         private int maxRotationSteps;
         private int rotationStepDegrees;
 
-        public VkmRotateWheelBuilder(int value, string name, int posTop, int posLeft, int startupRotation, Enum page)
+        public VkmRotateStepWheelBuilder(int value, string name, int posTop, int posLeft, int startupRotation, Enum page)
         {
             PosTop = posTop;
             PosLeft = posLeft;
@@ -25,19 +25,19 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
             Page = page;
         }
 
-        public VkmRotateWheelViewModel Please()
+        public VkmRotateStepWheelViewModel Please()
         {
             var image = XamlResource.Resolve("View/Images/Wheel.png");
-            return new VkmRotateWheelViewModel(Value, Name, RotationDegrees, rotationStepDegrees, maxRotationSteps, image) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
+            return new VkmRotateStepWheelViewModel(Value, Name, RotationDegrees, rotationStepDegrees, maxRotationSteps, image) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
         }
 
-        public VkmRotateWheelBuilder WithMaxValue(int maxRotationSteps)
+        public VkmRotateStepWheelBuilder WithMaxValue(int maxRotationSteps)
         {
             this.maxRotationSteps = maxRotationSteps;
             return this;
         }
 
-        public VkmRotateWheelBuilder WithRotationStepDegrees(int rotationStepDegrees)
+        public VkmRotateStepWheelBuilder WithRotationStepDegrees(int rotationStepDegrees)
         {
             this.rotationStepDegrees = rotationStepDegrees;
             return this;

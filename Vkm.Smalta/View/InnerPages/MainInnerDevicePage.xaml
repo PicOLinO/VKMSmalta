@@ -37,8 +37,8 @@
                 <DataTemplate DataType="{x:Type elementsVM:VkmThumblerViewModel}">
                     <elements1:VkmThumbler Tag="{Binding ElementName=PART_Canvas}" />
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type elementsVM:VkmRotateWheelViewModel}">
-                    <elements1:VkmRotateWheel Tag="{Binding ElementName=PART_Canvas}" />
+                <DataTemplate DataType="{x:Type elementsVM:VkmRotateStepWheelViewModel}">
+                    <elements1:VkmRotateStepWheel Tag="{Binding ElementName=PART_Canvas}" />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type elementsVM:VkmBlackTriangleArrowViewModel}">
                     <elements1:VkmBlackTriangleArrow Tag="{Binding ElementName=PART_Canvas}" />

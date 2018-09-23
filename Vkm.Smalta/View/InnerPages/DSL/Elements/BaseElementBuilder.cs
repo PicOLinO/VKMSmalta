@@ -51,9 +51,9 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
             return this;
         }
 
-        public VkmRotateWheelBuilder RotateWheel()
+        public VkmRotateStepWheelBuilder RotateWheel()
         {
-            return new VkmRotateWheelBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, Page);
+            return new VkmRotateStepWheelBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, Page);
         }
 
         public VkmThumblerBuilder Thumbler()

@@ -6,13 +6,13 @@ using Vkm.Smalta.Services;
 
 namespace Vkm.Smalta.View.Elements.ViewModel
 {
-    public sealed class VkmRotateWheelViewModel : ClickableElementViewModelBase
+    public sealed class VkmRotateStepWheelViewModel : ClickableElementViewModelBase
     {
         private readonly int maxValue;
         private readonly int rotationStepDegrees;
         private readonly int startupRotation;
 
-        public VkmRotateWheelViewModel(int value, string name, int startupRotation, int rotationStepDegrees, int maxValue, string image) : base(value, name)
+        public VkmRotateStepWheelViewModel(int value, string name, int startupRotation, int rotationStepDegrees, int maxValue, string image) : base(value, name)
         {
             this.startupRotation = RotationDegrees = startupRotation;
             this.rotationStepDegrees = rotationStepDegrees;

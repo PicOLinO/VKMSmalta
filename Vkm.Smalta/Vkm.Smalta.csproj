@@ -217,10 +217,10 @@
     <Compile Include="View\Elements\ViewModel\Interfaces\IValuableNamedElement.cs" />
     <Compile Include="View\Elements\ViewModel\VkmLightableRectangleViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmBlackTriangleArrowViewModel.cs" />
-    <Compile Include="View\Elements\ViewModel\VkmRotateWheelViewModel.cs" />
+    <Compile Include="View\Elements\ViewModel\VkmRotateStepWheelViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmThumblerViewModel.cs" />
-    <Compile Include="View\Elements\VkmRotateWheel.xaml.cs">
-      <DependentUpon>VkmRotateWheel.xaml</DependentUpon>
+    <Compile Include="View\Elements\VkmRotateStepWheel.xaml.cs">
+      <DependentUpon>VkmRotateStepWheel.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Elements\VkmBlackTriangleArrow.xaml.cs">
       <DependentUpon>VkmBlackTriangleArrow.xaml</DependentUpon>
@@ -239,7 +239,7 @@
     <Compile Include="View\InnerPages\DSL\GiveMe.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmBlackTriangleArrowBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmLightableRectangleBuilder.cs" />
-    <Compile Include="View\InnerPages\DSL\Elements\VkmRotateWheelBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\VkmRotateStepWheelBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmThumblerBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Other\DependencyActionBuilder.cs" />
     <Compile Include="View\InnerPages\MainInnerDevicePage.xaml.cs">
@@ -334,7 +334,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Elements\VkmRotateWheel.xaml">
+    <Page Include="View\Elements\VkmRotateStepWheel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
