@@ -402,7 +402,7 @@
     <Resource Include="View\Images\LampOn.png" />
     <Resource Include="View\Images\ThumblerOff.png" />
     <Resource Include="View\Images\ThumblerOn.png" />
-    <Resource Include="View\Images\Wheel.png" />
+    <Resource Include="View\Images\StepWheel.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="logo.ico" />
