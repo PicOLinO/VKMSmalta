@@ -21,9 +21,22 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
 
         protected sealed override void InitializeElements()
         {
-            //TODO: RlsOncInnerRegionPage
             switch (PageKey)
             {
+                case RlsOncInnerRegionPage.Station:
+                    Elements = new ObservableCollection<ElementViewModelBase>();
+                    break;
+                case RlsOncInnerRegionPage.ControlPanelSimulator:
+                    Elements = new ObservableCollection<ElementViewModelBase>();
+                    break;
+                case RlsOncInnerRegionPage.G5_15:
+                    Elements = new ObservableCollection<ElementViewModelBase>();
+                    break;
+                case RlsOncInnerRegionPage.C1_65:
+                    Elements = new ObservableCollection<ElementViewModelBase>();
+                    break;
+                default:
+                    throw new NotSupportedException($"Unknown {nameof(PageKey)} type.");
             }
         }
     }

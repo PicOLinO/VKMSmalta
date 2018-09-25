@@ -28,6 +28,20 @@ namespace Vkm.Smalta.Converters
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
+                case RlsOncInnerRegionPage pageKey:
+                    switch (pageKey)
+                    {
+                        case RlsOncInnerRegionPage.Station:
+                            return "Радиолокационная станция";
+                        case RlsOncInnerRegionPage.ControlPanelSimulator:
+                            return "Пульт управления имитатора";
+                        case RlsOncInnerRegionPage.G5_15:
+                            return "Генератор импульсов Г5-15";
+                        case RlsOncInnerRegionPage.C1_65:
+                            return "Осциллограф С1-65";
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
                 default:
                     throw new Exception("Unsupported type");
             }

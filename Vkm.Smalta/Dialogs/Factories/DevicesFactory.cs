@@ -37,7 +37,18 @@ namespace Vkm.Smalta.Dialogs.Factories
                    {
                        Name = Device.RLS_ONC,
                        ReadableName = "Импульсная РЛС ОНЦ",
-                       Algorithms = new List<Algorithm>()
+                       Algorithms = new List<Algorithm>
+                                    {
+                                        algorithmsFactory.GetDummyAlgorithm()
+                                    },
+                       Pages = new List<Enum>
+                               {
+                                   RlsOncInnerRegionPage.Station,
+                                   RlsOncInnerRegionPage.ControlPanelSimulator,
+                                   RlsOncInnerRegionPage.G5_15,
+                                   RlsOncInnerRegionPage.C1_65
+                               },
+                       FirstPageKey = RlsOncInnerRegionPage.Station
                    };
         }
     }

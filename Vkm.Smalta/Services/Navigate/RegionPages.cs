@@ -9,7 +9,10 @@
 
     public enum RlsOncInnerRegionPage
     {
-
+        Station,
+        ControlPanelSimulator,
+        G5_15,
+        C1_65
     }
 
     public enum OuterRegionPages
