@@ -59,7 +59,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
         {
             base.OnValueChanged();
 
-            if (Value >= MaxValue || Value <= MinValue)
+            if (Value > MaxValue || Value < MinValue)
             {
                 return;
             }
