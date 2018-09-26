@@ -26,8 +26,8 @@ namespace Vkm.Smalta.Dialogs.Factories
                            {
                                new RlsOncInnerDevicePageViewModel(RlsOncInnerRegionPage.Station, XamlResource.Resolve("View/Images/RlsOnc/Backgrounds/rls_onc_station.jpg"), algorithm),
                                new RlsOncInnerDevicePageViewModel(RlsOncInnerRegionPage.ControlPanelSimulator, XamlResource.Resolve("View/Images/RlsOnc/Backgrounds/rls_onc_controlpanelsim.jpg"), algorithm),
-                               new RlsOncInnerDevicePageViewModel(RlsOncInnerRegionPage.G5_15, XamlResource.Resolve("View/Images/RlsOnc/Backgrounds/********.jpg"), algorithm),
-                               new RlsOncInnerDevicePageViewModel(RlsOncInnerRegionPage.C1_65, XamlResource.Resolve("View/Images/RlsOnc/Backgrounds/********.jpg"), algorithm)
+                               new RlsOncInnerDevicePageViewModel(RlsOncInnerRegionPage.G5_15, XamlResource.Resolve("View/Images/RlsOnc/Backgrounds/rls_onc_g5_15.jpg"), algorithm),
+                               new RlsOncInnerDevicePageViewModel(RlsOncInnerRegionPage.C1_65, XamlResource.Resolve("View/Images/RlsOnc/Backgrounds/rls_onc_c1_65.jpg"), algorithm)
                            };
                 default:
                     throw new ArgumentOutOfRangeException(nameof(device), device, null);
