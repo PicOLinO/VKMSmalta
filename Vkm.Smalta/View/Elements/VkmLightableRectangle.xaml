@@ -4,7 +4,6 @@
                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                    xmlns:elements="clr-namespace:Vkm.Smalta.View.Elements"
-                   xmlns:hints1="clr-namespace:Vkm.Smalta.View.Hints"
                    xmlns:viewModel="clr-namespace:Vkm.Smalta.View.Elements.ViewModel"
                    mc:Ignorable="d"
                    d:DesignHeight="300" d:DesignWidth="200"
@@ -18,7 +17,7 @@
                    Panel.ZIndex="1000"
                    FontWeight="Medium"
                    FontSize="8" />
-        <Border x:Name="PART_LightBox" CornerRadius="3" Width="75" Height="25"
+        <Border CornerRadius="3" Width="75" Height="25"
                 Opacity="{Binding Path=LightableRectangleOpacity}">
             <Border.Effect>
                 <DropShadowEffect Color="{Binding Path=BackgroundColor}" BlurRadius="15" RenderingBias="Performance"
@@ -29,12 +28,5 @@
                 <SolidColorBrush Color="{Binding Path=BackgroundColor}" />
             </Border.Background>
         </Border>
-        <Popup IsOpen="{Binding Path=IsHintOpen}" StaysOpen="True"
-               VerticalOffset="20" HorizontalOffset="10"
-               PlacementTarget="{Binding ElementName=PART_LightBox}"
-               Placement="Right" MinWidth="170" MinHeight="60"
-               PopupAnimation="Fade" AllowsTransparency="True">
-            <hints1:Hint DataContext="{Binding Path=Hint}" />
-        </Popup>
     </Grid>
 </elements:ElementBase>

@@ -3,9 +3,12 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Input;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.View.Elements.ViewModel;
+using Vkm.Smalta.View.Hints;
 
 #endregion
 
@@ -21,12 +24,13 @@ namespace Vkm.Smalta.View.Elements
             SnapsToDevicePixels = false;
             AllowDrop = true;
 
+            Loaded += OnLoaded;
+
             if (!App.IsDebug)
             {
                 return;
             }
 
-            Loaded += OnLoaded;
             MouseLeftButtonDown += OnMouseLeftButtonDown;
             PreviewMouseLeftButtonUp += OnPreviewMouseLeftButtonUp;
             MouseMove += OnMouseMove;
@@ -38,8 +42,69 @@ namespace Vkm.Smalta.View.Elements
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
             var vm = DataContext as ElementViewModelBase;
-            var toolTip = new ToolTip {Content = vm?.Name};
-            ToolTip = toolTip;
+            CreateHint(vm);
+
+            if (App.IsDebug)
+            {
+                var toolTip = new ToolTip { Content = vm?.Name };
+                ToolTip = toolTip;
+            }
+        }
+
+        private void CreateHint(ElementViewModelBase vm)
+        {
+            var hintView = new Hint();
+            var hintBinding = new Binding
+                              {
+                                  Source = vm,
+                                  Path = new PropertyPath("Hint"),
+                                  Mode = BindingMode.OneWay,
+                                  UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
+                              };
+
+            var hintPopup = new Popup
+                            {
+                                StaysOpen = true,
+                                Placement = PlacementMode.Right,
+                                MinWidth = 170,
+                                MinHeight = 60,
+                                VerticalOffset = 20, //TODO override
+                                HorizontalOffset = 10, //TODO override
+                                PopupAnimation = PopupAnimation.Fade,
+                                AllowsTransparency = true,
+                                Child = hintView
+                            };
+            var isOpenBinding = new Binding
+                                {
+                                    Source = vm,
+                                    Path = new PropertyPath("IsHintOpen"),
+                                    Mode = BindingMode.OneWay,
+                                    UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
+                                };
+
+            var children = LogicalTreeHelper.GetChildren(this);
+            foreach (var element in children)
+            {
+                if (element is Grid grid)
+                {
+                    hintPopup.PlacementTarget = grid;
+                    grid.Children.Add(hintPopup);
+
+                    // Блок кода ниже сделан специально для тумблеров, так как привязка подсказки к перевернутым тумблерам слетает.
+                    // Постараться выпилить этот код по-вомзожности.
+                    var anchorImage = LogicalTreeHelper.FindLogicalNode(grid, "PART_ImageAnchor");
+                    if (anchorImage != null)
+                    {
+                        if (anchorImage is Image image)
+                        {
+                            hintPopup.PlacementTarget = image;
+                        }
+                    }
+                }
+            }
+
+            BindingOperations.SetBinding(hintPopup, Popup.IsOpenProperty, isOpenBinding);
+            BindingOperations.SetBinding(hintView, DataContextProperty, hintBinding);
         }
 
         private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
