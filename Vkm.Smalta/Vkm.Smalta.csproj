@@ -420,6 +420,9 @@
     <Content Include="Setup\setup.iss" />
     <Content Include="lib\XAMLEx.dll" />
     <Content Include="Setup\NDP47-KB3186497-x86-x64-AllOS-ENU.exe" />
+    <Resource Include="View\Images\CircleWheel.png" />
+    <Resource Include="View\Images\Wheel.png" />
+    <Resource Include="View\Images\WheelPoint.png" />
     <Resource Include="View\Images\RlsOnc\Backgrounds\rls_onc_c1_65.jpg" />
     <Resource Include="View\Images\RlsOnc\Backgrounds\rls_onc_g5_15.jpg" />
     <Resource Include="View\Images\RlsOnc\Backgrounds\rls_onc_station.jpg" />
