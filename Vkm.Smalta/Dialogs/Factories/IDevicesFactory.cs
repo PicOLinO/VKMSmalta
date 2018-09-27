@@ -1,5 +1,9 @@
-﻿using Vkm.Smalta.Dialogs.Factories.Algorithms;
+﻿#region Usings
+
+using Vkm.Smalta.Dialogs.Factories.Algorithms;
 using Vkm.Smalta.Domain;
+
+#endregion
 
 namespace Vkm.Smalta.Dialogs.Factories
 {

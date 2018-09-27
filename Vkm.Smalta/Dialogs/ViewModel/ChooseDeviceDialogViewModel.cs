@@ -1,7 +1,11 @@
-﻿using System.Collections.ObjectModel;
+﻿#region Usings
+
+using System.Collections.ObjectModel;
 using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Dialogs.Factories.Algorithms;
 using Vkm.Smalta.Domain;
+
+#endregion
 
 namespace Vkm.Smalta.Dialogs.ViewModel
 {

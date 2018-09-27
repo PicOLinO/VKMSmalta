@@ -2,7 +2,6 @@
 
 using System;
 using DevExpress.Mvvm;
-using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
 using Vkm.Smalta.View.Hints.ViewModel;
 

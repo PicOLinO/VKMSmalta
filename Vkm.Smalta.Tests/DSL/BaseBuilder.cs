@@ -1,22 +1,15 @@
-﻿using Vkm.Smalta.Dialogs.Factories;
+﻿#region Usings
+
+using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.Tests.Fakes.ServicesAndFactories;
+
+#endregion
 
 namespace Vkm.Smalta.Tests.DSL
 {
     public class BaseBuilder
     {
-        protected IAppContext App { get; }
-        protected DialogFactoryStub DialogFactory { get; }
-        protected HintServiceStub HintService { get; }
-        protected LoadingServiceStub LoadingService { get; }
-        protected HistoryService HistoryService { get; }
-        protected ViewInjectionManagerStub ViewInjectionManager { get; }
-
-        protected DevicesFactory DevicesFactory { get; }
-        protected ActionsFactory ActionsFactory { get; }
-        protected PagesFactory PagesFactory { get; }
-
         public BaseBuilder(IAppContext app, DialogFactoryStub dialogFactory, HintServiceStub hintService, LoadingServiceStub loadingService,
                            HistoryService historyService, ViewInjectionManagerStub viewInjectionManager, DevicesFactory devicesFactory, ActionsFactory actionsFactory,
                            PagesFactory pagesFactory)
@@ -31,5 +24,16 @@ namespace Vkm.Smalta.Tests.DSL
             ActionsFactory = actionsFactory;
             PagesFactory = pagesFactory;
         }
+
+        protected ActionsFactory ActionsFactory { get; }
+        protected IAppContext App { get; }
+
+        protected DevicesFactory DevicesFactory { get; }
+        protected DialogFactoryStub DialogFactory { get; }
+        protected HintServiceStub HintService { get; }
+        protected HistoryService HistoryService { get; }
+        protected LoadingServiceStub LoadingService { get; }
+        protected PagesFactory PagesFactory { get; }
+        protected ViewInjectionManagerStub ViewInjectionManager { get; }
     }
 }

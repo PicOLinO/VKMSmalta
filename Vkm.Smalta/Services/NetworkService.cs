@@ -76,6 +76,8 @@ namespace Vkm.Smalta.Services
             }
         }
 
+        #region INetworkService
+
         public async Task<Student> Authorize(NetworkCredential credential)
         {
             var response = await SendPostRequestCore(adminUri.AdminAuthorizeUri, credential);
@@ -114,5 +116,7 @@ namespace Vkm.Smalta.Services
             var result = await SendPostRequestCore(adminUri.AdminAddHistoryUri, examineResult, true);
             return result.IsSuccessStatusCode;
         }
+
+        #endregion
     }
 }

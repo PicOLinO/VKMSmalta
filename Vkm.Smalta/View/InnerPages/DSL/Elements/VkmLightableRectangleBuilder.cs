@@ -2,7 +2,6 @@
 
 using System;
 using System.Windows.Media;
-using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.View.Elements.ViewModel;
 
 #endregion

@@ -1,4 +1,8 @@
-﻿using System;
+﻿#region Usings
+
+using System;
+
+#endregion
 
 namespace Vkm.Smalta.Domain
 {
@@ -28,7 +32,7 @@ namespace Vkm.Smalta.Domain
                 value = 0;
             }
 
-            return (int)Math.Round(value);
+            return (int) Math.Round(value);
         }
     }
 }

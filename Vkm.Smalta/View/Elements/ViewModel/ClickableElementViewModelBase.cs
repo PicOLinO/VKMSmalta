@@ -33,6 +33,12 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             MouseLeftButtonDownCommand = new DelegateCommand(OnMouseLeftButtonDown, CanOnMouseLeftButtonUse);
         }
 
+        private void SendActionToHistoryService()
+        {
+            var action = new Action(ActionName.Click, Name);
+            HistoryService.Actions.Add(action);
+        }
+
         protected virtual void OnMouseLeftButtonDown()
         {
         }
@@ -40,12 +46,6 @@ namespace Vkm.Smalta.View.Elements.ViewModel
         protected virtual void OnMouseLeftButtonUp()
         {
             SendActionToHistoryService();
-        }
-
-        private void SendActionToHistoryService()
-        {
-            var action = new Action(ActionName.Click, Name);
-            HistoryService.Actions.Add(action);
         }
     }
 }

@@ -3,8 +3,6 @@
 using System;
 using System.Collections.Generic;
 using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
-using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.View.Elements.ViewModel;
 using XAMLEx;
 

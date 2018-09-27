@@ -21,7 +21,7 @@ namespace Vkm.Smalta.Converters
         #region IValueConverter
 
         public virtual object Convert(object value, Type targetType, object parameter,
-                                       CultureInfo culture)
+                                      CultureInfo culture)
         {
             return value;
         }

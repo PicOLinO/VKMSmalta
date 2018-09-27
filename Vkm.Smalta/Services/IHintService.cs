@@ -1,10 +1,13 @@
-﻿using System;
+﻿#region Usings
+
+using System;
 using System.Collections.Generic;
 using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.View.Elements.ViewModel;
 using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
 using Action = System.Action;
+
+#endregion
 
 namespace Vkm.Smalta.Services
 {

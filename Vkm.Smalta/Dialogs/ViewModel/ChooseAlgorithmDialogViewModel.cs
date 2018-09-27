@@ -2,9 +2,7 @@
 
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
 
 #endregion
 

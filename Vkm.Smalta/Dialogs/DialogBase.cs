@@ -18,18 +18,10 @@ namespace Vkm.Smalta.Dialogs
             ShowInTaskbar = false;
         }
 
-        protected void Initialize()
+        private void CreateCommands()
         {
-            CreateCommands();
-        }
-
-        public override void OnApplyTemplate()
-        {
-            if (GetTemplateChild("closeButton") is Button closeButton)
-            {
-                closeButton.Click += OnCloseButtonClick;
-            }
-            base.OnApplyTemplate();
+            var vm = (DialogViewModelBase) DataContext;
+            vm.CloseCommand = new DelegateCommand<bool?>(OnClosing);
         }
 
         private void OnCloseButtonClick(object sender, RoutedEventArgs e)
@@ -37,10 +29,9 @@ namespace Vkm.Smalta.Dialogs
             OnClosing();
         }
 
-        private void CreateCommands()
+        protected void Initialize()
         {
-            var vm = (DialogViewModelBase)DataContext;
-            vm.CloseCommand = new DelegateCommand<bool?>(OnClosing);
+            CreateCommands();
         }
 
         protected virtual void OnClosing(bool? parameter = null)
@@ -49,6 +40,18 @@ namespace Vkm.Smalta.Dialogs
             Close();
         }
 
+        public override void OnApplyTemplate()
+        {
+            if (GetTemplateChild("closeButton") is Button closeButton)
+            {
+                closeButton.Click += OnCloseButtonClick;
+            }
+
+            base.OnApplyTemplate();
+        }
+
+        #region IDisposable
+
         public void Dispose()
         {
             if (GetTemplateChild("closeButton") is Button closeButton)
@@ -56,5 +59,7 @@ namespace Vkm.Smalta.Dialogs
                 closeButton.Click -= OnCloseButtonClick;
             }
         }
+
+        #endregion
     }
 }

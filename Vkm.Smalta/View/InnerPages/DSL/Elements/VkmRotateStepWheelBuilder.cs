@@ -1,8 +1,6 @@
 ﻿#region Usings
 
 using System;
-using Vkm.Smalta.Services;
-using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.View.Elements.ViewModel;
 using XAMLEx;
 

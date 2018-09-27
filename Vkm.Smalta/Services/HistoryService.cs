@@ -16,7 +16,7 @@ namespace Vkm.Smalta.Services
             Actions = new List<Action>();
         }
 
-        public List<Action> Actions { get; }
+        #region IHistoryService
 
         public int GetValueByAlgorithmByEndStateOfElements(Algorithm algorithm, List<IValuableNamedElement> elements)
         {
@@ -49,7 +49,7 @@ namespace Vkm.Smalta.Services
             //TODO: Несовершенно. Ужасно написано, нужна оптимизация с точки зрения не производительности, а бизнес-логики.
 
             var ethalonActionsCount = algorithm.Actions.Count(a => a.UseInExamineCheck);
-            
+
             var previousRightActionIndex = 0;
 
             double ethalonActionsInUserActionsCount = 0;
@@ -73,6 +73,7 @@ namespace Vkm.Smalta.Services
                             previousRightActionIndex = j;
                             rightOrderOfUserActionsCount++;
                         }
+
                         break;
                     }
                 }
@@ -85,13 +86,18 @@ namespace Vkm.Smalta.Services
 
             if (ethalonActionsCount == 0)
             {
-                return -1; 
+                return -1;
             }
 
             if (ethalonActionsInUserActionsCount > ethalonActionsCount)
+            {
                 ethalonActionsInUserActionsCount = ethalonActionsCount;
+            }
+
             if (rightOrderOfUserActionsCount > ethalonActionsInUserActionsCount)
+            {
                 rightOrderOfUserActionsCount = ethalonActionsInUserActionsCount;
+            }
 
             var examineResult = new ExamineResultProperties
                                 {
@@ -111,5 +117,9 @@ namespace Vkm.Smalta.Services
         {
             Actions.Clear();
         }
+
+        public List<Action> Actions { get; }
+
+        #endregion
     }
 }

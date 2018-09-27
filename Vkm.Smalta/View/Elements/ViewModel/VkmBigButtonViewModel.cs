@@ -12,12 +12,12 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 {
     public class VkmBigButtonViewModel : ClickableDependencyActivatorElementBase
     {
+        private readonly string dependencySecureElementName;
         private readonly string imageOffSource;
         private readonly string imageOnSource;
         private readonly bool isInitialize;
 
         private int dependencyActionsCounter;
-        private readonly string dependencySecureElementName;
 
         public VkmBigButtonViewModel(int value, string name, string imageOnSource, string imageOffSource, List<DependencyAction> dependencyActions = null, string dependencySecureElementName = null) : base(value, name, dependencyActions)
         {
@@ -70,8 +70,6 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             }
         }
 
-        #region IDependencyActivatorElement
-
         public override void NotifyDependedElements()
         {
             if (!string.IsNullOrEmpty(dependencySecureElementName))
@@ -95,7 +93,5 @@ namespace Vkm.Smalta.View.Elements.ViewModel
                 Task.Run(() => dependencyAction.UpdateDependencyElementValue(Value, DependencyActionsCounterCallback));
             }
         }
-
-        #endregion
     }
 }

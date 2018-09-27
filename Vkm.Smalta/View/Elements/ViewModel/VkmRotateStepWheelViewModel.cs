@@ -1,7 +1,5 @@
 ﻿#region Usings
 
-using Vkm.Smalta.Services;
-
 #endregion
 
 namespace Vkm.Smalta.View.Elements.ViewModel

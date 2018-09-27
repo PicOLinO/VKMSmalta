@@ -25,6 +25,8 @@ namespace Vkm.Smalta.Domain
             DelayedTimeInSeconds = delayedTimeInSeconds;
         }
 
+        public bool CancellationToken { private get; set; }
+
         private int DelayedTimeInSeconds { get; }
         private ElementViewModelBase DependencyElement { get; set; }
 
@@ -33,12 +35,20 @@ namespace Vkm.Smalta.Domain
         /// </summary>
         private Dictionary<int, int> DependencyValues { get; }
 
+        private void AddDelepndencyElementValueCore(int newValue)
+        {
+            DependencyElement.Value += DependencyValues[newValue];
+        }
+
         private ElementViewModelBase FindElementByName(string elementName)
         {
             return CurrentDevicePageService.Instance.GetAllElementsOfCurrentDevicePage().Single(e => e.Name == elementName);
         }
 
-        public bool CancellationToken { private get; set; }
+        private void UpdateDependencyElementValueCore(int newValue)
+        {
+            DependencyElement.Value = DependencyValues[newValue];
+        }
 
         public async Task UpdateDependencyElementValue(int value, Action<string> dependencyActionsCounterCallback = null)
         {
@@ -59,27 +69,16 @@ namespace Vkm.Smalta.Domain
             switch (type)
             {
                 case DependencyType.Replace:
-                    await Application.Current.Dispatcher.BeginInvoke((System.Action)(() => UpdateDependencyElementValueCore(value)));
+                    await Application.Current.Dispatcher.BeginInvoke((System.Action) (() => UpdateDependencyElementValueCore(value)));
                     break;
                 case DependencyType.Add:
-                    await Application.Current.Dispatcher.BeginInvoke((System.Action)(() => AddDelepndencyElementValueCore(value)));
+                    await Application.Current.Dispatcher.BeginInvoke((System.Action) (() => AddDelepndencyElementValueCore(value)));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
 
             dependencyActionsCounterCallback?.Invoke(dependencyElementName);
-
-        }
-
-        private void UpdateDependencyElementValueCore(int newValue)
-        {
-            DependencyElement.Value = DependencyValues[newValue];
-        }
-
-        private void AddDelepndencyElementValueCore(int newValue)
-        {
-            DependencyElement.Value += DependencyValues[newValue];
         }
     }
 }

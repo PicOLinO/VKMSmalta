@@ -1,9 +1,13 @@
-﻿using System;
+﻿#region Usings
+
+using System;
 using System.Collections.Generic;
 using DevExpress.Mvvm;
 using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.View.InnerPages.ViewModel;
 using Vkm.Smalta.View.ViewModel;
+
+#endregion
 
 namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
 {
@@ -25,15 +29,7 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
                            };
         }
 
-        public void RegisterService(IViewInjectionService service)
-        {
-            
-        }
-
-        public void UnregisterService(IViewInjectionService service)
-        {
-            
-        }
+        #region IViewInjectionManager
 
         public IViewInjectionService GetService(string regionName)
         {
@@ -47,16 +43,51 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
                 case SmaltaInnerRegionPage innerPage:
                     if (!InjectedInnerPages.ContainsKey(innerPage))
                     {
-                        InjectedInnerPages.Add(innerPage, (InnerPageViewModelBase)viewModelFactory.Invoke());
+                        InjectedInnerPages.Add(innerPage, (InnerPageViewModelBase) viewModelFactory.Invoke());
                     }
+
                     break;
                 case OuterRegionPages outerPage:
                     if (!InjectedOuterPages.ContainsKey(outerPage))
                     {
-                        InjectedOuterPages.Add(outerPage, (DevicePageViewModel)viewModelFactory.Invoke());
+                        InjectedOuterPages.Add(outerPage, (DevicePageViewModel) viewModelFactory.Invoke());
                     }
+
                     break;
             }
+        }
+
+        public void Navigate(string regionName, object key)
+        {
+            CurrentPages[regionName] = key;
+        }
+
+        public void RaiseNavigatedAwayEvent(object viewModel)
+        {
+        }
+
+        public void RaiseNavigatedEvent(object viewModel)
+        {
+        }
+
+        public void RaiseViewModelClosingEvent(ViewModelClosingEventArgs e)
+        {
+        }
+
+        public void RegisterNavigatedAwayEventHandler(object viewModel, Action eventHandler)
+        {
+        }
+
+        public void RegisterNavigatedEventHandler(object viewModel, Action eventHandler)
+        {
+        }
+
+        public void RegisterService(IViewInjectionService service)
+        {
+        }
+
+        public void RegisterViewModelClosingEventHandler(object viewModel, Action<ViewModelClosingEventArgs> eventHandler)
+        {
         }
 
         public void Remove(string regionName, object key)
@@ -72,52 +103,22 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
             }
         }
 
-        public void Navigate(string regionName, object key)
+        public void UnregisterNavigatedAwayEventHandler(object viewModel, Action eventHandler = null)
         {
-            CurrentPages[regionName] = key;
-        }
-
-        public void RegisterNavigatedEventHandler(object viewModel, Action eventHandler)
-        {
-            
-        }
-
-        public void RegisterNavigatedAwayEventHandler(object viewModel, Action eventHandler)
-        {
-            
-        }
-
-        public void RegisterViewModelClosingEventHandler(object viewModel, Action<ViewModelClosingEventArgs> eventHandler)
-        {
-            
         }
 
         public void UnregisterNavigatedEventHandler(object viewModel, Action eventHandler = null)
         {
-            
         }
 
-        public void UnregisterNavigatedAwayEventHandler(object viewModel, Action eventHandler = null)
+        public void UnregisterService(IViewInjectionService service)
         {
-            
         }
 
         public void UnregisterViewModelClosingEventHandler(object viewModel, Action<ViewModelClosingEventArgs> eventHandler = null)
         {
-            
         }
 
-        public void RaiseNavigatedEvent(object viewModel)
-        {
-        }
-
-        public void RaiseNavigatedAwayEvent(object viewModel)
-        {
-        }
-
-        public void RaiseViewModelClosingEvent(ViewModelClosingEventArgs e)
-        {
-            
-        }
+        #endregion
     }
 }

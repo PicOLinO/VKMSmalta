@@ -1,4 +1,8 @@
-﻿using Vkm.Smalta.Domain;
+﻿#region Usings
+
+using Vkm.Smalta.Domain;
+
+#endregion
 
 namespace Vkm.Smalta.Dialogs.Factories
 {

@@ -2,7 +2,7 @@
 {
     public interface ILoadingService
     {
-        void LoadingOn();
         void LoadingOff();
+        void LoadingOn();
     }
 }

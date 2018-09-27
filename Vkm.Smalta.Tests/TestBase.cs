@@ -1,30 +1,19 @@
-﻿using DevExpress.Mvvm;
+﻿#region Usings
+
+using DevExpress.Mvvm;
 using NUnit.Framework;
 using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.Tests.DSL;
 using Vkm.Smalta.Tests.Fakes.ServicesAndFactories;
 
+#endregion
+
 namespace Vkm.Smalta.Tests
 {
     [TestFixture]
     public abstract class TestBase
     {
-        protected IAppContext App;
-        protected ViewInjectionManagerStub ViewInjectionManager;
-
-        protected NetworkServiceStub NetworkService;
-        protected HintServiceStub HintService;
-        protected LoadingServiceStub LoadingService;
-        protected HistoryService HistoryService;
-
-        protected DialogFactoryStub DialogFactory;
-        protected DevicesFactory DevicesFactory;
-        protected ActionsFactory ActionsFactory;
-        protected PagesFactory PagesFactory;
-
-        protected GiveMe GiveMe;
-
         [SetUp]
         protected virtual void Setup()
         {
@@ -57,5 +46,20 @@ namespace Vkm.Smalta.Tests
 
             DependencyContainer.Initialize(ServiceContainer.Default);
         }
+
+        protected IAppContext App;
+        protected ViewInjectionManagerStub ViewInjectionManager;
+
+        protected NetworkServiceStub NetworkService;
+        protected HintServiceStub HintService;
+        protected LoadingServiceStub LoadingService;
+        protected HistoryService HistoryService;
+
+        protected DialogFactoryStub DialogFactory;
+        protected DevicesFactory DevicesFactory;
+        protected ActionsFactory ActionsFactory;
+        protected PagesFactory PagesFactory;
+
+        protected GiveMe GiveMe;
     }
 }

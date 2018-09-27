@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿#region Usings
+
+using System.Collections.Generic;
 using Vkm.Smalta.Domain;
+
+#endregion
 
 namespace Vkm.Smalta.Dialogs.Factories.Algorithms
 {
@@ -15,10 +19,10 @@ namespace Vkm.Smalta.Dialogs.Factories.Algorithms
             var endStateOfElements = new Dictionary<string, int>();
 
             var newAlgorithm = new Algorithm(startStateOfElements, endStateOfElements)
-            {
-                Name = "Dummy",
-                Actions = new LinkedList<Action>()
-            };
+                               {
+                                   Name = "Dummy",
+                                   Actions = new LinkedList<Action>()
+                               };
 
             return newAlgorithm;
         }

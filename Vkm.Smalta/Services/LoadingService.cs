@@ -1,17 +1,25 @@
-﻿using System.Windows.Input;
+﻿#region Usings
+
+using System.Windows.Input;
+
+#endregion
 
 namespace Vkm.Smalta.Services
 {
     public class LoadingService : ILoadingService
     {
-        public void LoadingOn()
-        {
-            Mouse.OverrideCursor = Cursors.Wait;
-        }
+        #region ILoadingService
 
         public void LoadingOff()
         {
             Mouse.OverrideCursor = null;
         }
+
+        public void LoadingOn()
+        {
+            Mouse.OverrideCursor = Cursors.Wait;
+        }
+
+        #endregion
     }
 }

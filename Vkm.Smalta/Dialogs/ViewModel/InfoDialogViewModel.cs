@@ -1,10 +1,14 @@
-﻿using System;
+﻿#region Usings
+
+using System;
 using System.IO;
 using System.IO.Packaging;
 using System.Windows.Documents;
 using System.Windows.Xps.Packaging;
 using DevExpress.Mvvm;
 using Vkm.Smalta.Properties;
+
+#endregion
 
 namespace Vkm.Smalta.Dialogs.ViewModel
 {
@@ -14,13 +18,10 @@ namespace Vkm.Smalta.Dialogs.ViewModel
         private Package package;
         private XpsDocument xpsDocument;
 
-        public DelegateCommand ShowLicenseCommand { get; private set; }
-        public DelegateCommand ShowAboutDeviceInfoCommand { get; private set; }
-
-        public string TextInTextBox
+        public InfoDialogViewModel()
         {
-            get { return GetProperty(() => TextInTextBox); }
-            set { SetProperty(() => TextInTextBox, value); }
+            CreateCommands();
+            ShowLicenseCommand.Execute(null);
         }
 
         public FixedDocumentSequence DocumentInDocumentViewer
@@ -29,22 +30,26 @@ namespace Vkm.Smalta.Dialogs.ViewModel
             set { SetProperty(() => DocumentInDocumentViewer, value); }
         }
 
-        public bool IsShowLicenseButtonEnabled
-        {
-            get { return GetProperty(() => IsShowLicenseButtonEnabled); }
-            set { SetProperty(() => IsShowLicenseButtonEnabled, value); }
-        }
-        
         public bool IsShowAboutDeviceInfoButtonEnabled
         {
             get { return GetProperty(() => IsShowAboutDeviceInfoButtonEnabled); }
             set { SetProperty(() => IsShowAboutDeviceInfoButtonEnabled, value); }
         }
 
-        public InfoDialogViewModel()
+        public bool IsShowLicenseButtonEnabled
         {
-            CreateCommands();
-            ShowLicenseCommand.Execute(null);
+            get { return GetProperty(() => IsShowLicenseButtonEnabled); }
+            set { SetProperty(() => IsShowLicenseButtonEnabled, value); }
+        }
+
+        public DelegateCommand ShowAboutDeviceInfoCommand { get; private set; }
+
+        public DelegateCommand ShowLicenseCommand { get; private set; }
+
+        public string TextInTextBox
+        {
+            get { return GetProperty(() => TextInTextBox); }
+            set { SetProperty(() => TextInTextBox, value); }
         }
 
         private void CreateCommands()
@@ -55,7 +60,6 @@ namespace Vkm.Smalta.Dialogs.ViewModel
 
         private void OnShowAboutDeviceInfo()
         {
-
             var packageUri = new Uri("memorystream://Documentation.xps");
             if (PackageStore.GetPackage(packageUri) == null)
             {
@@ -68,7 +72,7 @@ namespace Vkm.Smalta.Dialogs.ViewModel
 
                 DocumentInDocumentViewer = xpsDocument.GetFixedDocumentSequence();
             }
-            
+
             IsShowAboutDeviceInfoButtonEnabled = false;
             IsShowLicenseButtonEnabled = true;
         }
@@ -80,6 +84,8 @@ namespace Vkm.Smalta.Dialogs.ViewModel
             IsShowAboutDeviceInfoButtonEnabled = true;
         }
 
+        #region IDisposable
+
         public void Dispose()
         {
             if (xpsDocument != null)
@@ -90,5 +96,7 @@ namespace Vkm.Smalta.Dialogs.ViewModel
                 documentReaderStream?.Close();
             }
         }
+
+        #endregion
     }
 }

@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
 using Action = Vkm.Smalta.Domain.Action;
 
 #endregion
@@ -38,6 +37,11 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             set { SetProperty(() => StartupRotation, value); }
         }
 
+        private void DependencyActionExecutedCallback(string dependencyElementName)
+        {
+            HistoryService.Actions.Add(new Action(ActionName.Idle, dependencyElementName));
+        }
+
         protected override void OnMouseLeftButtonUp()
         {
             base.OnMouseLeftButtonUp();
@@ -69,8 +73,6 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             }
         }
 
-        #region IDependencyActivatorElement
-
         public override void NotifyDependedElements()
         {
             foreach (var dependencyAction in DependencyActions)
@@ -78,12 +80,5 @@ namespace Vkm.Smalta.View.Elements.ViewModel
                 Task.Run(() => dependencyAction.UpdateDependencyElementValue(Value, DependencyActionExecutedCallback));
             }
         }
-
-        private void DependencyActionExecutedCallback(string dependencyElementName)
-        {
-            HistoryService.Actions.Add(new Action(ActionName.Idle, dependencyElementName));
-        }
-
-        #endregion
     }
 }

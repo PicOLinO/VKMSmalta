@@ -1,12 +1,7 @@
 ﻿#region Usings
 
 using System;
-using System.Collections.ObjectModel;
-using System.Windows.Media;
 using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
-using Vkm.Smalta.Services.Navigate;
-using Vkm.Smalta.View.Elements.ViewModel;
 
 #endregion
 

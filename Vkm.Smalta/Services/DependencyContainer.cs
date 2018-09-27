@@ -13,15 +13,7 @@ namespace Vkm.Smalta.Services
 
         private DependencyContainer(IServiceContainer serviceContainer)
         {
-            this.serviceContainer = serviceContainer; 
-        }
-
-        public static void Initialize(IServiceContainer serviceContainer)
-        {
-            if (Instance == null)
-            {
-                Instance = new DependencyContainer(serviceContainer);
-            }
+            this.serviceContainer = serviceContainer;
         }
 
         public static DependencyContainer Instance { get; private set; }
@@ -31,14 +23,22 @@ namespace Vkm.Smalta.Services
             return Instance?.serviceContainer.GetService<IAppContext>();
         }
 
+        public static IDialogFactory GetDialogFactory()
+        {
+            return Instance?.serviceContainer.GetService<IDialogFactory>();
+        }
+
         public static IViewInjectionManager GetViewInjectionManager()
         {
             return Instance?.serviceContainer.GetService<IViewInjectionManager>();
         }
 
-        public static IDialogFactory GetDialogFactory()
+        public static void Initialize(IServiceContainer serviceContainer)
         {
-            return Instance?.serviceContainer.GetService<IDialogFactory>();
+            if (Instance == null)
+            {
+                Instance = new DependencyContainer(serviceContainer);
+            }
         }
     }
 }

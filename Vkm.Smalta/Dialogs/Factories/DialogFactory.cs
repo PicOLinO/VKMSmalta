@@ -4,11 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using DevExpress.Mvvm;
-using DevExpress.Mvvm.UI;
 using Vkm.Smalta.Dialogs.ViewModel;
 using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
-using MessageBoxService = DevExpress.Mvvm.UI.MessageBoxService;
 
 #endregion
 
@@ -23,75 +20,12 @@ namespace Vkm.Smalta.Dialogs.Factories
             this.service = service;
         }
 
+        #region IDialogFactory
+
         public bool AskYesNo(string text, string caption = null)
         {
             var result = service.Show(text, caption ?? "Вы уверены?", MessageBoxButton.YesNo, MessageBoxImage.Question);
             return result == MessageBoxResult.Yes;
-        }
-
-        public void ShowErrorMessage(Exception error, string caption = null)
-        {
-            var msg = error.Message;
-            if (!string.IsNullOrEmpty(error.InnerException?.Message))
-            {
-                msg += "\r\n" + error.InnerException?.Message;
-            }
-
-            service.Show(msg, caption ?? "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-        }
-
-        public void ShowErrorMessage(string error, string caption = null)
-        {
-            service.Show(error, caption ?? "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-        }
-
-        public void ShowInfoMessage(string text, string caption = null)
-        {
-            service.Show(text, caption ?? "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-
-        public void ShowWarningMessage(string text, string caption = null)
-        {
-            service.Show(text, caption ?? "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
-        }
-
-        public void ShowInfoDialog()
-        {
-            using (var infoDialog = new InfoDialog())
-            {
-                infoDialog.Owner = Application.Current.MainWindow;
-                infoDialog.ShowDialog();
-            }
-        }
-
-        public bool ShowLoginDialog()
-        {
-            using (var loginDialog = new LoginDialog())
-            {
-                loginDialog.Owner = Application.Current.MainWindow;
-                var result = loginDialog.ShowDialog();
-                return result.HasValue && result.Value;
-            }
-        }
-
-        public bool ShowRegisterDialog()
-        {
-            using (var registerDialog = new RegisterDialog())
-            {
-                registerDialog.Owner = Application.Current.MainWindow;
-                var result = registerDialog.ShowDialog();
-                return result.HasValue && result.Value;
-            }
-        }
-
-        public bool ShowExamineResultDialog(int value)
-        {
-            using (var dialog = new CheckResultsDialog(value))
-            {
-                dialog.Owner = Application.Current.MainWindow;
-                dialog.ShowDialog();
-                return ((CheckResultsDialogViewModel) dialog.DataContext).IsRetry;
-            }
         }
 
         public Algorithm ShowChooseAlgorithmDialog(IEnumerable<Algorithm> algorithms)
@@ -114,6 +48,66 @@ namespace Vkm.Smalta.Dialogs.Factories
             }
         }
 
+        public void ShowErrorMessage(Exception error, string caption = null)
+        {
+            var msg = error.Message;
+            if (!string.IsNullOrEmpty(error.InnerException?.Message))
+            {
+                msg += "\r\n" + error.InnerException?.Message;
+            }
+
+            service.Show(msg, caption ?? "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        public void ShowErrorMessage(string error, string caption = null)
+        {
+            service.Show(error, caption ?? "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        public bool ShowExamineResultDialog(int value)
+        {
+            using (var dialog = new CheckResultsDialog(value))
+            {
+                dialog.Owner = Application.Current.MainWindow;
+                dialog.ShowDialog();
+                return ((CheckResultsDialogViewModel) dialog.DataContext).IsRetry;
+            }
+        }
+
+        public void ShowInfoDialog()
+        {
+            using (var infoDialog = new InfoDialog())
+            {
+                infoDialog.Owner = Application.Current.MainWindow;
+                infoDialog.ShowDialog();
+            }
+        }
+
+        public void ShowInfoMessage(string text, string caption = null)
+        {
+            service.Show(text, caption ?? "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        public bool ShowLoginDialog()
+        {
+            using (var loginDialog = new LoginDialog())
+            {
+                loginDialog.Owner = Application.Current.MainWindow;
+                var result = loginDialog.ShowDialog();
+                return result.HasValue && result.Value;
+            }
+        }
+
+        public bool ShowRegisterDialog()
+        {
+            using (var registerDialog = new RegisterDialog())
+            {
+                registerDialog.Owner = Application.Current.MainWindow;
+                var result = registerDialog.ShowDialog();
+                return result.HasValue && result.Value;
+            }
+        }
+
         public TrainingCompleteDialogResult ShowTrainingCompleteDialog()
         {
             using (var dialog = new TrainingCompleteDialog())
@@ -127,5 +121,12 @@ namespace Vkm.Smalta.Dialogs.Factories
                        };
             }
         }
+
+        public void ShowWarningMessage(string text, string caption = null)
+        {
+            service.Show(text, caption ?? "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
+        }
+
+        #endregion
     }
 }

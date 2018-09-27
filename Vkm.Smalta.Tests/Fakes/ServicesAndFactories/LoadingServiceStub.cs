@@ -1,4 +1,8 @@
-﻿using Vkm.Smalta.Services;
+﻿#region Usings
+
+using Vkm.Smalta.Services;
+
+#endregion
 
 namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
 {
@@ -6,14 +10,18 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
     {
         public bool IsLoadingOn { get; private set; }
 
-        public void LoadingOn()
-        {
-            IsLoadingOn = true;
-        }
+        #region ILoadingService
 
         public void LoadingOff()
         {
             IsLoadingOn = false;
         }
+
+        public void LoadingOn()
+        {
+            IsLoadingOn = true;
+        }
+
+        #endregion
     }
 }

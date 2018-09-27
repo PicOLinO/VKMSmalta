@@ -1,7 +1,6 @@
 ﻿#region Usings
 
 using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
 using Vkm.Smalta.View.Hints.ViewModel;
 
 #endregion
@@ -10,6 +9,8 @@ namespace Vkm.Smalta.Dialogs.Factories
 {
     public class ActionsFactory : IActionsFactory
     {
+        #region IActionsFactory
+
         public Action GetClickAction(string elementName, string hint, int accessibleValue, bool useInExamineCheck = true)
         {
             return new Action(ActionName.Click, elementName, useInExamineCheck, new AccessibleHintViewModel(hint, accessibleValue));
@@ -29,5 +30,7 @@ namespace Vkm.Smalta.Dialogs.Factories
         {
             return new Action(ActionName.Idle, elementName, useInExamineCheck, new HintViewModelBase(hint));
         }
+
+        #endregion
     }
 }

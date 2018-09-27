@@ -1,16 +1,16 @@
 ﻿<dialogs:DialogBase x:Class="Vkm.Smalta.Dialogs.TrainingCompleteDialog"
-                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                  xmlns:dialogs="clr-namespace:Vkm.Smalta.Dialogs"
-                  xmlns:viewModel="clr-namespace:Vkm.Smalta.Dialogs.ViewModel"
-                  xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
-                  mc:Ignorable="d"
-                  Title="Обучение завершено"
-                  Style="{DynamicResource DialogStyle}"
-                  d:DesignHeight="220" d:DesignWidth="240"
-                  d:DataContext="{d:DesignInstance Type=viewModel:TrainingCompleteDialogViewModel}">
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:dialogs="clr-namespace:Vkm.Smalta.Dialogs"
+                    xmlns:viewModel="clr-namespace:Vkm.Smalta.Dialogs.ViewModel"
+                    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+                    mc:Ignorable="d"
+                    Title="Обучение завершено"
+                    Style="{DynamicResource DialogStyle}"
+                    d:DesignHeight="220" d:DesignWidth="240"
+                    d:DataContext="{d:DesignInstance Type=viewModel:TrainingCompleteDialogViewModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Style="{DynamicResource DialogOuterSeparatingRow}" />
@@ -29,8 +29,11 @@
             <ColumnDefinition Style="{DynamicResource DialogOuterSeparatingColumn}" />
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="1" Grid.Column="1" Text="Обучение алгоритму завершено" HorizontalAlignment="Center" />
-        <Button Grid.Row="3" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Повторить" Command="{Binding Path=GoRetryCommand}"/>
-        <Button Grid.Row="5" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Пройти экзамен" Command="{Binding Path=GoExamineCommand}" Visibility="{Binding IsAuthorized, Converter={dxmvvm:BooleanToVisibilityConverter}}"/>
+        <Button Grid.Row="3" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Повторить"
+                Command="{Binding Path=GoRetryCommand}" />
+        <Button Grid.Row="5" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Пройти экзамен"
+                Command="{Binding Path=GoExamineCommand}"
+                Visibility="{Binding IsAuthorized, Converter={dxmvvm:BooleanToVisibilityConverter}}" />
         <Button Grid.Row="7" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Выход"
                 Command="{Binding Path=CloseCommand}" IsDefault="True" />
     </Grid>

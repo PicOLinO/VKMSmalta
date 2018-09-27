@@ -5,8 +5,8 @@
         <Setter Property="HorizontalOffset">
             <Setter.Value>
                 <MultiBinding Converter="{converters:CenterPopupConverter}">
-                    <Binding RelativeSource="{RelativeSource Self}" Path="PlacementTarget.ActualWidth"/>
-                    <Binding RelativeSource="{RelativeSource Self}" Path="ActualWidth"/>
+                    <Binding RelativeSource="{RelativeSource Self}" Path="PlacementTarget.ActualWidth" />
+                    <Binding RelativeSource="{RelativeSource Self}" Path="ActualWidth" />
                 </MultiBinding>
             </Setter.Value>
         </Setter>

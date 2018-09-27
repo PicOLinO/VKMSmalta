@@ -39,18 +39,6 @@ namespace Vkm.Smalta.View.Elements
 
         private IAppContext App => DependencyContainer.GetApp();
 
-        private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
-        {
-            var vm = DataContext as ElementViewModelBase;
-            CreateHint(vm);
-
-            if (App.IsDebug)
-            {
-                var toolTip = new ToolTip { Content = vm?.Name };
-                ToolTip = toolTip;
-            }
-        }
-
         private void CreateHint(ElementViewModelBase vm)
         {
             var hintView = new Hint();
@@ -107,6 +95,18 @@ namespace Vkm.Smalta.View.Elements
             BindingOperations.SetBinding(hintView, DataContextProperty, hintBinding);
         }
 
+        private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
+        {
+            var vm = DataContext as ElementViewModelBase;
+            CreateHint(vm);
+
+            if (App.IsDebug)
+            {
+                var toolTip = new ToolTip {Content = vm?.Name};
+                ToolTip = toolTip;
+            }
+        }
+
         private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var element = sender as ElementBase;
@@ -116,7 +116,7 @@ namespace Vkm.Smalta.View.Elements
             firstYPos = e.GetPosition(element).Y;
 
             movingObject = element;
-            
+
             var top = Panel.GetZIndex(element ?? throw new InvalidOperationException());
             if (canvas?.Children != null)
             {
@@ -186,7 +186,7 @@ namespace Vkm.Smalta.View.Elements
             var canvas = element?.Tag as Canvas;
 
             movingObject = null;
-            
+
             var top = Panel.GetZIndex(element ?? throw new InvalidOperationException());
             if (canvas != null)
             {

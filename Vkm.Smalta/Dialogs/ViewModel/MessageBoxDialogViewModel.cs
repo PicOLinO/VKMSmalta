@@ -1,13 +1,17 @@
-﻿using DevExpress.Mvvm;
+﻿#region Usings
+
+using DevExpress.Mvvm;
+
+#endregion
 
 namespace Vkm.Smalta.Dialogs.ViewModel
 {
     public class MessageBoxDialogViewModel : DialogViewModelBase
     {
+        public DelegateCommand CloseCancelCommand;
+        public DelegateCommand CloseNoCommand;
         public DelegateCommand CloseOkCommand;
         public DelegateCommand CloseYesCommand;
-        public DelegateCommand CloseNoCommand;
-        public DelegateCommand CloseCancelCommand;
 
         public MessageBoxDialogViewModel()
         {
@@ -24,27 +28,27 @@ namespace Vkm.Smalta.Dialogs.ViewModel
             CloseCancelCommand = new DelegateCommand(OnCloseCancel);
         }
 
-        private void OnCloseNo()
-        {
-            MessageResult = MessageResult.No;
-            CloseCommand.Execute(false);
-        }
-
         private void OnCloseCancel()
         {
             MessageResult = MessageResult.Cancel;
             CloseCommand.Execute(false);
         }
 
-        private void OnCloseYes()
+        private void OnCloseNo()
         {
-            MessageResult = MessageResult.Yes;
-            CloseCommand.Execute(true);
+            MessageResult = MessageResult.No;
+            CloseCommand.Execute(false);
         }
 
         private void OnCloseOk()
         {
             MessageResult = MessageResult.OK;
+            CloseCommand.Execute(true);
+        }
+
+        private void OnCloseYes()
+        {
+            MessageResult = MessageResult.Yes;
             CloseCommand.Execute(true);
         }
     }

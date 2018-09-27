@@ -17,14 +17,10 @@ namespace Vkm.Smalta.Dialogs.ViewModel
 {
     public class RegisterDialogViewModel : LoginDialogViewModel
     {
-        private INetworkService NetworkService => GetService<INetworkService>();
-
         public RegisterDialogViewModel(IPasswordSupplier passwordSupplier) : base(passwordSupplier)
         {
             Initialize();
         }
-
-        private SecureString ConfirmPassword => PasswordSupplier.GetConfirmPassword();
 
         public Student SelectedStudent
         {
@@ -49,6 +45,9 @@ namespace Vkm.Smalta.Dialogs.ViewModel
             get { return GetProperty(() => Teams); }
             set { SetProperty(() => Teams, value); }
         }
+
+        private SecureString ConfirmPassword => PasswordSupplier.GetConfirmPassword();
+        private INetworkService NetworkService => GetService<INetworkService>();
 
         private void Initialize()
         {

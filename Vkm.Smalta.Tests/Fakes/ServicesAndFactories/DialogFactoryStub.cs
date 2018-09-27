@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
 
 #endregion
 
@@ -13,20 +12,22 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
     public class DialogFactoryStub : IDialogFactory
     {
         public bool BoolDialogResult { get; set; }
+        public bool IsAskYesNoDialogShown { get; private set; }
+        public bool IsChooseAlgorithmDialogShown { get; private set; }
+        public bool IsChooseDeviceDialogShown { get; private set; }
 
         public bool IsExamineResultDialogShown { get; private set; }
         public bool IsInfoDialogShown { get; private set; }
         public bool IsLoginDialogShown { get; private set; }
         public bool IsRegisterDialogShown { get; private set; }
-        public bool IsChooseAlgorithmDialogShown { get; private set; }
-        public bool IsChooseDeviceDialogShown { get; private set; }
-        public bool IsAskYesNoDialogShown { get; private set; }
+
+        public bool TrainingCompleteDialogShown { get; private set; }
 
         #region IDialogFactory
 
-        public bool ShowExamineResultDialog(int value)
+        public bool AskYesNo(string text, string caption = null)
         {
-            IsExamineResultDialogShown = true;
+            IsAskYesNoDialogShown = true;
             return BoolDialogResult;
         }
 
@@ -42,23 +43,6 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
             return new DeviceEntry();
         }
 
-        public TrainingCompleteDialogResult ShowTrainingCompleteDialog()
-        {
-            TrainingCompleteDialogShown = true;
-            return new TrainingCompleteDialogResult
-                   {
-                       GoExamine = true
-                   };
-        }
-
-        public bool TrainingCompleteDialogShown { get; private set; }
-
-        public bool AskYesNo(string text, string caption = null)
-        {
-            IsAskYesNoDialogShown = true;
-            return BoolDialogResult;
-        }
-
         public void ShowErrorMessage(Exception error, string caption = null)
         {
             throw new NotImplementedException();
@@ -69,19 +53,20 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
             throw new NotImplementedException();
         }
 
-        public void ShowInfoMessage(string text, string caption = null)
+        public bool ShowExamineResultDialog(int value)
         {
-            throw new NotImplementedException();
-        }
-
-        public void ShowWarningMessage(string text, string caption = null)
-        {
-            throw new NotImplementedException();
+            IsExamineResultDialogShown = true;
+            return BoolDialogResult;
         }
 
         public void ShowInfoDialog()
         {
             IsInfoDialogShown = true;
+        }
+
+        public void ShowInfoMessage(string text, string caption = null)
+        {
+            throw new NotImplementedException();
         }
 
         public bool ShowLoginDialog()
@@ -94,6 +79,20 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
         {
             IsRegisterDialogShown = true;
             return true;
+        }
+
+        public TrainingCompleteDialogResult ShowTrainingCompleteDialog()
+        {
+            TrainingCompleteDialogShown = true;
+            return new TrainingCompleteDialogResult
+                   {
+                       GoExamine = true
+                   };
+        }
+
+        public void ShowWarningMessage(string text, string caption = null)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

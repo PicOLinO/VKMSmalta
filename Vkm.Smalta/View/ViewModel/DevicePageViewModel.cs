@@ -7,9 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using DevExpress.Mvvm;
-using Vkm.Smalta.Dialogs;
 using Vkm.Smalta.Dialogs.Factories;
-using Vkm.Smalta.Dialogs.ViewModel;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.Services.Navigate;
@@ -25,23 +23,21 @@ namespace Vkm.Smalta.View.ViewModel
     public class DevicePageViewModel : ViewModelBase, IDisposable
     {
         public ObservableCollection<InnerPageViewModelBase> Pages;
-        public ApplicationMode Mode { get; private set; }
-        public bool IsGodModeOn { get; set; }
+        private readonly Key[] cheatEthalon = {Key.Z, Key.D, Key.C, Key.T, Key.C, Key.L, Key.F, Key.V};
+        private readonly Queue<Key> cheatInput;
         private readonly DeviceEntry device;
+        private readonly IDialogFactory dialogFactory;
         private readonly IHintService hintService;
         private readonly IHistoryService historyService;
-        private readonly IDialogFactory dialogFactory;
-        private readonly IViewInjectionManager viewInjectionManager;
         private readonly IPagesFactory pagesFactory;
-        private readonly Queue<Key> cheatInput;
-        private readonly Key[] cheatEthalon = { Key.Z, Key.D, Key.C, Key.T, Key.C, Key.L, Key.F, Key.V };
+        private readonly IViewInjectionManager viewInjectionManager;
 
-        public DevicePageViewModel(ApplicationMode appMode, 
+        public DevicePageViewModel(ApplicationMode appMode,
                                    Algorithm algorithm,
                                    DeviceEntry device,
-                                   IHintService hintService, 
-                                   IHistoryService historyService, 
-                                   IDialogFactory dialogFactory, 
+                                   IHintService hintService,
+                                   IHistoryService historyService,
+                                   IDialogFactory dialogFactory,
                                    IViewInjectionManager viewInjectionManager,
                                    IPagesFactory pagesFactory)
         {
@@ -67,9 +63,9 @@ namespace Vkm.Smalta.View.ViewModel
             private set { SetProperty(() => CurrentPageKey, value, OnCurrentPageKeyChanged); }
         }
 
-        public DelegateCommand<Key> KeyDownCommand { get; set; }
         public DelegateCommand GoForwardCommand { get; set; }
         public DelegateCommand GoPreviousCommand { get; set; }
+        public bool IsGodModeOn { get; set; }
 
         public bool IsGoForwardHintOpen
         {
@@ -82,6 +78,15 @@ namespace Vkm.Smalta.View.ViewModel
             get { return GetProperty(() => IsGoPreviousHintOpen); }
             set { SetProperty(() => IsGoPreviousHintOpen, value); }
         }
+
+        public bool IsTrollFaceOpen
+        {
+            get { return GetProperty(() => IsTrollFaceOpen); }
+            set { SetProperty(() => IsTrollFaceOpen, value); }
+        }
+
+        public DelegateCommand<Key> KeyDownCommand { get; set; }
+        public ApplicationMode Mode { get; private set; }
 
         public Enum NextPageKey
         {
@@ -124,18 +129,6 @@ namespace Vkm.Smalta.View.ViewModel
             return !Equals(CurrentPageKey, Pages.First().PageKey);
         }
 
-        public void Initialize()
-        {
-            CreateCommands();
-            InitializeInnerPages();
-        }
-        
-        public bool IsTrollFaceOpen
-        {
-            get { return GetProperty(() => IsTrollFaceOpen); }
-            set { SetProperty(() => IsTrollFaceOpen, value); }
-        }
-
         private void CreateCommands()
         {
             GoForwardCommand = new DelegateCommand(OnGoForward, CanGoForward);
@@ -147,57 +140,9 @@ namespace Vkm.Smalta.View.ViewModel
             }
         }
 
-        private async void OnKeyDown(Key key)
-        {
-            if (IsGodModeOn)
-            {
-                return;
-            }
-
-            cheatInput.Enqueue(key);
-            if (cheatInput.Count >= 8)
-            {
-                if (cheatInput.ToArray().SequenceEqual(cheatEthalon))
-                {
-                    IsGodModeOn = true;
-                    IsTrollFaceOpen = true;
-                    await Task.Delay(1000);
-                    IsTrollFaceOpen = false;
-                }
-                cheatInput.Dequeue();
-            }
-        }
-
-        public void EndTraining()
-        {
-            var result = dialogFactory.ShowTrainingCompleteDialog();
-            if (result.GoExamine)
-            {
-                Mode = ApplicationMode.Examine;
-                Reset();
-                InitializeInnerPages();
-            }
-            else if (result.GoRetry)
-            {
-                Reset();
-                InitializeInnerPages();
-                LaunchTraining();
-            }
-            else
-            {
-                Dispose();
-                ExitInMainMenu();
-            }
-        }
-
         private void ExitInMainMenu()
         {
             viewInjectionManager.Navigate(Regions.OuterRegion, OuterRegionPages.MainMenu);
-        }
-
-        public void LaunchTraining()
-        {
-            GoTraining(CurrentAlgorithm);
         }
 
         private void GoTraining(Algorithm algorithm)
@@ -223,13 +168,6 @@ namespace Vkm.Smalta.View.ViewModel
             NavigateOnInnerPage(device.FirstPageKey);
         }
 
-        public void NavigateOnInnerPage(Enum page)
-        {
-            viewInjectionManager.Navigate(Regions.InnerRegion, page);
-            CurrentPageKey = page;
-            hintService.OnNavigated(page);
-        }
-
         private async Task OnCheckResult()
         {
             if (Mode == ApplicationMode.Training)
@@ -238,16 +176,16 @@ namespace Vkm.Smalta.View.ViewModel
                 Dispose();
                 return;
             }
-            
+
             var isContinue = dialogFactory.AskYesNo("Завершить выполнение экзамена?\nВаш результат сразу же будет отправлен преподавателю");
             if (!isContinue)
             {
                 return;
             }
-            
+
             var value = IsGodModeOn
-                        ? new Random().Next(4, 6)
-                        : historyService.GetValueByAlgorithmByUserActions(CurrentAlgorithm, UnionElements.Cast<IValuableNamedElement>().ToList());
+                            ? new Random().Next(4, 6)
+                            : historyService.GetValueByAlgorithmByUserActions(CurrentAlgorithm, UnionElements.Cast<IValuableNamedElement>().ToList());
 
             var examineResult = new ExamineResult
                                 {
@@ -299,6 +237,28 @@ namespace Vkm.Smalta.View.ViewModel
             NavigateOnInnerPage(PreviousPageKey);
         }
 
+        private async void OnKeyDown(Key key)
+        {
+            if (IsGodModeOn)
+            {
+                return;
+            }
+
+            cheatInput.Enqueue(key);
+            if (cheatInput.Count >= 8)
+            {
+                if (cheatInput.ToArray().SequenceEqual(cheatEthalon))
+                {
+                    IsGodModeOn = true;
+                    IsTrollFaceOpen = true;
+                    await Task.Delay(1000);
+                    IsTrollFaceOpen = false;
+                }
+
+                cheatInput.Dequeue();
+            }
+        }
+
         private void Reset()
         {
             foreach (var element in UnionElements)
@@ -318,6 +278,46 @@ namespace Vkm.Smalta.View.ViewModel
             //Reset services
             hintService.Reset();
             historyService.Reset();
+        }
+
+        public void EndTraining()
+        {
+            var result = dialogFactory.ShowTrainingCompleteDialog();
+            if (result.GoExamine)
+            {
+                Mode = ApplicationMode.Examine;
+                Reset();
+                InitializeInnerPages();
+            }
+            else if (result.GoRetry)
+            {
+                Reset();
+                InitializeInnerPages();
+                LaunchTraining();
+            }
+            else
+            {
+                Dispose();
+                ExitInMainMenu();
+            }
+        }
+
+        public void Initialize()
+        {
+            CreateCommands();
+            InitializeInnerPages();
+        }
+
+        public void LaunchTraining()
+        {
+            GoTraining(CurrentAlgorithm);
+        }
+
+        public void NavigateOnInnerPage(Enum page)
+        {
+            viewInjectionManager.Navigate(Regions.InnerRegion, page);
+            CurrentPageKey = page;
+            hintService.OnNavigated(page);
         }
 
         #region IDisposable

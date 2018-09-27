@@ -2,8 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using Vkm.Smalta.Services;
-using Vkm.Smalta.Services.Navigate;
 
 #endregion
 

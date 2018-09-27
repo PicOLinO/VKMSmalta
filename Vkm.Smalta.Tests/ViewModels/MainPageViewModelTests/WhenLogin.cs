@@ -1,5 +1,9 @@
-﻿using NUnit.Framework;
+﻿#region Usings
+
+using NUnit.Framework;
 using Vkm.Smalta.Domain;
+
+#endregion
 
 namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
 {

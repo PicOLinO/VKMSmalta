@@ -1,15 +1,20 @@
-﻿using System;
+﻿#region Usings
+
+using System;
 using System.Collections.Generic;
 using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
 using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.View.InnerPages.ViewModel;
 using XAMLEx;
+
+#endregion
 
 namespace Vkm.Smalta.Dialogs.Factories
 {
     public class PagesFactory : IPagesFactory
     {
+        #region IPagesFactory
+
         public List<MainInnerDevicePageViewModel> CreatePagesFor(Device device, Algorithm algorithm)
         {
             switch (device)
@@ -33,5 +38,7 @@ namespace Vkm.Smalta.Dialogs.Factories
                     throw new ArgumentOutOfRangeException(nameof(device), device, null);
             }
         }
+
+        #endregion
     }
 }

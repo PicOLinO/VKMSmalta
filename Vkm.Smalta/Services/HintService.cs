@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.View.Elements.ViewModel;
 using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
 using Action = System.Action;
@@ -29,6 +28,8 @@ namespace Vkm.Smalta.Services
 
             CurrentAction = null;
         }
+
+        #region IHintService
 
         public IValuableNamedElement GetValuableElementByCurrentHint()
         {
@@ -99,5 +100,7 @@ namespace Vkm.Smalta.Services
 
             ShowNextHint();
         }
+
+        #endregion
     }
 }

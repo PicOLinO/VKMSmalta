@@ -1,9 +1,13 @@
-﻿using System;
+﻿#region Usings
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.View.Elements.ViewModel;
 using Vkm.Smalta.View.ViewModel;
+
+#endregion
 
 namespace Vkm.Smalta.Services
 {
@@ -17,12 +21,12 @@ namespace Vkm.Smalta.Services
             this.devicePageViewModel = devicePageViewModel;
         }
 
+        public static CurrentDevicePageService Instance { get; private set; }
+
         public static void Initialize(DevicePageViewModel vm)
         {
             Instance = new CurrentDevicePageService(vm);
         }
-
-        public static CurrentDevicePageService Instance { get; private set; }
 
         public IEnumerable<ElementViewModelBase> GetAllElementsOfCurrentDevicePage()
         {

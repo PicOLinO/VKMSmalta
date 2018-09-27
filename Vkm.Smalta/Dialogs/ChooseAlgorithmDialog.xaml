@@ -1,17 +1,17 @@
 ﻿<dialogs:DialogBase x:Class="Vkm.Smalta.Dialogs.ChooseAlgorithmDialog"
-                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                  xmlns:dialogs="clr-namespace:Vkm.Smalta.Dialogs"
-                  xmlns:domain="clr-namespace:Vkm.Smalta.Domain"
-                  xmlns:viewModel="clr-namespace:Vkm.Smalta.Dialogs.ViewModel"
-                  mc:Ignorable="d"
-                  Title="Выберите алгоритм"
-                  Style="{DynamicResource DialogStyle}"
-                  d:DataContext="{d:DesignInstance Type=viewModel:ChooseAlgorithmDialogViewModel}"
-                  d:DesignWidth="279.355"
-                  d:DesignHeight="132.633">
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:dialogs="clr-namespace:Vkm.Smalta.Dialogs"
+                    xmlns:domain="clr-namespace:Vkm.Smalta.Domain"
+                    xmlns:viewModel="clr-namespace:Vkm.Smalta.Dialogs.ViewModel"
+                    mc:Ignorable="d"
+                    Title="Выберите алгоритм"
+                    Style="{DynamicResource DialogStyle}"
+                    d:DataContext="{d:DesignInstance Type=viewModel:ChooseAlgorithmDialogViewModel}"
+                    d:DesignWidth="279.355"
+                    d:DesignHeight="132.633">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Style="{DynamicResource DialogOuterSeparatingRow}" />

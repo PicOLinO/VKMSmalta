@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿#region Usings
+
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.Network;
+
+#endregion
 
 namespace Vkm.Smalta.Services
 {

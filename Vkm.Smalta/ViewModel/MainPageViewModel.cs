@@ -15,13 +15,13 @@ namespace Vkm.Smalta.ViewModel
 {
     public class MainPageViewModel : ViewModelBase
     {
+        private readonly IDevicesFactory devicesFactory;
         private readonly IDialogFactory dialogFactory;
         private readonly IHintService hintService;
-        private readonly IViewInjectionManager viewInjectionManager;
-        private readonly ILoadingService loadingService;
-        private readonly IDevicesFactory devicesFactory;
         private readonly IHistoryService historyService;
+        private readonly ILoadingService loadingService;
         private readonly IPagesFactory pagesFactory;
+        private readonly IViewInjectionManager viewInjectionManager;
 
         public MainPageViewModel()
         {
@@ -34,21 +34,6 @@ namespace Vkm.Smalta.ViewModel
             devicesFactory = ServiceContainer.GetService<IDevicesFactory>();
 
             Initialize();
-        }
-
-        public void Initialize()
-        {
-            CreateCommands();
-            UpdateLoginInfo();
-        }
-
-        private void UpdateLoginInfo()
-        {
-            IsAuthorized = App.IsAuthorized;
-            if (App.CurrentUser != null)
-            {
-                CurrentUserName = App.CurrentUser.FullName;
-            }
         }
 
         public string CurrentUserName
@@ -90,16 +75,6 @@ namespace Vkm.Smalta.ViewModel
             ShowInfoCommand = new DelegateCommand(OnShowInfo);
         }
 
-        private void OnGoExamine()
-        {
-            GoDeviceThenGoAlgorithm();
-        }
-
-        private void OnGoTraining()
-        {
-            GoDeviceThenGoAlgorithm(true);
-        }
-
         private void GoDeviceThenGoAlgorithm(bool startTraining = false)
         {
             var device = ChooseDevice();
@@ -110,7 +85,16 @@ namespace Vkm.Smalta.ViewModel
                 {
                     loadingService.LoadingOn();
 
-                    var vm = new DevicePageViewModel(startTraining ? ApplicationMode.Training : ApplicationMode.Examine, algorithm, device, hintService, historyService, dialogFactory, viewInjectionManager, pagesFactory);
+                    var vm = new DevicePageViewModel(startTraining
+                                                         ? ApplicationMode.Training
+                                                         : ApplicationMode.Examine,
+                                                     algorithm,
+                                                     device,
+                                                     hintService,
+                                                     historyService,
+                                                     dialogFactory,
+                                                     viewInjectionManager,
+                                                     pagesFactory);
                     CurrentDevicePageService.Initialize(vm);
                     if (startTraining)
                     {
@@ -123,6 +107,16 @@ namespace Vkm.Smalta.ViewModel
                     loadingService.LoadingOff();
                 }
             }
+        }
+
+        private void OnGoExamine()
+        {
+            GoDeviceThenGoAlgorithm();
+        }
+
+        private void OnGoTraining()
+        {
+            GoDeviceThenGoAlgorithm(true);
         }
 
         private void OnLogin()
@@ -143,6 +137,21 @@ namespace Vkm.Smalta.ViewModel
         private void OnShowInfo()
         {
             dialogFactory.ShowInfoDialog();
+        }
+
+        private void UpdateLoginInfo()
+        {
+            IsAuthorized = App.IsAuthorized;
+            if (App.CurrentUser != null)
+            {
+                CurrentUserName = App.CurrentUser.FullName;
+            }
+        }
+
+        public void Initialize()
+        {
+            CreateCommands();
+            UpdateLoginInfo();
         }
     }
 }

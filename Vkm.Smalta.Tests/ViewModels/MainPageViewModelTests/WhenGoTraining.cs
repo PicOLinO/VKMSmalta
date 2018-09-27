@@ -1,10 +1,22 @@
-﻿using NUnit.Framework;
+﻿#region Usings
+
+using NUnit.Framework;
 using Vkm.Smalta.Services.Navigate;
+
+#endregion
 
 namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
 {
     public class WhenGoTraining : MainPageViewModelTestBase
     {
+        [Test]
+        public void ChooseAlgorithmDialogIsShown()
+        {
+            ViewModel.GoTrainingCommand.Execute(null);
+
+            Assert.That(DialogFactory.IsChooseAlgorithmDialogShown, Is.True);
+        }
+
         [Test]
         public void ChooseDeviceDialogIsShown()
         {
@@ -14,11 +26,11 @@ namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
         }
 
         [Test]
-        public void ChooseAlgorithmDialogIsShown()
+        public void DevicePageModeIsTraining()
         {
             ViewModel.GoTrainingCommand.Execute(null);
 
-            Assert.That(DialogFactory.IsChooseAlgorithmDialogShown, Is.True);
+            Assert.That(ViewInjectionManager.InjectedOuterPages[OuterRegionPages.Device].Mode, Is.EqualTo(ApplicationMode.Training));
         }
 
         [Test]
@@ -45,14 +57,6 @@ namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
             ViewModel.GoTrainingCommand.Execute(null);
 
             Assert.That(HintService.TrainingStarted);
-        }
-
-        [Test]
-        public void DevicePageModeIsTraining()
-        {
-            ViewModel.GoTrainingCommand.Execute(null);
-
-            Assert.That(ViewInjectionManager.InjectedOuterPages[OuterRegionPages.Device].Mode, Is.EqualTo(ApplicationMode.Training));
         }
     }
 }

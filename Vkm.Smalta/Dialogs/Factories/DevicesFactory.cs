@@ -1,14 +1,40 @@
-﻿using System;
+﻿#region Usings
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using Vkm.Smalta.Dialogs.Factories.Algorithms;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.Services.Navigate;
+
+#endregion
 
 namespace Vkm.Smalta.Dialogs.Factories
 {
     public class DevicesFactory : IDevicesFactory
     {
+        #region IDevicesFactory
+
+        public DeviceEntry GetImpulseRadioLocationStation(RlsOncAlgorithmsFactory algorithmsFactory)
+        {
+            return new DeviceEntry
+                   {
+                       Name = Device.RLS_ONC,
+                       ReadableName = "Импульсная РЛС ОНЦ",
+                       Algorithms = new List<Algorithm>
+                                    {
+                                        algorithmsFactory.GetDummyAlgorithm()
+                                    },
+                       Pages = new List<Enum>
+                               {
+                                   RlsOncInnerRegionPage.Station,
+                                   RlsOncInnerRegionPage.ControlPanelSimulator,
+                                   RlsOncInnerRegionPage.G5_15,
+                                   RlsOncInnerRegionPage.C1_65
+                               },
+                       FirstPageKey = RlsOncInnerRegionPage.Station
+                   };
+        }
+
         public DeviceEntry GetSmaltaDevice(SmaltaAlgorithmsFactory algorithmsFactory)
         {
             return new DeviceEntry
@@ -31,25 +57,6 @@ namespace Vkm.Smalta.Dialogs.Factories
                    };
         }
 
-        public DeviceEntry GetImpulseRadioLocationStation(RlsOncAlgorithmsFactory algorithmsFactory)
-        {
-            return new DeviceEntry
-                   {
-                       Name = Device.RLS_ONC,
-                       ReadableName = "Импульсная РЛС ОНЦ",
-                       Algorithms = new List<Algorithm>
-                                    {
-                                        algorithmsFactory.GetDummyAlgorithm()
-                                    },
-                       Pages = new List<Enum>
-                               {
-                                   RlsOncInnerRegionPage.Station,
-                                   RlsOncInnerRegionPage.ControlPanelSimulator,
-                                   RlsOncInnerRegionPage.G5_15,
-                                   RlsOncInnerRegionPage.C1_65
-                               },
-                       FirstPageKey = RlsOncInnerRegionPage.Station
-                   };
-        }
+        #endregion
     }
 }
