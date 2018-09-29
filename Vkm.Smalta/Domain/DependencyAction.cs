@@ -40,11 +40,6 @@ namespace Vkm.Smalta.Domain
             DependencyElement.Value += DependencyValues[newValue];
         }
 
-        private ElementViewModelBase FindElementByName(string elementName)
-        {
-            return CurrentDevicePageService.Instance.GetAllElementsOfCurrentDevicePage().Single(e => e.Name == elementName);
-        }
-
         private void UpdateDependencyElementValueCore(int newValue)
         {
             DependencyElement.Value = DependencyValues[newValue];
@@ -63,7 +58,7 @@ namespace Vkm.Smalta.Domain
 
             if (DependencyElement == null)
             {
-                DependencyElement = FindElementByName(dependencyElementName);
+                DependencyElement = CurrentDevicePageService.Instance.GetElementByName(dependencyElementName);
             }
 
             switch (type)
