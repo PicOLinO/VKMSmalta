@@ -100,7 +100,6 @@
     <Compile Include="ApplicationMode.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Converters\BaseConverter.cs" />
-    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\CenterPopupConverter.cs" />
     <Compile Include="Converters\EventArgsConverters\KeyDownEventArgsToCharConverter.cs" />
     <Compile Include="Converters\EventArgsConverters\MouseEventArgsToMousePointConverter.cs" />
