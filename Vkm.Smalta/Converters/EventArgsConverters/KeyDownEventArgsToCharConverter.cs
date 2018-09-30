@@ -5,7 +5,7 @@ using DevExpress.Mvvm.UI;
 
 #endregion
 
-namespace Vkm.Smalta.Converters
+namespace Vkm.Smalta.Converters.EventArgsConverters
 {
     public class KeyDownEventArgsToCharConverter : BaseConverter<KeyDownEventArgsToCharConverter>, IEventArgsConverter
     {

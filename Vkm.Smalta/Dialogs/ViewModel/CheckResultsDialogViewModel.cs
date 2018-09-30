@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System.Windows.Input;
 using DevExpress.Mvvm;
 
 #endregion
@@ -16,7 +17,7 @@ namespace Vkm.Smalta.Dialogs.ViewModel
         }
 
         public bool IsRetry { get; private set; }
-        public DelegateCommand RetryCommand { get; set; }
+        public ICommand RetryCommand { get; set; }
 
         public int Value
         {

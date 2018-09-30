@@ -4,6 +4,7 @@ using System.Net;
 using System.Security;
 using System.Security.Authentication;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using DevExpress.Mvvm;
 using Vkm.Smalta.Services;
 
@@ -21,7 +22,7 @@ namespace Vkm.Smalta.Dialogs.ViewModel
             CreateCommands();
         }
 
-        public DelegateCommand ClickCommand { get; set; }
+        public ICommand ClickCommand { get; set; }
 
         public string Login
         {

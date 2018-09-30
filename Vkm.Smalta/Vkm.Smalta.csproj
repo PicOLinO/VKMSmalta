@@ -102,7 +102,8 @@
     <Compile Include="Converters\BaseConverter.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\CenterPopupConverter.cs" />
-    <Compile Include="Converters\KeyDownEventArgsToCharConverter.cs" />
+    <Compile Include="Converters\EventArgsConverters\KeyDownEventArgsToCharConverter.cs" />
+    <Compile Include="Converters\EventArgsConverters\MouseEventArgsToMousePointConverter.cs" />
     <Compile Include="Converters\PageKeyToPageNameConverter.cs" />
     <Compile Include="Converters\ValueToStringValueConverter.cs" />
     <Compile Include="Dialogs\CheckResultsDialog.xaml.cs">
@@ -199,6 +200,7 @@
     <Compile Include="View\Elements\ViewModel\Interfaces\ITimingValueChangedElement.cs" />
     <Compile Include="View\Elements\ViewModel\VkmBigButtonViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmLampViewModel.cs" />
+    <Compile Include="View\Elements\ViewModel\VkmWheelViewModel.cs" />
     <Compile Include="View\Elements\VkmBigButton.xaml.cs">
       <DependentUpon>VkmBigButton.xaml</DependentUpon>
     </Compile>
@@ -215,6 +217,9 @@
     <Compile Include="View\Elements\ViewModel\VkmBlackTriangleArrowViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmRotateStepWheelViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmThumblerViewModel.cs" />
+    <Compile Include="View\Elements\VkmWheel.xaml.cs">
+      <DependentUpon>VkmWheel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Elements\VkmRotateStepWheel.xaml.cs">
       <DependentUpon>VkmRotateStepWheel.xaml</DependentUpon>
     </Compile>
@@ -329,6 +334,10 @@
     <Page Include="View\Elements\VkmLightableRectangle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Elements\VkmWheel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Elements\VkmRotateStepWheel.xaml">
       <SubType>Designer</SubType>

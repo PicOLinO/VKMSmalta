@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.IO.Packaging;
 using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Xps.Packaging;
 using DevExpress.Mvvm;
 using Vkm.Smalta.Properties;
@@ -42,9 +43,9 @@ namespace Vkm.Smalta.Dialogs.ViewModel
             set { SetProperty(() => IsShowLicenseButtonEnabled, value); }
         }
 
-        public DelegateCommand ShowAboutDeviceInfoCommand { get; private set; }
+        public ICommand ShowAboutDeviceInfoCommand { get; private set; }
 
-        public DelegateCommand ShowLicenseCommand { get; private set; }
+        public ICommand ShowLicenseCommand { get; private set; }
 
         public string TextInTextBox
         {

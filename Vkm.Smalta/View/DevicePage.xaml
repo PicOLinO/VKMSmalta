@@ -7,12 +7,13 @@
       xmlns:converters="clr-namespace:Vkm.Smalta.Converters"
       xmlns:hints1="clr-namespace:Vkm.Smalta.View.Hints"
       xmlns:viewModel="clr-namespace:Vkm.Smalta.View.ViewModel"
+      xmlns:eventArgsConverters="clr-namespace:Vkm.Smalta.Converters.EventArgsConverters"
       mc:Ignorable="d"
       d:DesignHeight="355.479" d:DesignWidth="534.091"
       d:DataContext="{d:DesignInstance Type=viewModel:DevicePageViewModel}">
     <dxmvvm:Interaction.Behaviors>
         <dxmvvm:EventToCommand Event="KeyDown" Command="{Binding KeyDownCommand}"
-                               EventArgsConverter="{converters:KeyDownEventArgsToCharConverter}" />
+                               EventArgsConverter="{eventArgsConverters:KeyDownEventArgsToCharConverter}" />
     </dxmvvm:Interaction.Behaviors>
     <Grid>
         <Grid.RowDefinitions>

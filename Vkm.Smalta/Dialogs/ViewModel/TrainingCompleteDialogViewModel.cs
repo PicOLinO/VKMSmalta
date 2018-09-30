@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System.Windows.Input;
 using DevExpress.Mvvm;
 using Vkm.Smalta.Services;
 
@@ -14,8 +15,8 @@ namespace Vkm.Smalta.Dialogs.ViewModel
             CreateCommands();
         }
 
-        public DelegateCommand GoExamineCommand { get; private set; }
-        public DelegateCommand GoRetryCommand { get; private set; }
+        public ICommand GoExamineCommand { get; private set; }
+        public ICommand GoRetryCommand { get; private set; }
         public bool IsAuthorized => DependencyContainer.GetApp().IsAuthorized;
 
         public bool IsGoExamine { get; private set; }

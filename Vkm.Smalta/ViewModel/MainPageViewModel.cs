@@ -1,6 +1,7 @@
 ﻿#region Usings
 
 using System.Collections.Generic;
+using System.Windows.Input;
 using DevExpress.Mvvm;
 using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Domain;
@@ -42,8 +43,8 @@ namespace Vkm.Smalta.ViewModel
             set { SetProperty(() => CurrentUserName, value); }
         }
 
-        public DelegateCommand GoExamineCommand { get; set; }
-        public DelegateCommand GoTrainingCommand { get; set; }
+        public ICommand GoExamineCommand { get; set; }
+        public ICommand GoTrainingCommand { get; set; }
 
         public bool IsAuthorized
         {
@@ -51,9 +52,9 @@ namespace Vkm.Smalta.ViewModel
             set { SetProperty(() => IsAuthorized, value); }
         }
 
-        public DelegateCommand LoginCommand { get; set; }
-        public DelegateCommand RegisterCommand { get; set; }
-        public DelegateCommand ShowInfoCommand { get; set; }
+        public ICommand LoginCommand { get; set; }
+        public ICommand RegisterCommand { get; set; }
+        public ICommand ShowInfoCommand { get; set; }
         private IAppContext App => DependencyContainer.GetApp();
 
         private Algorithm ChooseAlgorithm(IEnumerable<Algorithm> algorithms)

@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System.Windows.Input;
 using DevExpress.Mvvm;
 
 #endregion
@@ -8,10 +9,10 @@ namespace Vkm.Smalta.Dialogs.ViewModel
 {
     public class MessageBoxDialogViewModel : DialogViewModelBase
     {
-        public DelegateCommand CloseCancelCommand;
-        public DelegateCommand CloseNoCommand;
-        public DelegateCommand CloseOkCommand;
-        public DelegateCommand CloseYesCommand;
+        public ICommand CloseCancelCommand;
+        public ICommand CloseNoCommand;
+        public ICommand CloseOkCommand;
+        public ICommand CloseYesCommand;
 
         public MessageBoxDialogViewModel()
         {

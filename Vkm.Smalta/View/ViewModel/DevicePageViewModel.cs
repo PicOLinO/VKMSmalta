@@ -63,8 +63,8 @@ namespace Vkm.Smalta.View.ViewModel
             private set { SetProperty(() => CurrentPageKey, value, OnCurrentPageKeyChanged); }
         }
 
-        public DelegateCommand GoForwardCommand { get; set; }
-        public DelegateCommand GoPreviousCommand { get; set; }
+        public ICommand GoForwardCommand { get; set; }
+        public ICommand GoPreviousCommand { get; set; }
         public bool IsGodModeOn { get; set; }
 
         public bool IsGoForwardHintOpen
@@ -85,7 +85,7 @@ namespace Vkm.Smalta.View.ViewModel
             set { SetProperty(() => IsTrollFaceOpen, value); }
         }
 
-        public DelegateCommand<Key> KeyDownCommand { get; set; }
+        public ICommand<Key> KeyDownCommand { get; set; }
         public ApplicationMode Mode { get; private set; }
 
         public Enum NextPageKey

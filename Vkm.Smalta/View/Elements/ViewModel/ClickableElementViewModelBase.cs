@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System.Windows.Input;
 using DevExpress.Mvvm;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.Services;
@@ -18,9 +19,9 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             CreateCommands();
         }
 
-        public DelegateCommand MouseLeftButtonDownCommand { get; set; }
+        public ICommand MouseLeftButtonDownCommand { get; set; }
 
-        public DelegateCommand MouseLeftButtonUpCommand { get; set; }
+        public ICommand MouseLeftButtonUpCommand { get; set; }
 
         private bool CanOnMouseLeftButtonUse()
         {
