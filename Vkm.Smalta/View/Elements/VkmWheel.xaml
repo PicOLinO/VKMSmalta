@@ -6,7 +6,6 @@
                       xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
                       xmlns:elements="clr-namespace:Vkm.Smalta.View.Elements"
                       xmlns:viewModel="clr-namespace:Vkm.Smalta.View.Elements.ViewModel"
-                      xmlns:converters="clr-namespace:Vkm.Smalta.Converters"
                       mc:Ignorable="d"
                       d:DesignHeight="300" d:DesignWidth="300"
                       d:DataContext="{d:DesignInstance Type=viewModel:VkmWheelViewModel}">
@@ -14,7 +13,7 @@
         <Image Cursor="Hand" Source="{Binding Path=ImageSource}">
             <dxmvvm:Interaction.Behaviors>
                 <dxmvvm:EventToCommand EventName="MouseWheel" Command="{Binding Path=MouseMoveCommand}"
-                                       PassEventArgsToCommand="True"/>
+                                       PassEventArgsToCommand="True" />
             </dxmvvm:Interaction.Behaviors>
             <Image.RenderTransform>
                 <RotateTransform CenterX="40" CenterY="27" Angle="{Binding Path=RotationDegrees}" />

@@ -103,8 +103,6 @@
     <Compile Include="Converters\CenterPopupConverter.cs" />
     <Compile Include="Converters\EventArgsConverters\KeyDownEventArgsToCharConverter.cs" />
     <Compile Include="Converters\EventArgsConverters\MouseEventArgsToMousePointConverter.cs" />
-    <Compile Include="Converters\PageKeyToPageNameConverter.cs" />
-    <Compile Include="Converters\ValueToStringValueConverter.cs" />
     <Compile Include="Dialogs\CheckResultsDialog.xaml.cs">
       <DependentUpon>CheckResultsDialog.xaml</DependentUpon>
     </Compile>

@@ -27,7 +27,7 @@
         </Grid.ColumnDefinitions>
         <DockPanel Grid.Row="1" Grid.Column="1">
             <TextBox Text="Ваш результат: " BorderThickness="0" IsReadOnly="True" />
-            <TextBox Text="{Binding Path=Value, Converter={converters:ValueToStringValueConverter}}"
+            <TextBox Text="{Binding Path=Value, Converter={StaticResource ValueToStringValueConverter}}"
                      BorderThickness="0" IsReadOnly="True" FontSize="12" FontWeight="Heavy" FontFamily="Arial" />
         </DockPanel>
         <DockPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center">

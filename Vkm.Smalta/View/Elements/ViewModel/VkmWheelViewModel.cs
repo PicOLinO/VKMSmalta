@@ -34,6 +34,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 
         private void OnMouseWheel(MouseWheelEventArgs e)
         {
+            
             //TODO:
         }
     }
