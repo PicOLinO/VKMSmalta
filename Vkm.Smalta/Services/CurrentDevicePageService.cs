@@ -28,9 +28,9 @@ namespace Vkm.Smalta.Services
             Instance = new CurrentDevicePageService(vm);
         }
 
-        public IEnumerable<ElementViewModelBase> GetAllElementsOfCurrentDevicePage()
+        public ElementViewModelBase GetElementByName(string name)
         {
-            return devicePageViewModel.UnionElements;
+            return devicePageViewModel.UnionElements.Single(e => e.Name == name);
         }
 
         public Enum GetCurrentInnerPageKey()

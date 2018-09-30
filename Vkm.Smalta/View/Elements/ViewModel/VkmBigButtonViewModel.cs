@@ -74,7 +74,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
         {
             if (!string.IsNullOrEmpty(dependencySecureElementName))
             {
-                var dependencySecureElement = CurrentDevicePageService.Instance.GetAllElementsOfCurrentDevicePage().Single(e => e.Name == dependencySecureElementName);
+                var dependencySecureElement = CurrentDevicePageService.Instance.GetElementByName(dependencySecureElementName);
 
                 if (dependencySecureElement is VkmBigButtonViewModel button)
                 {
