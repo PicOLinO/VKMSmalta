@@ -6,10 +6,9 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 {
     public class VkmWheelViewModel : ElementViewModelBase
     {
-        private bool isMouseButtonPressed;
-
         private readonly int minValue;
         private readonly int maxValue;
+        private readonly int coefficient;
 
         public ICommand MouseMoveCommand { get; private set; }
 
@@ -19,11 +18,12 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             set { SetProperty(() => RotationDegrees, value); }
         }
 
-        protected VkmWheelViewModel(int value, int minValue, int maxValue, string name) : base(value, name)
+        protected VkmWheelViewModel(int value, int minValue, int maxValue, int coefficient, string name) : base(value, name)
         {
             this.minValue = minValue;
             this.maxValue = maxValue;
-            
+            this.coefficient = coefficient;
+
             CreateCommands();
         } 
 
@@ -34,8 +34,14 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 
         private void OnMouseWheel(MouseWheelEventArgs e)
         {
-            
-            //TODO:
+            var nextValue = Value + e.Delta;
+            if (nextValue > maxValue || nextValue < minValue)
+            {
+                return;
+            }
+
+            Value = nextValue;
+            RotationDegrees = coefficient * Value;
         }
     }
 }
