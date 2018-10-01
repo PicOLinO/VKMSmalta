@@ -10,7 +10,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
         private readonly int maxValue;
         private readonly int coefficient;
 
-        public ICommand MouseMoveCommand { get; private set; }
+        public ICommand MouseWheelCommand { get; private set; }
 
         public int RotationDegrees
         {
@@ -29,7 +29,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 
         private void CreateCommands()
         {
-            MouseMoveCommand = new DelegateCommand<MouseWheelEventArgs>(OnMouseWheel);
+            MouseWheelCommand = new DelegateCommand<MouseWheelEventArgs>(OnMouseWheel);
         }
 
         private void OnMouseWheel(MouseWheelEventArgs e)

@@ -12,7 +12,7 @@
     <Grid>
         <Image Cursor="Hand" Source="{Binding Path=ImageSource}">
             <dxmvvm:Interaction.Behaviors>
-                <dxmvvm:EventToCommand EventName="MouseWheel" Command="{Binding Path=MouseMoveCommand}"
+                <dxmvvm:EventToCommand EventName="MouseWheel" Command="{Binding Path=MouseWheelCommand}"
                                        PassEventArgsToCommand="True" />
             </dxmvvm:Interaction.Behaviors>
             <Image.RenderTransform>
