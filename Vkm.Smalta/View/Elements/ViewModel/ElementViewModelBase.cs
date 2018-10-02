@@ -2,7 +2,6 @@
 
 using System;
 using DevExpress.Mvvm;
-using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
 using Vkm.Smalta.View.Hints.ViewModel;
 
 #endregion
@@ -43,6 +42,8 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             set { SetProperty(() => IsHintOpen, value); }
         }
 
+        public string Name { get; }
+
         public Enum Page { get; set; }
 
         public double PosLeft
@@ -57,15 +58,6 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             set { SetProperty(() => PosTop, value); }
         }
 
-        protected virtual void OnValueChanged()
-        {
-            Hint?.ClickNextCommand.RaiseCanExecuteChanged();
-        }
-
-        #region IValuableNamedElement
-
-        public string Name { get; set; }
-
         public int Value
         {
             get { return GetProperty(() => Value); }
@@ -79,6 +71,9 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             }
         }
 
-        #endregion
+        protected virtual void OnValueChanged()
+        {
+            Hint?.ClickNextCommand.RaiseCanExecuteChanged();
+        }
     }
 }

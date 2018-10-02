@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.Services.Navigate;
 using Vkm.Smalta.View.Elements.ViewModel;
+using Vkm.Smalta.View.InnerPages.DSL.Common;
 
 #endregion
 
@@ -27,7 +28,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                 case RlsOncInnerRegionPage.ControlPanelSimulator:
                     Elements = new ObservableCollection<ElementViewModelBase>
                                {
-                                   GiveMe.Element().On(PageKey).WithName("dummy_wheel").WithValue(0).At(280, 341).Wheel().WithCoefficient(20).WithMaxValue(40).Please(),
+                                   GiveMe.Element().On(PageKey).WithName("dummy_wheel").WithValue(0).At(280, 341).Wheel().WithImageType(ImageType.Point).WithCoefficient(20).WithMaxValue(40).Please(),
                                };
                     break;
                 case RlsOncInnerRegionPage.G5_15:

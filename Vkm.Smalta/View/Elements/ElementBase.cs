@@ -57,8 +57,8 @@ namespace Vkm.Smalta.View.Elements
                                 Placement = PlacementMode.Right,
                                 MinWidth = 170,
                                 MinHeight = 60,
-                                VerticalOffset = 20, //TODO override
-                                HorizontalOffset = 10, //TODO override
+                                VerticalOffset = 20,
+                                HorizontalOffset = 10,
                                 PopupAnimation = PopupAnimation.Fade,
                                 AllowsTransparency = true,
                                 Child = hintView
