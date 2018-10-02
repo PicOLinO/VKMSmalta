@@ -8,7 +8,7 @@ using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
 
 namespace Vkm.Smalta.View.Elements.ViewModel
 {
-    public class VkmBlackTriangleArrowViewModel : ElementViewModelBase, ITimingValueChangedElement, IDisposable
+    public class VkmBlackTriangleArrowViewModel : ElementViewModelBase, IDisposable
     {
         private const int Coefficient = 11;
 

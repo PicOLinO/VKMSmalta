@@ -194,7 +194,6 @@
     <Compile Include="View\Elements\ElementBase.cs" />
     <Compile Include="View\Elements\ViewModel\ClickableDependencyActivatorElementBase.cs" />
     <Compile Include="View\Elements\ViewModel\Interfaces\IDependencyActivatorElement.cs" />
-    <Compile Include="View\Elements\ViewModel\Interfaces\ITimingValueChangedElement.cs" />
     <Compile Include="View\Elements\ViewModel\VkmBigButtonViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmLampViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmWheelViewModel.cs" />
