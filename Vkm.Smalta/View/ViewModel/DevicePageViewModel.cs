@@ -85,7 +85,7 @@ namespace Vkm.Smalta.View.ViewModel
             set { SetProperty(() => IsTrollFaceOpen, value); }
         }
 
-        public ICommand<Key> KeyDownCommand { get; set; }
+        public ICommand<KeyEventArgs> KeyDownCommand { get; set; }
         public ApplicationMode Mode { get; private set; }
 
         public Enum NextPageKey
@@ -136,7 +136,7 @@ namespace Vkm.Smalta.View.ViewModel
             GoPreviousCommand = new DelegateCommand(OnGoPrevious, CanGoPrevious);
             if (Mode == ApplicationMode.Examine)
             {
-                KeyDownCommand = new DelegateCommand<Key>(OnKeyDown);
+                KeyDownCommand = new DelegateCommand<KeyEventArgs>(OnKeyDown);
             }
         }
 
@@ -237,8 +237,10 @@ namespace Vkm.Smalta.View.ViewModel
             NavigateOnInnerPage(PreviousPageKey);
         }
 
-        private async void OnKeyDown(Key key)
+        private async void OnKeyDown(KeyEventArgs e)
         {
+            var key = e.Key;
+
             if (IsGodModeOn)
             {
                 return;

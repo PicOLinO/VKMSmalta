@@ -4,6 +4,9 @@ using DevExpress.Mvvm.UI;
 
 namespace Vkm.Smalta.Converters.EventArgsConverters
 {
+    /// <summary>
+    /// Может понадобиться, а может и нет =) Удалить после добавления нового симулятора, если он также не будет использоваться
+    /// </summary>
     public class MouseEventArgsToMousePointConverter : BaseConverter<MouseEventArgsToMousePointConverter>, IEventArgsConverter
     {
         public object Convert(object sender, object args)
