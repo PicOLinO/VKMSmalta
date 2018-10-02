@@ -1,4 +1,4 @@
-﻿function ValidateUrl(url: string): boolean;
+function ValidateUrl(url: string): boolean;
 
 var isHttps : boolean;
 
