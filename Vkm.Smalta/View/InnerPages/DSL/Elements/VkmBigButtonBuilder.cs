@@ -26,8 +26,8 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 
         public VkmBigButtonViewModel Please()
         {
-            var imageOn = XamlResource.Resolve("View/Images/BigButtonOn.png");
-            var imageOff = XamlResource.Resolve("View/Images/BigButtonOff.png");
+            var imageOn = ImagesRepository.BigButtonOn;
+            var imageOff = ImagesRepository.BigButtonOff;
             return new VkmBigButtonViewModel(Value, Name, imageOn, imageOff, dependencyActions, dependencySecureElementName) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
         }
 

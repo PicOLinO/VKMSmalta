@@ -8,6 +8,7 @@ using Appccelerate.CommandLineParser;
 using DevExpress.Mvvm;
 using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Services;
+using Vkm.Smalta.View.Images;
 
 #endregion
 
@@ -31,16 +32,23 @@ namespace Vkm.Smalta
 
         private void InitializeDependencies(Config config)
         {
+            var imagesRepository = new ImagesRepository();
+            var messageBoxService = new MessageBoxService();
+
+            ServiceContainer.Default.RegisterService(imagesRepository);
+            ServiceContainer.Default.RegisterService(messageBoxService);
+
             ServiceContainer.Default.RegisterService(ViewInjectionManager.Default);
             ServiceContainer.Default.RegisterService(new HintService());
             ServiceContainer.Default.RegisterService(new LoadingService());
             ServiceContainer.Default.RegisterService(new HistoryService());
             ServiceContainer.Default.RegisterService(new NetworkService(config.AdminUri));
-            ServiceContainer.Default.RegisterService(new DialogFactory(new MessageBoxService()));
-            ServiceContainer.Default.RegisterService(new PagesFactory());
+            ServiceContainer.Default.RegisterService(new PagesFactory(imagesRepository));
+            ServiceContainer.Default.RegisterService(new DialogFactory(messageBoxService));
             ServiceContainer.Default.RegisterService(new ActionsFactory());
             ServiceContainer.Default.RegisterService(new DevicesFactory());
             ServiceContainer.Default.RegisterService(new AppContext());
+            ServiceContainer.Default.RegisterService(new ImagesRepository());
 
             DependencyContainer.Initialize(ServiceContainer.Default);
         }

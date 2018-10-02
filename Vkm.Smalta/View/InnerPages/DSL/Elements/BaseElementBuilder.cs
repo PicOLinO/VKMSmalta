@@ -2,6 +2,8 @@
 
 using System;
 using System.Collections.Generic;
+using DevExpress.Mvvm;
+using Vkm.Smalta.View.Images;
 
 #endregion
 
@@ -15,6 +17,8 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
         protected int PosTop;
         protected int RotationDegrees;
         protected int Value;
+
+        public IImagesRepository ImagesRepository => ServiceContainer.Default.GetService<IImagesRepository>();
 
         public BaseElementBuilder At(int posTop, int posLeft)
         {

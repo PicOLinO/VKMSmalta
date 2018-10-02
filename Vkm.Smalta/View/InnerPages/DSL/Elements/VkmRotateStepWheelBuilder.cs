@@ -25,7 +25,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 
         public VkmRotateStepWheelViewModel Please()
         {
-            var image = XamlResource.Resolve("View/Images/StepWheel.png");
+            var image = ImagesRepository.StepWheel;
             return new VkmRotateStepWheelViewModel(Value, Name, RotationDegrees, rotationStepDegrees, maxRotationSteps, image) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
         }
 

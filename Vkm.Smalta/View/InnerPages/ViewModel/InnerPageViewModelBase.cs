@@ -4,6 +4,7 @@ using System;
 using System.Collections.ObjectModel;
 using DevExpress.Mvvm;
 using Vkm.Smalta.View.Elements.ViewModel;
+using Vkm.Smalta.View.Images;
 using Vkm.Smalta.View.InnerPages.DSL;
 
 #endregion

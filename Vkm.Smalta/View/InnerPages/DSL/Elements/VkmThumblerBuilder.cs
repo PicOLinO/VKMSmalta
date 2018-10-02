@@ -26,8 +26,8 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 
         public VkmThumblerViewModel Please()
         {
-            var imageOn = XamlResource.Resolve("View/Images/ThumblerOn.png");
-            var imageOff = XamlResource.Resolve("View/Images/ThumblerOff.png");
+            var imageOn = ImagesRepository.ThumblerOn;
+            var imageOff = ImagesRepository.ThumblerOff;
             return new VkmThumblerViewModel(Value, Name, imageOff, imageOn, dependencyActions) {PosTop = PosTop, PosLeft = PosLeft, StartupRotation = RotationDegrees, Page = Page};
         }
 

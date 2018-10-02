@@ -27,7 +27,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                 case RlsOncInnerRegionPage.ControlPanelSimulator:
                     Elements = new ObservableCollection<ElementViewModelBase>
                                {
-                                   GiveMe.Element().On(PageKey).WithName("dummy_wheel").WithValue(0).WithStartupRotation(90).At(280, 341).Wheel().Please(),
+                                   GiveMe.Element().On(PageKey).WithName("dummy_wheel").WithValue(0).At(280, 341).Wheel().WithCoefficient(20).WithMaxValue(40).Please(),
                                };
                     break;
                 case RlsOncInnerRegionPage.G5_15:

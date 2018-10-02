@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using Vkm.Smalta.View.Images;
 using Vkm.Smalta.View.InnerPages.DSL.Elements;
 using Vkm.Smalta.View.InnerPages.DSL.Other;
 

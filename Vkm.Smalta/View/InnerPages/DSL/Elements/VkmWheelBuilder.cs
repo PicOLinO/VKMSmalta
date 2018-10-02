@@ -44,7 +44,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 
         public VkmWheelViewModel Please()
         {
-            var image = XamlResource.Resolve("View/Images/Wheel.png");
+            var image = ImagesRepository.Wheel;
             return new VkmWheelViewModel(Value, image, minValue, maxValue, coefficient, Name);
         }
     }

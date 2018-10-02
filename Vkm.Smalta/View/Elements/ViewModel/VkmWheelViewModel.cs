@@ -25,6 +25,11 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             this.coefficient = coefficient;
             ImageSource = imageSource;
 
+            if (Value < minValue)
+                Value = minValue;
+            if (Value > maxValue)
+                Value = maxValue;
+
             CreateCommands();
         } 
 

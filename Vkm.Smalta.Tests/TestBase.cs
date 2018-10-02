@@ -6,6 +6,7 @@ using Vkm.Smalta.Dialogs.Factories;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.Tests.DSL;
 using Vkm.Smalta.Tests.Fakes.ServicesAndFactories;
+using Vkm.Smalta.View.Images;
 
 #endregion
 
@@ -25,17 +26,21 @@ namespace Vkm.Smalta.Tests
             HistoryService = new HistoryService();
             NetworkService = new NetworkServiceStub();
 
+            ImageRepository = new ImagesRepository(); //TODO: Make stub
+
             DialogFactory = new DialogFactoryStub();
             ActionsFactory = new ActionsFactory();
             DevicesFactory = new DevicesFactory();
-            PagesFactory = new PagesFactory();
+            PagesFactory = new PagesFactory(ImageRepository);
 
             ServiceContainer.Default.RegisterService(ViewInjectionManager);
             ServiceContainer.Default.RegisterService(HintService);
             ServiceContainer.Default.RegisterService(LoadingService);
             ServiceContainer.Default.RegisterService(HistoryService);
             ServiceContainer.Default.RegisterService(NetworkService);
-
+            
+            ServiceContainer.Default.RegisterService(ImageRepository);
+            
             ServiceContainer.Default.RegisterService(DialogFactory);
             ServiceContainer.Default.RegisterService(PagesFactory);
             ServiceContainer.Default.RegisterService(DevicesFactory);
@@ -54,6 +59,8 @@ namespace Vkm.Smalta.Tests
         protected HintServiceStub HintService;
         protected LoadingServiceStub LoadingService;
         protected HistoryService HistoryService;
+
+        protected ImagesRepository ImageRepository; //TODO: Make stub
 
         protected DialogFactoryStub DialogFactory;
         protected DevicesFactory DevicesFactory;
