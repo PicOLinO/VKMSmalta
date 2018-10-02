@@ -9,6 +9,7 @@ using System.Windows.Input;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.View.Elements.ViewModel;
 using Vkm.Smalta.View.Hints;
+using ToolTip = System.Windows.Controls.ToolTip;
 
 #endregion
 
@@ -77,24 +78,13 @@ namespace Vkm.Smalta.View.Elements
                 {
                     hintPopup.PlacementTarget = grid;
                     grid.Children.Add(hintPopup);
-
-                    // Блок кода ниже сделан специально для тумблеров, так как привязка подсказки к перевернутым тумблерам слетает.
-                    // Постараться выпилить этот код по-вомзожности.
-                    var anchorImage = LogicalTreeHelper.FindLogicalNode(grid, "PART_ImageAnchor");
-                    if (anchorImage != null)
-                    {
-                        if (anchorImage is Image image)
-                        {
-                            hintPopup.PlacementTarget = image;
-                        }
-                    }
                 }
             }
 
             BindingOperations.SetBinding(hintPopup, Popup.IsOpenProperty, isOpenBinding);
             BindingOperations.SetBinding(hintView, DataContextProperty, hintBinding);
         }
-
+        
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
             var vm = DataContext as ElementViewModelBase;
@@ -102,7 +92,8 @@ namespace Vkm.Smalta.View.Elements
 
             if (App.IsDebug)
             {
-                var toolTip = new ToolTip {Content = vm?.Name};
+                var content = $"{vm?.Name} ({vm?.PosTop}, {vm?.PosLeft})";
+                var toolTip = new ToolTip {Content = content};
                 ToolTip = toolTip;
             }
         }
@@ -177,6 +168,8 @@ namespace Vkm.Smalta.View.Elements
                 {
                     elementVm.PosTop = newTop;
                 }
+
+                ((ToolTip) ToolTip).Content = $"{elementVm?.Name} ({elementVm?.PosTop}, {elementVm?.PosLeft})";
             }
         }
 

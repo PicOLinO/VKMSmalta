@@ -18,11 +18,12 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             set { SetProperty(() => RotationDegrees, value); }
         }
 
-        protected VkmWheelViewModel(int value, int minValue, int maxValue, int coefficient, string name) : base(value, name)
+        public VkmWheelViewModel(int value, string imageSource, int minValue, int maxValue, int coefficient, string name) : base(value, name)
         {
             this.minValue = minValue;
             this.maxValue = maxValue;
             this.coefficient = coefficient;
+            ImageSource = imageSource;
 
             CreateCommands();
         } 
@@ -34,7 +35,8 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 
         private void OnMouseWheel(MouseWheelEventArgs e)
         {
-            var nextValue = Value + e.Delta;
+            var delta = e.Delta / 120;
+            var nextValue = Value + delta;
             if (nextValue > maxValue || nextValue < minValue)
             {
                 return;

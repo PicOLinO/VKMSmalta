@@ -10,12 +10,13 @@
                       d:DesignHeight="300" d:DesignWidth="300"
                       d:DataContext="{d:DesignInstance Type=viewModel:VkmThumblerViewModel}">
     <Grid>
-        <Image x:Name="PART_ImageAnchor" Cursor="Hand" Source="{Binding Path=ImageSource}">
+        <!-- ReSharper disable once UnusedMember.Global -->
+        <Image Cursor="Hand" Source="{Binding Path=ImageSource}" Style="{StaticResource RotationImage}">
             <dxmvvm:Interaction.Behaviors>
                 <dxmvvm:EventToCommand EventName="MouseLeftButtonUp" Command="{Binding Path=MouseLeftButtonUpCommand}" />
             </dxmvvm:Interaction.Behaviors>
             <Image.RenderTransform>
-                <RotateTransform CenterX="38" CenterY="66" Angle="{Binding Path=StartupRotation}" />
+                <RotateTransform Angle="{Binding Path=StartupRotation}" />
             </Image.RenderTransform>
         </Image>
     </Grid>

@@ -52,6 +52,9 @@
                 <DataTemplate DataType="{x:Type elementsVM:VkmLampViewModel}">
                     <elements1:VkmLamp Tag="{Binding ElementName=PART_Canvas}" />
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type elementsVM:VkmWheelViewModel}">
+                    <elements1:VkmWheel Tag="{Binding ElementName=PART_Canvas}" />
+                </DataTemplate>
             </ItemsControl.Resources>
         </ItemsControl>
     </Grid>

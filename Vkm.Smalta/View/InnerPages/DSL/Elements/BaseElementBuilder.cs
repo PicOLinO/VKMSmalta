@@ -59,6 +59,11 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
             return new VkmThumblerBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, Page);
         }
 
+        public VkmWheelBuilder Wheel()
+        {
+            return new VkmWheelBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, Page);
+        }
+
         public BaseElementBuilder WithName(string name)
         {
             Name = name;

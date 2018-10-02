@@ -10,13 +10,13 @@
                       d:DesignHeight="300" d:DesignWidth="300"
                       d:DataContext="{d:DesignInstance Type=viewModel:VkmWheelViewModel}">
     <Grid>
-        <Image Cursor="Hand" Source="{Binding Path=ImageSource}">
+        <Image Cursor="Hand" Source="{Binding Path=ImageSource}" Style="{StaticResource RotationImage}">
             <dxmvvm:Interaction.Behaviors>
                 <dxmvvm:EventToCommand EventName="MouseWheel" Command="{Binding Path=MouseWheelCommand}"
                                        PassEventArgsToCommand="True" />
             </dxmvvm:Interaction.Behaviors>
             <Image.RenderTransform>
-                <RotateTransform CenterX="40" CenterY="27" Angle="{Binding Path=RotationDegrees}" />
+                <RotateTransform Angle="{Binding Path=RotationDegrees}" />
             </Image.RenderTransform>
         </Image>
     </Grid>

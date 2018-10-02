@@ -26,10 +26,10 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                     Elements = new ObservableCollection<ElementViewModelBase>
                                {
                                    //Тумблеры в середине
-                                   GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_1channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(280, 341).Thumbler().Please(),
-                                   GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_2channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(323, 340).Thumbler().Please(),
-                                   GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_3channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(367, 341).Thumbler().Please(),
-                                   GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_4channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(411, 341).Thumbler().Please(),
+                                   GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_1channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(299, 409).Thumbler().Please(),
+                                   GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_2channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(343, 409).Thumbler().Please(),
+                                   GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_3channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(386, 409).Thumbler().Please(),
+                                   GiveMe.Element().On(PageKey).WithName("lo01p_thumbler_4channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).WithStartupRotation(90).At(429, 409).Thumbler().Please(),
 
                                    //Подсветка в середине
                                    GiveMe.Element().On(PageKey).WithName("lo01p_reciever_1channel").WithValueFrom(CurrentAlgorithm.StartStateOfElements).At(309, 540).LightBox("ПРИЕМНИК\nI КАНАЛ").Please(),

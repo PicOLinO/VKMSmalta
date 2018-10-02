@@ -25,7 +25,10 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                     Elements = new ObservableCollection<ElementViewModelBase>();
                     break;
                 case RlsOncInnerRegionPage.ControlPanelSimulator:
-                    Elements = new ObservableCollection<ElementViewModelBase>();
+                    Elements = new ObservableCollection<ElementViewModelBase>
+                               {
+                                   GiveMe.Element().On(PageKey).WithName("dummy_wheel").WithValue(0).WithStartupRotation(90).At(280, 341).Wheel().Please(),
+                               };
                     break;
                 case RlsOncInnerRegionPage.G5_15:
                     Elements = new ObservableCollection<ElementViewModelBase>();
