@@ -1,10 +1,10 @@
-п»їfunction IsDotNetDetected(version: string; release: cardinal): boolean;
+function IsDotNetDetected(version: string; release: cardinal): boolean;
 
 var 
-    reg_key: string; // РџСЂРѕСЃРјР°С‚СЂРёРІР°РµРјС‹Р№ РїРѕРґСЂР°Р·РґРµР» СЃРёСЃС‚РµРјРЅРѕРіРѕ СЂРµРµСЃС‚СЂР°
-    success: boolean; // Р¤Р»Р°Рі РЅР°Р»РёС‡РёСЏ Р·Р°РїСЂР°С€РёРІР°РµРјРѕР№ РІРµСЂСЃРёРё .NET
-    release45: cardinal; // РќРѕРјРµСЂ СЂРµР»РёР·Р° РґР»СЏ РІРµСЂСЃРёРё 4.5 +
-    key_value: cardinal; // РџСЂРѕС‡РёС‚Р°РЅРЅРѕРµ РёР· СЂРµРµСЃС‚СЂР° Р·РЅР°С‡РµРЅРёРµ РєР»СЋС‡Р°
+    reg_key: string; // Просматриваемый подраздел системного реестра
+    success: boolean; // Флаг наличия запрашиваемой версии .NET
+    release45: cardinal; // Номер релиза для версии 4.5 +
+    key_value: cardinal; // Прочитанное из реестра значение ключа
     sub_key: string;
 
 begin
@@ -12,7 +12,7 @@ begin
     success := false;
     reg_key := 'SOFTWARE\Microsoft\NET Framework Setup\NDP\';
     
-    // Р’СЂРµСЃРёСЏ 3.0
+    // Вресия 3.0
     if Pos('v3.0', version) = 1 then
       begin
           sub_key := 'v3.0';
@@ -21,7 +21,7 @@ begin
           success := success and (key_value = 1);
       end;
 
-    // Р’СЂРµСЃРёСЏ 3.5
+    // Вресия 3.5
     if Pos('v3.5', version) = 1 then
       begin
           sub_key := 'v3.5';
@@ -30,7 +30,7 @@ begin
           success := success and (key_value = 1);
       end;
 
-     // Р’СЂРµСЃРёСЏ 4.0 РєР»РёРµРЅС‚СЃРєРёР№ РїСЂРѕС„РёР»СЊ
+     // Вресия 4.0 клиентский профиль
      if Pos('v4.0 Client Profile', version) = 1 then
       begin
           sub_key := 'v4\Client';
@@ -39,7 +39,7 @@ begin
           success := success and (key_value = 1);
       end;
 
-     // Р’СЂРµСЃРёСЏ 4.0 СЂР°СЃС€РёСЂРµРЅРЅС‹Р№ РїСЂРѕС„РёР»СЊ
+     // Вресия 4.0 расширенный профиль
      if Pos('v4.0 Full Profile', version) = 1 then
       begin
           sub_key := 'v4\Full';
@@ -48,7 +48,7 @@ begin
           success := success and (key_value = 1);
       end;
 
-     // Р’РµСЂСЃРёСЏ 4.5
+     // Версия 4.5
      if Pos('v4.5', version) = 1 then
       begin
           sub_key := 'v4\Full';
@@ -57,7 +57,7 @@ begin
           success := success and (release45 >= release);
       end;
 
-	 // Р’РµСЂСЃРёСЏ 4.7
+	 // Версия 4.7
 	 if Pos('v4.7', version) = 1 then
       begin
           sub_key := 'v4\Full';
