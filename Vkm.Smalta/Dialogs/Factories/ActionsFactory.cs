@@ -21,11 +21,6 @@ namespace Vkm.Smalta.Dialogs.Factories
             return new Action(ActionName.Idle, elementName, useInExamineCheck, new AccessibleHintViewModel(hint, accessibleValue));
         }
 
-        public Action GetInfluentAction(string elementName, string hint, int newElementValue, bool useInExamineCheck = false)
-        {
-            return new Action(ActionName.Influent, elementName, useInExamineCheck, new InfluentialHintViewModel(hint, newElementValue));
-        }
-
         public Action GetInfoAction(string elementName, string hint, bool useInExamineCheck = false)
         {
             return new Action(ActionName.Idle, elementName, useInExamineCheck, new HintViewModelBase(hint));

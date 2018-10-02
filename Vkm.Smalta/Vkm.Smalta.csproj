@@ -227,7 +227,6 @@
       <DependentUpon>Hint.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Hints\ViewModel\AccessibleHintViewModel.cs" />
-    <Compile Include="View\Hints\ViewModel\InfluentialHintViewModel.cs" />
     <Compile Include="View\Images\IImagesRepository.cs" />
     <Compile Include="View\Images\ImagesRepository.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\BaseElementBuilder.cs" />
