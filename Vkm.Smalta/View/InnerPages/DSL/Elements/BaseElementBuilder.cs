@@ -18,7 +18,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
         protected int RotationDegrees;
         protected int Value;
 
-        public IImagesRepository ImagesRepository => ServiceContainer.Default.GetService<IImagesRepository>();
+        protected IImagesRepository ImagesRepository => ServiceContainer.Default.GetService<IImagesRepository>();
 
         public BaseElementBuilder At(int posTop, int posLeft)
         {

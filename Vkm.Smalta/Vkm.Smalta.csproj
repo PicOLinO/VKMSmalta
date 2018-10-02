@@ -229,6 +229,7 @@
     <Compile Include="View\Hints\ViewModel\AccessibleHintViewModel.cs" />
     <Compile Include="View\Images\IImagesRepository.cs" />
     <Compile Include="View\Images\ImagesRepository.cs" />
+    <Compile Include="View\InnerPages\DSL\Common\ImageType.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\BaseElementBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmBigButtonBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmLampBuilder.cs" />
@@ -421,7 +422,7 @@
     <Content Include="Setup\setup.iss" />
     <Content Include="lib\XAMLEx.dll" />
     <Content Include="Setup\NDP47-KB3186497-x86-x64-AllOS-ENU.exe" />
-    <Resource Include="View\Images\CircleWheel.png" />
+    <Resource Include="View\Images\WheelFlat.png" />
     <Resource Include="View\Images\Wheel.png" />
     <Resource Include="View\Images\WheelPoint.png" />
     <Resource Include="View\Images\RlsOnc\Backgrounds\rls_onc_c1_65.jpg" />

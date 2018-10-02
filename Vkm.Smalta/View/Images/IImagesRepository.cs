@@ -4,14 +4,14 @@
     {
         string BigButtonOff { get; }
         string BigButtonOn { get; }
-        string CircleWheel { get; }
         string LampOff { get; }
         string LampOn { get; }
         string StepWheel { get; }
         string ThumblerOff { get; }
         string ThumblerOn { get; }
-        string Wheel { get; }
+        string WheelGear { get; }
         string WheelPoint { get; }
+        string WheelFlat { get; }
 
         string LO01I_LO01K { get; }
         string LO01P { get; }

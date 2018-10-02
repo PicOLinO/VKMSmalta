@@ -1,5 +1,6 @@
 ﻿using System;
 using Vkm.Smalta.View.Elements.ViewModel;
+using Vkm.Smalta.View.InnerPages.DSL.Common;
 using XAMLEx;
 
 namespace Vkm.Smalta.View.InnerPages.DSL.Elements
@@ -9,6 +10,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
         private int minValue;
         private int maxValue;
         private int coefficient;
+        private string image;
 
         public VkmWheelBuilder(int value, string name, int posTop, int posLeft, int startupRotation, Enum page)
         {
@@ -22,6 +24,26 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
             coefficient = 1;
             minValue = 0;
             maxValue = 1;
+        }
+
+        public VkmWheelBuilder WithImageType(ImageType imageType)
+        {
+            switch (imageType)
+            {
+                case ImageType.Flat:
+                    image = ImagesRepository.WheelFlat;
+                    break;
+                case ImageType.Point:
+                    image = ImagesRepository.WheelPoint;
+                    break;
+                case ImageType.Gear:
+                    image = ImagesRepository.WheelGear;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(imageType), imageType, null);
+            }
+
+            return this;
         }
 
         public VkmWheelBuilder WithMinValue(int minValue)
@@ -44,7 +66,6 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 
         public VkmWheelViewModel Please()
         {
-            var image = ImagesRepository.Wheel;
             return new VkmWheelViewModel(Value, image, minValue, maxValue, coefficient, Name);
         }
     }
