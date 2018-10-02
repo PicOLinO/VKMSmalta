@@ -185,7 +185,7 @@ namespace Vkm.Smalta.View.ViewModel
 
             var value = IsGodModeOn
                             ? new Random().Next(4, 6)
-                            : historyService.GetValueByAlgorithmByUserActions(CurrentAlgorithm, UnionElements.Cast<IValuableNamedElement>().ToList());
+                            : historyService.GetValueByAlgorithmByUserActions(CurrentAlgorithm, UnionElements.ToList());
 
             var examineResult = new ExamineResult
                                 {

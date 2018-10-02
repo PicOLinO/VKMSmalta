@@ -31,11 +31,11 @@ namespace Vkm.Smalta.Services
 
         #region IHintService
 
-        public IValuableNamedElement GetValuableElementByCurrentHint()
+        public ElementViewModelBase GetElementByCurrentHint()
         {
             if (CurrentAction != null)
             {
-                return Elements.Cast<IValuableNamedElement>().Single(e => e.Name == CurrentAction?.ParentElementName);
+                return Elements.Single(e => e.Name == CurrentAction?.ParentElementName);
             }
 
             return null;

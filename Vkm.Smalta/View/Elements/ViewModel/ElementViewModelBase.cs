@@ -9,7 +9,7 @@ using Vkm.Smalta.View.Hints.ViewModel;
 
 namespace Vkm.Smalta.View.Elements.ViewModel
 {
-    public class ElementViewModelBase : ViewModelBase, IValuableNamedElement
+    public class ElementViewModelBase : ViewModelBase
     {
         private readonly bool isInitialize;
 

@@ -21,7 +21,7 @@ namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
 
         #region IHintService
 
-        public IValuableNamedElement GetValuableElementByCurrentHint()
+        public ElementViewModelBase GetElementByCurrentHint()
         {
             throw new NotImplementedException();
         }

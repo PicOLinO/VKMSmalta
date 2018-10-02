@@ -15,7 +15,7 @@ namespace Vkm.Smalta.View.Hints.ViewModel
 
         protected override bool CanOnClickNext()
         {
-            var element = HintService.GetValuableElementByCurrentHint();
+            var element = HintService.GetElementByCurrentHint();
             return element?.Value == accessibleValue;
         }
     }

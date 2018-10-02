@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Vkm.Smalta.Domain;
+using Vkm.Smalta.View.Elements.ViewModel;
 using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
 
 #endregion
@@ -18,7 +19,7 @@ namespace Vkm.Smalta.Services
 
         #region IHistoryService
 
-        public int GetValueByAlgorithmByEndStateOfElements(Algorithm algorithm, List<IValuableNamedElement> elements)
+        public int GetValueByAlgorithmByEndStateOfElements(Algorithm algorithm, List<ElementViewModelBase> elements)
         {
             var rightsCount = 0;
             var allCount = 0;
@@ -44,7 +45,7 @@ namespace Vkm.Smalta.Services
                        : value;
         }
 
-        public int GetValueByAlgorithmByUserActions(Algorithm algorithm, List<IValuableNamedElement> elements)
+        public int GetValueByAlgorithmByUserActions(Algorithm algorithm, List<ElementViewModelBase> elements)
         {
             //TODO: Несовершенно. Ужасно написано, нужна оптимизация с точки зрения не производительности, а бизнес-логики.
 

@@ -15,7 +15,7 @@ namespace Vkm.Smalta.View.Hints.ViewModel
 
         protected override void OnClickNext()
         {
-            var element = HintService.GetValuableElementByCurrentHint();
+            var element = HintService.GetElementByCurrentHint();
             element.Value = newElementValue;
 
             base.OnClickNext();

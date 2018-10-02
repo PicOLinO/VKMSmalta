@@ -13,7 +13,7 @@ namespace Vkm.Smalta.Services
 {
     public interface IHintService
     {
-        IValuableNamedElement GetValuableElementByCurrentHint();
+        ElementViewModelBase GetElementByCurrentHint();
         void OnNavigated(Enum toPage);
         void Reset();
         void ShowNextHint();

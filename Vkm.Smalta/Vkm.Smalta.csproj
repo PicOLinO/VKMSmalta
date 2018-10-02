@@ -209,7 +209,6 @@
     </Compile>
     <Compile Include="View\Elements\ViewModel\ClickableElementViewModelBase.cs" />
     <Compile Include="View\Elements\ViewModel\ElementViewModelBase.cs" />
-    <Compile Include="View\Elements\ViewModel\Interfaces\IValuableNamedElement.cs" />
     <Compile Include="View\Elements\ViewModel\VkmLightableRectangleViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmBlackTriangleArrowViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmRotateStepWheelViewModel.cs" />
