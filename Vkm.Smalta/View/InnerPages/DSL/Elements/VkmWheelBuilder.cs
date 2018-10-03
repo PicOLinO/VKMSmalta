@@ -66,7 +66,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 
         public VkmWheelViewModel Please()
         {
-            return new VkmWheelViewModel(Value, image, minValue, maxValue, coefficient, Name);
+            return new VkmWheelViewModel(Value, image, minValue, maxValue, coefficient, Name) { PosTop = PosTop, PosLeft = PosLeft, Page = Page };
         }
     }
 }
