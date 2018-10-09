@@ -195,6 +195,7 @@
     <Compile Include="View\Elements\ViewModel\Interfaces\IDependencyActivatorElement.cs" />
     <Compile Include="View\Elements\ViewModel\VkmBigButtonViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmLampViewModel.cs" />
+    <Compile Include="View\Elements\ViewModel\VkmNumberDisplayViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmWheelViewModel.cs" />
     <Compile Include="View\Elements\VkmBigButton.xaml.cs">
       <DependentUpon>VkmBigButton.xaml</DependentUpon>
@@ -211,6 +212,9 @@
     <Compile Include="View\Elements\ViewModel\VkmBlackTriangleArrowViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmRotateStepWheelViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmThumblerViewModel.cs" />
+    <Compile Include="View\Elements\VkmNumberDisplay.xaml.cs">
+      <DependentUpon>VkmNumberDisplay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Elements\VkmWheel.xaml.cs">
       <DependentUpon>VkmWheel.xaml</DependentUpon>
     </Compile>
@@ -331,6 +335,10 @@
     <Page Include="View\Elements\VkmLightableRectangle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Elements\VkmNumberDisplay.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Elements\VkmWheel.xaml">
       <Generator>MSBuild:Compile</Generator>

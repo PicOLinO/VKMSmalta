@@ -31,7 +31,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             isInitialize = false;
         }
 
-        public bool IsDependencyActionsRunning { get; private set; }
+        private bool IsDependencyActionsRunning { get; set; }
 
         private void DependencyActionsCounterCallback(string dependencyElementName)
         {
