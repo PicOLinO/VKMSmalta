@@ -196,10 +196,14 @@
     <Compile Include="View\Elements\ViewModel\VkmBigButtonViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmLampViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmNumberDisplayViewModel.cs" />
+    <Compile Include="View\Elements\ViewModel\VkmRadarNoiseViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmRadarTargetViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmWheelViewModel.cs" />
     <Compile Include="View\Elements\VkmBigButton.xaml.cs">
       <DependentUpon>VkmBigButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Elements\VkmRadarNoise.xaml.cs">
+      <DependentUpon>VkmRadarNoise.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Elements\VkmRadarTarget.xaml.cs">
       <DependentUpon>VkmRadarTarget.xaml</DependentUpon>
@@ -332,6 +336,10 @@
     <Page Include="View\Elements\VkmBigButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Elements\VkmRadarNoise.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Elements\VkmRadarTarget.xaml">
       <Generator>MSBuild:Compile</Generator>
