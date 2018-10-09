@@ -68,6 +68,11 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
             return new VkmWheelBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, Page);
         }
 
+        public VkmRadarTargetBuilder RadarTarget()
+        {
+            return new VkmRadarTargetBuilder(Value, Name, PosTop, PosLeft, Page);
+        }
+
         public BaseElementBuilder WithName(string name)
         {
             Name = name;

@@ -2,14 +2,22 @@
 {
     public class VkmRadarTargetViewModel : ElementViewModelBase
     {
-        protected VkmRadarTargetViewModel(int value, string name) : base(value, name)
+        public VkmRadarTargetViewModel(int value, string name) : base(value, name)
         {
+            OpacityPercents = value / 100d;
         }
 
-        public int OpacityPercent
+        public double OpacityPercents
         {
-            get { return GetProperty(() => OpacityPercent / 100); }
-            set { SetProperty(() => OpacityPercent, value); }
+            get { return GetProperty(() => OpacityPercents); }
+            set { SetProperty(() => OpacityPercents, value); }
+        }
+
+        protected override void OnValueChanged()
+        {
+            base.OnValueChanged();
+
+            OpacityPercents = Value / 100d;
         }
     }
 }

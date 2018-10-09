@@ -29,7 +29,8 @@ namespace Vkm.Smalta.Dialogs.Factories
                                    RlsOncInnerRegionPage.Station,
                                    RlsOncInnerRegionPage.ControlPanelSimulator,
                                    RlsOncInnerRegionPage.G5_15,
-                                   RlsOncInnerRegionPage.C1_65
+                                   RlsOncInnerRegionPage.C1_65,
+                                   RlsOncInnerRegionPage.Radar
                                },
                        FirstPageKey = RlsOncInnerRegionPage.Station
                    };

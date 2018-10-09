@@ -37,6 +37,12 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                 case RlsOncInnerRegionPage.C1_65:
                     Elements = new ObservableCollection<ElementViewModelBase>();
                     break;
+                case RlsOncInnerRegionPage.Radar:
+                    Elements = new ObservableCollection<ElementViewModelBase>
+                               {
+                                   GiveMe.Element().On(PageKey).WithName("dummy_target").WithValue(70).At(239, 649).RadarTarget().Please(),
+                               };
+                    break;
                 default:
                     throw new NotSupportedException($"Unknown {nameof(PageKey)} type.");
             }

@@ -41,7 +41,8 @@ namespace Vkm.Smalta.Dialogs.Factories
                                new RlsOncInnerDevicePageViewModel(RlsOncInnerRegionPage.Station, imagesRepository.rls_onc_station, algorithm),
                                new RlsOncInnerDevicePageViewModel(RlsOncInnerRegionPage.ControlPanelSimulator, imagesRepository.rls_onc_controlpanelsim, algorithm),
                                new RlsOncInnerDevicePageViewModel(RlsOncInnerRegionPage.G5_15, imagesRepository.rls_onc_g5_15, algorithm),
-                               new RlsOncInnerDevicePageViewModel(RlsOncInnerRegionPage.C1_65, imagesRepository.rls_onc_c1_65, algorithm)
+                               new RlsOncInnerDevicePageViewModel(RlsOncInnerRegionPage.C1_65, imagesRepository.rls_onc_c1_65, algorithm),
+                               new RlsOncInnerDevicePageViewModel(RlsOncInnerRegionPage.Radar, imagesRepository.rls_onc_radar, algorithm)
                            };
                 default:
                     throw new ArgumentOutOfRangeException(nameof(device), device, null);

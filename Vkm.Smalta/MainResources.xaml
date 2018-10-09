@@ -36,6 +36,7 @@
         <dxmvvm:MapItem Source="{x:Static navigate:RlsOncInnerRegionPage.Station}" Target="Радиолокационная станция"/>
         <dxmvvm:MapItem Source="{x:Static navigate:RlsOncInnerRegionPage.G5_15}" Target="Генератор импульсов Г5-15"/>
         <dxmvvm:MapItem Source="{x:Static navigate:RlsOncInnerRegionPage.C1_65}" Target="Осциллограф С1-65"/>
+        <dxmvvm:MapItem Source="{x:Static navigate:RlsOncInnerRegionPage.Radar}" Target="Экран индикатора"/>
     </dxmvvm:ObjectToObjectConverter>
 
     <dxmvvm:ObjectToObjectConverter x:Key="ValueToStringValueConverter">

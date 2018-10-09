@@ -12,7 +12,8 @@
         Station,
         ControlPanelSimulator,
         G5_15,
-        C1_65
+        C1_65,
+        Radar
     }
 
     public enum OuterRegionPages
