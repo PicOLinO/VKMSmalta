@@ -22,7 +22,9 @@ namespace Vkm.Smalta.Dialogs.Factories
                        ReadableName = "Импульсная РЛС ОНЦ",
                        Algorithms = new List<Algorithm>
                                     {
-                                        algorithmsFactory.GetDummyAlgorithm()
+                                        algorithmsFactory.GetPrepareToLaunchAlgorithm(),
+                                        algorithmsFactory.GetDependencyOfNoiseCoefficientByWidthOfImpulsesInPack(),
+                                        algorithmsFactory.GetDependencyOfNoiseCoefficientByWidthOfImpulsesInPackForFrontwayNoise()
                                     },
                        Pages = new List<Enum>
                                {
