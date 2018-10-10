@@ -1,14 +1,40 @@
-﻿<elements:ElementBase x:Class="Vkm.Smalta.View.Elements.VkmRadarNoise"
+﻿<UserControl x:Class="Vkm.Smalta.View.Elements.VkmRadarNoise"
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                      xmlns:elements="clr-namespace:Vkm.Smalta.View.Elements"
                       xmlns:viewModel="clr-namespace:Vkm.Smalta.View.Elements.ViewModel"
                       mc:Ignorable="d"
-                      d:DesignHeight="450" d:DesignWidth="800"
+                      d:DesignHeight="800" d:DesignWidth="800"
                       d:DataContext="{d:DesignInstance Type=viewModel:VkmRadarNoiseViewModel}">
     <Grid>
-        <!--Implement-->
+        <Path Stroke="Green" StrokeThickness="5" Fill="LawnGreen" RenderTransformOrigin=".5 1">
+            <Path.Data>
+                <CombinedGeometry GeometryCombineMode="Exclude">
+                    <CombinedGeometry.Geometry1>
+                        <GeometryGroup FillRule="EvenOdd">
+                            <EllipseGeometry RadiusX="400" RadiusY="400" Center="400 400"/>
+                        </GeometryGroup>
+                    </CombinedGeometry.Geometry1>
+                    <CombinedGeometry.Geometry2>
+                        <GeometryGroup FillRule="Nonzero">
+                            <PathGeometry>
+                                <PathFigure IsClosed="True" IsFilled="True" StartPoint="400 800">
+                                    <PathFigure.Segments>
+                                        <LineSegment Point="1000 -200"/>
+                                        <LineSegment Point="1000 1000"/>
+                                        <LineSegment Point="-200 1000"/>
+                                        <LineSegment Point="-200 -200"/>
+                                    </PathFigure.Segments>
+                                </PathFigure>
+                            </PathGeometry>
+                        </GeometryGroup>
+                    </CombinedGeometry.Geometry2>
+                </CombinedGeometry>
+            </Path.Data>
+            <Path.RenderTransform>
+                <RotateTransform Angle="{Binding Path=RotationDegrees}" />
+            </Path.RenderTransform>
+        </Path>
     </Grid>
-</elements:ElementBase>
+</UserControl>
