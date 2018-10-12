@@ -7,13 +7,14 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
     {
         private int opacityPercent;
 
-        public VkmRadarNoiseBuilder(int value, string name, int posTop, int posLeft, Enum page)
+        public VkmRadarNoiseBuilder(int value, string name, int posTop, int posLeft, int rotationDegrees, Enum page)
         {
             PosTop = posTop;
             PosLeft = posLeft;
             Value = value;
             Name = name;
             Page = page;
+            RotationDegrees = rotationDegrees;
         }
 
         public VkmRadarNoiseBuilder WithOpacityPercents(int opacityPercent)
