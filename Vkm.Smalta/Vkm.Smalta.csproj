@@ -245,6 +245,7 @@
     <Compile Include="View\InnerPages\DSL\Elements\BaseElementBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmBigButtonBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmLampBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\VkmNumberDisplayBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmRadarNoiseBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmRadarTargetBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmWheelBuilder.cs" />

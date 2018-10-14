@@ -3,7 +3,7 @@
     public class VkmNumberDisplayViewModel : ElementViewModelBase
     {
         //TODO: Implement
-        protected VkmNumberDisplayViewModel(int value, string name) : base(value, name)
+        public VkmNumberDisplayViewModel(int value, string name) : base(value, name)
         {
         }
     }
