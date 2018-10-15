@@ -14,7 +14,6 @@ namespace Vkm.Smalta.View.Elements.ViewModel
     {
         private readonly string imageOffSource;
         private readonly string imageOnSource;
-        private readonly bool isInitialize;
 
         public VkmThumblerViewModel(int value,
                                     string name,
@@ -31,14 +30,10 @@ namespace Vkm.Smalta.View.Elements.ViewModel
                                                                                             posLeft,
                                                                                             page)
         {
-            isInitialize = true;
-
-            this.imageOffSource = imageOffSource;
+            ImageSource = this.imageOffSource = imageOffSource;
             this.imageOnSource = imageOnSource;
             Value = value;
             StartupRotation = startupRotation;
-
-            isInitialize = false;
         }
 
         public int StartupRotation
@@ -77,7 +72,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
                     throw new IndexOutOfRangeException();
             }
 
-            if (DependencyActions != null && !isInitialize)
+            if (DependencyActions != null)
             {
                 NotifyDependedElements();
             }
