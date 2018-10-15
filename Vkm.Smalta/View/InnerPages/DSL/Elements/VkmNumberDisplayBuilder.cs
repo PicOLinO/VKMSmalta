@@ -6,7 +6,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
     {
         public VkmNumberDisplayViewModel Please()
         {
-            return new VkmNumberDisplayViewModel(Value, Name) { PosTop = PosTop, PosLeft = PosLeft, Page = Page };
+            return new VkmNumberDisplayViewModel(Value, Name, PosTop, PosLeft, Page);
         }
     }
 }

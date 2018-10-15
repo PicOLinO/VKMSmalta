@@ -2,6 +2,8 @@
 
 #endregion
 
+using System;
+
 namespace Vkm.Smalta.View.Elements.ViewModel
 {
     public sealed class VkmRotateStepWheelViewModel : ClickableElementViewModelBase
@@ -10,7 +12,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
         private readonly int rotationStepDegrees;
         private readonly int startupRotation;
 
-        public VkmRotateStepWheelViewModel(int value, string name, int startupRotation, int rotationStepDegrees, int maxValue, string image) : base(value, name)
+        public VkmRotateStepWheelViewModel(int value, string name, int startupRotation, int rotationStepDegrees, int maxValue, string image, int posTop, int posLeft, Enum page) : base(value, name, posTop, posLeft, page)
         {
             this.startupRotation = RotationDegrees = startupRotation;
             this.rotationStepDegrees = rotationStepDegrees;

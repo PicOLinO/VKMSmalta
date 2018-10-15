@@ -12,12 +12,15 @@ namespace Vkm.Smalta.View.Elements.ViewModel
     {
         private readonly bool isInitialize;
 
-        protected ElementViewModelBase(int value, string name)
+        protected ElementViewModelBase(int value, string name, int posTop, int posLeft, Enum page)
         {
             isInitialize = true;
 
             Name = name;
             Value = value;
+            PosTop = posTop;
+            PosLeft = posLeft;
+            Page = page;
 
             isInitialize = false;
         }

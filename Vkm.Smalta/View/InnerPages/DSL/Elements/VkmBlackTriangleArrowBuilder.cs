@@ -21,7 +21,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 
         public VkmBlackTriangleArrowViewModel Please()
         {
-            return new VkmBlackTriangleArrowViewModel(Value, Name, RotationDegrees) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
+            return new VkmBlackTriangleArrowViewModel(Value, Name, RotationDegrees, PosTop, PosLeft, Page);
         }
     }
 }
