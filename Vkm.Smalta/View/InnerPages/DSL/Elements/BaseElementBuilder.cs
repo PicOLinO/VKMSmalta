@@ -78,6 +78,11 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
             return new VkmRadarNoiseBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, Page);
         }
 
+        public VkmNumberDisplayBuilder NumberDisplay()
+        {
+            return new VkmNumberDisplayBuilder(Value, Name, PosTop, PosLeft, Page);
+        }
+
         public BaseElementBuilder WithName(string name)
         {
             Name = name;

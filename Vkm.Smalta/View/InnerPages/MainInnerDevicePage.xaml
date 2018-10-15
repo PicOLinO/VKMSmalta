@@ -61,6 +61,9 @@
                 <DataTemplate DataType="{x:Type elementsVM:VkmRadarNoiseViewModel}">
                     <elements:VkmRadarNoise Tag="{Binding ElementName=PART_Canvas}" />
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type elementsVM:VkmNumberDisplayViewModel}">
+                    <elements:VkmNumberDisplay Tag="{Binding ElementName=PART_Canvas}" />
+                </DataTemplate>
             </ItemsControl.Resources>
         </ItemsControl>
     </Grid>

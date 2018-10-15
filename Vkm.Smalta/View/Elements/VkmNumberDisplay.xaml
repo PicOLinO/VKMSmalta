@@ -7,9 +7,19 @@
                       xmlns:elements="clr-namespace:Vkm.Smalta.View.Elements"
                       xmlns:viewModel="clr-namespace:Vkm.Smalta.View.Elements.ViewModel"
                       mc:Ignorable="d"
-                      d:DesignHeight="300" d:DesignWidth="300"
+                      d:DesignHeight="100" d:DesignWidth="200"
                       d:DataContext="{d:DesignInstance Type=viewModel:VkmNumberDisplayViewModel}">
     <Grid>
-        <!-- TODO: Implement -->
+        <Border BorderThickness="1" CornerRadius="20" BorderBrush="Gray" Background="White" MinWidth="200">
+            <TextBox Text="{Binding Value}" 
+                     Background="Transparent"
+                     IsReadOnly="True"
+                     IsReadOnlyCaretVisible="False"
+                     FontSize="50"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center"
+                     BorderThickness="0"
+                     Cursor="Arrow"/>
+        </Border>
     </Grid>
 </elements:ElementBase>

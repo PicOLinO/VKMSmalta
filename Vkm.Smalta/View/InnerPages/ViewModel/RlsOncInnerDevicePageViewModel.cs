@@ -32,7 +32,10 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                };
                     break;
                 case RlsOncInnerRegionPage.G5_15:
-                    Elements = new ObservableCollection<ElementViewModelBase>();
+                    Elements = new ObservableCollection<ElementViewModelBase>
+                               {
+                                   GiveMe.Element().On(PageKey).WithName("dummy_numberdisplay").WithValue(10).At(239, 649).NumberDisplay().Please()
+                               };
                     break;
                 case RlsOncInnerRegionPage.C1_65:
                     Elements = new ObservableCollection<ElementViewModelBase>();
