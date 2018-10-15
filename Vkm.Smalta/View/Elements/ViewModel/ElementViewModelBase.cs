@@ -9,14 +9,20 @@ using Vkm.Smalta.View.Hints.ViewModel;
 namespace Vkm.Smalta.View.Elements.ViewModel
 {
     public class ElementViewModelBase : ViewModelBase
-    {        protected ElementViewModelBase(int value, string name, int posTop, int posLeft, Enum page)
+    {
+        private readonly bool isInitialize;
+
+        protected ElementViewModelBase(int value, string name, int posTop, int posLeft, Enum page)
         {
+            isInitialize = true;
 
             Name = name;
             Value = value;
             PosTop = posTop;
             PosLeft = posLeft;
             Page = page;
+
+            isInitialize = false;
         }
 
         public HintViewModelBase Hint
@@ -58,7 +64,14 @@ namespace Vkm.Smalta.View.Elements.ViewModel
         public int Value
         {
             get { return GetProperty(() => Value); }
-            set { SetProperty(() => Value, value, OnValueChanged); }
+            set
+            {
+                SetProperty(() => Value, value);
+                if (!isInitialize)
+                {
+                    OnValueChanged();
+                }
+            }
         }
 
         protected virtual void OnValueChanged()
