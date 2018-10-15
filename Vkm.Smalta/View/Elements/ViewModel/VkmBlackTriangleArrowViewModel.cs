@@ -20,7 +20,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
         private readonly int startupRotation;
         private int neededRotation;
 
-        public VkmBlackTriangleArrowViewModel(int value, string name, int startupRotation) : base(value, name)
+        public VkmBlackTriangleArrowViewModel(int value, string name, int startupRotation, int posTop, int posLeft, Enum page) : base(value, name, posTop, posLeft, page)
         {
             isInitialize = true;
 

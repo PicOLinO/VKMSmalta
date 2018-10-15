@@ -1,9 +1,12 @@
-﻿namespace Vkm.Smalta.View.Elements.ViewModel
+﻿using System;
+
+namespace Vkm.Smalta.View.Elements.ViewModel
 {
     public class VkmRadarNoiseViewModel : ElementViewModelBase
     {
-        public VkmRadarNoiseViewModel(int value, string name) : base(value, name)
+        public VkmRadarNoiseViewModel(int value, string name, int rotationDegrees, int posTop, int posLeft, Enum page) : base(value, name, posTop, posLeft, page)
         {
+            RotationDegrees = rotationDegrees;
             OpacityPercents = value / 100d;
         }
 

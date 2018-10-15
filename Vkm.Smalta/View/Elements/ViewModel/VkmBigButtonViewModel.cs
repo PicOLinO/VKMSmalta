@@ -1,10 +1,12 @@
 ﻿#region Usings
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.Services;
+using Action = Vkm.Smalta.Domain.Action;
 
 #endregion
 
@@ -19,7 +21,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 
         private int dependencyActionsCounter;
 
-        public VkmBigButtonViewModel(int value, string name, string imageOnSource, string imageOffSource, List<DependencyAction> dependencyActions = null, string dependencySecureElementName = null) : base(value, name, dependencyActions)
+        public VkmBigButtonViewModel(int value, string name, string imageOnSource, string imageOffSource, int posTop, int posLeft, Enum page, List<DependencyAction> dependencyActions = null, string dependencySecureElementName = null) : base(value, name, dependencyActions, posTop, posLeft, page)
         {
             isInitialize = true;
 

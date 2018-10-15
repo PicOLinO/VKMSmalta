@@ -1,9 +1,11 @@
 ﻿#region Usings
 
+using System;
 using System.Windows.Input;
 using DevExpress.Mvvm;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.Services;
+using Action = Vkm.Smalta.Domain.Action;
 
 #endregion
 
@@ -13,7 +15,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
     {
         protected readonly IHistoryService HistoryService;
 
-        protected ClickableElementViewModelBase(int value, string name) : base(value, name)
+        protected ClickableElementViewModelBase(int value, string name, int posTop, int posLeft, Enum page) : base(value, name, posTop, posLeft, page)
         {
             HistoryService = ServiceContainer.GetService<IHistoryService>();
             CreateCommands();

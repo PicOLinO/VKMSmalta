@@ -28,7 +28,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
         {
             var imageOn = ImagesRepository.BigButtonOn;
             var imageOff = ImagesRepository.BigButtonOff;
-            return new VkmBigButtonViewModel(Value, Name, imageOn, imageOff, dependencyActions, dependencySecureElementName) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
+            return new VkmBigButtonViewModel(Value, Name, imageOn, imageOff, PosTop, PosLeft, Page, dependencyActions, dependencySecureElementName);
         }
 
         public VkmBigButtonBuilder WithDependencyAction(DependencyAction dependencyAction)

@@ -5,8 +5,6 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
     public class VkmRadarNoiseBuilder : BaseElementBuilder
     {
-        private int opacityPercent;
-
         public VkmRadarNoiseBuilder(int value, string name, int posTop, int posLeft, int rotationDegrees, Enum page)
         {
             PosTop = posTop;
@@ -17,15 +15,9 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
             RotationDegrees = rotationDegrees;
         }
 
-        public VkmRadarNoiseBuilder WithOpacityPercents(int opacityPercent)
-        {
-            this.opacityPercent = opacityPercent;
-            return this;
-        }
-
         public VkmRadarNoiseViewModel Please()
         {
-            return new VkmRadarNoiseViewModel(Value, Name) { PosLeft = PosLeft, PosTop = PosTop, Page = Page, OpacityPercents = opacityPercent, RotationDegrees = RotationDegrees};
+            return new VkmRadarNoiseViewModel(Value, Name, RotationDegrees, PosTop, PosLeft, Page);
         }
     }
 }

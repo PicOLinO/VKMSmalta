@@ -9,7 +9,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 {
     public class VkmLightableRectangleViewModel : ElementViewModelBase
     {
-        public VkmLightableRectangleViewModel(int value, string name, string text, Color backgroundColor) : base(value, name)
+        public VkmLightableRectangleViewModel(int value, string name, string text, Color backgroundColor, int posTop, int posLeft, Enum page) : base(value, name, posTop, posLeft, page)
         {
             Value = value;
             Text = text;

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using DevExpress.Mvvm;
 
@@ -18,7 +19,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             set { SetProperty(() => RotationDegrees, value); }
         }
 
-        public VkmWheelViewModel(int value, string imageSource, int minValue, int maxValue, int coefficient, string name) : base(value, name)
+        public VkmWheelViewModel(int value, string imageSource, int minValue, int maxValue, int coefficient, string name, int posTop, int posLeft, Enum page) : base(value, name, posTop, posLeft, page)
         {
             this.minValue = minValue;
             this.maxValue = maxValue;

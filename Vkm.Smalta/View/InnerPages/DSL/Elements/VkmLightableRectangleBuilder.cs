@@ -26,7 +26,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 
         public VkmLightableRectangleViewModel Please()
         {
-            return new VkmLightableRectangleViewModel(Value, Name, innerText, backgroundColor) {PosLeft = PosLeft, PosTop = PosTop, Page = Page};
+            return new VkmLightableRectangleViewModel(Value, Name, innerText, backgroundColor, PosTop, PosLeft, Page);
         }
 
         public VkmLightableRectangleBuilder WithBackgroundColor(Color color)

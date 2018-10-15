@@ -20,13 +20,23 @@ namespace Vkm.Smalta.View.Elements.ViewModel
                                     string name,
                                     string imageOffSource,
                                     string imageOnSource,
-                                    List<DependencyAction> dependencyActions = null) : base(value, name, dependencyActions)
+                                    int startupRotation,
+                                    int posTop,
+                                    int posLeft,
+                                    Enum page,
+                                    List<DependencyAction> dependencyActions = null) : base(value, 
+                                                                                            name, 
+                                                                                            dependencyActions,
+                                                                                            posTop,
+                                                                                            posLeft,
+                                                                                            page)
         {
             isInitialize = true;
 
             this.imageOffSource = imageOffSource;
             this.imageOnSource = imageOnSource;
             Value = value;
+            StartupRotation = startupRotation;
 
             isInitialize = false;
         }
