@@ -11,7 +11,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
         private readonly string imageOffSource;
         private readonly string imageOnSource;
 
-        public VkmLampViewModel(int value, string name, string imageOnSource, string imageOffSource, int posTop, int posLeft, Enum page) : base(value, name, posTop, posLeft, page)
+        public VkmLampViewModel(int value, string name, string imageOnSource, string imageOffSource) : base(value, name)
         {
             this.imageOnSource = imageOnSource;
             this.imageOffSource = imageOffSource;

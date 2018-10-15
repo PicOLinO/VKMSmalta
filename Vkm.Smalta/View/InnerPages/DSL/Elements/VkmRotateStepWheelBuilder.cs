@@ -26,7 +26,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
         public VkmRotateStepWheelViewModel Please()
         {
             var image = ImagesRepository.StepWheel;
-            return new VkmRotateStepWheelViewModel(Value, Name, RotationDegrees, rotationStepDegrees, maxRotationSteps, image, PosTop, PosLeft, Page);
+            return new VkmRotateStepWheelViewModel(Value, Name, RotationDegrees, rotationStepDegrees, maxRotationSteps, image) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
         }
 
         public VkmRotateStepWheelBuilder WithMaxValue(int maxRotationSteps)

@@ -1,6 +1,5 @@
 ﻿#region Usings
 
-using System;
 using System.Collections.Generic;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
@@ -11,7 +10,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 {
     public abstract class ClickableDependencyActivatorElementBase : ClickableElementViewModelBase, IDependencyActivatorElement
     {
-        protected ClickableDependencyActivatorElementBase(int value, string name, List<DependencyAction> dependencyActions, int posTop, int posLeft, Enum page) : base(value, name, posTop, posLeft, page)
+        protected ClickableDependencyActivatorElementBase(int value, string name, List<DependencyAction> dependencyActions) : base(value, name)
         {
             DependencyActions = dependencyActions;
         }

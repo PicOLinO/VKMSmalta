@@ -16,7 +16,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 
         public VkmRadarTargetViewModel Please()
         {
-            return new VkmRadarTargetViewModel(Value, Name, PosTop, PosLeft, Page);
+            return new VkmRadarTargetViewModel(Value, Name) { PosLeft = PosLeft, PosTop = PosTop, Page = Page };
         }
     }
 }

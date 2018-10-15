@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace Vkm.Smalta.View.Elements.ViewModel
+﻿namespace Vkm.Smalta.View.Elements.ViewModel
 {
     public class VkmRadarTargetViewModel : ElementViewModelBase
     {
-        public VkmRadarTargetViewModel(int value, string name, int posTop, int posLeft, Enum page) : base(value, name, posTop, posLeft, page)
+        public VkmRadarTargetViewModel(int value, string name) : base(value, name)
         {
             OpacityPercents = value / 100d;
         }

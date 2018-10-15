@@ -23,7 +23,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
         {
             var imageOn = ImagesRepository.LampOn;
             var imageOff = ImagesRepository.LampOff;
-            return new VkmLampViewModel(Value, Name, imageOn, imageOff, PosTop, PosLeft, Page);
+            return new VkmLampViewModel(Value, Name, imageOn, imageOff) {PosTop = PosTop, PosLeft = PosLeft, Page = Page};
         }
     }
 }
