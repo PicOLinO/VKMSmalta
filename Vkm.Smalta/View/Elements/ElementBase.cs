@@ -1,6 +1,7 @@
 ﻿#region Usings
 
 using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -15,13 +16,19 @@ using ToolTip = System.Windows.Controls.ToolTip;
 
 namespace Vkm.Smalta.View.Elements
 {
-    public class ElementBase : UserControl, IDisposable
+    public abstract class ElementBase : UserControl, IDisposable
     {
         private double firstXPos, firstYPos;
         private ElementBase movingObject;
 
         public ElementBase()
         {
+            //Hack for XAML designer to avoid exceptions by code below. Example: Trying to get App throws Null Reference exception
+            if (DesignerProperties.GetIsInDesignMode(this))
+            {
+                return;
+            }
+
             SnapsToDevicePixels = false;
             AllowDrop = true;
 
