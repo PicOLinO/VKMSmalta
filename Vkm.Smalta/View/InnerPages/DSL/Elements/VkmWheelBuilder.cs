@@ -11,7 +11,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
     {
         private int minValue;
         private int maxValue;
-        private int coefficient;
+        private int rotationCoefficient;
         private string image;
         private List<DependencyAction> dependencyActions;
 
@@ -26,7 +26,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
             Width = width;
             Height = height;
 
-            coefficient = 1;
+            rotationCoefficient = 1;
             minValue = 0;
             maxValue = 1;
         }
@@ -63,9 +63,9 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
             return this;
         }
 
-        public VkmWheelBuilder WithCoefficient(int coefficient)
+        public VkmWheelBuilder WithRotationCoefficient(int coefficient)
         {
-            this.coefficient = coefficient;
+            this.rotationCoefficient = coefficient;
             return this;
         }
 
@@ -82,7 +82,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 
         public VkmWheelViewModel Please()
         {
-            return new VkmWheelViewModel(Value, image, minValue, maxValue, coefficient, dependencyActions, Name, PosTop, PosLeft, Width, Height, Page);
+            return new VkmWheelViewModel(Value, image, minValue, maxValue, rotationCoefficient, dependencyActions, Name, PosTop, PosLeft, Width, Height, Page);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
         private readonly bool isInitialize;
         private readonly int minValue;
         private readonly int maxValue;
-        private readonly int coefficient;
+        private readonly int rotationCoefficient;
 
         public ICommand MouseWheelCommand { get; private set; }
 
@@ -26,20 +26,22 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             set { SetProperty(() => RotationDegrees, value); }
         }
 
-        public VkmWheelViewModel(int value, string imageSource, int minValue, int maxValue, int coefficient, List<DependencyAction> dependencyActions, string name, int posTop, int posLeft, int width, int height, Enum page) : base(value, name, posTop, posLeft, page, width, height)
+        public VkmWheelViewModel(int value, string imageSource, int minValue, int maxValue, int rotationCoefficient, List<DependencyAction> dependencyActions, string name, int posTop, int posLeft, int width, int height, Enum page) : base(value, name, posTop, posLeft, page, width, height)
         {
             isInitialize = true;
 
             this.minValue = minValue;
             this.maxValue = maxValue;
-            this.coefficient = coefficient;
+            this.rotationCoefficient = rotationCoefficient;
             DependencyActions = dependencyActions;
             ImageSource = imageSource;
 
             if (Value < minValue)
                 Value = minValue;
-            if (Value > maxValue)
+            else if (Value > maxValue)
                 Value = maxValue;
+            else
+                Value = value;
 
             CreateCommands();
 
@@ -61,7 +63,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             }
 
             Value = nextValue;
-            RotationDegrees = coefficient * Value;
+            RotationDegrees = rotationCoefficient * Value;
         }
 
         protected override void OnValueChanged()
