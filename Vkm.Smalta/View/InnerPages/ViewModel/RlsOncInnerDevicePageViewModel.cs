@@ -35,12 +35,12 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                 case RlsOncInnerRegionPage.G5_15:
                     Elements = new ObservableCollection<ElementViewModelBase>
                                {
+                                   GiveMe.Element().On(PageKey).WithName("g515_stepwheel_timeshift").WithValue(0).At(95, 388).WithStartupRotation(40).RotateStepWheel().WithRotationStepDegrees(31).WithMaxValue(6).Please(),
+                                   GiveMe.Element().On(PageKey).WithName("g515_stepwheel_duration").WithValue(0).At(98, 905).WithStartupRotation(-50).RotateStepWheel().WithRotationStepDegrees(31).WithMaxValue(10).Please(),
+
                                    GiveMe.Element().On(PageKey).WithName("g515_numberdisplay_timeshift").WithValue(5).At(246, 435).NumberDisplay().Please(),
                                    GiveMe.Element().On(PageKey).WithName("g515_numberdisplay_repetition_rate").WithValue(400).At(246, 699).NumberDisplay().Please(),
                                    GiveMe.Element().On(PageKey).WithName("g515_numberdisplay_amplitude_measurement").WithValue(10).At(246, 960).NumberDisplay().Please(),
-
-                                   GiveMe.Element().On(PageKey).WithName("g515_stepwheel_timeshift").WithValue(0).At(91, 387).WithStartupRotation(60).RotateStepWheel().WithRotationStepDegrees(60).WithMaxValue(3).Please(),
-                                   GiveMe.Element().On(PageKey).WithName("g515_stepwheel_duration").WithValue(0).At(98, 905).WithStartupRotation(-50).RotateStepWheel().WithRotationStepDegrees(31).WithMaxValue(10).Please(),
                                    
                                    GiveMe.Element().On(PageKey).WithName("g515_wheel_timeshift").WithSize(50, 50).WithValue(1).At(327, 513).Wheel().WithImageType(ImageType.Flat).WithRotationCoefficient(20).WithMinValue(1).WithMaxValue(11)
                                          .WithDependencyAction(GiveMe.DependencyAction()
