@@ -9,7 +9,7 @@
                       d:DesignHeight="200" d:DesignWidth="400"
                       d:DataContext="{d:DesignInstance Type=viewModel:VkmRadarNoiseViewModel}">
     <Grid>
-        <Path Stroke="Green" StrokeThickness="2" Fill="LawnGreen" RenderTransformOrigin=".5 1">
+        <Path Stroke="Green" StrokeThickness="2" Fill="LawnGreen" >
             <Path.Data>
                 <CombinedGeometry GeometryCombineMode="Exclude">
                     <CombinedGeometry.Geometry1>
@@ -34,7 +34,7 @@
                 </CombinedGeometry>
             </Path.Data>
             <Path.RenderTransform>
-                <RotateTransform Angle="{Binding Path=RotationDegrees}" />
+                <RotateTransform CenterX="200" CenterY="200" Angle="{Binding Path=RotationDegrees}" />
             </Path.RenderTransform>
         </Path>
     </Grid>

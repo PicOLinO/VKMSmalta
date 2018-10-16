@@ -44,7 +44,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                     Elements = new ObservableCollection<ElementViewModelBase>
                                {
                                    GiveMe.Element().On(PageKey).WithName("dummy_target").WithValue(70).At(239, 649).RadarTarget().Please(),
-                                   GiveMe.Element().On(PageKey).WithName("dummy_noise").WithValue(70).WithStartupRotation(90).At(137, 595).RadarNoise().Please(),
+                                   GiveMe.Element().On(PageKey).WithName("dummy_noise").WithValue(70).WithStartupRotation(45).At(138, 603).RadarNoise().Please(),
                                };
                     break;
                 default:
