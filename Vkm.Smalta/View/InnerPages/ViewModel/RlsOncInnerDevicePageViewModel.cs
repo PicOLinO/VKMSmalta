@@ -18,8 +18,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
             InitializeElements();
         }
 
-        protected sealed override void InitializeElements()
-        {
+        protected sealed override void InitializeElements(){
             switch (PageKey)
             {
                 case RlsOncInnerRegionPage.Station:
@@ -28,6 +27,10 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                 case RlsOncInnerRegionPage.ControlPanelSimulator:
                     Elements = new ObservableCollection<ElementViewModelBase>
                                {
+                                   GiveMe.Element().On(PageKey).WithName("cps_stepwheel_noisetype").WithValue(0).At(319, 454).WithStartupRotation(-45).RotateStepWheel().WithRotationStepDegrees(31).WithMaxValue(5).Please(),
+                                   GiveMe.Element().On(PageKey).WithName("cps_stepwheel_generator_mode").WithValue(0).At(259, 742).WithStartupRotation(-30).RotateStepWheel().WithRotationStepDegrees(120).WithMaxValue(3).Please(),
+                                   GiveMe.Element().On(PageKey).WithName("cps_stepwheel_blocking_generator_mode").WithValue(0).At(315, 1077).WithStartupRotation(-55).RotateStepWheel().WithRotationStepDegrees(30).WithMaxValue(5).Please(),
+
                                    GiveMe.Element().On(PageKey).WithName("cps_wheel_signal").WithSize(100, 100).WithValue(0).At(635, 568).Wheel().WithImageType(ImageType.Flat).WithRotationCoefficient(20).WithMaxValue(40).Please(),
                                    GiveMe.Element().On(PageKey).WithName("cps_wheel_signal_noise").WithSize(100, 100).WithValue(0).At(638, 834).Wheel().WithImageType(ImageType.Flat).WithRotationCoefficient(20).WithMaxValue(40).Please(),
                                };
