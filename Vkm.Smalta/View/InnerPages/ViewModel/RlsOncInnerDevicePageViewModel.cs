@@ -34,7 +34,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                 case RlsOncInnerRegionPage.G5_15:
                     Elements = new ObservableCollection<ElementViewModelBase>
                                {
-                                   GiveMe.Element().On(PageKey).WithName("dummy_numberdisplay").WithValue(10).At(239, 649).NumberDisplay().Please()
+                                   GiveMe.Element().On(PageKey).WithName("dummy_numberdisplay").WithValue(10).At(246, 704).NumberDisplay().Please()
                                };
                     break;
                 case RlsOncInnerRegionPage.C1_65:
