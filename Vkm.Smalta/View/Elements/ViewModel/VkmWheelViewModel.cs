@@ -1,12 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using DevExpress.Mvvm;
+using DevExpress.Mvvm.Native;
+using Vkm.Smalta.Domain;
+using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
 
 namespace Vkm.Smalta.View.Elements.ViewModel
 {
-    public class VkmWheelViewModel : ElementViewModelBase
+    public class VkmWheelViewModel : ElementViewModelBase, IDependencyActivatorElement
     {
+        private readonly bool isInitialize;
         private readonly int minValue;
         private readonly int maxValue;
         private readonly int coefficient;
@@ -19,11 +26,14 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             set { SetProperty(() => RotationDegrees, value); }
         }
 
-        public VkmWheelViewModel(int value, string imageSource, int minValue, int maxValue, int coefficient, string name, int posTop, int posLeft, Enum page) : base(value, name, posTop, posLeft, page)
+        public VkmWheelViewModel(int value, string imageSource, int minValue, int maxValue, int coefficient, List<DependencyAction> dependencyActions, string name, int posTop, int posLeft, Enum page) : base(value, name, posTop, posLeft, page)
         {
+            isInitialize = true;
+
             this.minValue = minValue;
             this.maxValue = maxValue;
             this.coefficient = coefficient;
+            DependencyActions = dependencyActions;
             ImageSource = imageSource;
 
             if (Value < minValue)
@@ -32,6 +42,8 @@ namespace Vkm.Smalta.View.Elements.ViewModel
                 Value = maxValue;
 
             CreateCommands();
+
+            isInitialize = false;
         } 
 
         private void CreateCommands()
@@ -50,6 +62,30 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 
             Value = nextValue;
             RotationDegrees = coefficient * Value;
+        }
+
+        protected override void OnValueChanged()
+        {
+            base.OnValueChanged();
+
+            if (DependencyActions != null && !isInitialize)
+            {
+                NotifyDependedElements();
+            }
+        }
+
+        public List<DependencyAction> DependencyActions { get; }
+
+        public void CancelDependencyActionsExecution()
+        {
+        }
+
+        public void NotifyDependedElements()
+        {
+            foreach (var dependencyAction in DependencyActions)
+            {
+                Task.Run(() => dependencyAction.UpdateDependencyElementValue(Value));
+            }
         }
     }
 }

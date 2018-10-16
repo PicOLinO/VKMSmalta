@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Vkm.Smalta.Domain;
 using Vkm.Smalta.View.Elements.ViewModel;
 using Vkm.Smalta.View.InnerPages.DSL.Common;
 using XAMLEx;
@@ -11,6 +13,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
         private int maxValue;
         private int coefficient;
         private string image;
+        private List<DependencyAction> dependencyActions;
 
         public VkmWheelBuilder(int value, string name, int posTop, int posLeft, int startupRotation, Enum page)
         {
@@ -64,9 +67,20 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
             return this;
         }
 
+        public VkmWheelBuilder WithDependencyAction(DependencyAction dependencyAction)
+        {
+            if (dependencyActions == null)
+            {
+                dependencyActions = new List<DependencyAction>();
+            }
+
+            dependencyActions.Add(dependencyAction);
+            return this;
+        }
+
         public VkmWheelViewModel Please()
         {
-            return new VkmWheelViewModel(Value, image, minValue, maxValue, coefficient, Name, PosTop, PosLeft, Page);
+            return new VkmWheelViewModel(Value, image, minValue, maxValue, coefficient, dependencyActions, Name, PosTop, PosLeft, Page);
         }
     }
 }

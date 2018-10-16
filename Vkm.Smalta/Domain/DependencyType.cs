@@ -3,6 +3,8 @@
     public enum DependencyType
     {
         Replace,
-        Add
+        Add,
+        CoefficientReplace,
+        CoefficientAdd
     }
 }

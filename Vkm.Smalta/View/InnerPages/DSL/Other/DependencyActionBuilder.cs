@@ -10,6 +10,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Other
     public class DependencyActionBuilder
     {
         private readonly Dictionary<int, int> dependencyValues;
+        private int? dependencyCoefficient;
         private int delayInSeconds;
         private string name;
         private DependencyType type;
@@ -21,7 +22,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Other
 
         public DependencyAction Please()
         {
-            return new DependencyAction(type, name, dependencyValues, delayInSeconds);
+            return new DependencyAction(type, name, dependencyValues, dependencyCoefficient, delayInSeconds);
         }
 
         public DependencyActionBuilder TypeOf(DependencyType type)
@@ -39,6 +40,12 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Other
         public DependencyActionBuilder WithDependencyElementName(string name)
         {
             this.name = name;
+            return this;
+        }
+
+        public DependencyActionBuilder WithDependencyCoefficient(int dependencyCoefficient)
+        {
+            this.dependencyCoefficient = dependencyCoefficient;
             return this;
         }
 

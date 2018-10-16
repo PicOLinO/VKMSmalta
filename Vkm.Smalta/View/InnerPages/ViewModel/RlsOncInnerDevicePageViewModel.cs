@@ -41,7 +41,13 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                    GiveMe.Element().On(PageKey).WithName("first_stepwheel_1").WithValue(0).At(91, 387).WithStartupRotation(60).RotateStepWheel().WithRotationStepDegrees(60).WithMaxValue(3).Please(),
                                    GiveMe.Element().On(PageKey).WithName("first_stepwheel_2").WithValue(0).At(98, 905).WithStartupRotation(-50).RotateStepWheel().WithRotationStepDegrees(31).WithMaxValue(10).Please(),
                                    
-                                   GiveMe.Element().On(PageKey).WithName("dummy_wheel1").WithValue(0).At(327, 513).Wheel().WithImageType(ImageType.Flat).WithCoefficient(20).WithMaxValue(40).Please(),
+                                   GiveMe.Element().On(PageKey).WithName("dummy_wheel1").WithValue(0).At(327, 513).Wheel().WithImageType(ImageType.Flat).WithCoefficient(20).WithMaxValue(40)
+                                         .WithDependencyAction(GiveMe.DependencyAction()
+                                                                     .WithDependencyElementName("dummy_numberdisplay1")
+                                                                     .TypeOf(DependencyType.CoefficientReplace)
+                                                                     .WithDependencyCoefficient(10)
+                                                                     .Please())
+                                         .Please(),
                                    GiveMe.Element().On(PageKey).WithName("dummy_wheel2").WithValue(0).At(327, 774).Wheel().WithImageType(ImageType.Flat).WithCoefficient(20).WithMaxValue(40).Please(),
                                    GiveMe.Element().On(PageKey).WithName("dummy_wheel3").WithValue(0).At(327, 1036).Wheel().WithImageType(ImageType.Flat).WithCoefficient(20).WithMaxValue(40).Please(),
                                };
