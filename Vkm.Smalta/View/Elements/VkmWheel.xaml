@@ -10,7 +10,7 @@
                       d:DesignHeight="300" d:DesignWidth="300"
                       d:DataContext="{d:DesignInstance Type=viewModel:VkmWheelViewModel}">
     <Grid>
-        <Image Cursor="Hand" Source="{Binding Path=ImageSource}" Style="{StaticResource RotationImage}" MaxWidth="50">
+        <Image Cursor="Hand" Source="{Binding Path=ImageSource}" Style="{StaticResource RotationImage}" MaxWidth="{Binding Width}" MaxHeight="{Binding Height}">
             <dxmvvm:Interaction.Behaviors>
                 <dxmvvm:EventToCommand EventName="MouseWheel" Command="{Binding Path=MouseWheelCommand}"
                                        PassEventArgsToCommand="True" />

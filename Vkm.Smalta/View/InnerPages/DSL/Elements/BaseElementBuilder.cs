@@ -17,8 +17,17 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
         protected int PosTop;
         protected int RotationDegrees;
         protected int Value;
+        protected int Width;
+        protected int Height;
 
         protected IImagesRepository ImagesRepository => ServiceContainer.Default.GetService<IImagesRepository>();
+
+        public BaseElementBuilder WithSize(int width, int height)
+        {
+            Width = width;
+            Height = height;
+            return this;
+        }
 
         public BaseElementBuilder At(int posTop, int posLeft)
         {
@@ -65,7 +74,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 
         public VkmWheelBuilder Wheel()
         {
-            return new VkmWheelBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, Page);
+            return new VkmWheelBuilder(Value, Name, PosTop, PosLeft, Width, Height, RotationDegrees, Page);
         }
 
         public VkmRadarTargetBuilder RadarTarget()

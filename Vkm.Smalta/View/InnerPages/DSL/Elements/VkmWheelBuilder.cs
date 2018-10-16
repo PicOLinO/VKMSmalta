@@ -15,7 +15,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
         private string image;
         private List<DependencyAction> dependencyActions;
 
-        public VkmWheelBuilder(int value, string name, int posTop, int posLeft, int startupRotation, Enum page)
+        public VkmWheelBuilder(int value, string name, int posTop, int posLeft, int width, int height, int startupRotation, Enum page)
         {
             PosTop = posTop;
             PosLeft = posLeft;
@@ -23,6 +23,8 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
             Value = value;
             Name = name;
             Page = page;
+            Width = width;
+            Height = height;
 
             coefficient = 1;
             minValue = 0;
@@ -80,7 +82,7 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 
         public VkmWheelViewModel Please()
         {
-            return new VkmWheelViewModel(Value, image, minValue, maxValue, coefficient, dependencyActions, Name, PosTop, PosLeft, Page);
+            return new VkmWheelViewModel(Value, image, minValue, maxValue, coefficient, dependencyActions, Name, PosTop, PosLeft, Width, Height, Page);
         }
     }
 }

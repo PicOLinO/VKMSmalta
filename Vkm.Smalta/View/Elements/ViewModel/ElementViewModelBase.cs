@@ -12,7 +12,8 @@ namespace Vkm.Smalta.View.Elements.ViewModel
     {
         private readonly bool isInitialize;
 
-        protected ElementViewModelBase(int value, string name, int posTop, int posLeft, Enum page)
+        //TODO: width и height сделать для всех! Пока временное решение с нулями. Должны быть не по-умолчанию.
+        protected ElementViewModelBase(int value, string name, int posTop, int posLeft, Enum page, int width = 0, int height = 0)
         {
             isInitialize = true;
 
@@ -21,6 +22,8 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             PosTop = posTop;
             PosLeft = posLeft;
             Page = page;
+            Width = width == 0 ? double.NaN : width;
+            Height = height == 0 ? double.NaN : height; ;
 
             isInitialize = false;
         }
@@ -59,6 +62,18 @@ namespace Vkm.Smalta.View.Elements.ViewModel
         {
             get { return GetProperty(() => PosTop); }
             set { SetProperty(() => PosTop, value); }
+        }
+
+        public double Width
+        {
+            get { return GetProperty(() => Width); }
+            set { SetProperty(() => Width, value); }
+        }
+
+        public double Height
+        {
+            get { return GetProperty(() => Height); }
+            set { SetProperty(() => Height, value); }
         }
 
         public int Value
