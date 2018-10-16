@@ -3,6 +3,8 @@
 #endregion
 
 using System;
+using System.Windows.Input;
+using DevExpress.Mvvm;
 
 namespace Vkm.Smalta.View.Elements.ViewModel
 {
@@ -19,7 +21,11 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             this.maxValue = maxValue;
             ImageSource = image;
             Value = value;
+
+            MouseRightButtonUpCommand = new DelegateCommand(OnMouseRightButtonUp);
         }
+
+        public ICommand MouseRightButtonUpCommand { get; set; }
 
         public int RotationDegrees
         {
@@ -27,10 +33,22 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             set { SetProperty(() => RotationDegrees, value); }
         }
 
+        private void OnMouseRightButtonUp()
+        {
+            if (Value == 0)
+            {
+                Value = maxValue - 1;
+            }
+            else
+            {
+                Value -= 1;
+            }
+        }
+
         protected override void OnMouseLeftButtonUp()
         {
             base.OnMouseLeftButtonUp();
-
+            
             if (Value < maxValue - 1)
             {
                 Value += 1;

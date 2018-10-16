@@ -13,6 +13,7 @@
         <Image Cursor="Hand" Source="{Binding Path=ImageSource}">
             <dxmvvm:Interaction.Behaviors>
                 <dxmvvm:EventToCommand EventName="MouseLeftButtonUp" Command="{Binding Path=MouseLeftButtonUpCommand}" />
+                <dxmvvm:EventToCommand EventName="MouseRightButtonUp" Command="{Binding Path=MouseRightButtonUpCommand}" />
             </dxmvvm:Interaction.Behaviors>
             <Image.RenderTransform>
                 <RotateTransform CenterX="40" CenterY="27" Angle="{Binding Path=RotationDegrees}" />
