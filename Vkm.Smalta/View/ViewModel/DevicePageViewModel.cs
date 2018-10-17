@@ -20,8 +20,10 @@ using Vkm.Smalta.View.InnerPages.ViewModel;
 
 namespace Vkm.Smalta.View.ViewModel
 {
-    public class DevicePageViewModel : ViewModelBase, IDisposable
+    public class DevicePageViewModel : ViewModelBase, IDisposable, IDevicePage
     {
+        public static IDevicePage Instance { get; private set; }
+
         public ObservableCollection<InnerPageViewModelBase> Pages;
         private readonly Key[] cheatEthalon = {Key.Z, Key.D, Key.C, Key.T, Key.C, Key.L, Key.F, Key.V};
         private readonly Queue<Key> cheatInput;
@@ -53,6 +55,8 @@ namespace Vkm.Smalta.View.ViewModel
             cheatInput = new Queue<Key>(8);
 
             Initialize();
+
+            Instance = this;
         }
 
         public AsyncCommand CheckResultCommand { get; set; }
@@ -331,5 +335,52 @@ namespace Vkm.Smalta.View.ViewModel
         }
 
         #endregion
+
+        public ElementViewModelBase GetElementByName(string name)
+        {
+            return UnionElements.Single(e => e.Name == name);
+        }
+
+        public Enum GetCurrentInnerPageKey()
+        {
+            return CurrentPageKey;
+        }
+
+        public void ShowGoNextPageHint(Enum toPage, bool hideAll = false)
+        {
+            if (hideAll)
+            {
+                IsGoForwardHintOpen = false;
+                IsGoPreviousHintOpen = false;
+                return;
+            }
+
+            var currentPageIndex = Pages.IndexOf(Pages.Single(p => Equals(p.PageKey, GetCurrentInnerPageKey())));
+            var nextPageIndex = Pages.IndexOf(Pages.Single(p => Equals(p.PageKey, toPage)));
+
+            var direction = currentPageIndex > nextPageIndex
+                                ? Direction.Previous
+                                : Direction.Forward;
+
+            switch (direction)
+            {
+                case Direction.Forward:
+                    if (!IsGoForwardHintOpen)
+                    {
+                        IsGoForwardHintOpen = true;
+                    }
+
+                    break;
+                case Direction.Previous:
+                    if (!IsGoPreviousHintOpen)
+                    {
+                        IsGoPreviousHintOpen = true;
+                    }
+
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
+            }
+        }
     }
 }

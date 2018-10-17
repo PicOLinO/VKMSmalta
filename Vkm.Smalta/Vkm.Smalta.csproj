@@ -175,7 +175,6 @@
     <Compile Include="Services\HintService.cs" />
     <Compile Include="Services\HistoryService.cs" />
     <Compile Include="Services\IHintService.cs" />
-    <Compile Include="Services\CurrentDevicePageService.cs" />
     <Compile Include="Services\IHistoryService.cs" />
     <Compile Include="Services\ILoadingService.cs" />
     <Compile Include="Services\INetworkService.cs" />
@@ -267,6 +266,7 @@
     </Compile>
     <Compile Include="View\ViewModel\DevicePageViewModel.cs" />
     <Compile Include="View\Hints\ViewModel\HintViewModelBase.cs" />
+    <Compile Include="View\ViewModel\IDevicePage.cs" />
     <Page Include="Dialogs\CheckResultsDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

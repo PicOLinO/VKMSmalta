@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.View.Elements.ViewModel;
+using Vkm.Smalta.View.ViewModel;
 
 #endregion
 
@@ -30,7 +31,7 @@ namespace Vkm.Smalta.Domain
         public bool CancellationToken { private get; set; }
 
         private int DelayedTimeInSeconds { get; }
-        private ElementViewModelBase DependencyElement => CurrentDevicePageService.Instance.GetElementByName(dependencyElementName);
+        private ElementViewModelBase DependencyElement => DevicePageViewModel.Instance.GetElementByName(dependencyElementName);
 
         /// <summary>
         /// Ключ: значение передающееся. Значение: значение выставляющееся у DependencyElement

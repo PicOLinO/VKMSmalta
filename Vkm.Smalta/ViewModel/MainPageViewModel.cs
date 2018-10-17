@@ -96,7 +96,6 @@ namespace Vkm.Smalta.ViewModel
                                                      dialogFactory,
                                                      viewInjectionManager,
                                                      pagesFactory);
-                    CurrentDevicePageService.Initialize(vm);
                     if (startTraining)
                     {
                         vm.LaunchTraining();

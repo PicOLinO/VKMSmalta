@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.Services;
+using Vkm.Smalta.View.ViewModel;
 using Action = Vkm.Smalta.Domain.Action;
 
 #endregion
@@ -76,7 +77,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
         {
             if (!string.IsNullOrEmpty(dependencySecureElementName))
             {
-                var dependencySecureElement = CurrentDevicePageService.Instance.GetElementByName(dependencySecureElementName);
+                var dependencySecureElement = DevicePageViewModel.Instance.GetElementByName(dependencySecureElementName);
 
                 if (dependencySecureElement is VkmBigButtonViewModel button)
                 {

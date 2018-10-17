@@ -6,6 +6,7 @@ using System.Linq;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.View.Elements.ViewModel;
 using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
+using Vkm.Smalta.View.ViewModel;
 using Action = System.Action;
 
 #endregion
@@ -50,7 +51,7 @@ namespace Vkm.Smalta.Services
 
             var currentHintedElement = Elements.Single(e => e.Name == CurrentAction?.ParentElementName);
 
-            CurrentDevicePageService.Instance.ShowGoNextPageHint(currentHintedElement.Page, currentHintedElement.Page == toPage);
+            DevicePageViewModel.Instance.ShowGoNextPageHint(currentHintedElement.Page, currentHintedElement.Page == toPage);
         }
 
         public void Reset()
@@ -79,10 +80,10 @@ namespace Vkm.Smalta.Services
 
             var element = Elements.Single(e => e.Name == action?.ParentElementName);
 
-            var page = CurrentDevicePageService.Instance.GetCurrentInnerPageKey();
+            var page = DevicePageViewModel.Instance.GetCurrentInnerPageKey();
             if (!Equals(page, element.Page))
             {
-                CurrentDevicePageService.Instance.ShowGoNextPageHint(element.Page);
+                DevicePageViewModel.Instance.ShowGoNextPageHint(element.Page);
             }
 
             element.IsEnabled = true;
