@@ -22,7 +22,14 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
             switch (PageKey)
             {
                 case RlsOncInnerRegionPage.Station:
-                    Elements = new ObservableCollection<ElementViewModelBase>();
+                    Elements = new ObservableCollection<ElementViewModelBase>
+                               {
+                                   GiveMe.Element().On(PageKey).WithName("station_stepwheel_zoom").WithValue(0).At(81, 1035).WithStartupRotation(20).RotateStepWheel().WithRotationStepDegrees(32).WithMaxValue(5).Please(),
+                                   GiveMe.Element().On(PageKey).WithName("station_stepwheel_secodary_temp").WithValue(0).At(342, 907).WithStartupRotation(5).RotateStepWheel().WithRotationStepDegrees(33).WithMaxValue(6).Please(),
+
+                                   GiveMe.Element().On(PageKey).WithName("station_thumbler_speed").WithValue(0).At(528, 671).Thumbler().Please(),
+                                   GiveMe.Element().On(PageKey).WithName("station_thumbler_direction").WithValue(0).At(528, 755).Thumbler().Please(),
+                               };
                     break;
                 case RlsOncInnerRegionPage.ControlPanelSimulator:
                     Elements = new ObservableCollection<ElementViewModelBase>
@@ -32,7 +39,20 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                    GiveMe.Element().On(PageKey).WithName("cps_stepwheel_blocking_generator_mode").WithValue(0).At(315, 1077).WithStartupRotation(-55).RotateStepWheel().WithRotationStepDegrees(30).WithMaxValue(5).Please(),
 
                                    GiveMe.Element().On(PageKey).WithName("cps_wheel_signal").WithSize(100, 100).WithValue(0).At(635, 568).Wheel().WithImageType(ImageType.Flat).WithRotationCoefficient(20).WithMaxValue(40).Please(),
-                                   GiveMe.Element().On(PageKey).WithName("cps_wheel_signal_noise").WithSize(100, 100).WithValue(0).At(638, 834).Wheel().WithImageType(ImageType.Flat).WithRotationCoefficient(20).WithMaxValue(40).Please(),
+                                   GiveMe.Element().On(PageKey).WithName("cps_wheel_signal_noise").WithSize(100, 100).WithValue(0).At(638, 834).Wheel().WithImageType(ImageType.Flat).WithRotationCoefficient(20).WithMaxValue(40)
+                                         .WithDependencyAction(GiveMe.DependencyAction()
+                                                                     .WithDependencyElementName("radar_target_1")
+                                                                     .TypeOf(DependencyType.Replace)
+                                                                     .WithDependencyValue(5, 10)
+                                                                     .WithDependencyValue(10, 20)
+                                                                     .WithDependencyValue(15, 30)
+                                                                     .WithDependencyValue(20, 40)
+                                                                     .WithDependencyValue(25, 50)
+                                                                     .WithDependencyValue(30, 60)
+                                                                     .WithDependencyValue(35, 70)
+                                                                     .WithDependencyValue(40, 80)
+                                                                     .Please())
+                                         .Please(),
                                };
                     break;
                 case RlsOncInnerRegionPage.G5_15:
@@ -76,8 +96,8 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                 case RlsOncInnerRegionPage.Radar:
                     Elements = new ObservableCollection<ElementViewModelBase>
                                {
-                                   GiveMe.Element().On(PageKey).WithName("dummy_target").WithValue(70).At(239, 649).RadarTarget().Please(),
-                                   GiveMe.Element().On(PageKey).WithName("dummy_noise").WithValue(70).WithStartupRotation(180).At(138, 603).RadarNoise().Please(),
+                                   GiveMe.Element().On(PageKey).WithName("radar_target_1").WithValue(70).At(239, 649).RadarTarget().Please(),
+                                   GiveMe.Element().On(PageKey).WithName("radar_noise").WithValue(70).WithStartupRotation(180).At(138, 603).RadarNoise().Please(),
                                };
                     break;
                 default:

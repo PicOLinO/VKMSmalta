@@ -44,7 +44,10 @@ namespace Vkm.Smalta.Domain
 
         private void UpdateDependencyElementValueCore(int newValue)
         {
-            DependencyElement.Value = DependencyValues[newValue];
+            if (DependencyValues.ContainsKey(newValue))
+            {
+                DependencyElement.Value = DependencyValues[newValue];
+            }
         }
 
         private void UpdateDependencyElementValueByCoefficient(int sourceValue)
