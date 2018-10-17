@@ -18,7 +18,8 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
             InitializeElements();
         }
 
-        protected sealed override void InitializeElements(){
+        protected sealed override void InitializeElements()
+        {
             switch (PageKey)
             {
                 case RlsOncInnerRegionPage.Station:
@@ -28,7 +29,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                    GiveMe.RotateStepWheel().On(PageKey).WithName("station_stepwheel_secodary_temp").WithValue(0).At(342, 907).WithStartupRotation(5).WithRotationStepDegrees(33).WithMaxValue(6).Please(),
 
                                    GiveMe.Thumbler().On(PageKey).WithName("station_thumbler_speed").WithValue(0).At(528, 671).Please(),
-                                   GiveMe.Thumbler().On(PageKey).WithName("station_thumbler_direction").WithValue(0).At(528, 755).Please(),
+                                   GiveMe.Thumbler().On(PageKey).WithName("station_thumbler_direction").WithValue(0).At(528, 755).Please()
                                };
                     break;
                 case RlsOncInnerRegionPage.ControlPanelSimulator:
@@ -70,7 +71,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                                                      .WithDependencyValue(45, 90)
                                                                      .WithDependencyValue(50, 100)
                                                                      .Please())
-                                         .Please(),
+                                         .Please()
                                };
                     break;
                 case RlsOncInnerRegionPage.G5_15:
@@ -82,7 +83,7 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                    GiveMe.NumberDisplay().On(PageKey).WithName("g515_numberdisplay_timeshift").WithValue(5).At(246, 435).Please(),
                                    GiveMe.NumberDisplay().On(PageKey).WithName("g515_numberdisplay_repetition_rate").WithValue(400).At(246, 699).Please(),
                                    GiveMe.NumberDisplay().On(PageKey).WithName("g515_numberdisplay_amplitude_measurement").WithValue(50).At(246, 960).Please(),
-                                   
+
                                    GiveMe.Wheel().On(PageKey).WithName("g515_wheel_timeshift").WithSize(50, 50).WithValue(1).At(327, 513).WithImageType(ImageType.Flat).WithRotationCoefficient(20).WithMinValue(1).WithMaxValue(11)
                                          .WithDependencyAction(GiveMe.DependencyAction()
                                                                      .WithDependencyElementName("g515_numberdisplay_timeshift")
@@ -113,19 +114,17 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                                                      .WithDependencyValue(5, 0)
                                                                      .WithDependencyValue(6, 1)
                                                                      .Please())
-                                         .Please(),
+                                         .Please()
                                };
                     break;
                 case RlsOncInnerRegionPage.C1_65:
-                    Elements = new ObservableCollection<ElementViewModelBase>
-                               {
-                               };
+                    Elements = new ObservableCollection<ElementViewModelBase>();
                     break;
                 case RlsOncInnerRegionPage.Radar:
                     Elements = new ObservableCollection<ElementViewModelBase>
                                {
                                    GiveMe.RadarTarget().On(PageKey).WithName("radar_target_1").WithValue(25).At(239, 649).Please(),
-                                   GiveMe.RadarNoise().On(PageKey).WithName("radar_noise").WithValue(0).WithStartupRotation(-60).At(138, 603).Please(),
+                                   GiveMe.RadarNoise().On(PageKey).WithName("radar_noise").WithValue(0).WithStartupRotation(-60).At(138, 603).Please()
                                };
                     break;
                 default:
