@@ -43,6 +43,8 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             else
                 Value = value;
 
+            RotationDegrees = rotationCoefficient * Value;
+
             CreateCommands();
 
             isInitialize = false;

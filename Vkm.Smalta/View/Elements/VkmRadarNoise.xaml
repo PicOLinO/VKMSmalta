@@ -9,7 +9,7 @@
                       d:DesignHeight="200" d:DesignWidth="400"
                       d:DataContext="{d:DesignInstance Type=viewModel:VkmRadarNoiseViewModel}">
     <Grid>
-        <Path Stroke="Green" StrokeThickness="2" Fill="LawnGreen" >
+        <Path Stroke="Green" StrokeThickness="1" Fill="LimeGreen" Opacity="{Binding OpacityPercents}">
             <Path.Data>
                 <CombinedGeometry GeometryCombineMode="Exclude">
                     <CombinedGeometry.Geometry1>
