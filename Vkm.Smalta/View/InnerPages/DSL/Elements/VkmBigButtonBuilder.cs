@@ -10,19 +10,10 @@ using XAMLEx;
 
 namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
-    public class VkmBigButtonBuilder : BaseElementBuilder
+    public class VkmBigButtonBuilder : BaseElementBuilder<VkmBigButtonBuilder>
     {
         private List<DependencyAction> dependencyActions;
         private string dependencySecureElementName;
-
-        public VkmBigButtonBuilder(int value, string name, int posTop, int posLeft, Enum page)
-        {
-            PosTop = posTop;
-            PosLeft = posLeft;
-            Value = value;
-            Name = name;
-            Page = page;
-        }
 
         public VkmBigButtonViewModel Please()
         {

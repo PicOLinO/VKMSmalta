@@ -1,5 +1,7 @@
 ﻿#region Usings
 
+using System.Collections.Generic;
+using System.Windows.Controls;
 using Vkm.Smalta.View.Images;
 using Vkm.Smalta.View.InnerPages.DSL.Elements;
 using Vkm.Smalta.View.InnerPages.DSL.Other;
@@ -14,10 +16,55 @@ namespace Vkm.Smalta.View.InnerPages.DSL
         {
             return new DependencyActionBuilder();
         }
-
-        public BaseElementBuilder Element()
+        
+        public VkmBigButtonBuilder BigButton()
         {
-            return new BaseElementBuilder();
+            return new VkmBigButtonBuilder();
+        }
+
+        public VkmLampBuilder Lamp()
+        {
+            return new VkmLampBuilder();
+        }
+
+        public VkmLightableRectangleBuilder LightBox()
+        {
+            return new VkmLightableRectangleBuilder();
+        }
+
+        public VkmBlackTriangleArrowBuilder LittleArrow()
+        {
+            return new VkmBlackTriangleArrowBuilder();
+        }
+
+        public VkmRotateStepWheelBuilder RotateStepWheel()
+        {
+            return new VkmRotateStepWheelBuilder();
+        }
+
+        public VkmThumblerBuilder Thumbler()
+        {
+            return new VkmThumblerBuilder();
+        }
+
+        public VkmWheelBuilder Wheel()
+        {
+            return new VkmWheelBuilder();
+        }
+
+        public VkmRadarTargetBuilder RadarTarget()
+        {
+            return new VkmRadarTargetBuilder();
+        }
+
+        public VkmRadarNoiseBuilder RadarNoise()
+        {
+            return new VkmRadarNoiseBuilder();
+        }
+
+        public VkmNumberDisplayBuilder NumberDisplay()
+        {
+            return new VkmNumberDisplayBuilder();
         }
     }
 }

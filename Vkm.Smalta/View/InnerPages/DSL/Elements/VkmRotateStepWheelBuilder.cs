@@ -8,20 +8,10 @@ using XAMLEx;
 
 namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
-    public class VkmRotateStepWheelBuilder : BaseElementBuilder
+    public class VkmRotateStepWheelBuilder : BaseElementBuilder<VkmRotateStepWheelBuilder>
     {
         private int maxRotationSteps;
         private int rotationStepDegrees;
-
-        public VkmRotateStepWheelBuilder(int value, string name, int posTop, int posLeft, int startupRotation, Enum page)
-        {
-            PosTop = posTop;
-            PosLeft = posLeft;
-            RotationDegrees = startupRotation;
-            Value = value;
-            Name = name;
-            Page = page;
-        }
 
         public VkmRotateStepWheelViewModel Please()
         {

@@ -8,25 +8,20 @@ using Vkm.Smalta.View.Elements.ViewModel;
 
 namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
-    public class VkmLightableRectangleBuilder : BaseElementBuilder
+    public class VkmLightableRectangleBuilder : BaseElementBuilder<VkmLightableRectangleBuilder>
     {
-        private readonly string innerText;
+        private string innerText;
         private Color backgroundColor = Colors.White;
-
-        public VkmLightableRectangleBuilder(int value, string name, string innerText, int posTop, int posLeft, int startupRotation, Enum page)
-        {
-            PosTop = posTop;
-            PosLeft = posLeft;
-            RotationDegrees = startupRotation;
-            Value = value;
-            Name = name;
-            Page = page;
-            this.innerText = innerText;
-        }
 
         public VkmLightableRectangleViewModel Please()
         {
             return new VkmLightableRectangleViewModel(Value, Name, innerText, backgroundColor, PosTop, PosLeft, Page);
+        }
+
+        public VkmLightableRectangleBuilder WithText(string innerText)
+        {
+            this.innerText = innerText;
+            return this;
         }
 
         public VkmLightableRectangleBuilder WithBackgroundColor(Color color)

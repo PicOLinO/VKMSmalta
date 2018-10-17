@@ -8,17 +8,8 @@ using XAMLEx;
 
 namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
-    public class VkmLampBuilder : BaseElementBuilder
+    public class VkmLampBuilder : BaseElementBuilder<VkmLampBuilder>
     {
-        public VkmLampBuilder(int value, string name, int posTop, int posLeft, Enum page)
-        {
-            PosTop = posTop;
-            PosLeft = posLeft;
-            Value = value;
-            Name = name;
-            Page = page;
-        }
-
         public VkmLampViewModel Please()
         {
             var imageOn = ImagesRepository.LampOn;

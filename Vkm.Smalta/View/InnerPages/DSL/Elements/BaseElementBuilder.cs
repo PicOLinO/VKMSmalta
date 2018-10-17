@@ -9,7 +9,7 @@ using Vkm.Smalta.View.Images;
 
 namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
-    public class BaseElementBuilder
+    public class BaseElementBuilder<TBuilder> where TBuilder : BaseElementBuilder<TBuilder>
     {
         protected string Name;
         protected Enum Page;
@@ -22,100 +22,50 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 
         protected IImagesRepository ImagesRepository => ServiceContainer.Default.GetService<IImagesRepository>();
 
-        public BaseElementBuilder WithSize(int width, int height)
+        public TBuilder WithSize(int width, int height)
         {
             Width = width;
             Height = height;
-            return this;
+            return (TBuilder)this;
         }
 
-        public BaseElementBuilder At(int posTop, int posLeft)
+        public TBuilder At(int posTop, int posLeft)
         {
             PosTop = posTop;
             PosLeft = posLeft;
-            return this;
+            return (TBuilder)this;
         }
 
-        public VkmBigButtonBuilder BigButton()
-        {
-            return new VkmBigButtonBuilder(Value, Name, PosTop, PosLeft, Page);
-        }
-
-        public VkmLampBuilder Lamp()
-        {
-            return new VkmLampBuilder(Value, Name, PosTop, PosLeft, Page);
-        }
-
-        public VkmLightableRectangleBuilder LightBox(string innerText)
-        {
-            return new VkmLightableRectangleBuilder(Value, Name, innerText, PosTop, PosLeft, RotationDegrees, Page);
-        }
-
-        public VkmBlackTriangleArrowBuilder LittleArrow()
-        {
-            return new VkmBlackTriangleArrowBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, Page);
-        }
-
-        public BaseElementBuilder On(Enum page)
+        public TBuilder On(Enum page)
         {
             Page = page;
-            return this;
+            return (TBuilder)this;
         }
 
-        public VkmRotateStepWheelBuilder RotateStepWheel()
-        {
-            return new VkmRotateStepWheelBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, Page);
-        }
-
-        public VkmThumblerBuilder Thumbler()
-        {
-            return new VkmThumblerBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, Page);
-        }
-
-        public VkmWheelBuilder Wheel()
-        {
-            return new VkmWheelBuilder(Value, Name, PosTop, PosLeft, Width, Height, RotationDegrees, Page);
-        }
-
-        public VkmRadarTargetBuilder RadarTarget()
-        {
-            return new VkmRadarTargetBuilder(Value, Name, PosTop, PosLeft, Page);
-        }
-
-        public VkmRadarNoiseBuilder RadarNoise()
-        {
-            return new VkmRadarNoiseBuilder(Value, Name, PosTop, PosLeft, RotationDegrees, Page);
-        }
-
-        public VkmNumberDisplayBuilder NumberDisplay()
-        {
-            return new VkmNumberDisplayBuilder(Value, Name, PosTop, PosLeft, Page);
-        }
-
-        public BaseElementBuilder WithName(string name)
+        public TBuilder WithName(string name)
         {
             Name = name;
-            return this;
+            return (TBuilder)this;
         }
 
-        public BaseElementBuilder WithStartupRotation(int rotationDegrees)
+        public TBuilder WithStartupRotation(int rotationDegrees)
         {
             RotationDegrees = rotationDegrees;
-            return this;
+            return (TBuilder)this;
         }
 
-        public BaseElementBuilder WithValue(int value)
+        public TBuilder WithValue(int value)
         {
             Value = value;
-            return this;
+            return (TBuilder)this;
         }
 
-        public BaseElementBuilder WithValueFrom(IDictionary<string, int> startupValuesDictionary, int defaultValue = 0)
+        public TBuilder WithValueFrom(IDictionary<string, int> startupValuesDictionary, int defaultValue = 0)
         {
             Value = startupValuesDictionary.TryGetValue(Name, out var value)
                         ? value
                         : defaultValue;
-            return this;
+            return (TBuilder)this;
         }
     }
 }

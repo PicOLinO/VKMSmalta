@@ -10,19 +10,9 @@ using XAMLEx;
 
 namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
-    public class VkmThumblerBuilder : BaseElementBuilder
+    public class VkmThumblerBuilder : BaseElementBuilder<VkmThumblerBuilder>
     {
         private List<DependencyAction> dependencyActions;
-
-        public VkmThumblerBuilder(int value, string name, int posTop, int posLeft, int startupRotation, Enum page)
-        {
-            PosTop = posTop;
-            PosLeft = posLeft;
-            RotationDegrees = startupRotation;
-            Value = value;
-            Name = name;
-            Page = page;
-        }
 
         public VkmThumblerViewModel Please()
         {

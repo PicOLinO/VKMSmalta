@@ -7,7 +7,7 @@ using XAMLEx;
 
 namespace Vkm.Smalta.View.InnerPages.DSL.Elements
 {
-    public class VkmWheelBuilder : BaseElementBuilder
+    public class VkmWheelBuilder : BaseElementBuilder<VkmWheelBuilder>
     {
         private int minValue;
         private int maxValue;
@@ -15,17 +15,8 @@ namespace Vkm.Smalta.View.InnerPages.DSL.Elements
         private string image;
         private List<DependencyAction> dependencyActions;
 
-        public VkmWheelBuilder(int value, string name, int posTop, int posLeft, int width, int height, int startupRotation, Enum page)
+        public VkmWheelBuilder()
         {
-            PosTop = posTop;
-            PosLeft = posLeft;
-            RotationDegrees = startupRotation;
-            Value = value;
-            Name = name;
-            Page = page;
-            Width = width;
-            Height = height;
-
             rotationCoefficient = 1;
             minValue = 0;
             maxValue = 1;
