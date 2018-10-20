@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 using DevExpress.Mvvm;
-using DevExpress.Mvvm.Native;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
 

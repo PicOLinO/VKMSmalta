@@ -40,7 +40,10 @@ namespace Vkm.Smalta.Domain
 
         private void AddDependencyElementValueCore(int newValue)
         {
-            DependencyElement.Value += DependencyValues[newValue];
+            if (DependencyValues.ContainsKey(newValue))
+            {
+                DependencyElement.Value += DependencyValues[newValue];
+            }
         }
 
         private void UpdateDependencyElementValueCore(int newValue)
@@ -51,7 +54,7 @@ namespace Vkm.Smalta.Domain
             }
         }
 
-        private void UpdateDependencyElementValueByCoefficient(int sourceValue)
+        private void UpdateDependencyElementValueByCoefficientCore(int sourceValue)
         {
             if (dependencyCoefficient != null)
             {
@@ -59,7 +62,7 @@ namespace Vkm.Smalta.Domain
             }
         }
 
-        private void AddDependencyElementValueByCoefficient(int sourceValue)
+        private void AddDependencyElementValueByCoefficientCore(int sourceValue)
         {
             if (dependencyCoefficient != null)
             {
@@ -87,10 +90,10 @@ namespace Vkm.Smalta.Domain
                     await Application.Current.Dispatcher.BeginInvoke((System.Action) (() => AddDependencyElementValueCore(value)));
                     break;
                 case DependencyType.CoefficientReplace:
-                    await Application.Current.Dispatcher.BeginInvoke((System.Action)(() => UpdateDependencyElementValueByCoefficient(value)));
+                    await Application.Current.Dispatcher.BeginInvoke((System.Action)(() => UpdateDependencyElementValueByCoefficientCore(value)));
                     break;
                 case DependencyType.CoefficientAdd:
-                    await Application.Current.Dispatcher.BeginInvoke((System.Action)(() => AddDependencyElementValueByCoefficient(value)));
+                    await Application.Current.Dispatcher.BeginInvoke((System.Action)(() => AddDependencyElementValueByCoefficientCore(value)));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
