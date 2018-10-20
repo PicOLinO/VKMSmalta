@@ -4,6 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
+using DevExpress.Mvvm;
 using Vkm.Smalta.Domain;
 using Vkm.Smalta.Services;
 using Vkm.Smalta.View.ViewModel;
@@ -16,8 +19,6 @@ namespace Vkm.Smalta.View.Elements.ViewModel
     public class VkmBigButtonViewModel : ClickableDependencyActivatorElementBase
     {
         private readonly string dependencySecureElementName;
-        private readonly string imageOffSource;
-        private readonly string imageOnSource;
         private readonly bool isInitialize;
 
         private int dependencyActionsCounter;
@@ -26,11 +27,11 @@ namespace Vkm.Smalta.View.Elements.ViewModel
         {
             isInitialize = true;
 
-            this.imageOffSource = ImageSource = imageOffSource;
-            this.imageOnSource = imageOnSource;
+            ImageOffSource = imageOffSource;
+            ImageOnSource = imageOnSource;
             this.dependencySecureElementName = dependencySecureElementName;
             Value = value;
-
+            
             isInitialize = false;
         }
 
@@ -47,18 +48,21 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             }
         }
 
-        protected override void OnMouseClick()
+        public string ImageOnSource
         {
-            base.OnMouseClick();
+            get { return GetProperty(() => ImageOnSource); }
+            set { SetProperty(() => ImageOnSource, value); }
+        }
 
-            ImageSource = imageOnSource;
+        public string ImageOffSource
+        {
+            get { return GetProperty(() => ImageOffSource); }
+            set { SetProperty(() => ImageOffSource, value); }
         }
 
         protected override void Interact()
         {
             base.Interact();
-
-            ImageSource = imageOffSource;
 
             Value = 1;
         }
