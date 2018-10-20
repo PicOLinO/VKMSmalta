@@ -93,7 +93,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 
             foreach (var dependencyAction in DependencyActions)
             {
-                Task.Run(() => dependencyAction.UpdateDependencyElementValue(Value, DependencyActionsCounterCallback));
+                Task.Run(() => dependencyAction.UpdateDependencyElementValueAsync(Value, DependencyActionsCounterCallback));
             }
         }
     }

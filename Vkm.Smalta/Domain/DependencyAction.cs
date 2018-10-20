@@ -70,7 +70,7 @@ namespace Vkm.Smalta.Domain
             }
         }
 
-        public async Task UpdateDependencyElementValue(int value, Action<string> dependencyActionsCounterCallback = null)
+        public async Task UpdateDependencyElementValueAsync(int value, Action<string> dependencyActionsCounterCallback = null)
         {
             if (DelayedTimeInSeconds > 0)
             {
