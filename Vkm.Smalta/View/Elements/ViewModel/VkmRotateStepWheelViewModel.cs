@@ -3,6 +3,7 @@
 #endregion
 
 using System;
+using System.Windows;
 using System.Windows.Input;
 using DevExpress.Mvvm;
 
@@ -22,32 +23,27 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             ImageSource = image;
             Value = value;
 
-            MouseRightButtonUpCommand = new DelegateCommand(OnMouseRightButtonUp);
+            MouseRightClickCommand = new DelegateCommand(InteractByRightClick, CanInteract);
         }
 
-        public ICommand MouseRightButtonUpCommand { get; set; }
-
+        public ICommand MouseRightClickCommand { get; }
+        
         public int RotationDegrees
         {
             get { return GetProperty(() => RotationDegrees); }
             set { SetProperty(() => RotationDegrees, value); }
         }
 
-        private void OnMouseRightButtonUp()
+        private void InteractByRightClick()
         {
             InteractCore(true);
         }
 
-        protected override void Interact()
-        {
-            InteractCore(false);
-        }
-
-        private void InteractCore(bool isRightButton)
+        private void InteractCore(bool isRight)
         {
             base.Interact();
 
-            if (isRightButton)
+            if (isRight)
             {
                 if (Value == 0)
                 {
@@ -69,6 +65,11 @@ namespace Vkm.Smalta.View.Elements.ViewModel
                     Value = 0;
                 }
             }
+        }
+
+        protected override void Interact()
+        {
+            InteractCore(false);
         }
 
         protected override void OnValueChanged()
