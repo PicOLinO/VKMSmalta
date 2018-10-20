@@ -35,27 +35,39 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 
         private void OnMouseRightButtonUp()
         {
-            if (Value == 0)
-            {
-                Value = maxValue - 1;
-            }
-            else
-            {
-                Value -= 1;
-            }
+            InteractCore(true);
         }
 
         protected override void Interact()
         {
+            InteractCore(false);
+        }
+
+        private void InteractCore(bool isRightButton)
+        {
             base.Interact();
-            
-            if (Value < maxValue - 1)
+
+            if (isRightButton)
             {
-                Value += 1;
+                if (Value == 0)
+                {
+                    Value = maxValue - 1;
+                }
+                else
+                {
+                    Value -= 1;
+                }
             }
             else
             {
-                Value = 0;
+                if (Value < maxValue - 1)
+                {
+                    Value += 1;
+                }
+                else
+                {
+                    Value = 0;
+                }
             }
         }
 
