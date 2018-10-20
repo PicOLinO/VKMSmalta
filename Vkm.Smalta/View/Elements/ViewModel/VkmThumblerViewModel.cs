@@ -52,9 +52,9 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             HistoryService.Actions.Add(new Action(ActionName.Idle, dependencyElementName));
         }
 
-        protected override void OnMouseLeftButtonUp()
+        protected override void Interact()
         {
-            base.OnMouseLeftButtonUp();
+            base.Interact();
 
             Value = Value == 0
                         ? 1

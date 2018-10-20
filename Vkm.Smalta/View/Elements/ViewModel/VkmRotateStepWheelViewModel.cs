@@ -45,9 +45,9 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             }
         }
 
-        protected override void OnMouseLeftButtonUp()
+        protected override void Interact()
         {
-            base.OnMouseLeftButtonUp();
+            base.Interact();
             
             if (Value < maxValue - 1)
             {

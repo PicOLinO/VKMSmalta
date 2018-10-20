@@ -54,9 +54,9 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             ImageSource = imageOnSource;
         }
 
-        protected override void OnMouseLeftButtonUp()
+        protected override void Interact()
         {
-            base.OnMouseLeftButtonUp();
+            base.Interact();
 
             ImageSource = imageOffSource;
 

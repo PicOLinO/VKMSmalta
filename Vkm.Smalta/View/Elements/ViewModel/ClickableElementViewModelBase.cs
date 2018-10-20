@@ -11,13 +11,11 @@ using Action = Vkm.Smalta.Domain.Action;
 
 namespace Vkm.Smalta.View.Elements.ViewModel
 {
-    public abstract class ClickableElementViewModelBase : ElementViewModelBase
+    public abstract class ClickableElementViewModelBase : InteractiveElementViewModelBase
     {
-        protected readonly IHistoryService HistoryService;
 
         protected ClickableElementViewModelBase(int value, string name, int posTop, int posLeft, Enum page) : base(value, name, posTop, posLeft, page)
         {
-            HistoryService = ServiceContainer.GetService<IHistoryService>();
             CreateCommands();
         }
 
@@ -25,15 +23,20 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 
         public ICommand MouseLeftButtonUpCommand { get; set; }
 
-        private bool CanOnMouseLeftButtonUse()
+        protected override bool CanInteract()
         {
             return IsEnabled;
         }
 
+        protected override void Interact()
+        {
+            SendActionToHistoryService();
+        }
+
         private void CreateCommands()
         {
-            MouseLeftButtonUpCommand = new DelegateCommand(OnMouseLeftButtonUp, CanOnMouseLeftButtonUse);
-            MouseLeftButtonDownCommand = new DelegateCommand(OnMouseLeftButtonDown, CanOnMouseLeftButtonUse);
+            MouseLeftButtonUpCommand = new DelegateCommand(Interact, CanInteract);
+            MouseLeftButtonDownCommand = new DelegateCommand(OnMouseLeftButtonDown, CanInteract);
         }
 
         private void SendActionToHistoryService()
@@ -44,11 +47,6 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 
         protected virtual void OnMouseLeftButtonDown()
         {
-        }
-
-        protected virtual void OnMouseLeftButtonUp()
-        {
-            SendActionToHistoryService();
         }
     }
 }
