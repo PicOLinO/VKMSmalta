@@ -117,14 +117,52 @@ namespace Vkm.Smalta.View.InnerPages.ViewModel
                                          .Please()
                                };
                     break;
-                case RlsOncInnerRegionPage.C1_65:
-                    Elements = new ObservableCollection<ElementViewModelBase>();
-                    break;
                 case RlsOncInnerRegionPage.Radar:
                     Elements = new ObservableCollection<ElementViewModelBase>
                                {
                                    GiveMe.RadarTarget().On(PageKey).WithName("radar_target_1").WithValue(25).At(239, 649).Please(),
                                    GiveMe.RadarNoise().On(PageKey).WithName("radar_noise").WithValue(0).WithStartupRotation(-60).At(138, 603).Please()
+                               };
+                    break;
+                case RlsOncInnerRegionPage.C1_65:
+                    Elements = new ObservableCollection<ElementViewModelBase>
+                               {
+                                   GiveMe.Thumbler().On(PageKey).WithName("c165_thumbler_scanmode_1").WithValue(1).At(116, 946)
+                                         .WithDependencyAction(GiveMe.DependencyAction()
+                                                                     .WithDependencyElementName("c165_thumbler_scanmode_0_1")
+                                                                     .TypeOf(DependencyType.Replace)
+                                                                     .WithDependencyValue(1, 0)
+                                                                     .Please())
+                                         .WithDependencyAction(GiveMe.DependencyAction()
+                                                                     .WithDependencyElementName("c165_thumbler_scanmode_X")
+                                                                     .TypeOf(DependencyType.Replace)
+                                                                     .WithDependencyValue(1, 0)
+                                                                     .Please())
+                                         .Please(),
+                                   GiveMe.Thumbler().On(PageKey).WithName("c165_thumbler_scanmode_0_1").WithValue(0).At(116, 976)
+                                         .WithDependencyAction(GiveMe.DependencyAction()
+                                                                     .WithDependencyElementName("c165_thumbler_scanmode_1")
+                                                                     .TypeOf(DependencyType.Replace)
+                                                                     .WithDependencyValue(1, 0)
+                                                                     .Please())
+                                         .WithDependencyAction(GiveMe.DependencyAction()
+                                                                     .WithDependencyElementName("c165_thumbler_scanmode_X")
+                                                                     .TypeOf(DependencyType.Replace)
+                                                                     .WithDependencyValue(1, 0)
+                                                                     .Please())
+                                         .Please(),
+                                   GiveMe.Thumbler().On(PageKey).WithName("c165_thumbler_scanmode_X").WithValue(0).At(116, 1006)
+                                         .WithDependencyAction(GiveMe.DependencyAction()
+                                                                     .WithDependencyElementName("c165_thumbler_scanmode_0_1")
+                                                                     .TypeOf(DependencyType.Replace)
+                                                                     .WithDependencyValue(1, 0)
+                                                                     .Please())
+                                         .WithDependencyAction(GiveMe.DependencyAction()
+                                                                     .WithDependencyElementName("c165_thumbler_scanmode_1")
+                                                                     .TypeOf(DependencyType.Replace)
+                                                                     .WithDependencyValue(1, 0)
+                                                                     .Please())
+                                         .Please(),
                                };
                     break;
                 default:
