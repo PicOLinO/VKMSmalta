@@ -12,7 +12,7 @@
     <Grid>
         <Image Cursor="Hand" Source="{Binding Path=ImageSource}">
             <dxmvvm:Interaction.Behaviors>
-                <dxmvvm:EventToCommand EventName="MouseLeftButtonUp" Command="{Binding Path=MouseLeftButtonUpCommand}" />
+                <dxmvvm:EventToCommand EventName="MouseLeftButtonUp" Command="{Binding Path=MouseClickCommand}" />
                 <dxmvvm:EventToCommand EventName="MouseLeftButtonDown"
                                        Command="{Binding Path=MouseLeftButtonDownCommand}" />
             </dxmvvm:Interaction.Behaviors>

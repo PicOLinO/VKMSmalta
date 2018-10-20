@@ -21,7 +21,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 
         public ICommand MouseLeftButtonDownCommand { get; set; }
 
-        public ICommand MouseLeftButtonUpCommand { get; set; }
+        public ICommand MouseClickCommand { get; set; }
 
         protected override bool CanInteract()
         {
@@ -35,8 +35,8 @@ namespace Vkm.Smalta.View.Elements.ViewModel
 
         private void CreateCommands()
         {
-            MouseLeftButtonUpCommand = new DelegateCommand(Interact, CanInteract);
-            MouseLeftButtonDownCommand = new DelegateCommand(OnMouseLeftButtonDown, CanInteract);
+            MouseClickCommand = new DelegateCommand(Interact, CanInteract);
+            MouseLeftButtonDownCommand = new DelegateCommand(OnMouseClick, CanInteract);
         }
 
         private void SendActionToHistoryService()
@@ -45,7 +45,7 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             HistoryService.Actions.Add(action);
         }
 
-        protected virtual void OnMouseLeftButtonDown()
+        protected virtual void OnMouseClick()
         {
         }
     }

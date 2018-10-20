@@ -11,13 +11,15 @@
                       d:DataContext="{d:DesignInstance Type=viewModel:VkmThumblerViewModel}">
     <Grid>
         <!-- ReSharper disable once UnusedMember.Global -->
-        <Image Cursor="Hand" Source="{Binding Path=ImageSource}" Style="{StaticResource RotationImage}">
+        <Button Style="{DynamicResource ElementButton}">
             <dxmvvm:Interaction.Behaviors>
-                <dxmvvm:EventToCommand EventName="MouseLeftButtonUp" Command="{Binding Path=MouseLeftButtonUpCommand}" />
+                <dxmvvm:EventToCommand EventName="Click" Command="{Binding Path=MouseClickCommand}" />
             </dxmvvm:Interaction.Behaviors>
-            <Image.RenderTransform>
-                <RotateTransform Angle="{Binding Path=StartupRotation}" />
-            </Image.RenderTransform>
-        </Image>
+            <Image Source="{Binding Path=ImageSource}" Style="{StaticResource RotationImage}">
+                <Image.RenderTransform>
+                    <RotateTransform Angle="{Binding Path=StartupRotation}" />
+                </Image.RenderTransform>
+            </Image>
+        </Button>
     </Grid>
 </elements:ElementBase>

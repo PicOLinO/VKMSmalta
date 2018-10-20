@@ -39,8 +39,8 @@ namespace Vkm.Smalta.View.Elements
                 return;
             }
 
-            MouseLeftButtonDown += OnMouseLeftButtonDown;
-            PreviewMouseLeftButtonUp += OnPreviewMouseLeftButtonUp;
+            MouseDown += OnMouseDown;
+            PreviewMouseUp += OnPreviewMouseUp;
             MouseMove += OnMouseMove;
             Unloaded += OnUnloaded;
         }
@@ -105,7 +105,7 @@ namespace Vkm.Smalta.View.Elements
             }
         }
 
-        private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             var element = sender as ElementBase;
             var canvas = element?.Tag as Canvas;
@@ -132,7 +132,11 @@ namespace Vkm.Smalta.View.Elements
 
         private void OnMouseMove(object sender, MouseEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed && Equals(sender, movingObject))
+            var mousePressed = e.MiddleButton == MouseButtonState.Pressed 
+                               || e.RightButton == MouseButtonState.Pressed 
+                               || e.LeftButton == MouseButtonState.Pressed;
+
+            if (mousePressed && Equals(sender, movingObject))
             {
                 var element = sender as ElementBase;
                 var elementVm = element?.DataContext as ElementViewModelBase;
@@ -180,7 +184,7 @@ namespace Vkm.Smalta.View.Elements
             }
         }
 
-        private void OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void OnPreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             var element = sender as ElementBase;
             var canvas = element?.Tag as Canvas;
@@ -210,8 +214,8 @@ namespace Vkm.Smalta.View.Elements
         private void ReleaseUnmanagedResources()
         {
             Loaded -= OnLoaded;
-            MouseLeftButtonDown -= OnMouseLeftButtonDown;
-            PreviewMouseLeftButtonUp -= OnPreviewMouseLeftButtonUp;
+            MouseLeftButtonDown -= OnMouseDown;
+            PreviewMouseLeftButtonUp -= OnPreviewMouseUp;
             MouseMove -= OnMouseMove;
             Unloaded -= OnUnloaded;
         }

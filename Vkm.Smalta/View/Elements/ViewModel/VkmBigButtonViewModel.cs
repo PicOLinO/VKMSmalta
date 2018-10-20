@@ -47,9 +47,9 @@ namespace Vkm.Smalta.View.Elements.ViewModel
             }
         }
 
-        protected override void OnMouseLeftButtonDown()
+        protected override void OnMouseClick()
         {
-            base.OnMouseLeftButtonDown();
+            base.OnMouseClick();
 
             ImageSource = imageOnSource;
         }
