@@ -1,0 +1,40 @@
+﻿<dialogs:DialogBase x:Class="Vkm.ComplexSim.Dialogs.ChooseAlgorithmDialog"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:dialogs="clr-namespace:Vkm.ComplexSim.Dialogs"
+                    xmlns:domain="clr-namespace:Vkm.ComplexSim.Domain"
+                    xmlns:viewModel="clr-namespace:Vkm.ComplexSim.Dialogs.ViewModel"
+                    mc:Ignorable="d"
+                    Title="Выберите алгоритм"
+                    Style="{DynamicResource DialogStyle}"
+                    d:DataContext="{d:DesignInstance Type=viewModel:ChooseAlgorithmDialogViewModel}"
+                    d:DesignWidth="279.355"
+                    d:DesignHeight="132.633">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Style="{DynamicResource DialogOuterSeparatingRow}" />
+            <RowDefinition />
+            <RowDefinition Style="{DynamicResource DialogInnerSeparatingRow}" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Style="{DynamicResource DialogOuterSeparatingRow}" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Style="{DynamicResource DialogOuterSeparatingColumn}" />
+            <ColumnDefinition />
+            <ColumnDefinition Style="{DynamicResource DialogOuterSeparatingColumn}" />
+        </Grid.ColumnDefinitions>
+        <ListView Grid.Row="1" Grid.Column="1" SelectedItem="{Binding Path=SelectedAlgorithm}"
+                  ItemsSource="{Binding Path=Algorithms}"
+                  SelectionChanged="Selector_OnSelectionChanged" BorderThickness="2" BorderBrush="WhiteSmoke">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="{x:Type domain:Algorithm}">
+                    <TextBlock Text="{Binding Path=Name}" Margin="10 10 10 10" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Grid.Row="3" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Отмена"
+                Command="{Binding Path=CloseCommand}" IsCancel="True" />
+    </Grid>
+</dialogs:DialogBase>

@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1931FFEB-4A78-4CFB-A0F9-0A7E47CA0A78}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VKMSmalta</RootNamespace>
+    <AssemblyName>VKMSmalta</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>VKMSmalta.App</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Appccelerate.CommandLineParser, Version=1.2.0.0, Culture=neutral, PublicKeyToken=917bca444d1f2b4c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Appccelerate.CommandLineParser.1.2.0\lib\net45\Appccelerate.CommandLineParser.dll</HintPath>
+    </Reference>
+    <Reference Include="Appccelerate.Fundamentals, Version=2.8.0.0, Culture=neutral, PublicKeyToken=917bca444d1f2b4c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Appccelerate.Fundamentals.2.8.0\lib\portable-windows8+net45\Appccelerate.Fundamentals.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Mvvm.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Controls.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Core.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ApplicationMode.cs" />
+    <Compile Include="Converters\BaseConverter.cs" />
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\PageKeyToPageNameConverter.cs" />
+    <Compile Include="Converters\ValueToStringValueConverter.cs" />
+    <Compile Include="Dialogs\CheckResultsDialog.xaml.cs">
+      <DependentUpon>CheckResultsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ChooseAlgorithmDialog.xaml.cs">
+      <DependentUpon>ChooseAlgorithmDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Factories\ActionsFactory.cs" />
+    <Compile Include="Dialogs\Factories\AlgorithmsFactory.cs" />
+    <Compile Include="Dialogs\LoginDialog.xaml.cs">
+      <DependentUpon>LoginDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DialogBase.cs" />
+    <Compile Include="Dialogs\TrainingCompleteDialog.xaml.cs">
+      <DependentUpon>TrainingCompleteDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ViewModel\CheckResultsDialogViewModel.cs" />
+    <Compile Include="Dialogs\ViewModel\ChooseAlgorithmDialogViewModel.cs" />
+    <Compile Include="Dialogs\ViewModel\DialogViewModelBase.cs" />
+    <Compile Include="Dialogs\ViewModel\IPasswordSupplier.cs" />
+    <Compile Include="Dialogs\ViewModel\LoginDialogViewModel.cs" />
+    <Compile Include="Domain\Action.cs" />
+    <Compile Include="Domain\ActionName.cs" />
+    <Compile Include="Domain\Algorithm.cs" />
+    <Compile Include="Domain\DependencyAction.cs" />
+    <Compile Include="Domain\DependencyType.cs" />
+    <Compile Include="Domain\ExamineResult.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\DependencyContainer.cs" />
+    <Compile Include="Services\HintService.cs" />
+    <Compile Include="Services\HistoryService.cs" />
+    <Compile Include="Services\Navigate\Direction.cs" />
+    <Compile Include="Services\Navigate\RegionPages.cs" />
+    <Compile Include="Services\Navigate\Regions.cs" />
+    <Compile Include="Services\NetworkService.cs" />
+    <Compile Include="ViewModel\MainPageViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="View\DevicePage.xaml.cs">
+      <DependentUpon>DevicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Elements\ElementBase.cs" />
+    <Compile Include="View\Elements\ViewModel\Interfaces\IDependencyActivatorElement.cs" />
+    <Compile Include="View\Elements\ViewModel\Interfaces\ITimingValueChangedElement.cs" />
+    <Compile Include="View\Elements\ViewModel\VkmBigButtonViewModel.cs" />
+    <Compile Include="View\Elements\ViewModel\VkmLampViewModel.cs" />
+    <Compile Include="View\Elements\VkmBigButton.xaml.cs">
+      <DependentUpon>VkmBigButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Elements\VkmLamp.xaml.cs">
+      <DependentUpon>VkmLamp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Elements\VkmLightableRectangle.xaml.cs">
+      <DependentUpon>VkmLightableRectangle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Elements\ViewModel\ClickableElementViewModelBase.cs" />
+    <Compile Include="View\Elements\ViewModel\ElementViewModelBase.cs" />
+    <Compile Include="View\Elements\ViewModel\Interfaces\IValuableNamedElement.cs" />
+    <Compile Include="View\Elements\ViewModel\VkmLightableRectangleViewModel.cs" />
+    <Compile Include="View\Elements\ViewModel\VkmBlackTriangleArrowViewModel.cs" />
+    <Compile Include="View\Elements\ViewModel\VkmRotateWheelViewModel.cs" />
+    <Compile Include="View\Elements\ViewModel\VkmThumblerViewModel.cs" />
+    <Compile Include="View\Elements\VkmRotateWheel.xaml.cs">
+      <DependentUpon>VkmRotateWheel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Elements\VkmBlackTriangleArrow.xaml.cs">
+      <DependentUpon>VkmBlackTriangleArrow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Elements\VkmThumbler.xaml.cs">
+      <DependentUpon>VkmThumbler.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Hints\Hint.xaml.cs">
+      <DependentUpon>Hint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Hints\ViewModel\AccessibleHintViewModel.cs" />
+    <Compile Include="View\Hints\ViewModel\InfluentialHintViewModel.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\BaseElementBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\VkmBigButtonBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\VkmLampBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\GiveMe.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\VkmBlackTriangleArrowBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\VkmLightableRectangleBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\VkmRotateWheelBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\VkmThumblerBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Other\DependencyActionBuilder.cs" />
+    <Compile Include="View\InnerPages\MainInnerDevicePage.xaml.cs">
+      <DependentUpon>MainInnerDevicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InnerPages\ViewModel\InnerPageViewModelBase.cs" />
+    <Compile Include="View\InnerPages\ViewModel\MainInnerDevicePageViewModel.cs" />
+    <Compile Include="View\Hints\NavigateButtonHint.xaml.cs">
+      <DependentUpon>NavigateButtonHint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewModel\DevicePageViewModel.cs" />
+    <Compile Include="View\Hints\ViewModel\HintViewModelBase.cs" />
+    <Page Include="Dialogs\CheckResultsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ChooseAlgorithmDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\DialogResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\LoginDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\TrainingCompleteDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Styles\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DevicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Elements\VkmBigButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Elements\VkmLamp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Elements\VkmLightableRectangle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Elements\VkmRotateWheel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Elements\VkmBlackTriangleArrow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Elements\VkmThumbler.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Hints\Hint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InnerPages\MainInnerDevicePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Hints\NavigateButtonHint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\LampOff.png" />
+    <Resource Include="View\Images\LampOn.png" />
+    <Resource Include="View\Images\ThumblerOff.png" />
+    <Resource Include="View\Images\ThumblerOn.png" />
+    <Resource Include="View\Images\Wheel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Backgrounds\L001R.png" />
+    <Resource Include="View\Images\Backgrounds\L001P.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\XAMLEx\XAMLEx\XAMLEx.csproj">
+      <Project>{31ddbc68-ceca-46ca-87f7-1bfd8257623b}</Project>
+      <Name>XAMLEx</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\BigButtonOff.png" />
+    <Resource Include="View\Images\BigButtonOn.png" />
+    <Resource Include="View\Images\Backgrounds\L001I_L001K.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Backgrounds\background.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
