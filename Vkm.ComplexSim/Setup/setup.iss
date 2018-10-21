@@ -2,8 +2,8 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define AuthorName 'Danila Chervonny'
-#define ApplicationName 'Smalta Simulator'
-#define ApplicationVersion GetFileVersion('..\bin\Release\Vkm.Smalta.exe')
+#define ApplicationName 'Complex Simulator'
+#define ApplicationVersion GetFileVersion('..\bin\Release\Vkm.ComplexSim.exe')
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -47,8 +47,8 @@ Source: "..\bin\Release\Appccelerate.Fundamentals.dll"; DestDir: "{app}"; Flags:
 Source: "..\bin\Release\DevExpress.Mvvm.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Release\DevExpress.Mvvm.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\bin\Release\Vkm.Smalta.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\bin\Release\Vkm.Smalta.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Release\Vkm.ComplexSim.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Release\Vkm.ComplexSim.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Release\XAMLEx.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\Documentation.xps"; DestDir: "{app}"; Flags: ignoreversion
@@ -57,11 +57,11 @@ Source: "..\logo.ico"; DestDir: "{app}"; Flags: ignoreversion
 Source: "NDP47-KB3186497-x86-x64-AllOS-ENU.exe"; DestDir: "{tmp}"; Flags: deleteafterinstall; Check: not IsRequiredDotNetDetected
 
 [Icons]
-Name: "{group}\Smalta Simulator"; Filename: "{app}\Vkm.Smalta.exe"
-Name: "{commondesktop}\Smalta Simulator"; Filename: "{app}\Vkm.Smalta.exe"; Tasks: desktopicon
+Name: "{group}\Complex Simulator"; Filename: "{app}\Vkm.ComplexSim.exe"
+Name: "{commondesktop}\Complex Simulator"; Filename: "{app}\Vkm.ComplexSim.exe"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\Vkm.Smalta.exe"; Description: "{cm:LaunchProgram,Smalta Simulator}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\Vkm.ComplexSim.exe"; Description: "{cm:LaunchProgram,Complex Simulator}"; Flags: nowait postinstall skipifsilent
 Filename: "{tmp}\NDP47-KB3186497-x86-x64-AllOS-ENU.exe"; Parameters: "/q:a /c:""install /l /q"""; Check: not IsRequiredDotNetDetected; StatusMsg: Устанавливается Microsoft .NET 4.7... Пожалуйста, подождите.
 
 [Code]
@@ -82,7 +82,7 @@ function InitializeSetup(): boolean;
 begin
   if not IsDotNetDetected('v4.7', 460798) then
     begin
-      MsgBox('Smalta Simulator нуждается в установке .NET Framework 4.7.'#13
+      MsgBox('Complex Simulator нуждается в установке .NET Framework 4.7.'#13
              'Сейчас будет произведена установка необходимого компонента', mbInformation, MB_OK);
     end;   
 
@@ -146,7 +146,7 @@ begin
     Result := true;
 
     try
-      MyFile.LoadFromFile(ExpandConstant('{app}' + '\Vkm.Smalta.exe.config'));
+      MyFile.LoadFromFile(ExpandConstant('{app}' + '\Vkm.ComplexSim.exe.config'));
       Log('File loaded');
       MyText := MyFile.Text;
 
@@ -155,7 +155,7 @@ begin
       begin;
         Log('IP address inserted');
         MyFile.Text := MyText;
-        MyFile.SaveToFile(ExpandConstant('{app}' + '\Vkm.Smalta.exe.config'));
+        MyFile.SaveToFile(ExpandConstant('{app}' + '\Vkm.ComplexSim.exe.config'));
         Log('File saved');
       end;
     except
