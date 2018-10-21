@@ -48,6 +48,7 @@ namespace Vkm.Smalta.Dialogs.Factories.Algorithms
                                                                         ActionsFactory.GetInfoAction("radar_target_1", "Как можно видеть, цель полностью засвечена помехой"),
 
                                                                         ActionsFactory.GetClickAction("cps_stepwheel_generator_mode", "Поставьте режим работы станции в положение \"Измерение\"", 0),
+                                                                        ActionsFactory.GetClickAction("cps_stepwheel_noisetype", "Переключите вид поставляемой помехи на \"ЧМШ\"", 1),
                                                                         //TODO: Продолжить
                                                                     })
                                };
