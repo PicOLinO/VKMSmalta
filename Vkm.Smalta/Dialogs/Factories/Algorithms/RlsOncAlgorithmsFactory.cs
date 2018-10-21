@@ -49,7 +49,12 @@ namespace Vkm.Smalta.Dialogs.Factories.Algorithms
 
                                                                         ActionsFactory.GetClickAction("cps_stepwheel_generator_mode", "Поставьте режим работы станции в положение \"Измерение\"", 0),
                                                                         ActionsFactory.GetClickAction("cps_stepwheel_noisetype", "Переключите вид поставляемой помехи на \"ЧМШ\"", 1),
-                                                                        //TODO: Продолжить
+
+                                                                        //TODO: ТУТ ОПРЕДЕЛЕНИЕ ЧИСЛА КЛЕТОК СВЕТОФИЛЬТРА, КОТОРЫЕ ЗАСВЕЧЕНЫ СИГНАЛОМ (т.е. n(c) = 2k * Umc, где k - коэффициент передачи осциллографа).
+
+                                                                        ActionsFactory.GetClickAction("c165_thumbler_scanmode_X", "Выключите развертку осциллографа, переведя переключатель вида развертки в положение \"X\"", 1),
+                                                                        
+                                                                        //TODO: ТУТ ОПРЕДЕЛЕНИЕ РАЗМЕРОВ ЯРКОЙ ЛИНИИ НА ЭКРАНЕ ОСЦИЛЛОГРАФА В ЦЕЛЫХ И ДЕСЯТЫХ ДОЛЯХ ЧИСЛА КЛЕТОК ПО ШКАЛЕ СВЕТОФИЛЬТРА ПРИ МАЛОЙ ЯРКОСТИ.
                                                                     })
                                };
 
