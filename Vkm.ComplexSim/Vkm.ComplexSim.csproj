@@ -101,6 +101,7 @@
     <Compile Include="Config.cs" />
     <Compile Include="Converters\BaseConverter.cs" />
     <Compile Include="Converters\CenterPopupConverter.cs" />
+    <Compile Include="Converters\TabItemWidthAdjustmentConverter.cs" />
     <Compile Include="Converters\EventArgsConverters\MouseEventArgsToMousePointConverter.cs" />
     <Compile Include="Dialogs\CheckResultsDialog.xaml.cs">
       <DependentUpon>CheckResultsDialog.xaml</DependentUpon>

@@ -6,6 +6,7 @@
                     xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
                     xmlns:dialogs="clr-namespace:Vkm.ComplexSim.Dialogs"
                     xmlns:viewModel="clr-namespace:Vkm.ComplexSim.Dialogs.ViewModel"
+                    xmlns:converters="clr-namespace:Vkm.ComplexSim.Converters"
                     mc:Ignorable="d"
                     Title="Информация"
                     Style="{DynamicResource DialogStyle}"
@@ -48,20 +49,30 @@
                  Text="{Binding Path=TextInTextBox}" TextWrapping="Wrap"
                  Visibility="{Binding IsShowAboutDeviceInfoButtonEnabled, Converter={dxmvvm:BooleanToVisibilityConverter}}" />
 
-        <DocumentViewer x:Name="PART_DocumentViewer" Grid.Row="3" Grid.Column="1"
-                        Document="{Binding DocumentInDocumentViewer}" Background="GhostWhite"
-                        MaxPagesAcross="1" ShowPageBorders="False"
-                        Visibility="{Binding IsShowLicenseButtonEnabled, Converter={dxmvvm:BooleanToVisibilityConverter}}">
-            <DocumentViewer.Resources>
-                <Style TargetType="ContentControl">
-                    <Setter Property="Background" Value="White" />
-                    <Setter Property="Foreground" Value="White" />
-                </Style>
-                <Style TargetType="ToolBar">
-                    <Setter Property="Visibility" Value="Collapsed" />
-                </Style>
-            </DocumentViewer.Resources>
-        </DocumentViewer>
+        <TabControl Grid.Row="3" Grid.Column="1"
+                    x:Name="tabControl" VerticalAlignment="Stretch"
+                    Tag="{Binding RelativeSource={RelativeSource Self}, Path=ActualWidth, Converter={converters:TabItemWidthAdjustmentConverter}, ConverterParameter=2}"
+                    Visibility="{Binding IsShowLicenseButtonEnabled, Converter={dxmvvm:BooleanToVisibilityConverter}}">
+            <!-- Here 2 because I have 2 tabs -->
+            <TabItem Header="Смальта" Width="{Binding ElementName=tabControl, Path=Tag}">
+                <DocumentViewer x:Name="PART_DocumentViewer" 
+                                Document="{Binding DocumentInDocumentViewer}" Background="GhostWhite"
+                                MaxPagesAcross="1" ShowPageBorders="False">
+                    <DocumentViewer.Resources>
+                        <Style TargetType="ContentControl">
+                            <Setter Property="Background" Value="White" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                        <Style TargetType="ToolBar">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </Style>
+                    </DocumentViewer.Resources>
+                </DocumentViewer>
+            </TabItem>
+            <TabItem Header="РЛС ОНЦ" IsEnabled="False"  Width="{Binding ElementName=tabControl, Path=Tag}">
+                <!--TODO-->
+            </TabItem>
+        </TabControl>
 
         <Button Grid.Row="5" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Закрыть"
                 Command="{Binding Path=CloseCommand}" IsCancel="True" IsDefault="True" />
