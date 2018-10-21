@@ -3,11 +3,11 @@
 using System;
 using System.Collections.Generic;
 using DevExpress.Mvvm;
-using Vkm.Smalta.View.Images;
+using Vkm.ComplexSim.View.Images;
 
 #endregion
 
-namespace Vkm.Smalta.View.InnerPages.DSL.Elements
+namespace Vkm.ComplexSim.View.InnerPages.DSL.Elements
 {
     public class BaseElementBuilder<TBuilder> where TBuilder : BaseElementBuilder<TBuilder>
     {

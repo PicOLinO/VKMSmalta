@@ -2,12 +2,12 @@
 
 using System;
 using System.Collections.Generic;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.View.Elements.ViewModel.Interfaces;
 
 #endregion
 
-namespace Vkm.Smalta.View.Elements.ViewModel
+namespace Vkm.ComplexSim.View.Elements.ViewModel
 {
     public abstract class ClickableDependencyActivatorElementBase : ClickableElementViewModelBase, IDependencyActivatorElement
     {

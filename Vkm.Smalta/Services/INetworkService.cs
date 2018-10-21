@@ -3,12 +3,12 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.Network;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.Network;
 
 #endregion
 
-namespace Vkm.Smalta.Services
+namespace Vkm.ComplexSim.Services
 {
     public interface INetworkService
     {

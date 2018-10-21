@@ -2,11 +2,11 @@
 
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Vkm.Smalta.Domain;
+using Vkm.ComplexSim.Domain;
 
 #endregion
 
-namespace Vkm.Smalta.Dialogs.ViewModel
+namespace Vkm.ComplexSim.Dialogs.ViewModel
 {
     public class ChooseAlgorithmDialogViewModel : DialogViewModelBase
     {

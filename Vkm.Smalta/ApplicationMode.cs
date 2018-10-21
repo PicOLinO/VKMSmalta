@@ -1,4 +1,4 @@
-﻿namespace Vkm.Smalta
+﻿namespace Vkm.ComplexSim
 {
     public enum ApplicationMode
     {

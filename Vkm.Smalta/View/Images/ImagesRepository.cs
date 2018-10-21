@@ -4,7 +4,7 @@ using XAMLEx;
 
 #endregion
 
-namespace Vkm.Smalta.View.Images
+namespace Vkm.ComplexSim.View.Images
 {
     public class ImagesRepository : IImagesRepository
     {

@@ -2,14 +2,12 @@
 
 using System.Collections.Generic;
 using System.Windows.Controls;
-using Vkm.Smalta.Dialogs.Factories;
-using Vkm.Smalta.Dialogs.ViewModel;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
+using Vkm.ComplexSim.Dialogs.ViewModel;
+using Vkm.ComplexSim.Domain;
 
 #endregion
 
-namespace Vkm.Smalta.Dialogs
+namespace Vkm.ComplexSim.Dialogs
 {
     /// <summary>
     /// Interaction logic for ChoseAlgorithmDialog.xaml

@@ -7,11 +7,11 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Xps.Packaging;
 using DevExpress.Mvvm;
-using Vkm.Smalta.Properties;
+using Vkm.ComplexSim.Properties;
 
 #endregion
 
-namespace Vkm.Smalta.Dialogs.ViewModel
+namespace Vkm.ComplexSim.Dialogs.ViewModel
 {
     public class InfoDialogViewModel : DialogViewModelBase, IDisposable
     {

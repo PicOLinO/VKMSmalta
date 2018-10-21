@@ -7,14 +7,14 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
-using Vkm.Smalta.Services;
-using Vkm.Smalta.View.Elements.ViewModel;
-using Vkm.Smalta.View.Hints;
+using Vkm.ComplexSim.Services;
+using Vkm.ComplexSim.View.Elements.ViewModel;
+using Vkm.ComplexSim.View.Hints;
 using ToolTip = System.Windows.Controls.ToolTip;
 
 #endregion
 
-namespace Vkm.Smalta.View.Elements
+namespace Vkm.ComplexSim.View.Elements
 {
     public abstract class ElementBase : UserControl, IDisposable
     {

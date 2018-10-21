@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:dialogs="clr-namespace:Vkm.Smalta.Dialogs">
+                    xmlns:dialogs="clr-namespace:Vkm.ComplexSim.Dialogs">
     <Style x:Key="DialogOuterSeparatingRow" TargetType="RowDefinition">
         <Setter Property="Height" Value="15" />
     </Style>

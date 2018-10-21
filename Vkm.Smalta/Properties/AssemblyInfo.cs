@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Smalta Simulator")]
-[assembly: AssemblyDescription("Симулятор Смальты")]
+[assembly: AssemblyTitle("Complex Simulator")]
+[assembly: AssemblyDescription("Комплексный Симулятор")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Danila Chervonny")]
-[assembly: AssemblyProduct("Vkm.Smalta")]
+[assembly: AssemblyProduct("Vkm.ComplexSim")]
 [assembly: AssemblyCopyright("Danila Chervonny ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

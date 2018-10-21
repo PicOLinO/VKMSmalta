@@ -2,7 +2,7 @@
 
 #endregion
 
-namespace Vkm.Smalta.View.Hints.ViewModel
+namespace Vkm.ComplexSim.View.Hints.ViewModel
 {
     public class AccessibleHintViewModel : HintViewModelBase
     {

@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 #endregion
 
-namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
+namespace Vkm.ComplexSim.Tests.ViewModels.MainPageViewModelTests
 {
     public class WhenRegister : MainPageViewModelTestBase
     {

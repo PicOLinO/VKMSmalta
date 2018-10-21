@@ -3,13 +3,12 @@
 using System;
 using System.Collections.ObjectModel;
 using DevExpress.Mvvm;
-using Vkm.Smalta.View.Elements.ViewModel;
-using Vkm.Smalta.View.Images;
-using Vkm.Smalta.View.InnerPages.DSL;
+using Vkm.ComplexSim.View.Elements.ViewModel;
+using Vkm.ComplexSim.View.InnerPages.DSL;
 
 #endregion
 
-namespace Vkm.Smalta.View.InnerPages.ViewModel
+namespace Vkm.ComplexSim.View.InnerPages.ViewModel
 {
     public class InnerPageViewModelBase : ViewModelBase
     {

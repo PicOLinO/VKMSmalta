@@ -2,12 +2,12 @@
 
 using System;
 using System.Collections.Generic;
-using Vkm.Smalta.Dialogs.Factories;
-using Vkm.Smalta.Domain;
+using Vkm.ComplexSim.Dialogs.Factories;
+using Vkm.ComplexSim.Domain;
 
 #endregion
 
-namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
+namespace Vkm.ComplexSim.Tests.Fakes.ServicesAndFactories
 {
     public class DialogFactoryStub : IDialogFactory
     {

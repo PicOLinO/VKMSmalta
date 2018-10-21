@@ -1,15 +1,15 @@
 ﻿#region Usings
 
 using System.Collections.Generic;
-using Vkm.Smalta.Dialogs.Factories;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
-using Vkm.Smalta.Tests.Fakes.ServicesAndFactories;
-using Vkm.Smalta.View.ViewModel;
+using Vkm.ComplexSim.Dialogs.Factories;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.Services;
+using Vkm.ComplexSim.Tests.Fakes.ServicesAndFactories;
+using Vkm.ComplexSim.View.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.Tests.DSL
+namespace Vkm.ComplexSim.Tests.DSL
 {
     public class DevicePageViewModelBuilder : BaseBuilder
     {

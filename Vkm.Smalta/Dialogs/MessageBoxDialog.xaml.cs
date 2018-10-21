@@ -4,9 +4,9 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 using DevExpress.Mvvm;
-using Vkm.Smalta.Dialogs.ViewModel;
+using Vkm.ComplexSim.Dialogs.ViewModel;
 
-namespace Vkm.Smalta.Dialogs
+namespace Vkm.ComplexSim.Dialogs
 {
     /// <summary>
     /// Interaction logic for MessageBoxDIalog.xaml

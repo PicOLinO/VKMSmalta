@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using DevExpress.Mvvm;
-using Vkm.Smalta.Dialogs.ViewModel;
-using Vkm.Smalta.Domain;
+using Vkm.ComplexSim.Dialogs.ViewModel;
+using Vkm.ComplexSim.Domain;
 
 #endregion
 
-namespace Vkm.Smalta.Dialogs.Factories
+namespace Vkm.ComplexSim.Dialogs.Factories
 {
     public class DialogFactory : IDialogFactory
     {

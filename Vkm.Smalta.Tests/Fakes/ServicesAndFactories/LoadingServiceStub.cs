@@ -1,10 +1,10 @@
 ﻿#region Usings
 
-using Vkm.Smalta.Services;
+using Vkm.ComplexSim.Services;
 
 #endregion
 
-namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
+namespace Vkm.ComplexSim.Tests.Fakes.ServicesAndFactories
 {
     public class LoadingServiceStub : ILoadingService
     {

@@ -3,12 +3,12 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Vkm.Smalta.Domain;
-using Action = Vkm.Smalta.Domain.Action;
+using Vkm.ComplexSim.Domain;
+using Action = Vkm.ComplexSim.Domain.Action;
 
 #endregion
 
-namespace Vkm.Smalta.View.Elements.ViewModel
+namespace Vkm.ComplexSim.View.Elements.ViewModel
 {
     public sealed class VkmThumblerViewModel : ClickableDependencyActivatorElementBase
     {

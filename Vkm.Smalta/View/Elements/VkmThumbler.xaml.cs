@@ -1,4 +1,4 @@
-﻿namespace Vkm.Smalta.View.Elements
+﻿namespace Vkm.ComplexSim.View.Elements
 {
     /// <summary>
     /// Interaction logic for VkmThumbler.xaml

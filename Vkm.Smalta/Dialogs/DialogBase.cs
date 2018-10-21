@@ -4,11 +4,11 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using DevExpress.Mvvm;
-using Vkm.Smalta.Dialogs.ViewModel;
+using Vkm.ComplexSim.Dialogs.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.Dialogs
+namespace Vkm.ComplexSim.Dialogs
 {
     public class DialogBase : Window, IDisposable
     {

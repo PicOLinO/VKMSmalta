@@ -2,13 +2,13 @@
 
 using System;
 using System.Collections.Generic;
-using Vkm.Smalta.Dialogs.Factories.Algorithms;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services.Navigate;
+using Vkm.ComplexSim.Dialogs.Factories.Algorithms;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.Services.Navigate;
 
 #endregion
 
-namespace Vkm.Smalta.Dialogs.Factories
+namespace Vkm.ComplexSim.Dialogs.Factories
 {
     public class DevicesFactory : IDevicesFactory
     {

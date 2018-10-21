@@ -3,13 +3,13 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Windows.Media;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services.Navigate;
-using Vkm.Smalta.View.Elements.ViewModel;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.Services.Navigate;
+using Vkm.ComplexSim.View.Elements.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.View.InnerPages.ViewModel
+namespace Vkm.ComplexSim.View.InnerPages.ViewModel
 {
     public class SmaltaInnerDevicePageViewModel : MainInnerDevicePageViewModel
     {

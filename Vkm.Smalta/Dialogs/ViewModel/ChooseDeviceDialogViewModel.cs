@@ -1,13 +1,13 @@
 ﻿#region Usings
 
 using System.Collections.ObjectModel;
-using Vkm.Smalta.Dialogs.Factories;
-using Vkm.Smalta.Dialogs.Factories.Algorithms;
-using Vkm.Smalta.Domain;
+using Vkm.ComplexSim.Dialogs.Factories;
+using Vkm.ComplexSim.Dialogs.Factories.Algorithms;
+using Vkm.ComplexSim.Domain;
 
 #endregion
 
-namespace Vkm.Smalta.Dialogs.ViewModel
+namespace Vkm.ComplexSim.Dialogs.ViewModel
 {
     public class ChooseDeviceDialogViewModel : DialogViewModelBase
     {

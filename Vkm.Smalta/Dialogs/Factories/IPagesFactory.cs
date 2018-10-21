@@ -1,12 +1,12 @@
 ﻿#region Usings
 
 using System.Collections.Generic;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.View.InnerPages.ViewModel;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.View.InnerPages.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.Dialogs.Factories
+namespace Vkm.ComplexSim.Dialogs.Factories
 {
     public interface IPagesFactory
     {

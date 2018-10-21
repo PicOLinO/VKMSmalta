@@ -1,14 +1,12 @@
 ﻿#region Usings
 
-using System;
 using System.Collections.Generic;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.View.Elements.ViewModel;
-using XAMLEx;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.View.Elements.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.View.InnerPages.DSL.Elements
+namespace Vkm.ComplexSim.View.InnerPages.DSL.Elements
 {
     public class VkmBigButtonBuilder : BaseElementBuilder<VkmBigButtonBuilder>
     {

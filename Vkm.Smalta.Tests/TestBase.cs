@@ -2,15 +2,15 @@
 
 using DevExpress.Mvvm;
 using NUnit.Framework;
-using Vkm.Smalta.Dialogs.Factories;
-using Vkm.Smalta.Services;
-using Vkm.Smalta.Tests.DSL;
-using Vkm.Smalta.Tests.Fakes.ServicesAndFactories;
-using Vkm.Smalta.View.Images;
+using Vkm.ComplexSim.Dialogs.Factories;
+using Vkm.ComplexSim.Services;
+using Vkm.ComplexSim.Tests.DSL;
+using Vkm.ComplexSim.Tests.Fakes.ServicesAndFactories;
+using Vkm.ComplexSim.View.Images;
 
 #endregion
 
-namespace Vkm.Smalta.Tests
+namespace Vkm.ComplexSim.Tests
 {
     [TestFixture]
     public abstract class TestBase

@@ -2,11 +2,11 @@
 
 using System;
 using DevExpress.Mvvm;
-using Vkm.Smalta.View.Hints.ViewModel;
+using Vkm.ComplexSim.View.Hints.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.View.Elements.ViewModel
+namespace Vkm.ComplexSim.View.Elements.ViewModel
 {
     public class ElementViewModelBase : ViewModelBase
     {

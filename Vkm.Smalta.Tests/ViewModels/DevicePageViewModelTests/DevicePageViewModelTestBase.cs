@@ -1,13 +1,13 @@
 ﻿#region Usings
 
 using System.Collections.Generic;
-using Vkm.Smalta.Dialogs.Factories.Algorithms;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.View.ViewModel;
+using Vkm.ComplexSim.Dialogs.Factories.Algorithms;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.View.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.Tests.ViewModels.DevicePageViewModelTests
+namespace Vkm.ComplexSim.Tests.ViewModels.DevicePageViewModelTests
 {
     public class DevicePageViewModelTestBase : TestBase
     {

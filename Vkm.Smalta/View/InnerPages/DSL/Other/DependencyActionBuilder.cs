@@ -1,11 +1,11 @@
 ﻿#region Usings
 
 using System.Collections.Generic;
-using Vkm.Smalta.Domain;
+using Vkm.ComplexSim.Domain;
 
 #endregion
 
-namespace Vkm.Smalta.View.InnerPages.DSL.Other
+namespace Vkm.ComplexSim.View.InnerPages.DSL.Other
 {
     public class DependencyActionBuilder
     {

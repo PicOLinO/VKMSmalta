@@ -1,4 +1,4 @@
-﻿namespace Vkm.Smalta.Dialogs.Factories.Algorithms
+﻿namespace Vkm.ComplexSim.Dialogs.Factories.Algorithms
 {
     public abstract class AlgorithmsFactoryBase
     {

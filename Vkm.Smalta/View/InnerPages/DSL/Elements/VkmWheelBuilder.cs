@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.View.Elements.ViewModel;
-using Vkm.Smalta.View.InnerPages.DSL.Common;
-using XAMLEx;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.View.Elements.ViewModel;
+using Vkm.ComplexSim.View.InnerPages.DSL.Common;
 
-namespace Vkm.Smalta.View.InnerPages.DSL.Elements
+namespace Vkm.ComplexSim.View.InnerPages.DSL.Elements
 {
     public class VkmWheelBuilder : BaseElementBuilder<VkmWheelBuilder>
     {

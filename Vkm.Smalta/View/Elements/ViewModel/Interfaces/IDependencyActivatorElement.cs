@@ -1,11 +1,11 @@
 ﻿#region Usings
 
 using System.Collections.Generic;
-using Vkm.Smalta.Domain;
+using Vkm.ComplexSim.Domain;
 
 #endregion
 
-namespace Vkm.Smalta.View.Elements.ViewModel.Interfaces
+namespace Vkm.ComplexSim.View.Elements.ViewModel.Interfaces
 {
     public interface IDependencyActivatorElement
     {

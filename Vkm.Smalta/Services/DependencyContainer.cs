@@ -1,11 +1,11 @@
 ﻿#region Usings
 
 using DevExpress.Mvvm;
-using Vkm.Smalta.Dialogs.Factories;
+using Vkm.ComplexSim.Dialogs.Factories;
 
 #endregion
 
-namespace Vkm.Smalta.Services
+namespace Vkm.ComplexSim.Services
 {
     public class DependencyContainer
     {

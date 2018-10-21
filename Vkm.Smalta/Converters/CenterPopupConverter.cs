@@ -9,7 +9,7 @@ using System.Windows.Markup;
 
 #endregion
 
-namespace Vkm.Smalta.Converters
+namespace Vkm.ComplexSim.Converters
 {
     public class CenterPopupConverter : MarkupExtension, IMultiValueConverter
     {

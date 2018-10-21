@@ -1,13 +1,12 @@
 ﻿#region Usings
 
 using System.Collections.Generic;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.View.Elements.ViewModel;
-using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.View.Elements.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.Services
+namespace Vkm.ComplexSim.Services
 {
     public interface IHistoryService
     {

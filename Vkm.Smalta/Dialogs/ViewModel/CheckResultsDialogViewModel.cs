@@ -5,7 +5,7 @@ using DevExpress.Mvvm;
 
 #endregion
 
-namespace Vkm.Smalta.Dialogs.ViewModel
+namespace Vkm.ComplexSim.Dialogs.ViewModel
 {
     public class CheckResultsDialogViewModel : DialogViewModelBase
     {

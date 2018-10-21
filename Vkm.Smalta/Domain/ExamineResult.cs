@@ -4,7 +4,7 @@ using System;
 
 #endregion
 
-namespace Vkm.Smalta.Domain
+namespace Vkm.ComplexSim.Domain
 {
     public class ExamineResult
     {

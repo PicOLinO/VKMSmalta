@@ -7,8 +7,8 @@
     <ProjectGuid>{0A0D03DA-0129-4D91-925D-DBC3CDA7BD40}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Vkm.Smalta.Tests</RootNamespace>
-    <AssemblyName>Vkm.Smalta.Tests</AssemblyName>
+    <RootNamespace>Vkm.ComplexSim.Tests</RootNamespace>
+    <AssemblyName>Vkm.ComplexSim.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -81,9 +81,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Vkm.Smalta\Vkm.Smalta.csproj">
+    <ProjectReference Include="..\Vkm.Smalta\Vkm.ComplexSim.csproj">
       <Project>{1931ffeb-4a78-4cfb-a0f9-0a7e47ca0a78}</Project>
-      <Name>Vkm.Smalta</Name>
+      <Name>Vkm.ComplexSim</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using DevExpress.Mvvm;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.View.Elements.ViewModel.Interfaces;
 
-namespace Vkm.Smalta.View.Elements.ViewModel
+namespace Vkm.ComplexSim.View.Elements.ViewModel
 {
     public class VkmWheelViewModel : ElementViewModelBase, IDependencyActivatorElement
     {

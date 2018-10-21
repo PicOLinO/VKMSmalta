@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace Vkm.Smalta
+namespace Vkm.ComplexSim
 {
     /// <summary>
     /// Interaction logic for MainPage.xaml

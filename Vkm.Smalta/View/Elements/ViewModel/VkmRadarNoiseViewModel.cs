@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Vkm.Smalta.View.Elements.ViewModel
+namespace Vkm.ComplexSim.View.Elements.ViewModel
 {
     public class VkmRadarNoiseViewModel : ElementViewModelBase
     {

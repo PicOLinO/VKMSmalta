@@ -3,13 +3,13 @@
 using System;
 using System.Collections.Generic;
 using DevExpress.Mvvm;
-using Vkm.Smalta.Services.Navigate;
-using Vkm.Smalta.View.InnerPages.ViewModel;
-using Vkm.Smalta.View.ViewModel;
+using Vkm.ComplexSim.Services.Navigate;
+using Vkm.ComplexSim.View.InnerPages.ViewModel;
+using Vkm.ComplexSim.View.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
+namespace Vkm.ComplexSim.Tests.Fakes.ServicesAndFactories
 {
     public class ViewInjectionManagerStub : IViewInjectionManager
     {

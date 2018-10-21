@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 #endregion
 
-namespace Vkm.Smalta.Services
+namespace Vkm.ComplexSim.Services
 {
     public class LoadingService : ILoadingService
     {

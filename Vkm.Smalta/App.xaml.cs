@@ -6,13 +6,13 @@ using System.Windows;
 using System.Windows.Threading;
 using Appccelerate.CommandLineParser;
 using DevExpress.Mvvm;
-using Vkm.Smalta.Dialogs.Factories;
-using Vkm.Smalta.Services;
-using Vkm.Smalta.View.Images;
+using Vkm.ComplexSim.Dialogs.Factories;
+using Vkm.ComplexSim.Services;
+using Vkm.ComplexSim.View.Images;
 
 #endregion
 
-namespace Vkm.Smalta
+namespace Vkm.ComplexSim
 {
     /// <summary>
     /// Interaction logic for App.xaml

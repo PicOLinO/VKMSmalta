@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using DevExpress.Mvvm.UI;
 
-namespace Vkm.Smalta.Converters.EventArgsConverters
+namespace Vkm.ComplexSim.Converters.EventArgsConverters
 {
     /// <summary>
     /// Может понадобиться, а может и нет =) Удалить после добавления нового симулятора, если он также не будет использоваться

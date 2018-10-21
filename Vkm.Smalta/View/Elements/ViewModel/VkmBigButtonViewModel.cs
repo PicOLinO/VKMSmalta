@@ -2,19 +2,14 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
-using DevExpress.Mvvm;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
-using Vkm.Smalta.View.ViewModel;
-using Action = Vkm.Smalta.Domain.Action;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.View.ViewModel;
+using Action = Vkm.ComplexSim.Domain.Action;
 
 #endregion
 
-namespace Vkm.Smalta.View.Elements.ViewModel
+namespace Vkm.ComplexSim.View.Elements.ViewModel
 {
     public class VkmBigButtonViewModel : ClickableDependencyActivatorElementBase
     {

@@ -2,15 +2,14 @@
 
 using System;
 using System.Collections.Generic;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
-using Vkm.Smalta.View.Elements.ViewModel;
-using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.Services;
+using Vkm.ComplexSim.View.Elements.ViewModel;
 using Action = System.Action;
 
 #endregion
 
-namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
+namespace Vkm.ComplexSim.Tests.Fakes.ServicesAndFactories
 {
     public class HintServiceStub : IHintService
     {

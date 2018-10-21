@@ -7,18 +7,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using DevExpress.Mvvm;
-using Vkm.Smalta.Dialogs.Factories;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
-using Vkm.Smalta.Services.Navigate;
-using Vkm.Smalta.View.Elements.ViewModel;
-using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
-using Vkm.Smalta.View.InnerPages;
-using Vkm.Smalta.View.InnerPages.ViewModel;
+using Vkm.ComplexSim.Dialogs.Factories;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.Services;
+using Vkm.ComplexSim.Services.Navigate;
+using Vkm.ComplexSim.View.Elements.ViewModel;
+using Vkm.ComplexSim.View.Elements.ViewModel.Interfaces;
+using Vkm.ComplexSim.View.InnerPages;
+using Vkm.ComplexSim.View.InnerPages.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.View.ViewModel
+namespace Vkm.ComplexSim.View.ViewModel
 {
     public class DevicePageViewModel : ViewModelBase, IDisposable, IDevicePage
     {

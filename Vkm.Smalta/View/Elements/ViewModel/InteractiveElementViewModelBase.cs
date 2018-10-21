@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Windows.Input;
-using Vkm.Smalta.Services;
+using Vkm.ComplexSim.Services;
 
-namespace Vkm.Smalta.View.Elements.ViewModel
+namespace Vkm.ComplexSim.View.Elements.ViewModel
 {
     public abstract class InteractiveElementViewModelBase : ElementViewModelBase
     {

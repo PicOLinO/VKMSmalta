@@ -1,4 +1,4 @@
-﻿namespace Vkm.Smalta.View.Images
+﻿namespace Vkm.ComplexSim.View.Images
 {
     public interface IImagesRepository
     {

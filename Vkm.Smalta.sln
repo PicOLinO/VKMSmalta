@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vkm.Smalta", "Vkm.Smalta\Vkm.Smalta.csproj", "{1931FFEB-4A78-4CFB-A0F9-0A7E47CA0A78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vkm.ComplexSim", "Vkm.Smalta\Vkm.ComplexSim.csproj", "{1931FFEB-4A78-4CFB-A0F9-0A7E47CA0A78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vkm.Smalta.Tests", "Vkm.Smalta.Tests\Vkm.Smalta.Tests.csproj", "{0A0D03DA-0129-4D91-925D-DBC3CDA7BD40}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vkm.ComplexSim.Tests", "Vkm.Smalta.Tests\Vkm.ComplexSim.Tests.csproj", "{0A0D03DA-0129-4D91-925D-DBC3CDA7BD40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

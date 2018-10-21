@@ -1,11 +1,10 @@
-﻿<dialogs1:DialogBase x:Class="Vkm.Smalta.Dialogs.CheckResultsDialog"
+﻿<dialogs:DialogBase x:Class="Vkm.ComplexSim.Dialogs.CheckResultsDialog"
                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                     xmlns:dialogs1="clr-namespace:Vkm.Smalta.Dialogs"
-                     xmlns:converters="clr-namespace:Vkm.Smalta.Converters"
-                     xmlns:viewModel="clr-namespace:Vkm.Smalta.Dialogs.ViewModel"
+                     xmlns:dialogs="clr-namespace:Vkm.ComplexSim.Dialogs"
+                     xmlns:viewModel="clr-namespace:Vkm.ComplexSim.Dialogs.ViewModel"
                      mc:Ignorable="d"
                      Title="Результат"
                      Style="{DynamicResource DialogStyle}"
@@ -37,4 +36,4 @@
                     IsDefault="True" />
         </DockPanel>
     </Grid>
-</dialogs1:DialogBase>
+</dialogs:DialogBase>

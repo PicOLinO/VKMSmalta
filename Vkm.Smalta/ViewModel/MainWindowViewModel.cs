@@ -5,7 +5,7 @@ using DevExpress.Mvvm;
 
 #endregion
 
-namespace Vkm.Smalta.ViewModel
+namespace Vkm.ComplexSim.ViewModel
 {
     public class MainWindowViewModel : ViewModelBase
     {

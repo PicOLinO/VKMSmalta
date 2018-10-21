@@ -4,7 +4,7 @@ using System.Security;
 
 #endregion
 
-namespace Vkm.Smalta.Dialogs.ViewModel
+namespace Vkm.ComplexSim.Dialogs.ViewModel
 {
     public interface IPasswordSupplier
     {

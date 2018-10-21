@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
 using DevExpress.Mvvm;
-using Vkm.Smalta.Dialogs.Factories;
-using Vkm.Smalta.Dialogs.Factories.Algorithms;
-using Vkm.Smalta.Services;
-using Vkm.Smalta.Services.Navigate;
-using Vkm.Smalta.ViewModel;
+using Vkm.ComplexSim.Services;
+using Vkm.ComplexSim.Services.Navigate;
+using Vkm.ComplexSim.ViewModel;
 
-namespace Vkm.Smalta
+namespace Vkm.ComplexSim
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

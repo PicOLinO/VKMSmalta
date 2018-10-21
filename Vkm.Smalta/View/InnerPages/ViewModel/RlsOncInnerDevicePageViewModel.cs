@@ -2,14 +2,14 @@
 
 using System;
 using System.Collections.ObjectModel;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services.Navigate;
-using Vkm.Smalta.View.Elements.ViewModel;
-using Vkm.Smalta.View.InnerPages.DSL.Common;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.Services.Navigate;
+using Vkm.ComplexSim.View.Elements.ViewModel;
+using Vkm.ComplexSim.View.InnerPages.DSL.Common;
 
 #endregion
 
-namespace Vkm.Smalta.View.InnerPages.ViewModel
+namespace Vkm.ComplexSim.View.InnerPages.ViewModel
 {
     public class RlsOncInnerDevicePageViewModel : MainInnerDevicePageViewModel
     {

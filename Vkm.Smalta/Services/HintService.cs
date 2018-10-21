@@ -3,15 +3,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.View.Elements.ViewModel;
-using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
-using Vkm.Smalta.View.ViewModel;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.View.Elements.ViewModel;
+using Vkm.ComplexSim.View.ViewModel;
 using Action = System.Action;
 
 #endregion
 
-namespace Vkm.Smalta.Services
+namespace Vkm.ComplexSim.Services
 {
     public class HintService : IHintService
     {

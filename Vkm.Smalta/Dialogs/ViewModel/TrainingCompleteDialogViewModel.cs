@@ -2,11 +2,11 @@
 
 using System.Windows.Input;
 using DevExpress.Mvvm;
-using Vkm.Smalta.Services;
+using Vkm.ComplexSim.Services;
 
 #endregion
 
-namespace Vkm.Smalta.Dialogs.ViewModel
+namespace Vkm.ComplexSim.Dialogs.ViewModel
 {
     public class TrainingCompleteDialogViewModel : DialogViewModelBase
     {

@@ -1,11 +1,11 @@
 ﻿#region Usings
 
 using NUnit.Framework;
-using Vkm.Smalta.Domain;
+using Vkm.ComplexSim.Domain;
 
 #endregion
 
-namespace Vkm.Smalta.Tests.ViewModels.MainPageViewModelTests
+namespace Vkm.ComplexSim.Tests.ViewModels.MainPageViewModelTests
 {
     public class WhenLogin : MainPageViewModelTestBase
     {

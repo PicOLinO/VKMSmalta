@@ -1,10 +1,10 @@
 ﻿#region Usings
 
-using Vkm.Smalta.View.Hints.ViewModel;
+using Vkm.ComplexSim.View.Hints.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.Domain
+namespace Vkm.ComplexSim.Domain
 {
     public class Action
     {

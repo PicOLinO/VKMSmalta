@@ -2,14 +2,13 @@
 
 using System;
 using System.Collections.Generic;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.View.Elements.ViewModel;
-using Vkm.Smalta.View.Elements.ViewModel.Interfaces;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.View.Elements.ViewModel;
 using Action = System.Action;
 
 #endregion
 
-namespace Vkm.Smalta.Services
+namespace Vkm.ComplexSim.Services
 {
     public interface IHintService
     {

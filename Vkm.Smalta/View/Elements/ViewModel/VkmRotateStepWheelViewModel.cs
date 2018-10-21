@@ -3,11 +3,10 @@
 #endregion
 
 using System;
-using System.Windows;
 using System.Windows.Input;
 using DevExpress.Mvvm;
 
-namespace Vkm.Smalta.View.Elements.ViewModel
+namespace Vkm.ComplexSim.View.Elements.ViewModel
 {
     public sealed class VkmRotateStepWheelViewModel : ClickableElementViewModelBase
     {

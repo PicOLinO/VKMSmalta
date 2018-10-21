@@ -1,4 +1,4 @@
-﻿namespace Vkm.Smalta.View.InnerPages.DSL.Common
+﻿namespace Vkm.ComplexSim.View.InnerPages.DSL.Common
 {
     public enum ImageType
     {

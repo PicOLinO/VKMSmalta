@@ -1,12 +1,12 @@
 ﻿#region Usings
 
-using Vkm.Smalta.Dialogs.Factories;
-using Vkm.Smalta.Services;
-using Vkm.Smalta.Tests.Fakes.ServicesAndFactories;
+using Vkm.ComplexSim.Dialogs.Factories;
+using Vkm.ComplexSim.Services;
+using Vkm.ComplexSim.Tests.Fakes.ServicesAndFactories;
 
 #endregion
 
-namespace Vkm.Smalta.Tests.DSL
+namespace Vkm.ComplexSim.Tests.DSL
 {
     public class GiveMe
     {

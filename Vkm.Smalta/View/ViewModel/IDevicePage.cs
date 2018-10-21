@@ -1,7 +1,7 @@
 ﻿using System;
-using Vkm.Smalta.View.Elements.ViewModel;
+using Vkm.ComplexSim.View.Elements.ViewModel;
 
-namespace Vkm.Smalta.View.ViewModel
+namespace Vkm.ComplexSim.View.ViewModel
 {
     public interface IDevicePage
     {

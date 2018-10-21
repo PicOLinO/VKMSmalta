@@ -1,10 +1,10 @@
 ﻿#region Usings
 
-using Vkm.Smalta.Network;
+using Vkm.ComplexSim.Network;
 
 #endregion
 
-namespace Vkm.Smalta
+namespace Vkm.ComplexSim
 {
     public class Config
     {

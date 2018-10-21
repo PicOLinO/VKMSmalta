@@ -1,12 +1,11 @@
 ﻿#region Usings
 
-using System.Windows.Input;
 using DevExpress.Mvvm;
-using Vkm.Smalta.Services;
+using Vkm.ComplexSim.Services;
 
 #endregion
 
-namespace Vkm.Smalta.View.Hints.ViewModel
+namespace Vkm.ComplexSim.View.Hints.ViewModel
 {
     public class HintViewModelBase : ViewModelBase
     {

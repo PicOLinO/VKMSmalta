@@ -3,13 +3,12 @@
 using System;
 using System.Windows.Input;
 using DevExpress.Mvvm;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
-using Action = Vkm.Smalta.Domain.Action;
+using Vkm.ComplexSim.Domain;
+using Action = Vkm.ComplexSim.Domain.Action;
 
 #endregion
 
-namespace Vkm.Smalta.View.Elements.ViewModel
+namespace Vkm.ComplexSim.View.Elements.ViewModel
 {
     public abstract class ClickableElementViewModelBase : InteractiveElementViewModelBase
     {

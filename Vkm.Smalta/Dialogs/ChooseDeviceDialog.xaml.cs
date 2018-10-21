@@ -1,13 +1,13 @@
 ﻿#region Usings
 
 using System.Windows.Controls;
-using Vkm.Smalta.Dialogs.Factories;
-using Vkm.Smalta.Dialogs.ViewModel;
-using Vkm.Smalta.Domain;
+using Vkm.ComplexSim.Dialogs.Factories;
+using Vkm.ComplexSim.Dialogs.ViewModel;
+using Vkm.ComplexSim.Domain;
 
 #endregion
 
-namespace Vkm.Smalta.Dialogs
+namespace Vkm.ComplexSim.Dialogs
 {
     /// <summary>
     /// Interaction logic for ChooseDeviceDialog.xaml

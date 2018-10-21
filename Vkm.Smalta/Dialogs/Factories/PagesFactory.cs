@@ -2,15 +2,14 @@
 
 using System;
 using System.Collections.Generic;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services.Navigate;
-using Vkm.Smalta.View.Images;
-using Vkm.Smalta.View.InnerPages.ViewModel;
-using XAMLEx;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.Services.Navigate;
+using Vkm.ComplexSim.View.Images;
+using Vkm.ComplexSim.View.InnerPages.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.Dialogs.Factories
+namespace Vkm.ComplexSim.Dialogs.Factories
 {
     public class PagesFactory : IPagesFactory
     {

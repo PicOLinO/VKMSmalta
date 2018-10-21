@@ -1,14 +1,11 @@
 ﻿#region Usings
 
-using System.Collections.Generic;
-using System.Windows.Controls;
-using Vkm.Smalta.View.Images;
-using Vkm.Smalta.View.InnerPages.DSL.Elements;
-using Vkm.Smalta.View.InnerPages.DSL.Other;
+using Vkm.ComplexSim.View.InnerPages.DSL.Elements;
+using Vkm.ComplexSim.View.InnerPages.DSL.Other;
 
 #endregion
 
-namespace Vkm.Smalta.View.InnerPages.DSL
+namespace Vkm.ComplexSim.View.InnerPages.DSL
 {
     public class GiveMe
     {

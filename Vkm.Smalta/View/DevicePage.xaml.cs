@@ -2,13 +2,12 @@
 
 using System.Windows.Controls;
 using System.Windows.Navigation;
-using Vkm.Smalta.Services;
-using Vkm.Smalta.View.InnerPages.ViewModel;
-using Vkm.Smalta.View.ViewModel;
+using Vkm.ComplexSim.View.InnerPages.ViewModel;
+using Vkm.ComplexSim.View.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.View
+namespace Vkm.ComplexSim.View
 {
     /// <summary>
     /// Interaction logic for DevicePage.xaml

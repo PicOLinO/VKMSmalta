@@ -1,4 +1,4 @@
-﻿namespace Vkm.Smalta.Services.Navigate
+﻿namespace Vkm.ComplexSim.Services.Navigate
 {
     public enum SmaltaInnerRegionPage
     {

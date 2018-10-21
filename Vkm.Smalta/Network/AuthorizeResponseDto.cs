@@ -1,10 +1,10 @@
 ﻿#region Usings
 
-using Vkm.Smalta.Domain;
+using Vkm.ComplexSim.Domain;
 
 #endregion
 
-namespace Vkm.Smalta.Network
+namespace Vkm.ComplexSim.Network
 {
     public class AuthorizeResponseDto
     {

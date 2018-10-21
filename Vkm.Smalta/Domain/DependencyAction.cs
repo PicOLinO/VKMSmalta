@@ -2,16 +2,14 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using Vkm.Smalta.Services;
-using Vkm.Smalta.View.Elements.ViewModel;
-using Vkm.Smalta.View.ViewModel;
+using Vkm.ComplexSim.View.Elements.ViewModel;
+using Vkm.ComplexSim.View.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.Domain
+namespace Vkm.ComplexSim.Domain
 {
     public class DependencyAction
     {

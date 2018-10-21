@@ -1,11 +1,11 @@
 ﻿#region Usings
 
 using System;
-using Vkm.Smalta.Domain;
+using Vkm.ComplexSim.Domain;
 
 #endregion
 
-namespace Vkm.Smalta.View.InnerPages.ViewModel
+namespace Vkm.ComplexSim.View.InnerPages.ViewModel
 {
     public abstract class MainInnerDevicePageViewModel : InnerPageViewModelBase
     {

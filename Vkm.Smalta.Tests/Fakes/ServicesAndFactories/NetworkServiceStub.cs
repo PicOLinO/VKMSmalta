@@ -4,13 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.Network;
-using Vkm.Smalta.Services;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.Network;
+using Vkm.ComplexSim.Services;
 
 #endregion
 
-namespace Vkm.Smalta.Tests.Fakes.ServicesAndFactories
+namespace Vkm.ComplexSim.Tests.Fakes.ServicesAndFactories
 {
     public class NetworkServiceStub : INetworkService
     {

@@ -1,11 +1,11 @@
 ﻿#region Usings
 
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.View.Hints.ViewModel;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.View.Hints.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.Dialogs.Factories
+namespace Vkm.ComplexSim.Dialogs.Factories
 {
     public class ActionsFactory : IActionsFactory
     {

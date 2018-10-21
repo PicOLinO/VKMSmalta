@@ -1,11 +1,10 @@
 ﻿#region Usings
 
-using System;
-using Vkm.Smalta.View.Elements.ViewModel;
+using Vkm.ComplexSim.View.Elements.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.View.InnerPages.DSL.Elements
+namespace Vkm.ComplexSim.View.InnerPages.DSL.Elements
 {
     public class VkmBlackTriangleArrowBuilder : BaseElementBuilder<VkmBlackTriangleArrowBuilder>
     {

@@ -3,16 +3,16 @@
 using System.Collections.Generic;
 using System.Windows.Input;
 using DevExpress.Mvvm;
-using Vkm.Smalta.Dialogs.Factories;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.Services;
-using Vkm.Smalta.Services.Navigate;
-using Vkm.Smalta.View;
-using Vkm.Smalta.View.ViewModel;
+using Vkm.ComplexSim.Dialogs.Factories;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.Services;
+using Vkm.ComplexSim.Services.Navigate;
+using Vkm.ComplexSim.View;
+using Vkm.ComplexSim.View.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.ViewModel
+namespace Vkm.ComplexSim.ViewModel
 {
     public class MainPageViewModel : ViewModelBase
     {

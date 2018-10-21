@@ -1,11 +1,11 @@
 ﻿#region Usings
 
 using System.Security;
-using Vkm.Smalta.Dialogs.ViewModel;
+using Vkm.ComplexSim.Dialogs.ViewModel;
 
 #endregion
 
-namespace Vkm.Smalta.Dialogs
+namespace Vkm.ComplexSim.Dialogs
 {
     /// <summary>
     /// Interaction logic for LoginDialog.xaml

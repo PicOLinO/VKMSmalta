@@ -1,11 +1,11 @@
 ﻿#region Usings
 
 using NUnit.Framework;
-using Vkm.Smalta.Services.Navigate;
+using Vkm.ComplexSim.Services.Navigate;
 
 #endregion
 
-namespace Vkm.Smalta.Tests.ViewModels.DevicePageViewModelTests
+namespace Vkm.ComplexSim.Tests.ViewModels.DevicePageViewModelTests
 {
     public class WhenCheckResult : DevicePageViewModelTestBase
     {

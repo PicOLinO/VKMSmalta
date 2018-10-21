@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace Vkm.Smalta.Domain
+namespace Vkm.ComplexSim.Domain
 {
     public class DeviceEntry
     {

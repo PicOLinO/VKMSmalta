@@ -1,4 +1,4 @@
-﻿namespace Vkm.Smalta.Services
+﻿namespace Vkm.ComplexSim.Services
 {
     public interface ILoadingService
     {

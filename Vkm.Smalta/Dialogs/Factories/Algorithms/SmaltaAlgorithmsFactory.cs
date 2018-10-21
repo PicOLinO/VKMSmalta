@@ -1,11 +1,11 @@
 ﻿#region Usings
 
 using System.Collections.Generic;
-using Vkm.Smalta.Domain;
+using Vkm.ComplexSim.Domain;
 
 #endregion
 
-namespace Vkm.Smalta.Dialogs.Factories.Algorithms
+namespace Vkm.ComplexSim.Dialogs.Factories.Algorithms
 {
     public class SmaltaAlgorithmsFactory : AlgorithmsFactoryBase
     {

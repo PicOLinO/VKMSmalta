@@ -2,11 +2,11 @@
 
 using System.Windows;
 using DevExpress.Mvvm;
-using Vkm.Smalta.Dialogs;
+using Vkm.ComplexSim.Dialogs;
 
 #endregion
 
-namespace Vkm.Smalta.Services
+namespace Vkm.ComplexSim.Services
 {
     public class MessageBoxService : IMessageBoxService
     {

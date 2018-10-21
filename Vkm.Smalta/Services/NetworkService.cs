@@ -8,12 +8,12 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Vkm.Smalta.Domain;
-using Vkm.Smalta.Network;
+using Vkm.ComplexSim.Domain;
+using Vkm.ComplexSim.Network;
 
 #endregion
 
-namespace Vkm.Smalta.Services
+namespace Vkm.ComplexSim.Services
 {
     public class NetworkService : INetworkService
     {
