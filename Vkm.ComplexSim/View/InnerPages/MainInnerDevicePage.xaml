@@ -1,0 +1,73 @@
+﻿<Page x:Class="Vkm.ComplexSim.View.InnerPages.MainInnerDevicePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:elementsVM="clr-namespace:Vkm.ComplexSim.View.Elements.ViewModel"
+      xmlns:elements="clr-namespace:Vkm.ComplexSim.View.Elements"
+      xmlns:viewModel="clr-namespace:Vkm.ComplexSim.View.InnerPages.ViewModel"
+      mc:Ignorable="d"
+      d:DesignHeight="355.479" d:DesignWidth="534.091"
+      d:DataContext="{d:DesignInstance Type=viewModel:MainInnerDevicePageViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ItemsControl Grid.Row="0" ItemsSource="{Binding Elements}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas x:Name="PART_Canvas"
+                            ClipToBounds="True"
+                            SnapsToDevicePixels="True">
+                        <Canvas.Background>
+                            <ImageBrush Stretch="Uniform" ImageSource="{Binding Path=BackgroundSource}" />
+                        </Canvas.Background>
+                    </Canvas>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemContainerStyle>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="Canvas.Top" Value="{Binding Path=PosTop}" />
+                    <Setter Property="Canvas.Left" Value="{Binding Path=PosLeft}" />
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+            <ItemsControl.Resources>
+                <DataTemplate DataType="{x:Type elementsVM:VkmThumblerViewModel}">
+                    <elements:VkmThumbler Tag="{Binding ElementName=PART_Canvas}" />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type elementsVM:VkmRotateStepWheelViewModel}">
+                    <elements:VkmRotateStepWheel Tag="{Binding ElementName=PART_Canvas}" />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type elementsVM:VkmBlackTriangleArrowViewModel}">
+                    <elements:VkmBlackTriangleArrow Tag="{Binding ElementName=PART_Canvas}" />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type elementsVM:VkmLightableRectangleViewModel}">
+                    <elements:VkmLightableRectangle Tag="{Binding ElementName=PART_Canvas}" />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type elementsVM:VkmBigButtonViewModel}">
+                    <elements:VkmBigButton Tag="{Binding ElementName=PART_Canvas}" />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type elementsVM:VkmLampViewModel}">
+                    <elements:VkmLamp Tag="{Binding ElementName=PART_Canvas}" />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type elementsVM:VkmWheelViewModel}">
+                    <elements:VkmWheel Tag="{Binding ElementName=PART_Canvas}" />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type elementsVM:VkmRadarTargetViewModel}">
+                    <elements:VkmRadarTarget Tag="{Binding ElementName=PART_Canvas}" />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type elementsVM:VkmRadarNoiseViewModel}">
+                    <elements:VkmRadarNoise Tag="{Binding ElementName=PART_Canvas}" />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type elementsVM:VkmNumberDisplayViewModel}">
+                    <elements:VkmNumberDisplay Tag="{Binding ElementName=PART_Canvas}" />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type elementsVM:VkmOscilloscopeViewModel}">
+                    <elements:VkmOscilloscope Tag="{Binding ElementName=PART_Canvas}" />
+                </DataTemplate>
+            </ItemsControl.Resources>
+        </ItemsControl>
+    </Grid>
+</Page>
