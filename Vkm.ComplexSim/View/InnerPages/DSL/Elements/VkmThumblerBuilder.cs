@@ -8,11 +8,11 @@ using Vkm.ComplexSim.View.Elements.ViewModel;
 
 namespace Vkm.ComplexSim.View.InnerPages.DSL.Elements
 {
-    public class VkmThumblerBuilder : BaseElementBuilder<VkmThumblerBuilder>
+    public class VkmThumblerBuilder : BaseElementBuilder<VkmThumblerBuilder, VkmThumblerViewModel>
     {
         private List<DependencyAction> dependencyActions;
 
-        public VkmThumblerViewModel Please()
+        public override VkmThumblerViewModel Please()
         {
             var imageOn = ImagesRepository.ThumblerOn;
             var imageOff = ImagesRepository.ThumblerOff;

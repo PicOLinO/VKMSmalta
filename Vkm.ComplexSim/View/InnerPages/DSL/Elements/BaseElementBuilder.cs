@@ -3,13 +3,15 @@
 using System;
 using System.Collections.Generic;
 using DevExpress.Mvvm;
+using Vkm.ComplexSim.View.Elements.ViewModel;
 using Vkm.ComplexSim.View.Images;
 
 #endregion
 
 namespace Vkm.ComplexSim.View.InnerPages.DSL.Elements
 {
-    public class BaseElementBuilder<TBuilder> where TBuilder : BaseElementBuilder<TBuilder>
+    public abstract class BaseElementBuilder<TBuilder, TViewModel> where TBuilder : BaseElementBuilder<TBuilder, TViewModel> 
+                                                                   where TViewModel : ElementViewModelBase
     {
         protected string Name;
         protected Enum Page;
@@ -67,5 +69,7 @@ namespace Vkm.ComplexSim.View.InnerPages.DSL.Elements
                         : defaultValue;
             return (TBuilder)this;
         }
+
+        public abstract TViewModel Please();
     }
 }

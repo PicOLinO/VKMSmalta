@@ -6,7 +6,7 @@ using Vkm.ComplexSim.View.InnerPages.DSL.Common;
 
 namespace Vkm.ComplexSim.View.InnerPages.DSL.Elements
 {
-    public class VkmWheelBuilder : BaseElementBuilder<VkmWheelBuilder>
+    public class VkmWheelBuilder : BaseElementBuilder<VkmWheelBuilder, VkmWheelViewModel>
     {
         private int minValue;
         private int maxValue;
@@ -70,7 +70,7 @@ namespace Vkm.ComplexSim.View.InnerPages.DSL.Elements
             return this;
         }
 
-        public VkmWheelViewModel Please()
+        public override VkmWheelViewModel Please()
         {
             return new VkmWheelViewModel(Value, image, minValue, maxValue, rotationCoefficient, dependencyActions, Name, PosTop, PosLeft, Width, Height, Page);
         }

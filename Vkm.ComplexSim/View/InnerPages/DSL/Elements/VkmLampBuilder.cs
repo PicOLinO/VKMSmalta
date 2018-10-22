@@ -6,9 +6,9 @@ using Vkm.ComplexSim.View.Elements.ViewModel;
 
 namespace Vkm.ComplexSim.View.InnerPages.DSL.Elements
 {
-    public class VkmLampBuilder : BaseElementBuilder<VkmLampBuilder>
+    public class VkmLampBuilder : BaseElementBuilder<VkmLampBuilder, VkmLampViewModel>
     {
-        public VkmLampViewModel Please()
+        public override VkmLampViewModel Please()
         {
             var imageOn = ImagesRepository.LampOn;
             var imageOff = ImagesRepository.LampOff;

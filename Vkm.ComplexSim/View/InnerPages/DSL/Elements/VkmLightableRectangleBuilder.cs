@@ -7,12 +7,12 @@ using Vkm.ComplexSim.View.Elements.ViewModel;
 
 namespace Vkm.ComplexSim.View.InnerPages.DSL.Elements
 {
-    public class VkmLightableRectangleBuilder : BaseElementBuilder<VkmLightableRectangleBuilder>
+    public class VkmLightableRectangleBuilder : BaseElementBuilder<VkmLightableRectangleBuilder, VkmLightableRectangleViewModel>
     {
         private string innerText;
         private Color backgroundColor = Colors.White;
 
-        public VkmLightableRectangleViewModel Please()
+        public override VkmLightableRectangleViewModel Please()
         {
             return new VkmLightableRectangleViewModel(Value, Name, innerText, backgroundColor, PosTop, PosLeft, Page);
         }

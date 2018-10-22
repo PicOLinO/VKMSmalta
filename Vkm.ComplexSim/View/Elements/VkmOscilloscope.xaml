@@ -1,0 +1,20 @@
+﻿<elements:ElementBase x:Class="Vkm.ComplexSim.View.Elements.VkmOscilloscope"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:elements="clr-namespace:Vkm.ComplexSim.View.Elements"
+                      xmlns:viewModel="clr-namespace:Vkm.ComplexSim.View.Elements.ViewModel"
+                      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+                      mc:Ignorable="d"
+                      d:DesignHeight="283.687" d:DesignWidth="470.09"
+                      d:DataContext="{d:DesignInstance Type=viewModel:VkmOscilloscopeViewModel}">
+    <Grid>
+        <lvc:CartesianChart Zoom="None" BorderThickness="1" BorderBrush="Red">
+            <lvc:CartesianChart.Series>
+                <lvc:LineSeries StrokeThickness="3" Values="0, 10, -10"
+                                Stroke="#1C8FC5" Fill="Transparent" LineSmoothness="1" />
+            </lvc:CartesianChart.Series>
+        </lvc:CartesianChart>
+    </Grid>
+</elements:ElementBase>

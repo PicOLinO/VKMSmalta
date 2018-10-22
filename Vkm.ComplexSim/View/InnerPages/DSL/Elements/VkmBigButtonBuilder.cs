@@ -8,12 +8,12 @@ using Vkm.ComplexSim.View.Elements.ViewModel;
 
 namespace Vkm.ComplexSim.View.InnerPages.DSL.Elements
 {
-    public class VkmBigButtonBuilder : BaseElementBuilder<VkmBigButtonBuilder>
+    public class VkmBigButtonBuilder : BaseElementBuilder<VkmBigButtonBuilder, VkmBigButtonViewModel>
     {
         private List<DependencyAction> dependencyActions;
         private string dependencySecureElementName;
 
-        public VkmBigButtonViewModel Please()
+        public override VkmBigButtonViewModel Please()
         {
             var imageOn = ImagesRepository.BigButtonOn;
             var imageOff = ImagesRepository.BigButtonOff;

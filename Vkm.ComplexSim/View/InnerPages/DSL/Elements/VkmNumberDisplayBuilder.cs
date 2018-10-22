@@ -2,9 +2,9 @@
 
 namespace Vkm.ComplexSim.View.InnerPages.DSL.Elements
 {
-    public class VkmNumberDisplayBuilder : BaseElementBuilder<VkmNumberDisplayBuilder>
+    public class VkmNumberDisplayBuilder : BaseElementBuilder<VkmNumberDisplayBuilder, VkmNumberDisplayViewModel>
     {
-        public VkmNumberDisplayViewModel Please()
+        public override VkmNumberDisplayViewModel Please()
         {
             return new VkmNumberDisplayViewModel(Value, Name, PosTop, PosLeft, Page);
         }

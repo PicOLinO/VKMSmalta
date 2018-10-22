@@ -70,6 +70,12 @@
     <Reference Include="DevExpress.Mvvm.UI, Version=18.1.0.0, Culture=neutral, PublicKeyToken=382ad28f6ae31f30, processorArchitecture=MSIL">
       <HintPath>..\packages\DevExpressMvvm.18.1.3.0\lib\net40-client\DevExpress.Mvvm.UI.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -197,11 +203,15 @@
     <Compile Include="View\Elements\ViewModel\VkmBigButtonViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmLampViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmNumberDisplayViewModel.cs" />
+    <Compile Include="View\Elements\ViewModel\VkmOscilloscopeViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmRadarNoiseViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmRadarTargetViewModel.cs" />
     <Compile Include="View\Elements\ViewModel\VkmWheelViewModel.cs" />
     <Compile Include="View\Elements\VkmBigButton.xaml.cs">
       <DependentUpon>VkmBigButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Elements\VkmOscilloscope.xaml.cs">
+      <DependentUpon>VkmOscilloscope.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Elements\VkmRadarNoise.xaml.cs">
       <DependentUpon>VkmRadarNoise.xaml</DependentUpon>
@@ -247,6 +257,7 @@
     <Compile Include="View\InnerPages\DSL\Elements\VkmBigButtonBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmLampBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmNumberDisplayBuilder.cs" />
+    <Compile Include="View\InnerPages\DSL\Elements\VkmOscilloscopeBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmRadarNoiseBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmRadarTargetBuilder.cs" />
     <Compile Include="View\InnerPages\DSL\Elements\VkmWheelBuilder.cs" />
@@ -340,6 +351,10 @@
     <Page Include="View\Elements\VkmBigButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Elements\VkmOscilloscope.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Elements\VkmRadarNoise.xaml">
       <Generator>MSBuild:Compile</Generator>

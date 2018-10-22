@@ -2,9 +2,9 @@
 
 namespace Vkm.ComplexSim.View.InnerPages.DSL.Elements
 {
-    public class VkmRadarTargetBuilder : BaseElementBuilder<VkmRadarTargetBuilder>
+    public class VkmRadarTargetBuilder : BaseElementBuilder<VkmRadarTargetBuilder, VkmRadarTargetViewModel>
     {
-        public VkmRadarTargetViewModel Please()
+        public override VkmRadarTargetViewModel Please()
         {
             return new VkmRadarTargetViewModel(Value, Name, PosTop, PosLeft, Page);
         }

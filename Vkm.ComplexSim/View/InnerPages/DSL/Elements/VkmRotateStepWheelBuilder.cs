@@ -6,12 +6,12 @@ using Vkm.ComplexSim.View.Elements.ViewModel;
 
 namespace Vkm.ComplexSim.View.InnerPages.DSL.Elements
 {
-    public class VkmRotateStepWheelBuilder : BaseElementBuilder<VkmRotateStepWheelBuilder>
+    public class VkmRotateStepWheelBuilder : BaseElementBuilder<VkmRotateStepWheelBuilder, VkmRotateStepWheelViewModel>
     {
         private int maxRotationSteps;
         private int rotationStepDegrees;
 
-        public VkmRotateStepWheelViewModel Please()
+        public override VkmRotateStepWheelViewModel Please()
         {
             var image = ImagesRepository.StepWheel;
             return new VkmRotateStepWheelViewModel(Value, Name, RotationDegrees, rotationStepDegrees, maxRotationSteps, image, PosTop, PosLeft, Page);
