@@ -6,7 +6,7 @@ namespace Vkm.ComplexSim.View.InnerPages.DSL.Elements
     {
         public override VkmOscilloscopeViewModel Please()
         {
-            return new VkmOscilloscopeViewModel(Value, Name, PosTop, PosLeft, Page);
+            return new VkmOscilloscopeViewModel(Value, Name, PosTop, PosLeft, Page, Width, Height);
         }
     }
 }

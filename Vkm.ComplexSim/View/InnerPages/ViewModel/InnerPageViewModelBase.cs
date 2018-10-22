@@ -16,7 +16,7 @@ namespace Vkm.ComplexSim.View.InnerPages.ViewModel
         {
             PageKey = pageKey;
             BackgroundSource = backgroundSource;
-            GiveMe = new GiveMe();
+            GiveMe = new GiveMe(pageKey);
         }
 
         public string BackgroundSource

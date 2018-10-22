@@ -127,6 +127,8 @@ namespace Vkm.ComplexSim.View.InnerPages.ViewModel
                 case RlsOncInnerRegionPage.C1_65:
                     Elements = new ObservableCollection<ElementViewModelBase>
                                {
+                                   GiveMe.Oscilloscope().WithName("c165_oscilloscope").At(97, 357).WithSize(380, 300).Please(),
+                                   
                                    GiveMe.Thumbler().On(PageKey).WithName("c165_thumbler_scanmode_1").WithValue(1).At(116, 946)
                                          .WithDependencyAction(GiveMe.DependencyAction()
                                                                      .WithDependencyElementName("c165_thumbler_scanmode_0_1")
