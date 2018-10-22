@@ -15,13 +15,13 @@
                             Height="{Binding Height}"
                             DisableAnimations="True">
             <lvc:CartesianChart.Series>
-                <lvc:LineSeries StrokeThickness="5" Values="3, 4, 3"
-                                Stroke="SpringGreen" Fill="Transparent" LineSmoothness="1"/>
+                <lvc:LineSeries StrokeThickness="3" Values="4,4,4,4,5,3,6,2,7,1,8,0,7,2,6,3,5,4,4,4,4"
+                                Stroke="Chartreuse" Fill="Transparent" LineSmoothness="1" PointGeometrySize="0"/>
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis Labels="" DisableAnimations="True" MinValue="0" MaxValue="10">
+                <lvc:Axis Labels="" DisableAnimations="True" MinValue="0" MaxValue="20">
                     <lvc:Axis.Separator>
-                        <lvc:Separator Step="1"/>
+                        <lvc:Separator Step="2"/>
                     </lvc:Axis.Separator>
                 </lvc:Axis>
             </lvc:CartesianChart.AxisX>
