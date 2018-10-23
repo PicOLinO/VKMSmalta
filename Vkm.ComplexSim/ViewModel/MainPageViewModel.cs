@@ -87,7 +87,7 @@ namespace Vkm.ComplexSim.ViewModel
                     #region FOR REMOVING
                     //TODO: Убрать этот код, когда алгоритм выставления оценки будет настроен и отлажен.
 
-                    if (algorithm.Name == "Снятие зависимости коэффициента подавления от длительности импульсов в пачке" && !App.IsDebug)
+                    if (!startTraining && algorithm.Name == "Снятие зависимости коэффициента подавления от длительности импульсов в пачке" && !App.IsDebug)
                     {
                         dialogFactory.ShowErrorMessage("В данный момент экзамен по выбранному алгоритму недоступен.", "Упс");
                         return;
