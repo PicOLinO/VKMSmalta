@@ -50,6 +50,8 @@ Source: "..\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignorever
 Source: "..\bin\Release\Vkm.ComplexSim.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Release\Vkm.ComplexSim.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\bin\Release\XAMLEx.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Release\LiveCharts.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Release\LiveCharts.Wpf.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\Documentation.xps"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\logo.ico"; DestDir: "{app}"; Flags: ignoreversion

@@ -13,9 +13,12 @@
         <lvc:CartesianChart Zoom="None" 
                             Width="{Binding Width}" 
                             Height="{Binding Height}"
-                            DisableAnimations="True">
+                            DisableAnimations="True" 
+                            AnimationsSpeed="0" 
+                            Hoverable="False"
+                            DataTooltip="{x:Null}">
             <lvc:CartesianChart.Series>
-                <lvc:LineSeries StrokeThickness="3" Values="4,4,4,4,5,3,6,2,7,1,8,0,7,2,6,3,5,4,4,4,4"
+                <lvc:LineSeries StrokeThickness="3" Values="4,4,4,4,5,3,6,2,7,1,8,0,7,2,6,3,5,4,4,4,4" DataLabels="False"
                                 Stroke="Chartreuse" Fill="Transparent" LineSmoothness="1" PointGeometrySize="0"/>
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisX>
