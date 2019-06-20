@@ -1,6 +1,4 @@
 # Vkm.ComplexSim (Комплексный симулятор устройств РЭБ) 
-[![Build status](https://danila-chervonny.visualstudio.com/_apis/public/build/definitions/992b783f-d643-4a7e-b310-eadf0b29a2d9/1/badge)](https://danila-chervonny.visualstudio.com/992b783f-d643-4a7e-b310-eadf0b29a2d9/_build/latest?definitionId=1)
-![GitHub Next Release Date](https://img.shields.io/badge/next%20release-october-brightgreen.svg)  
 
 Программа Vkm.ComplexSim создана для тестирования студентов военной кафедры по приборам и комплексам радиоэлектронной борьбы.
 
