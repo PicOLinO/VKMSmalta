@@ -1,7 +1,10 @@
 ﻿#region Usings
 
 using System.Security;
+using System.Windows;
+using Vkm.ComplexSim.Dialogs.Factories;
 using Vkm.ComplexSim.Dialogs.ViewModel;
+using Vkm.ComplexSim.Services;
 
 #endregion
 
@@ -12,10 +15,10 @@ namespace Vkm.ComplexSim.Dialogs
     /// </summary>
     public partial class LoginDialog : IPasswordSupplier
     {
-        public LoginDialog()
+        public LoginDialog(IDialogFactory dialogFactory)
         {
             InitializeComponent();
-            DataContext = new LoginDialogViewModel(this);
+            DataContext = new LoginDialogViewModel(dialogFactory, this);
             Initialize();
         }
 

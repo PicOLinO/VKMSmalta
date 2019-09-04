@@ -17,9 +17,8 @@ namespace Vkm.ComplexSim.Dialogs.ViewModel
 {
     public class RegisterDialogViewModel : LoginDialogViewModel
     {
-        public RegisterDialogViewModel(IPasswordSupplier passwordSupplier) : base(passwordSupplier)
+        public RegisterDialogViewModel(IDialogFactory dialogFactory, IPasswordSupplier passwordSupplier) : base(dialogFactory, passwordSupplier)
         {
-            Initialize();
         }
 
         public Student SelectedStudent
@@ -49,12 +48,7 @@ namespace Vkm.ComplexSim.Dialogs.ViewModel
         private SecureString ConfirmPassword => PasswordSupplier.GetConfirmPassword();
         private INetworkService NetworkService => GetService<INetworkService>();
 
-        private void Initialize()
-        {
-            Task.Run(LoadTeamsWithStudentsWithoutLogins).Wait();
-        }
-
-        private async Task LoadTeamsWithStudentsWithoutLogins()
+        public async Task LoadTeamsWithStudentsWithoutLogins()
         {
             var teamWithStudentsWithoutLogins = await NetworkService.GetTeamsAndStudentsWithoutLogin();
             Teams = new ObservableCollection<Team>();
@@ -76,7 +70,7 @@ namespace Vkm.ComplexSim.Dialogs.ViewModel
             SelectedStudent = SelectedTeam?.Students.FirstOrDefault();
         }
 
-        private async Task<bool> OnClickCore()
+        private async Task<bool> RegisterUser()
         {
             var password = Password.ConvertToUnsecureString();
             var confirmPassword = ConfirmPassword.ConvertToUnsecureString();
@@ -110,12 +104,19 @@ namespace Vkm.ComplexSim.Dialogs.ViewModel
             SelectedStudent = Students.FirstOrDefault();
         }
 
-        protected override void OnClick()
+        protected override async Task OnClickOk()
         {
-            var success = Task.Run(OnClickCore).Result;
-            if (success)
+            try
             {
-                CloseCommand.Execute(true);
+                var success = await RegisterUser();
+                if (success)
+                {
+                    CloseCommand.Execute(true);
+                }
+            }
+            catch (Exception e)
+            {
+                DialogFactory.ShowErrorMessage(e);
             }
         }
     }

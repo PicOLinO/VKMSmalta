@@ -1,11 +1,13 @@
 ﻿#region Usings
 
+using System;
 using System.Net;
 using System.Security;
 using System.Security.Authentication;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using DevExpress.Mvvm;
+using Vkm.ComplexSim.Dialogs.Factories;
 using Vkm.ComplexSim.Services;
 
 #endregion
@@ -14,10 +16,12 @@ namespace Vkm.ComplexSim.Dialogs.ViewModel
 {
     public class LoginDialogViewModel : DialogViewModelBase
     {
+        protected readonly IDialogFactory DialogFactory;
         protected readonly IPasswordSupplier PasswordSupplier;
 
-        public LoginDialogViewModel(IPasswordSupplier passwordSupplier)
+        public LoginDialogViewModel(IDialogFactory dialogFactory, IPasswordSupplier passwordSupplier)
         {
+            DialogFactory = dialogFactory;
             PasswordSupplier = passwordSupplier;
             CreateCommands();
         }
@@ -35,10 +39,15 @@ namespace Vkm.ComplexSim.Dialogs.ViewModel
 
         private void CreateCommands()
         {
-            ClickCommand = new DelegateCommand(OnClick);
+            ClickCommand = new AsyncCommand(OnClickOk, CanLogin);
         }
 
-        private async Task OnClickCore()
+        private bool CanLogin()
+        {
+            return Password.Length > 0 && !string.IsNullOrWhiteSpace(Login);
+        }
+
+        private async Task Authorize()
         {
             var networkService = GetService<INetworkService>();
 
@@ -56,12 +65,19 @@ namespace Vkm.ComplexSim.Dialogs.ViewModel
             }
         }
 
-        protected virtual void OnClick()
+        protected virtual async Task OnClickOk()
         {
-            Task.Run(OnClickCore).Wait();
-            if (App.IsAuthorized)
+            try
             {
-                CloseCommand.Execute(true);
+                await Authorize();
+                if (App.IsAuthorized)
+                {
+                    CloseCommand.Execute(true);
+                }
+            }
+            catch (Exception e)
+            {
+                DialogFactory.ShowErrorMessage(e);
             }
         }
     }
