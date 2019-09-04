@@ -27,10 +27,10 @@ namespace Vkm.ComplexSim.Dialogs
             Process.Start(e.Uri.ToString());
         }
 
-        protected override void OnClosing(bool? parameter = null)
+        protected override void OnClosing(bool? dialogResult = null)
         {
             ((IDisposable)DataContext).Dispose();
-            base.OnClosing(parameter);
+            base.OnClosing(dialogResult);
         }
     }
 }

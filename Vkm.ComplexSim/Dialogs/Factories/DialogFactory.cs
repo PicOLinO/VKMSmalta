@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows;
 using DevExpress.Mvvm;
 using Vkm.ComplexSim.Dialogs.ViewModel;
@@ -90,7 +91,7 @@ namespace Vkm.ComplexSim.Dialogs.Factories
 
         public bool ShowLoginDialog()
         {
-            using (var loginDialog = new LoginDialog())
+            using (var loginDialog = new LoginDialog(this))
             {
                 loginDialog.Owner = Application.Current.MainWindow;
                 var result = loginDialog.ShowDialog();
@@ -98,11 +99,12 @@ namespace Vkm.ComplexSim.Dialogs.Factories
             }
         }
 
-        public bool ShowRegisterDialog()
+        public async Task<bool> ShowRegisterDialogAsync()
         {
-            using (var registerDialog = new RegisterDialog())
+            using (var registerDialog = new RegisterDialog(this))
             {
                 registerDialog.Owner = Application.Current.MainWindow;
+                await registerDialog.Initialize();
                 var result = registerDialog.ShowDialog();
                 return result.HasValue && result.Value;
             }

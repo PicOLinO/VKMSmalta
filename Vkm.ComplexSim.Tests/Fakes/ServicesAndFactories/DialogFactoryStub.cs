@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Vkm.ComplexSim.Dialogs.Factories;
 using Vkm.ComplexSim.Domain;
 
@@ -75,10 +76,10 @@ namespace Vkm.ComplexSim.Tests.Fakes.ServicesAndFactories
             return true;
         }
 
-        public bool ShowRegisterDialog()
+        public Task<bool> ShowRegisterDialogAsync()
         {
             IsRegisterDialogShown = true;
-            return true;
+            return Task.FromResult(true);
         }
 
         public TrainingCompleteDialogResult ShowTrainingCompleteDialog()

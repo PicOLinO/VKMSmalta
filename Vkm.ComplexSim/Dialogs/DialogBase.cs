@@ -34,9 +34,9 @@ namespace Vkm.ComplexSim.Dialogs
             CreateCommands();
         }
 
-        protected virtual void OnClosing(bool? parameter = null)
+        protected virtual void OnClosing(bool? dialogResult = null)
         {
-            DialogResult = parameter;
+            DialogResult = dialogResult;
             Close();
         }
 

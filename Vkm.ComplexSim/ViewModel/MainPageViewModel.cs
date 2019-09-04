@@ -1,6 +1,8 @@
 ﻿#region Usings
 
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using DevExpress.Mvvm;
 using Vkm.ComplexSim.Dialogs.Factories;
@@ -72,7 +74,7 @@ namespace Vkm.ComplexSim.ViewModel
             LoginCommand = new DelegateCommand(OnLogin);
             GoExamineCommand = new DelegateCommand(OnGoExamine);
             GoTrainingCommand = new DelegateCommand(OnGoTraining);
-            RegisterCommand = new DelegateCommand(OnRegister);
+            RegisterCommand = new AsyncCommand(OnRegisterAsync);
             ShowInfoCommand = new DelegateCommand(OnShowInfo);
         }
 
@@ -136,12 +138,19 @@ namespace Vkm.ComplexSim.ViewModel
             UpdateLoginInfo();
         }
 
-        private void OnRegister()
+        private async Task OnRegisterAsync()
         {
-            var success = dialogFactory.ShowRegisterDialog();
-            if (success)
+            try
             {
-                OnLogin();
+                var success = await dialogFactory.ShowRegisterDialogAsync();
+                if (success)
+                {
+                    OnLogin();
+                }
+            }
+            catch (Exception e)
+            {
+                dialogFactory.ShowErrorMessage(e);
             }
         }
 

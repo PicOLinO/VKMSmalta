@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Danila Chervonny")]
 [assembly: AssemblyProduct("Vkm.ComplexSim")]
-[assembly: AssemblyCopyright("Danila Chervonny ©  2018")]
+[assembly: AssemblyCopyright("Danila Chervonny ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -40,8 +40,8 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.3.0.0")]
-[assembly: AssemblyFileVersion("1.3.0.0")]
+[assembly: AssemblyVersion("1.3.1.0")]
+[assembly: AssemblyFileVersion("1.3.1.0")]
 [assembly: Guid("0530B2F6-F79B-435B-9B7B-61739D97D4EE")]
 [assembly: NeutralResourcesLanguage("ru")]
 
