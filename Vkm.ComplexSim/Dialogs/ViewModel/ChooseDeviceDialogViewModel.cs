@@ -18,7 +18,7 @@ namespace Vkm.ComplexSim.Dialogs.ViewModel
             Devices = new ObservableCollection<DeviceEntry>
                       {
                           devicesFactory.GetSmaltaDevice(new SmaltaAlgorithmsFactory(actionsFactory)),
-                          devicesFactory.GetImpulseRadioLocationStation(new RlsOncAlgorithmsFactory(actionsFactory))
+                          //devicesFactory.GetImpulseRadioLocationStation(new RlsOncAlgorithmsFactory(actionsFactory))
                       };
         }
 
