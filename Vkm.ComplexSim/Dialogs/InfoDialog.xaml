@@ -10,15 +10,13 @@
                     mc:Ignorable="d"
                     Title="Информация"
                     Style="{DynamicResource DialogStyle}"
-                    d:DataContext="{d:DesignInstance Type=viewModel:InfoDialogViewModel}"
-                    d:DesignHeight="600"
-                    d:DesignWidth="640">
+                    d:DataContext="{d:DesignInstance Type=viewModel:InfoDialogViewModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Style="{StaticResource DialogOuterSeparatingRow}" />
             <RowDefinition Height="Auto" />
             <RowDefinition Style="{StaticResource DialogInnerSeparatingRow}" />
-            <RowDefinition MaxHeight="600" />
+            <RowDefinition MaxHeight="800" />
             <RowDefinition Style="{StaticResource DialogInnerSeparatingRow}" />
             <RowDefinition Height="Auto" />
             <RowDefinition Style="{StaticResource DialogInnerSeparatingRow}" />
@@ -27,7 +25,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Style="{StaticResource DialogOuterSeparatingColumn}" />
-            <ColumnDefinition Width="700" />
+            <ColumnDefinition Width="900" />
             <ColumnDefinition Style="{StaticResource DialogOuterSeparatingColumn}" />
         </Grid.ColumnDefinitions>
 
@@ -54,24 +52,19 @@
                     Tag="{Binding RelativeSource={RelativeSource Self}, Path=ActualWidth, Converter={converters:TabItemWidthAdjustmentConverter}, ConverterParameter=2}"
                     Visibility="{Binding IsShowLicenseButtonEnabled, Converter={dxmvvm:BooleanToVisibilityConverter}}">
             <!-- Here 2 because I have 2 tabs -->
-            <TabItem Header="Смальта" Width="{Binding ElementName=tabControl, Path=Tag}">
-                <DocumentViewer x:Name="PART_DocumentViewer" 
-                                Document="{Binding DocumentInDocumentViewer}" Background="GhostWhite"
-                                MaxPagesAcross="1" ShowPageBorders="False">
-                    <DocumentViewer.Resources>
-                        <Style TargetType="ContentControl">
-                            <Setter Property="Background" Value="White" />
-                            <Setter Property="Foreground" Value="White" />
-                        </Style>
-                        <Style TargetType="ToolBar">
-                            <Setter Property="Visibility" Value="Collapsed" />
-                        </Style>
-                    </DocumentViewer.Resources>
-                </DocumentViewer>
-            </TabItem>
-            <TabItem Header="РЛС ОНЦ" IsEnabled="False"  Width="{Binding ElementName=tabControl, Path=Tag}">
-                <!--TODO-->
-            </TabItem>
+            <DocumentViewer x:Name="PART_DocumentViewer" 
+                            Document="{Binding DocumentInDocumentViewer}" Background="GhostWhite"
+                            MaxPagesAcross="1" ShowPageBorders="False">
+                <DocumentViewer.Resources>
+                    <Style TargetType="ContentControl">
+                        <Setter Property="Background" Value="White" />
+                        <Setter Property="Foreground" Value="White" />
+                    </Style>
+                    <Style TargetType="ToolBar">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                    </Style>
+                </DocumentViewer.Resources>
+            </DocumentViewer>
         </TabControl>
 
         <Button Grid.Row="5" Grid.Column="1" Style="{DynamicResource MainButton}" Content="Закрыть"
@@ -82,7 +75,7 @@
                    FontStyle="Italic"
                    Foreground="DarkGray">
             По вопросам, предложениям и при возникновении ошибок просьба обращаться к разработчику по
-            <Hyperlink NavigateUri="https://picolino.github.io/" RequestNavigate="Hyperlink_RequestNavigate">ссылке</Hyperlink>
+            <Hyperlink NavigateUri="https://picolino.dev/" RequestNavigate="Hyperlink_RequestNavigate">ссылке</Hyperlink>
             .
         </TextBlock>
     </Grid>
