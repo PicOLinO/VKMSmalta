@@ -80,7 +80,7 @@ namespace Vkm.ComplexSim.Dialogs.ViewModel
 
         private void OnShowLicense()
         {
-            TextInTextBox = Resources.LICENSE;
+            TextInTextBox = System.Text.Encoding.UTF8.GetString(Resources.license);
             IsShowLicenseButtonEnabled = false;
             IsShowAboutDeviceInfoButtonEnabled = true;
         }
