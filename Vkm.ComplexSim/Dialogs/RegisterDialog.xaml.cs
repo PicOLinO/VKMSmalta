@@ -20,10 +20,9 @@ namespace Vkm.ComplexSim.Dialogs
         {
             InitializeComponent();
             DataContext = new RegisterDialogViewModel(dialogFactory, this);
-            Initialize();
         }
 
-        public async Task Initialize()
+        public new async Task Initialize()
         {
             await ((RegisterDialogViewModel) DataContext).LoadTeamsWithStudentsWithoutLogins();
         }
