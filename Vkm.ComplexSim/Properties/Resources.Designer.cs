@@ -19,7 +19,7 @@ namespace Vkm.ComplexSim.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -71,21 +71,12 @@ namespace Vkm.ComplexSim.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ЛИЦЕНЗИЯ НА БЕСПЛАТНОЕ ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ.  
-        ///
-        ///ВАЖНO.  
-        ///Внимательно прочитайте это лицензионное соглашение (далее по тексту &quot;Соглашение&quot;) перед  установкой и/или использованием программы.
-        ///
-        ///Запуская и/или устанавливая программу, Вы тем самым принимаете условия данного соглашения и соглашаетесь с обязательствами, которые соглашение возлагает на Вас.
-        ///
-        ///Если Вы не принимаете условия данного соглашения, прекратите использование/установку программы.
-        ///
-        ///ЛИЦЕНЗИОННОЕ СОГЛАШЕНИЕ.  
-        ///Настоящее Лицензионное  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static string LICENSE {
+        internal static byte[] license {
             get {
-                return ResourceManager.GetString("LICENSE", resourceCulture);
+                object obj = ResourceManager.GetObject("license", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

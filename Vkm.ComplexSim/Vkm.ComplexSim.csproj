@@ -422,6 +422,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="App.Debug.config">
       <DependentUpon>App.config</DependentUpon>
@@ -475,9 +476,9 @@
     <Resource Include="View\Images\RlsOnc\Backgrounds\rls_onc_radar.jpg" />
     <Resource Include="View\Images\RlsOnc\Backgrounds\rls_onc_controlpanelsim.jpg" />
     <Resource Include="View\Images\Backgrounds\background.jpg" />
-    <Resource Include="LICENSE.txt">
+    <None Include="..\license.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </None>
     <Resource Include="View\Images\TrollFace.png" />
   </ItemGroup>
   <ItemGroup>
